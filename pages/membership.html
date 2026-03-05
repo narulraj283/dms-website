@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DMS Membership Plans â Free to Enterprise</title>
+  <meta name="description" content="Dental Marketing Society membership: Explorer Free, Basic $49/mo, Premium $149/mo, and Enterprise custom. Join 10,000+ practice owners with access to education, tools, and community.">
+  <meta name="keywords" content="DMS membership, dental marketing membership, free membership, premium membership, dental community">
+  <meta property="og:title" content="DMS Membership â Choose Your Plan">
+  <meta property="og:description" content="Start free. Upgrade for unlimited webinars, community access, tools, and expert guidance.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .faq-item { border: 1px solid #eee; border-radius: 8px; margin-bottom: 8px; overflow: hidden; }
+    .faq-question { padding: 16px 20px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center; background: #f9f9f9; transition: background 0.3s; }
+    .faq-question:hover { background: #f0f0f0; }
+    .faq-question::after { content: '+'; font-size: 1.5rem; color: #D4A843; transition: transform 0.3s; }
+    .faq-item.open .faq-question::after { content: 'â'; }
+    .faq-answer { display: none; padding: 0 20px 16px; color: #555; background: #fafafa; }
+    .faq-item.open .faq-answer { display: block; }
+    .comparison-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+    .comparison-table th { background: #1B2A4A; color: white; padding: 12px; text-align: left; font-weight: 600; }
+    .comparison-table td { padding: 12px; border-bottom: 1px solid #eee; }
+    .comparison-table tr:hover { background: #f9f9f9; }
+    .feature-check { color: #D4A843; font-weight: bold; }
+    .feature-x { color: #999; }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+</head>
+<body>
+
+<!-- âââ HEADER âââ -->
+<header class="header">
+  <div class="header-inner">
+    <a href="../index.html" class="logo">
+      <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="8" fill="#1B2A4A"/>
+        <path d="M12 28V16c0-3.3 2.7-6 6-6h4c3.3 0 6 2.7 6 6v12" stroke="#D4A843" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M8 20h24" stroke="#D4A843" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <path d="M20 10v20" stroke="#D4A843" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="20" cy="18" r="3" fill="#D4A843"/>
+      </svg>
+      <span class="logo-text">Dental Marketing <span>Society</span></span>
+    </a>
+    <nav class="nav">
+      <div class="nav-dropdown">
+        <a href="#">Marketing Channels â¾</a>
+        <div class="nav-dropdown-content">
+          <a href="channel-seo.html">ð SEO & Local Search</a>
+          <a href="channel-ppc.html">ð° Pay-Per-Click (PPC)</a>
+          <a href="channel-social.html">ð± Social Media</a>
+          <a href="channel-reputation.html">â­ Reputation & Reviews</a>
+          <a href="channel-website.html">ð Website & Conversion</a>
+          <a href="channel-referral.html">ð¤ Referral Marketing</a>
+          <a href="channel-email.html">ð§ Email Marketing</a>
+          <a href="channel-video.html">ð¬ Video Marketing</a>
+          <a href="channel-directmail.html">ð¬ Direct Mail</a>
+          <a href="channel-branding.html">ð¨ Branding</a>
+          <a href="channel-ai.html">ð¤ AI & Emerging Tech</a>
+        </div>
+      </div>
+      <a href="events.html">Events</a>
+      <a href="podcast.html">Podcast</a>
+      <a href="../tools/scorecard.html">Tools</a>
+      <a href="community.html">Community</a>
+      <a href="about.html">About</a>
+      <a href="membership.html" class="nav-cta">Join Free</a>
+    </nav>
+    <button class="mobile-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- âââ HERO âââ -->
+<section class="hero" style="padding: 80px 0 60px;">
+  <div class="container">
+    <h1 style="margin-bottom: 1rem;">Choose Your <span>Membership Level</span></h1>
+    <p style="font-size: 1.2rem; color: #666; max-width: 700px; margin-bottom: 2rem;">Start free and access thousands of articles, the podcast, and monthly webinars. Upgrade when you're ready for more depth, premium tools, and expert guidance.</p>
+  </div>
+</section>
+
+<!-- âââ PRICING CARDS âââ -->
+<section class="section">
+  <div class="container">
+    <div class="pricing-grid">
+      <!-- EXPLORER FREE -->
+      <div class="pricing-card">
+        <h3>Explorer</h3>
+        <div class="pricing-price">Free</div>
+        <p class="text-gray">Forever free. Always.</p>
+        <ul class="pricing-features">
+          <li>â All articles & blog content</li>
+          <li>â Weekly podcast episodes</li>
+          <li>â DMS Daily Briefing email</li>
+          <li>â 1 free webinar per month</li>
+          <li>â Basic Marketing Scorecard (3 channels)</li>
+          <li>â 5 free templates</li>
+          <li>â Community access (view-only)</li>
+          <li>â Premium tools & advanced features</li>
+        </ul>
+        <a href="#" class="btn btn-navy" style="width:100%;">Start Free</a>
+        <p style="text-align:center; color:#999; font-size:0.85rem; margin-top:1rem;">Perfect for getting started</p>
+      </div>
+
+      <!-- BASIC -->
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Most Popular</div>
+        <h3>Basic</h3>
+        <div class="pricing-price">$49<span>/month</span></div>
+        <p class="text-gray">Billed monthly or $470/year (save $118)</p>
+        <ul class="pricing-features">
+          <li>â Everything in Explorer</li>
+          <li>â Unlimited webinars + recordings</li>
+          <li>â Full community access (post, ask, comment)</li>
+          <li>â 200+ template library</li>
+          <li>â Full Marketing Scorecard (all 11 channels)</li>
+          <li>â All learning paths & certifications</li>
+          <li>â ROI calculator suite</li>
+          <li>â Free CE credits with all webinars</li>
+        </ul>
+        <a href="#" class="btn btn-gold" style="width:100%;">Start Basic</a>
+        <p style="text-align:center; color:#999; font-size:0.85rem; margin-top:1rem;">For serious practice owners</p>
+      </div>
+
+      <!-- PREMIUM -->
+      <div class="pricing-card">
+        <h3>Premium</h3>
+        <div class="pricing-price">$149<span>/month</span></div>
+        <p class="text-gray">Billed monthly or $1,430/year (save $358)</p>
+        <ul class="pricing-features">
+          <li>â Everything in Basic</li>
+          <li>â Monthly private mastermind sessions</li>
+          <li>â Private community groups (exclusive)</li>
+          <li>â Premium templates & advanced tools</li>
+          <li>â Quarterly scorecard review & benchmarking</li>
+          <li>â 2 expert advisory sessions/year</li>
+          <li>â Annual Summit ticket included</li>
+          <li>â Vendor Comparison Guide + consult</li>
+        </ul>
+        <a href="#" class="btn btn-navy" style="width:100%;">Upgrade to Premium</a>
+        <p style="text-align:center; color:#999; font-size:0.85rem; margin-top:1rem;">For growth-focused leaders</p>
+      </div>
+
+      <!-- ENTERPRISE -->
+      <div class="pricing-card" style="grid-column: 1 / -1; max-width: 400px; margin: 0 auto; text-align: center;">
+        <h3>Enterprise</h3>
+        <div class="pricing-price">Custom</div>
+        <p class="text-gray">For multi-location practices & groups</p>
+        <ul class="pricing-features" style="text-align: left;">
+          <li>â Everything in Premium</li>
+          <li>â Unlimited team member seats</li>
+          <li>â Dedicated Slack channel with DMS team</li>
+          <li>â Custom workshop for your team</li>
+          <li>â Quarterly business review meetings</li>
+          <li>â Priority support & consulting hours</li>
+        </ul>
+        <a href="contact.html" class="btn btn-navy" style="width:100%;">Contact for Pricing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- âââ FEATURE COMPARISON âââ -->
+<section class="section section-light">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 2rem;">Feature Comparison</h2>
+    <div style="overflow-x: auto;">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Explorer</th>
+            <th>Basic</th>
+            <th>Premium</th>
+            <th>Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Price</strong></td>
+            <td>Free</td>
+            <td>$49/mo</td>
+            <td>$149/mo</td>
+            <td>Custom</td>
+          </tr>
+          <tr>
+            <td>All articles & guides</td>
+            <td class="feature-check">â</td>
+            <td class="feature-check">â</td>
+            <td class="feature-check">â</td>
+            <td class="feature-check">â</td>
+          </tr>
+          <tr>
+            <td>Podcast episodes</td>
+            <td class="feature-check">â</td>
+            <td class="feature-check">â</td>
+            <td class="feature-check">â</td>
+            <td class="feature-check">â</td>
+          </tr>
+          <tr>
+            <td>Monthly webinars</td>
+            <td>1/month</td>
+            <td class="feature-check">Unlimited</td>
+            <td class="feature-check">Unlimited</td>
+            <td class="feature-check">Unlimited</td>
+          </tr>
+          <tr>
+            <td>Community access</td>
+            <td>View-only</td>
+            <td class="feature-check">â Full</td>
+            <td class="feature-check">â Full</td>
+            <td class="feature-check">â Full</td>
+          </tr>
+          <tr>
+            <td>Private groups</td>
+            <td class="feature-x">â</td>
+            <td class="feature-x">â</td>
+            <td class="feature-check">â</td>
+            <td class="feature-check">â</td>
+          </tr>
+          <tr>
+            <td>Marketing Scorecard</td>
+            <td>Basic (3 channels)</td>
+            <td class="feature-check">Full (11 channels)</td>
+            <td class="feature-check">Full + Quarterly Review</td>
+            <td class="feature-check">Full + Quarterly Review</td>
+          </tr>
+          <tr>
+            <td>Template library</td>
+            <td>5 templates</td>
+            <td class="feature-check">200+ templates</td>
+            <td class="feature-check">200+ Premium templates</td>
+            <td class="feature-check">200+ Premium templates</td>
+          </tr>
+          <tr>
+            <td>Learning paths & certifications</td>
+            <td class="feature-x">â</td>
+            <td class="feature-check">â</td>
+            <td class="feature-check">â</td>
+            <td class="feature-check">â</td>
+          </tr>
+          <tr>
+            <td>ROI calculators</td>
+            <td class="feature-x">â</td>
+            <td class="feature-check">â</td>
+            <td class="feature-check">â</td>
+            <td class="feature-check">â</td>
+          </tr>
+          <tr>
+            <td>Expert advisory sessions</td>
+            <td class="feature-x">â</td>
+            <td class="feature-x">â</td>
+            <td>2/year</td>
+            <td class="feature-check">Quarterly</td>
+          </tr>
+          <tr>
+            <td>Monthly masterminds</td>
+            <td class="feature-x">â</td>
+            <td class="feature-x">â</td>
+            <td class="feature-check">â</td>
+            <td class="feature-check">â</td>
+          </tr>
+          <tr>
+            <td>Annual Summit ticket</td>
+            <td class="feature-x">â</td>
+            <td class="feature-x">â</td>
+            <td class="feature-check">â</td>
+            <td class="feature-check">â</td>
+          </tr>
+          <tr>
+            <td>Unlimited team members</td>
+            <td class="feature-x">â</td>
+            <td class="feature-x">â</td>
+            <td class="feature-x">â</td>
+            <td class="feature-check">â</td>
+          </tr>
+          <tr>
+            <td>Dedicated support channel</td>
+            <td class="feature-x">â</td>
+            <td class="feature-x">â</td>
+            <td class="feature-x">â</td>
+            <td class="feature-check">â</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- âââ FAQ âââ -->
+<section class="section">
+  <div class="container">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <h2 style="text-align: center; margin-bottom: 3rem;">Membership FAQs</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">Can I switch membership levels anytime?</div>
+        <div class="faq-answer">
+          <p>Yes! You can upgrade or downgrade your membership at any time. Your billing will be prorated, so you won't overpay or lose money. Changes take effect immediately.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Is the Basic tier really unlimited webinars?</div>
+        <div class="faq-answer">
+          <p>Absolutely. Basic members get unlimited access to all live webinars, recordings, and the monthly webinar library. We host 4-8 live webinars per month across different topics.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What's included in the Annual Summit ticket?</div>
+        <div class="faq-answer">
+          <p>Premium members get a full 3-day virtual ticket to our October Annual Summit (value $297). This includes all 30+ expert sessions, networking events, and CE credits. You can also add a hotel package for the in-person option.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Do Premium advisory sessions come with Ekwa consulting?</div>
+        <div class="faq-answer">
+          <p>No. The 2 annual advisory sessions are with DMS experts and can cover any aspect of your marketing strategy. You can also add paid consulting from Ekwa Marketing if you want, but it's completely optional.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Can I cancel anytime?</div>
+        <div class="faq-answer">
+          <p>Yes. Monthly memberships can be cancelled anytime with no penalties. Annual memberships have a 30-day cancellation window for a full refund, or you can downgrade to a lower tier at any time.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Do I get CE credits with Basic membership?</div>
+        <div class="faq-answer">
+          <p>Yes! Basic members get free CE credits for all live webinars. Most webinars offer 1-2 CE credits. Premium members also get credits for all events including masterminds and workshops.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What about team members? Can multiple people from my practice join?</div>
+        <div class="faq-answer">
+          <p>With Explorer and Basic, one person per membership. Premium allows you to add up to 2 team members. Enterprise allows unlimited team members at all locations. Contact us for team pricing.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Is there a free trial for Basic or Premium?</div>
+        <div class="faq-answer">
+          <p>No formal trial, but you can start with Explorer free and get a real feel for the community and content. Basic is just $49/month, and you can cancel anytime if it's not right for you.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What if I'm a corporate DSO or health system?</div>
+        <div class="faq-answer">
+          <p>Reach out to our team at contact@dentalsociety.com. We have enterprise pricing for DSOs, health systems, and corporate groups with 10+ locations.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Do you offer payment plans?</div>
+        <div class="faq-answer">
+          <p>We offer monthly and annual billing for all tiers. Annual billing saves 5-10% vs. monthly. Contact us for custom payment arrangements if needed.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- âââ WHY UPGRADE âââ -->
+<section class="section section-light">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 3rem;">Why Upgrade?</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1100px; margin: 0 auto;">
+      <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #eee;">
+        <h3 style="color: #D4A843; margin-bottom: 1rem;">ð° Time = Money</h3>
+        <p style="color: #666;">The average Basic member saves 5+ hours per month by having everything in one place. That's $500+ in productivity.</p>
+      </div>
+      <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #eee;">
+        <h3 style="color: #2E75B6; margin-bottom: 1rem;">ð Real Results</h3>
+        <p style="color: #666;">Basic & Premium members average 15-25 new patients per year from applying DMS strategies. At $1,200 patient lifetime value, that's $18K-$30K ROI.</p>
+      </div>
+      <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #eee;">
+        <h3 style="color: #1B2A4A; margin-bottom: 1rem;">ð¥ Expert Peer Network</h3>
+        <p style="color: #666;">Ask 10,000 practice owners what's working. Get real answers from people in your exact situation. No sales pitch. Just peers.</p>
+      </div>
+      <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #eee;">
+        <h3 style="color: #D4A843; margin-bottom: 1rem;">ð Continuous Learning</h3>
+        <p style="color: #666;">Marketing evolves. AI is changing things. Google updates constantly. Stay current with weekly new content and expert updates.</p>
+      </div>
+      <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #eee;">
+        <h3 style="color: #2E75B6; margin-bottom: 1rem;">ð ï¸ Battle-Tested Tools</h3>
+        <p style="color: #666;">200+ templates built by practitioners. ROI calculators that work. Marketing scorecards used by 10,000+ practices.</p>
+      </div>
+      <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #eee;">
+        <h3 style="color: #1B2A4A; margin-bottom: 1rem;">ð Benchmarking Data</h3>
+        <p style="color: #666;">See how your marketing stacks up against practices your size in your region. Know where you're winning and where to improve.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- âââ GUARANTEE âââ -->
+<section class="section">
+  <div class="container">
+    <div style="background: rgba(212, 168, 67, 0.1); border: 2px solid #D4A843; padding: 3rem; border-radius: 8px; text-align: center; max-width: 700px; margin: 0 auto;">
+      <h3 style="color: #1B2A4A; margin-bottom: 1rem;">ð¯ Our Promise</h3>
+      <p style="font-size: 1.05rem; color: #555; line-height: 1.8;">Join DMS and get access to the best education, tools, and community in dental marketing. If you don't find value within 30 days, we'll refund your membership, no questions asked. We're confident you'll see the value.</p>
+    </div>
+  </div>
+</section>
+
+<!-- âââ FINAL CTA âââ -->
+<section class="section section-dark" style="text-align: center;">
+  <div class="container">
+    <h2 style="color: white; margin-bottom: 1rem;">Ready to Join?</h2>
+    <p style="color: rgba(255,255,255,0.8); margin-bottom: 2rem; font-size: 1.1rem;">Start free and see why 10,000+ practice owners trust DMS.</p>
+    <a href="#" class="btn btn-gold btn-lg">Join Free Today</a>
+  </div>
+</section>
+
+<!-- âââ FOOTER âââ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4 style="font-size:1.15rem;">Dental Marketing Society</h4>
+        <p>The #1 authority in dental practice marketing. Expert education, powerful tools, and a community of practice owners. Where dental practices grow.</p>
+        <p class="footer-ekwa">Brought to you by <strong>Ekwa Marketing</strong> â the leading search engine marketing company for dental practices.</p>
+      </div>
+      <div>
+        <h4>Marketing Channels</h4>
+        <a href="channel-seo.html">SEO & Local Search</a>
+        <a href="channel-ppc.html">PPC Advertising</a>
+        <a href="channel-social.html">Social Media</a>
+        <a href="channel-reputation.html">Reputation</a>
+        <a href="channel-website.html">Website & Conversion</a>
+        <a href="channel-email.html">Email Marketing</a>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <a href="../tools/scorecard.html">Marketing Scorecard</a>
+        <a href="../tools/roi-calculator.html">ROI Calculators</a>
+        <a href="../tools/budget-planner.html">Budget Planner</a>
+        <a href="podcast.html">Podcast</a>
+        <a href="events.html">Events & Webinars</a>
+        <a href="community.html">Community</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="about.html">About DMS</a>
+        <a href="membership.html">Membership</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://www.ekwa.com" target="_blank">Ekwa Marketing</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Dental Marketing Society. All rights reserved.</span>
+      <span>A product of <a href="https://www.ekwa.com" class="footer-ekwa" target="_blank">Ekwa Marketing</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
