@@ -147,15 +147,19 @@ p { margin-bottom: 1rem; }
 /* ── TESTIMONIALS ── */
 .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
 .testimonial {
-  background: #fff; border-radius: 12px; padding: 32px;
+  background: #fff; border-radius: 12px; padding: 32px; position: relative;
   box-shadow: 0 4px 20px rgba(0,0,0,0.06); border-left: 4px solid #D4A843;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
-.testimonial p { font-style: italic; color: #444; margin-bottom: 16px; font-size: 1.05rem; }
+.testimonial:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+.testimonial-stars { color: #F1C40F; font-size: 1.1rem; margin-bottom: 12px; letter-spacing: 2px; }
+.testimonial p { font-style: italic; color: #444; margin-bottom: 16px; font-size: 1.05rem; line-height: 1.6; }
 .testimonial-author { display: flex; align-items: center; gap: 12px; }
 .testimonial-avatar {
-  width: 48px; height: 48px; border-radius: 50%; background: #1B2A4A;
+  width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, #1B2A4A, #2E75B6);
   display: flex; align-items: center; justify-content: center;
-  color: #D4A843; font-weight: 700; font-size: 1.1rem;
+  color: #D4A843; font-weight: 700; font-size: 1.15rem;
+  box-shadow: 0 2px 8px rgba(27,42,74,0.3); flex-shrink: 0;
 }
 .testimonial-info h4 { font-size: 0.95rem; margin-bottom: 2px; }
 .testimonial-info p { font-size: 0.85rem; color: #888; margin: 0; }

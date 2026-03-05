@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dental Marketing Articles & Guides — DMS</title>
+  <meta name="description" content="Explore 25+ expert dental marketing articles and guides. Learn proven strategies for SEO, PPC, social media, reputation management, website optimization, and more.">
+  <meta name="keywords" content="dental marketing articles, dental SEO guide, social media for dentists, dental advertising, marketing guides">
+  <meta property="og:title" content="Dental Marketing Articles & Guides — DMS">
+  <meta property="og:description" content="Expert insights, actionable strategies, and proven tactics to grow your dental practice.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+
+  <style>
+    .articles-search {
+      margin-bottom: 2rem;
+    }
+
+    .articles-search input {
+      width: 100%;
+      max-width: 500px;
+      padding: 0.75rem 1rem;
+      border: 2px solid #eee;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+
+    .articles-search input:focus {
+      outline: none;
+      border-color: #D4A843;
+    }
+
+    .articles-filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      align-items: center;
+    }
+
+    .filter-tab {
+      padding: 0.6rem 1.2rem;
+      background: white;
+      border: 2px solid #eee;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #666;
+      transition: all 0.2s;
+      user-select: none;
+    }
+
+    .filter-tab:hover {
+      border-color: #D4A843;
+      color: #1B2A4A;
+    }
+
+    .filter-tab.active {
+      background: #1B2A4A;
+      color: white;
+      border-color: #1B2A4A;
+    }
+
+    .articles-count {
+      color: #999;
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .articles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .articles-filter-tabs {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+      }
+
+      .filter-tab {
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+    }
+
+    .article-card {
+      background: white;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+      opacity: 1;
+      max-height: 100%;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .article-card.hidden {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .article-card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      transform: translateY(-4px);
+    }
+
+    .article-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .article-category-tag {
+      display: inline-block;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: white;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .article-category-tag.seo {
+      background: #2D8A4E;
+    }
+
+    .article-category-tag.ppc {
+      background: #E67E22;
+    }
+
+    .article-category-tag.social {
+      background: #E74C8B;
+    }
+
+    .article-category-tag.reputation {
+      background: #F1C40F;
+      color: #333;
+    }
+
+    .article-category-tag.website {
+      background: #2E75B6;
+    }
+
+    .article-category-tag.email {
+      background: #9B59B6;
+    }
+
+    .article-category-tag.referral {
+      background: #1ABC9C;
+    }
+
+    .article-category-tag.video {
+      background: #E74C3C;
+    }
+
+    .article-category-tag.directmail {
+      background: #8B6914;
+    }
+
+    .article-category-tag.branding {
+      background: #D4A843;
+    }
+
+    .article-category-tag.ai {
+      background: #1B2A4A;
+    }
+
+    .article-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .article-title {
+      color: #1B2A4A;
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 0.75rem;
+    }
+
+    .article-description {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .article-link {
+      color: #D4A843;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+
+    .article-link:hover {
+      color: #2E75B6;
+      gap: 0.5rem;
+    }
+
+    .article-link::after {
+      content: " →";
+      transition: transform 0.2s;
+    }
+
+    .article-link:hover::after {
+      transform: translateX(4px);
+    }
+
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 3rem 2rem;
+      color: #999;
+    }
+
+    .empty-state p {
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+    }
+
+    .newsletter-section {
+      background: linear-gradient(135deg, rgba(212, 168, 67, 0.1), rgba(46, 117, 182, 0.1));
+      padding: 3rem 2rem;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .newsletter-section h3 {
+      color: #1B2A4A;
+      margin-bottom: 0.5rem;
+    }
+
+    .newsletter-section p {
+      color: #666;
+      margin-bottom: 1.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 0.5rem;
+      max-width: 500px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      min-width: 200px;
+      padding: 0.75rem 1rem;
+      border: 2px solid #D4A843;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-family: inherit;
+    }
+
+    .newsletter-form input:focus {
+      outline: none;
+      border-color: #2E75B6;
+      box-shadow: 0 0 0 3px rgba(46, 117, 182, 0.1);
+    }
+
+    .newsletter-form button {
+      padding: 0.75rem 1.5rem;
+      background: #D4A843;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-family: inherit;
+    }
+
+    .newsletter-form button:hover {
+      background: #2E75B6;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="header">
+  <div class="header-inner">
+    <a href="../index.html" class="logo">
+      <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="8" fill="#1B2A4A"/>
+        <path d="M12 28V16c0-3.3 2.7-6 6-6h4c3.3 0 6 2.7 6 6v12" stroke="#D4A843" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M8 20h24" stroke="#D4A843" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <path d="M20 10v20" stroke="#D4A843" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="20" cy="18" r="3" fill="#D4A843"/>
+      </svg>
+      <span class="logo-text">Dental Marketing <span>Society</span></span>
+    </a>
+    <nav class="nav">
+      <div class="nav-dropdown">
+        <a href="#">Marketing Channels ▾</a>
+        <div class="nav-dropdown-content">
+          <a href="channel-seo.html">🔍 SEO & Local Search</a>
+          <a href="channel-ppc.html">💰 Pay-Per-Click (PPC)</a>
+          <a href="channel-social.html">📱 Social Media</a>
+          <a href="channel-reputation.html">⭐ Reputation & Reviews</a>
+          <a href="channel-website.html">🌐 Website & Conversion</a>
+          <a href="channel-referral.html">🤝 Referral Marketing</a>
+          <a href="channel-email.html">📧 Email Marketing</a>
+          <a href="channel-video.html">🎬 Video Marketing</a>
+          <a href="channel-directmail.html">📬 Direct Mail</a>
+          <a href="channel-branding.html">🎨 Branding</a>
+          <a href="channel-ai.html">🤖 AI & Emerging Tech</a>
+        </div>
+      </div>
+      <a href="articles.html">Articles</a>
+      <a href="events.html">Events</a>
+      <a href="podcast.html">Podcast</a>
+      <a href="../tools/scorecard.html">Tools</a>
+      <a href="community.html">Community</a>
+      <a href="about.html">About</a>
+      <a href="membership.html" class="nav-cta">Join Free</a>
+    </nav>
+    <button class="mobile-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" style="padding: 80px 0 60px;">
+  <div class="container">
+    <h1 style="margin-bottom: 1rem;">Dental Marketing Articles <span>&</span> Guides</h1>
+    <p style="font-size: 1.2rem; color: #666; max-width: 700px; margin-bottom: 2rem;">Expert insights, actionable strategies, and proven tactics to grow your dental practice. 25 expert articles covering all aspects of dental marketing.</p>
+  </div>
+</section>
+
+<!-- ═══ ARTICLES SECTION ═══ -->
+<section class="section">
+  <div class="container">
+
+    <!-- Search & Filter -->
+    <div style="margin-bottom: 3rem;">
+      <div class="articles-search">
+        <input type="text" id="searchInput" placeholder="Search articles by title..." aria-label="Search articles">
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+        <h3 style="color: #1B2A4A; margin: 0;">Filter by Category</h3>
+        <span class="articles-count"><span id="articleCount">25</span> articles</span>
+      </div>
+
+      <div class="articles-filter-tabs">
+        <button class="filter-tab active" data-filter="all">All Articles</button>
+        <button class="filter-tab" data-filter="seo">SEO (3)</button>
+        <button class="filter-tab" data-filter="ppc">PPC (3)</button>
+        <button class="filter-tab" data-filter="social">Social Media (3)</button>
+        <button class="filter-tab" data-filter="reputation">Reputation (3)</button>
+        <button class="filter-tab" data-filter="website">Website (3)</button>
+        <button class="filter-tab" data-filter="email">Email (2)</button>
+        <button class="filter-tab" data-filter="referral">Referral (2)</button>
+        <button class="filter-tab" data-filter="video">Video (2)</button>
+        <button class="filter-tab" data-filter="directmail">Direct Mail (1)</button>
+        <button class="filter-tab" data-filter="branding">Branding (1)</button>
+        <button class="filter-tab" data-filter="ai">AI & Innovation (2)</button>
+      </div>
+    </div>
+
+    <!-- Articles Grid -->
+    <div class="articles-grid" id="articlesGrid">
+
+      <!-- SEO Articles -->
+      <div class="article-card" data-category="seo">
+        <div class="article-header">
+          <div style="flex: 1;">
+            <h4 style="margin: 0; color: #1B2A4A;">Google Business Profile Optimization</h4>
+          </div>
+          <span class="article-category-tag seo">SEO</span>
+        </div>
+        <div class="article-content">
+          <p class="article-description">Master your GBP listing to dominate local dental search results and attract more patients from Google Maps.</p>
+          <a href="../articles/google-business-profile-optimization.html" class="article-link">Read Article</a>
+        </div>
+      </div>
+
+      <div class="article-card" data-category="seo">
+        <div class="article-header">
+          <div style="flex: 1;">
+            <h4 style="margin: 0; color: #1B2A4A;">SEO Basics for Dental Practices</h4>
+          </div>
+          <span class="article-category-tag seo">SEO</span>
+        </div>
+        <div class="article-content">
+          <p class="article-description">Essential SEO fundamentals every dental practice needs to understand and implement to rank higher in search results.</p>
+          <a href="../articles/dental-seo-basics.html" class="article-link">Read Article</a>
+        </div>
+      </div>
+
+      <div class="article-card" data-category="seo">
+        <div class="article-header">
+          <div style="flex: 1;">
+            <h4 style="margin: 0; color: #1B2A4A;">Local Citations Guide for Dentists</h4>
+          </div>
+          <span class="article-category-tag seo">SEO</span>
+        </div>
+        <div class="article-content">
+          <p class="article-description">Build consistent local citations across directories to boost your practice's search visibility and local rankings.</p>
+          <a href="../articles/local-citations-guide.html" class="article-link">Read Article</a>
+        </div>
+      </div>
+
+      <!-- PPC Articles -->
+      <div class="article-card" data-category="ppc">
+        <div class="article-header">
+          <div style="flex: 1;">
+            <h4 style="margin: 0; color: #1B2A4A;">Google Ads for Dentists</h4>
+          </div>
+          <span class="article-category-tag ppc">PPC</span>
+        </div>
+        <div class="article-content">
+          <p class="article-description">Create high-converting Google Ads campaigns for your dental practice with proven keyword strategies and ad copy techniques.</p>
+          <a href="../articles/google-ads-dental-guide.html" class="article-link">Read Article</a>
+        </div>
+      </div>
+
+      <div class="article-card" data-category="ppc">
+        <div class="article-header">
+          <div style="flex: 1;">
+            <h4 style="margin: 0; color: #1B2A4A;">PPC Budget Guide for Dentists</h4>
+          </div>
+          <span class="article-category-tag ppc">PPC</span>
+        </div>
+        <div class="article-content">
+          <p class="article-description">Optimize your pay-per-click budget for maximum patient acquisition and improved return on advertising spend.</p>
+          <a href="../articles/dental-ppc-budget-guide.html" class="article-link">Read Article</a>
+        </div>
+      </div>
+
+      <div class="article-card" data-category="ppc">
+        <div class="article-header">
+          <div style="flex: 1;">
+            <h4 style="margin: 0; color: #1B2A4A;">Facebook Ads for Dentists</h4>
+          </div>
+          <span class="article-category-tag ppc">PPC</span>
+        </div>
+        <div class="article-content">
+          <p class="article-description">Leverage Facebook advertising to target and attract new dental patients with precision audience targeting and compelling creatives.</p>
+          <a href="../articles/facebook-ads-dentists.html" class="article-link">Read Article</a>
+        </div>
+      </div>
+
+      <!-- Social Media Articles -->
+      <div class="article-card" data-category="social">
+        <div class="article-header">
+          <div style="flex: 1;">
+            <h4 style="margin: 0; color: #1B2A4A;">Instagram Strategy for Dentists</h4>
+          </div>
+          <span class="article-category-tag social">SOCIAL</span>
+        </div>
+        <div class="article-content">
+          <p class="article-description">Build an engaging Instagram presence that attracts and converts dental patients with proven content and posting strategies.</p>
+          <a href="../articles/dental-instagram-strategy.html" class="article-link">Read Article</a>
+        </div>
+      </div>
+
+      <div class="article-card" data-category="social">
+        <div class="article-header">
+          <div style="flex: 1;">
+            <h4 style="margin: 0; color: #1B2A4A;">50 Dental Content Ideas</h4>
+          </div>
+          <span class="article-category-tag social">SOCIAL</span>
+        </div>
+        <div class="article-content">
+          <p class="article-description">Never run out of content ideas again with this comprehensive collection of 50 proven dental marketing and social media content ideas.</p>
+          <a href="../articles/50-dental-content-ideas.html" class="article-link">Read Article</a>
+        </div>
+      </div>
+
+      <div class="article-card" data-category="social">
+        <div class="article-header">
+          <div style="flex: 1;">
+            <h4 style="margin: 0; color: #1B2A4A;">Social Media Calendar for Dentists</h4>
+          </div>
+          <span class="article-category-tag social">SOCIAL</span>
+        </div>
+        <div class="article-content">
+          <p class="article-description">Plan and schedule your dental social media content effectively with proven calendar templates and content strategies.</p>
+          <a href="../articles/dental-social-media-calendar.html" class="article-link">Read Article</a>
+        </div>
+      </div>
+
+      <!-- Reputation Articles -->
+      <div class="article-card" data-category="reputation">
+        <div class="article-header">
+          <div style="flex: 1;">
+            <h4 style="margin: 0; color: #1B2A4A;">How to Get More Dental Reviews</h4>
+          </div>
+          <span class="article-category-tag reputation">REPUTATION</span>
+        </div>
+        <div class="article-content">
+          <p class="article-description">Proven strategies to increase your online review count and build social proof that attracts more dental patients.</p>
+          <a href="../articles/get-more-dental-reviews.html" class="article-link">Read Article</a>
+        </div>
+      </div>
+
+      <div class="article-card" data-category="reputation">
+        <div class="article-header">
+          <div style="flex: 1;">
+            <h4 style="margin: 0; color: #1B2A4A;">Responding to Negative Reviews</h4>
+          </div>
+          <span class="article-category-tag reputation">REPUTATION</span>
+        </div>
+        <div class="article-content">
+          <p class="article-description">Turn negative feedback into opportunities for your practice with professional and strategic review response techniques.</p>
+          <a href="../articles/responding-negative-reviews.html" class="article-link">Read Article</a>
+        </div>
+      </div>
+
+      <div class="article-card" data-category="reputation">
+        <div class="article-header">
+          <div style="flex: 1;">
+            <h4 style="margin: 0; color: #1B2A4A;">Dental Reputation Management Guide</h4>
+          </div>
+          <span class="article-category-tag reputation">REPUTATION</span>
+        </div>
+        <div class="article-content">
+          <p class="article-description">Protect and enhance your dental practice's online reputation with comprehensive monitoring and management strategies.</p>
+          <a href="../articles/dental-reputation-management.html" class="article-link">Read Article</a>
+        </div>
+      </div>
+
+      <!-- Website Articles -->
+      <div class="article-card" data-category="website">
+        <div class="article-header">
+          <div style="flex: 1;">
+            <h4 style="margin: 0; color: #1B2A4A;">Dental Website Design Guide</h4>
+          </div>
+          <span class="article-category-tag website">WEBSITE</span>
+        </div>
+        <div class="article-content">
+          <p class="article-description">Design a website that converts visitors into patients with proven layout, copy, and user experience best practices.</p>
+          <a href="../articles/dental-website-design-guide.html" class="article-link">Read Article</a>
+        </div>
+      </div>
+
+      <div class="article-card" data-category="website">
+        <div class="article-header">
+          <div style="flex: 1;">
+            <h4 style="margin: 0; color: #1B2A4A;">Website Conversion Optimization</h4>
+          </div>
+          <span class="article-category-tag website">WEBSITE</span>
+        </div>
+        <div class="article-content">
+          <p class="article-description">Increase your dental website's conversion rate with proven tactics for forms, calls-to-action, and page optimization.</p>
+          <a href="../articles/dental-website-conversion.html" class="article-link">Read Article</a>
+        </div>
+      </div>
+
+      <div class="article-card" data-category="website">
+        <div class="article-header">
+          <div style="flex: 1;">
+            <h4 style="margin: 0; color: #1B2A4A;">Dental Website SEO Content</h4>
+          </div>
+          <span class="article-category-tag website">WEBSITE</span>
+        </div>
+        <div class="article-content">
+          <p class="article-description">Create SEO-optimized content that ranks in search engines and converts visitors into dental patients.</p>
+          <a href="../articles/dental-website-seo-content.html" class="article-link">Read Article</a>
+        </div>
+      </div>
+
+      <!-- Email Articles -->
+      <div class="article-card" data-category="email">
+        <div class="article-header">
+          <div style="flex: 1;">
+            <h4 style="margin: 0; color: #1B2A4A;">Email Marketing for Dentists</h4>
+          </div>
+          <span class="article-category-tag email">EMAIL</span>
+        </div>
+        <div class="article-content">
+          <p class="article-description">Build email campaigns that keep patients engaged and coming back for regular dental care and treatments.</p>
+          <a href="../articles/dental-email-marketing-guide.html" class="article-link">Read Article</a>
+        </div>
+      </div>
+
+      <div class="article-card" data-category="email">
+        <div class="article-header">
+          <div style="flex: 1;">
+            <h4 style="margin: 0; color: #1B2A4A;">Patient Reactivation Campaigns</h4>
+          </div>
+          <span class="article-category-tag email">EMAIL</span>
+        </div>
+        <div class="article-content">
+          <p class="article-description">Win back inactive patients with targeted email campaigns that remind them of your practice and re-engage them.</p>
+          <a href="../articles/dental-patient-reactivation.html" class="article-link">Read Article</a>
+        </div>
+      </div>
+
+      <!-- Referral Articles -->
+      <div class="article-card" data-category="referral">
+        <div class="article-header">
+          <div style="flex: 1;">
+            <h4 style="margin: 0; color: #1B2A4A;">Dental Referral Program Guide</h4>
+          </div>
+          <span class="article-category-tag referral">REFERRAL</span>
+        </div>
+        <div class="article-content">
+          <p class="article-description">Create a referral program that consistently brings new patients to your practice through word-of-mouth marketing.</p>
+          <a href="../articles/dental-referral-program.html" class="article-link">Read Article</a>
+        </div>
+      </div>
+
+      <div class="article-card" data-category="referral">
+        <div class="article-header">
+          <div style="flex: 1;">
+            <h4 style="margin: 0; color: #1B2A4A;">Patient Loyalty Programs</h4>
+          </div>
+          <span class="article-category-tag referral">REFERRAL</span>
+        </div>
+        <div class="article-content">
+          <p class="article-description">Build loyalty programs that increase patient retention, encourage referrals, and boost lifetime patient value.</p>
+          <a href="../articles/dental-patient-loyalty.html" class="article-link">Read Article</a>
+        </div>
+      </div>
+
+      <!-- Video Articles -->
+      <div class="article-card" data-category="video">
+        <div class="article-header">
+          <div style="flex: 1;">
+            <h4 style="margin: 0; color: #1B2A4A;">Video Marketing for Dentists</h4>
+          </div>
+          <span class="article-category-tag video">VIDEO</span>
+        </div>
+        <div class="article-content">
+          <p class="article-description">Use video to build trust and attract new patients with compelling dental practice videos and educational content.</p>
+          <a href="../articles/dental-video-marketing-guide.html" class="article-link">Read Article</a>
+        </div>
+      </div>
+
+      <div class="article-card" data-category="video">
+        <div class="article-header">
+          <div style="flex: 1;">
+            <h4 style="margin: 0; color: #1B2A4A;">Patient Testimonial Videos</h4>
+          </div>
+          <span class="article-category-tag video">VIDEO</span>
+        </div>
+        <div class="article-content">
+          <p class="article-description">Capture compelling video testimonials from satisfied patients that drive conversions and build credibility.</p>
+          <a href="../articles/dental-patient-testimonial-videos.html" class="article-link">Read Article</a>
+        </div>
+      </div>
+
+      <!-- Direct Mail Articles -->
+      <div class="article-card" data-category="directmail">
+        <div class="article-header">
+          <div style="flex: 1;">
+            <h4 style="margin: 0; color: #1B2A4A;">Direct Mail Marketing Guide</h4>
+          </div>
+          <span class="article-category-tag directmail">DIRECT MAIL</span>
+        </div>
+        <div class="article-content">
+          <p class="article-description">Create direct mail campaigns that generate measurable results and attract new patients in your local area.</p>
+          <a href="../articles/dental-direct-mail-guide.html" class="article-link">Read Article</a>
+        </div>
+      </div>
+
+      <!-- Branding Articles -->
+      <div class="article-card" data-category="branding">
+        <div class="article-header">
+          <div style="flex: 1;">
+            <h4 style="margin: 0; color: #1B2A4A;">Dental Practice Branding Guide</h4>
+          </div>
+          <span class="article-category-tag branding">BRANDING</span>
+        </div>
+        <div class="article-content">
+          <p class="article-description">Build a memorable brand that differentiates your practice and attracts the right patients in your market.</p>
+          <a href="../articles/dental-practice-branding.html" class="article-link">Read Article</a>
+        </div>
+      </div>
+
+      <!-- AI & Innovation Articles -->
+      <div class="article-card" data-category="ai">
+        <div class="article-header">
+          <div style="flex: 1;">
+            <h4 style="margin: 0; color: #1B2A4A;">AI in Dental Marketing</h4>
+          </div>
+          <span class="article-category-tag ai">AI</span>
+        </div>
+        <div class="article-content">
+          <p class="article-description">Leverage artificial intelligence to supercharge your marketing efforts and gain competitive advantage in your market.</p>
+          <a href="../articles/ai-dental-marketing.html" class="article-link">Read Article</a>
+        </div>
+      </div>
+
+      <div class="article-card" data-category="ai">
+        <div class="article-header">
+          <div style="flex: 1;">
+            <h4 style="margin: 0; color: #1B2A4A;">PPO Fee Schedule Optimization</h4>
+          </div>
+          <span class="article-category-tag ai">AI</span>
+        </div>
+        <div class="article-content">
+          <p class="article-description">Maximize revenue by strategically optimizing your PPO participation and fee schedules for profitability.</p>
+          <a href="../articles/dental-ppo-optimization.html" class="article-link">Read Article</a>
+        </div>
+      </div>
+
+    </div>
+    <!-- End Articles Grid -->
+
+  </div>
+</section>
+
+<!-- ═══ NEWSLETTER SIGNUP ═══ -->
+<section class="section section-light">
+  <div class="container">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <div class="newsletter-section">
+        <h3>Get New Articles Delivered Weekly</h3>
+        <p>Join 10,000+ dental practice owners receiving expert marketing insights, actionable strategies, and new articles directly in your inbox.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+          <input type="email" placeholder="Enter your email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4 style="font-size:1.15rem;">Dental Marketing Society</h4>
+        <p>The #1 authority in dental practice marketing. Expert education, powerful tools, and a community of practice owners. Where dental practices grow.</p>
+        <p class="footer-ekwa">Brought to you by <strong>Ekwa Marketing</strong> — the leading search engine marketing company for dental practices.</p>
+      </div>
+      <div>
+        <h4>Marketing Channels</h4>
+        <a href="channel-seo.html">SEO & Local Search</a>
+        <a href="channel-ppc.html">PPC Advertising</a>
+        <a href="channel-social.html">Social Media</a>
+        <a href="channel-reputation.html">Reputation</a>
+        <a href="channel-website.html">Website & Conversion</a>
+        <a href="channel-email.html">Email Marketing</a>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <a href="articles.html">Articles</a>
+        <a href="../tools/scorecard.html">Marketing Scorecard</a>
+        <a href="../tools/roi-calculator.html">ROI Calculators</a>
+        <a href="../tools/budget-planner.html">Budget Planner</a>
+        <a href="podcast.html">Podcast</a>
+        <a href="events.html">Events & Webinars</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="about.html">About DMS</a>
+        <a href="membership.html">Membership</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://www.ekwa.com" target="_blank">Ekwa Marketing</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Dental Marketing Society. All rights reserved.</span>
+      <span>A product of <a href="https://www.ekwa.com" class="footer-ekwa" target="_blank">Ekwa Marketing</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<!-- Page View Tracking -->
+<script>
+  gtag('event', 'page_view', {
+    page_title: document.title,
+    page_path: window.location.pathname
+  });
+</script>
+
+<!-- Article Filtering & Search JavaScript -->
+<script>
+  const articlesGrid = document.getElementById('articlesGrid');
+  const filterTabs = document.querySelectorAll('.filter-tab');
+  const searchInput = document.getElementById('searchInput');
+  const articleCount = document.getElementById('articleCount');
+
+  function updateArticleCount() {
+    const visibleCards = document.querySelectorAll('.article-card:not(.hidden)');
+    articleCount.textContent = visibleCards.length;
+  }
+
+  function filterArticles() {
+    const activeFilter = document.querySelector('.filter-tab.active').getAttribute('data-filter');
+    const searchTerm = searchInput.value.toLowerCase();
+    const cards = document.querySelectorAll('.article-card');
+
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const category = card.getAttribute('data-category');
+      const title = card.querySelector('.article-header h4').textContent.toLowerCase();
+
+      const matchesFilter = activeFilter === 'all' || category === activeFilter;
+      const matchesSearch = title.includes(searchTerm);
+
+      if (matchesFilter && matchesSearch) {
+        card.classList.remove('hidden');
+        visibleCount++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+
+    // Show empty state if no results
+    if (visibleCount === 0) {
+      if (!document.querySelector('.empty-state')) {
+        const emptyState = document.createElement('div');
+        emptyState.className = 'empty-state';
+        emptyState.style.gridColumn = '1 / -1';
+        emptyState.innerHTML = '<p>No articles found. Try a different search or filter.</p>';
+        articlesGrid.appendChild(emptyState);
+      }
+    } else {
+      const emptyState = document.querySelector('.empty-state');
+      if (emptyState) {
+        emptyState.remove();
+      }
+    }
+
+    updateArticleCount();
+  }
+
+  // Filter tab click handlers
+  filterTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      filterTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      filterArticles();
+    });
+  });
+
+  // Search input handler
+  searchInput.addEventListener('input', filterArticles);
+
+  // Initial count
+  updateArticleCount();
+</script>
+
+</body>
+</html>

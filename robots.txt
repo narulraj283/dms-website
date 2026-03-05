@@ -1,0 +1,19 @@
+# DMS Website Robots.txt
+# Allow all crawling except private areas
+
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /pages/
+Allow: /articles/
+Allow: /tools/
+
+# Disallow private dashboard pages
+Disallow: /pages/dashboard-admin.html
+Disallow: /pages/dashboard-member.html
+
+# Sitemap reference
+Sitemap: https://dms.narenlife.com/sitemap.xml
+
+# Crawl-delay and Request-rate (optional, 5 second delay between requests)
+# Crawl-delay: 5
