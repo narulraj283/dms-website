@@ -13,6 +13,14 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
 </head>
 <body>
 
@@ -121,7 +129,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">AI Chatbots for Dental Practices: Implementation Guide</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Implementation | 13 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Add 24/7 patient communication. Chatbot platforms, setup, training, and integration with your systems.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/ai-dental-marketing.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -131,7 +139,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">AI Content Creation for Dentists: ChatGPT, Claude & Beyond</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Tools & Tactics | 12 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Generate content at scale. Prompts for dental content, editing tips, and best practices for quality control.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/ai-dental-marketing.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -141,7 +149,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">Practice Automation: Tools That Save Time</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Workflow Automation | 11 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Automate routine tasks. Appointment reminders, follow-up sequences, lead tracking, and administrative workflows.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/ai-dental-marketing.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -151,7 +159,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">AI Analytics for Dental Marketing: Data-Driven Decisions</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Analytics | 10 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Make better decisions. Predictive analytics, patient insights, campaign performance, and automated reporting.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/ai-dental-marketing.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -161,7 +169,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">Emerging Tech Trends: What's Next for Dental Marketing</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Trends | 9 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Stay ahead of the curve. VR consultations, AI diagnostics, voice search, and other emerging technologies.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/ai-dental-marketing.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -171,7 +179,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">Technology Adoption: Evaluating and Implementing Tools</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Strategy | 11 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Smart adoption framework. Evaluating tools, implementation planning, training teams, and measuring ROI.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/ai-dental-marketing.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -353,8 +361,8 @@
         <a href="membership.html">Membership</a>
         <a href="contact.html">Contact</a>
         <a href="https://www.ekwa.com" target="_blank">Ekwa Marketing</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -365,5 +373,12 @@
 </footer>
 
 <script src="../js/main.js"></script>
+<!-- Page View Tracking -->
+<script>
+  gtag('event', 'page_view', {
+    page_title: document.title,
+    page_path: window.location.pathname
+  });
+</script>
 </body>
 </html>

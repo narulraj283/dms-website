@@ -13,6 +13,14 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
 </head>
 <body>
 
@@ -121,7 +129,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">Google Ads Fundamentals: Campaign Structure for Dental Practices</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Setup Guide | 10 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Build your account from the ground up. Campaign types, ad groups, keywords, and bidding strategies. The foundation everything else depends on.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/google-ads-dental-guide.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -131,7 +139,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">Facebook Ads for Dentists: Audience Targeting That Works</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Strategy | 12 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Create custom and lookalike audiences. Reach people interested in cosmetic dentistry, teeth whitening, implants, and more. Real practice examples.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/facebook-ads-dentists.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -141,7 +149,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">Keyword Research for Dental PPC: Find High-Intent Keywords</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Guide | 9 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Identify keywords that convert to patients. Search terms patients use when they need a dentist. Keyword intent, volume, and competition analysis.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/google-ads-dental-guide.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -151,7 +159,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">PPC Ad Copy Formulas: Headlines and Descriptions That Convert</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Copywriting | 8 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Write ad copy that stands out in Google Search. 5 proven formulas, plus 20+ example ads from dental practices.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/google-ads-dental-guide.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -161,7 +169,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">High-Converting Landing Pages for Dental PPC Campaigns</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Template | 7 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">The page clicks land on matters most. Design principles, copywriting, and form optimization. Template included for immediate use.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Get Template →</a>
+          <a href="../articles/dental-ppc-budget-guide.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Get Template →</a>
         </div>
       </div>
 
@@ -171,7 +179,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">Dental PPC ROI: Track Cost Per Acquisition and Profit</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Analytics | 10 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Know your numbers. CPA, ROAS, breakeven calculations, and profitability analysis. When to scale and when to pause campaigns.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/dental-ppc-budget-guide.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -353,8 +361,8 @@
         <a href="membership.html">Membership</a>
         <a href="contact.html">Contact</a>
         <a href="https://www.ekwa.com" target="_blank">Ekwa Marketing</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -365,5 +373,12 @@
 </footer>
 
 <script src="../js/main.js"></script>
+<!-- Page View Tracking -->
+<script>
+  gtag('event', 'page_view', {
+    page_title: document.title,
+    page_path: window.location.pathname
+  });
+</script>
 </body>
 </html>

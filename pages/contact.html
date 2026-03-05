@@ -13,6 +13,8 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','GA_MEASUREMENT_ID');</script>
 </head>
 <body>
 
@@ -75,30 +77,56 @@
       <!-- CONTACT FORM -->
       <div>
         <h2 style="margin-bottom: 2rem;">Send us a Message</h2>
-        <form style="display: flex; flex-direction: column; gap: 1rem;">
+        <form id="contactForm" style="display: flex; flex-direction: column; gap: 1rem;">
+          <div id="successMessage" style="display: none; background: #d4edda; border: 1px solid #c3e6cb; color: #155724; padding: 1rem; border-radius: 6px; margin-bottom: 1rem;">Thank you for your message! We'll get back to you within 24 hours.</div>
           <div>
             <label style="display: block; font-weight: 600; color: #1B2A4A; margin-bottom: 0.5rem;">Your Name</label>
-            <input type="text" placeholder="Dr. John Smith" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; font-family: Inter, sans-serif;">
+            <input type="text" id="contactName" placeholder="Dr. John Smith" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; font-family: Inter, sans-serif;">
           </div>
 
           <div>
             <label style="display: block; font-weight: 600; color: #1B2A4A; margin-bottom: 0.5rem;">Email Address</label>
-            <input type="email" placeholder="your@email.com" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; font-family: Inter, sans-serif;">
+            <input type="email" id="contactEmail" placeholder="your@email.com" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; font-family: Inter, sans-serif;">
           </div>
 
           <div>
             <label style="display: block; font-weight: 600; color: #1B2A4A; margin-bottom: 0.5rem;">Practice Name</label>
-            <input type="text" placeholder="Your Dental Practice" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; font-family: Inter, sans-serif;">
+            <input type="text" id="contactPractice" placeholder="Your Dental Practice" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; font-family: Inter, sans-serif;">
           </div>
 
           <div>
             <label style="display: block; font-weight: 600; color: #1B2A4A; margin-bottom: 0.5rem;">Message</label>
-            <textarea placeholder="Tell us how we can help..." style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; font-family: Inter, sans-serif; resize: vertical; min-height: 150px;"></textarea>
+            <textarea id="contactMessage" placeholder="Tell us how we can help..." required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; font-family: Inter, sans-serif; resize: vertical; min-height: 150px;"></textarea>
           </div>
 
           <button type="submit" class="btn btn-gold btn-lg" style="width: 100%; margin-top: 0.5rem;">Send Message</button>
         </form>
       </div>
+
+      <script>
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var submission = {
+          name: document.getElementById('contactName').value,
+          email: document.getElementById('contactEmail').value,
+          practice: document.getElementById('contactPractice').value,
+          message: document.getElementById('contactMessage').value,
+          timestamp: new Date().toISOString()
+        };
+
+        var submissions = JSON.parse(localStorage.getItem('dms_contact_submissions') || '[]');
+        submissions.push(submission);
+        localStorage.setItem('dms_contact_submissions', JSON.stringify(submissions));
+
+        document.getElementById('successMessage').style.display = 'block';
+        document.getElementById('contactForm').reset();
+
+        setTimeout(function() {
+          document.getElementById('successMessage').style.display = 'none';
+        }, 5000);
+      });
+      </script>
 
       <!-- CONTACT INFO -->
       <div>
@@ -252,8 +280,8 @@
         <a href="membership.html">Membership</a>
         <a href="contact.html">Contact</a>
         <a href="https://www.ekwa.com" target="_blank">Ekwa Marketing</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
       </div>
     </div>
     <div class="footer-bottom">

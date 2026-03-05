@@ -13,6 +13,14 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
 </head>
 <body>
 
@@ -121,7 +129,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">Email List Building Guide: Grow Your Subscriber Base</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Strategy | 12 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Every list starts at zero. Discover the fastest ways to build a list of engaged dental patients. Website opt-ins, office signups, social media, and incentive strategies.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/dental-email-marketing-guide.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -131,7 +139,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">The Dental Newsletter Blueprint: Content & Design</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Template | 10 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Step-by-step template for monthly newsletters. Content mix, subject lines, design templates, and examples from successful practices.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Get Template →</a>
+          <a href="../articles/dental-email-marketing-guide.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Get Template →</a>
         </div>
       </div>
 
@@ -141,7 +149,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">Reactivation Email Sequences: Win Back Dormant Patients</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Automation | 11 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Your biggest opportunity is dormant patients. The exact email sequence, timing, and subject lines that work best. Real results from practices.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/dental-patient-reactivation.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -151,7 +159,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">Email Segmentation Strategy: The Right Message at the Right Time</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Strategy | 9 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">One email doesn't fit all. How to segment by patient type, treatment status, and engagement level. Increase click rates by 50%+.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/dental-email-marketing-guide.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -161,7 +169,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">Appointment Reminder Automation: Reduce No-Shows by 40%</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Automation | 8 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Automate confirmations, reminders, and follow-ups. Reduce missed appointments, increase productivity, collect reviews automatically.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/dental-email-marketing-guide.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -171,7 +179,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">Email ROI: Track Patient Bookings from Your Campaigns</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Analytics | 7 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Know which emails drive bookings. Setup tracking, measure conversions, and prove the value of your email marketing.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/dental-patient-reactivation.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -353,8 +361,8 @@
         <a href="membership.html">Membership</a>
         <a href="contact.html">Contact</a>
         <a href="https://www.ekwa.com" target="_blank">Ekwa Marketing</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -365,5 +373,12 @@
 </footer>
 
 <script src="../js/main.js"></script>
+<!-- Page View Tracking -->
+<script>
+  gtag('event', 'page_view', {
+    page_title: document.title,
+    page_path: window.location.pathname
+  });
+</script>
 </body>
 </html>

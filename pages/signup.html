@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Membership Signup - Dental Marketing Society</title>
+  <meta name="description" content="Sign up for free membership to access all Dental Marketing Society resources, tools, and community.">
+  <meta name="keywords" content="free membership, sign up, dental marketing society, dental practice owner community">
+  <meta property="og:title" content="Free Membership Signup - Dental Marketing Society">
+  <meta property="og:description" content="Join DMS free. Access educational resources, tools, and connect with thousands of dental practice owners.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <style>
+    .signup-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+    @media (max-width: 768px) {
+      .signup-wrapper { grid-template-columns: 1fr; }
+    }
+
+    .signup-form { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    .signup-form h2 { color: #1B2A4A; margin-top: 0; margin-bottom: 2rem; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; color: #1B2A4A; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.95rem; }
+    .form-group input, .form-group select { width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 0.95rem; box-sizing: border-box; }
+    .form-group input:focus, .form-group select:focus { outline: none; border-color: #D4A843; box-shadow: 0 0 0 2px rgba(212, 168, 67, 0.1); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+    .required { color: #d32f2f; }
+    .form-submit { background: linear-gradient(135deg, #D4A843, #c49a38); color: white; padding: 1rem; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 1rem; width: 100%; transition: transform 0.2s; }
+    .form-submit:hover { transform: translateY(-2px); }
+    .form-submit:active { transform: translateY(0); }
+
+    .benefits-section { background: #f9f9f9; padding: 2rem; border-radius: 12px; }
+    .benefits-section h3 { color: #1B2A4A; margin-top: 0; margin-bottom: 1.5rem; }
+    .benefit-item { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+    .benefit-icon { font-size: 1.5rem; min-width: 40px; }
+    .benefit-text h4 { color: #1B2A4A; margin: 0 0 0.25rem 0; font-size: 0.95rem; }
+    .benefit-text p { color: #666; margin: 0; font-size: 0.85rem; }
+
+    .already-member { text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #e0e0e0; }
+    .already-member a { color: #2E75B6; text-decoration: none; font-weight: 600; }
+    .already-member a:hover { text-decoration: underline; }
+
+    .error-message { color: #d32f2f; background: #ffebee; padding: 0.75rem; border-radius: 6px; margin-bottom: 1rem; display: none; }
+    .success-message { color: #2e7d32; background: #e8f5e9; padding: 0.75rem; border-radius: 6px; margin-bottom: 1rem; display: none; }
+  </style>
+</head>
+<body>
+
+<!-- ••• HEADER ••• -->
+<header class="header">
+  <div class="header-inner">
+    <a href="../index.html" class="logo">
+      <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="8" fill="#1B2A4A"/>
+        <path d="M12 28V16c0-3.3 2.7-6 6-6h4c3.3 0 6 2.7 6 6v12" stroke="#D4A843" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M8 20h24" stroke="#D4A843" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <path d="M20 10v20" stroke="#D4A843" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="20" cy="18" r="3" fill="#D4A843"/>
+      </svg>
+      <span class="logo-text">Dental Marketing <span>Society</span></span>
+    </a>
+    <nav class="nav">
+      <div class="nav-dropdown">
+        <a href="#">Marketing Channels ⬇</a>
+        <div class="nav-dropdown-content">
+          <a href="channel-seo.html">🔍 SEO & Local Search</a>
+          <a href="channel-ppc.html">💰 Pay-Per-Click (PPC)</a>
+          <a href="channel-social.html">📱 Social Media</a>
+          <a href="channel-reputation.html">⭐ Reputation & Reviews</a>
+          <a href="channel-website.html">🌐 Website & Conversion</a>
+          <a href="channel-referral.html">🤝 Referral Marketing</a>
+          <a href="channel-email.html">📧 Email Marketing</a>
+          <a href="channel-video.html">🎬 Video Marketing</a>
+          <a href="channel-directmail.html">💬 Direct Mail</a>
+          <a href="channel-branding.html">🎨 Branding</a>
+          <a href="channel-ai.html">🤖 AI & Emerging Tech</a>
+        </div>
+      </div>
+      <a href="events.html">Events</a>
+      <a href="podcast.html">Podcast</a>
+      <a href="../tools/scorecard.html">Tools</a>
+      <a href="community.html">Community</a>
+      <a href="about.html">About</a>
+      <a href="membership.html" class="nav-cta">Join Free</a>
+    </nav>
+    <button class="mobile-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ••• HERO ••• -->
+<section class="hero" style="padding: 80px 0 60px;">
+  <div class="container">
+    <h1 style="margin-bottom: 1rem;">Join Dental<br><span>Marketing Society</span></h1>
+    <p style="font-size: 1.2rem; color: #666; max-width: 700px; margin-bottom: 0;">Free membership includes access to all our educational resources, tools, community, and expert content. No credit card required.</p>
+  </div>
+</section>
+
+<!-- ••• SIGNUP SECTION ••• -->
+<section class="section">
+  <div class="container">
+    <div class="signup-wrapper">
+      <!-- FORM -->
+      <div class="signup-form">
+        <h2>Create Your Free Account</h2>
+        <div id="errorMessage" class="error-message"></div>
+        <div id="successMessage" class="success-message"></div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name <span class="required">*</span></label>
+            <input type="text" id="firstName" placeholder="First name" />
+          </div>
+          <div class="form-group">
+            <label>Last Name <span class="required">*</span></label>
+            <input type="text" id="lastName" placeholder="Last name" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Email Address <span class="required">*</span></label>
+          <input type="email" id="email" placeholder="your@email.com" />
+        </div>
+
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" id="phone" placeholder="(555) 123-4567" />
+        </div>
+
+        <div class="form-group">
+          <label>Dental Practice Name <span class="required">*</span></label>
+          <input type="text" id="practiceName" placeholder="Practice name" />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Practice Size <span class="required">*</span></label>
+            <select id="practiceSize">
+              <option value="">-- Select one --</option>
+              <option value="solo">Solo Practice (1 location)</option>
+              <option value="small">Small Group (2-3 locations)</option>
+              <option value="medium">Medium Group (4-10 locations)</option>
+              <option value="large">Large Group (10+ locations)</option>
+              <option value="dso">DSO</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Primary Marketing Challenge <span class="required">*</span></label>
+            <select id="primaryChallenge">
+              <option value="">-- Select one --</option>
+              <option value="patient-acquisition">Patient Acquisition</option>
+              <option value="patient-retention">Patient Retention</option>
+              <option value="seo">Local SEO Ranking</option>
+              <option value="reputation">Online Reputation</option>
+              <option value="social">Social Media Presence</option>
+              <option value="budget">Marketing Budget</option>
+              <option value="staff">Staff Training</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="form-submit" onclick="submitSignup()">Create Free Account</button>
+
+        <div class="already-member">
+          <span style="color: #666;">Already a member? </span>
+          <a href="dashboard-member.html">Sign in to your account</a>
+        </div>
+      </div>
+
+      <!-- BENEFITS -->
+      <div class="benefits-section">
+        <h3>What You Get with Free Membership</h3>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">📚</div>
+          <div class="benefit-text">
+            <h4>100+ Educational Articles</h4>
+            <p>Deep-dive guides on all 11 marketing channels for dental practices</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">🎙️</div>
+          <div class="benefit-text">
+            <h4>Podcast Access</h4>
+            <p>Weekly episodes with industry experts and practice owners sharing real strategies</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">🛠️</div>
+          <div class="benefit-text">
+            <h4>Free Tools & Calculators</h4>
+            <p>Marketing scorecard, ROI calculators, budget planner, and more</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">👥</div>
+          <div class="benefit-text">
+            <h4>Community Access</h4>
+            <p>Connect with 10,000+ dental practice owners solving the same challenges</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">📥</div>
+          <div class="benefit-text">
+            <h4>Downloadable Resources</h4>
+            <p>Templates, checklists, and frameworks ready to implement</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">📺</div>
+          <div class="benefit-text">
+            <h4>Video Tutorials</h4>
+            <p>Step-by-step walkthroughs for tools and platforms</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">📢</div>
+          <div class="benefit-text">
+            <h4>Webinars & Events</h4>
+            <p>Live training sessions and networking opportunities</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">💌</div>
+          <div class="benefit-text">
+            <h4>Weekly Newsletter</h4>
+            <p>Curated marketing insights and updates delivered to your inbox</p>
+          </div>
+        </div>
+
+        <div style="background: rgba(212, 168, 67, 0.1); border-left: 4px solid #D4A843; padding: 1rem; border-radius: 6px; margin-top: 2rem;">
+          <p style="margin: 0; color: #1B2A4A; font-weight: 600;">Forever free. No credit card. Cancel anytime.</p>
+          <p style="margin: 0.5rem 0 0 0; color: #666; font-size: 0.85rem;">We believe dental practice owners deserve free access to world-class marketing education.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ••• TRUST SECTION ••• -->
+<section class="section section-light">
+  <div class="container" style="max-width: 900px; margin: 0 auto;">
+    <h2 style="text-align: center; margin-bottom: 2rem;">Why Dental Practice Owners Choose DMS</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+      <div style="text-align: center;">
+        <p style="font-size: 2rem; margin: 0;">10,000+</p>
+        <p style="color: #D4A843; font-weight: 600; margin: 0.5rem 0 0 0;">Practice Owners</p>
+        <p style="color: #666; margin: 0.5rem 0 0 0;">Growing their practices with DMS</p>
+      </div>
+      <div style="text-align: center;">
+        <p style="font-size: 2rem; margin: 0;">4 Years</p>
+        <p style="color: #D4A843; font-weight: 600; margin: 0.5rem 0 0 0;">Trusted Authority</p>
+        <p style="color: #666; margin: 0.5rem 0 0 0;">Since launching Dental Marketing Society in 2023</p>
+      </div>
+      <div style="text-align: center;">
+        <p style="font-size: 2rem; margin: 0;">15+ Years</p>
+        <p style="color: #D4A843; font-weight: 600; margin: 0.5rem 0 0 0;">Combined Expertise</p>
+        <p style="color: #666; margin: 0.5rem 0 0 0;">From Ekwa Marketing's proven strategies</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ••• CTA ••• -->
+<section class="section" style="text-align: center;">
+  <div class="container">
+    <h2 style="margin-bottom: 1rem;">Ready to Grow Your Practice?</h2>
+    <p style="color: #666; margin-bottom: 2rem; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">Join the community of smart practice owners who are taking control of their marketing and seeing real results.</p>
+    <button class="btn btn-gold btn-lg" onclick="document.querySelector('.signup-form').scrollIntoView({ behavior: 'smooth' });">Sign Up Now</button>
+  </div>
+</section>
+
+<!-- ••• FAQ SECTION ••• -->
+<section class="section section-light">
+  <div class="container" style="max-width: 900px; margin: 0 auto;">
+    <h2 style="text-align: center; margin-bottom: 3rem;">Frequently Asked Questions</h2>
+    <div style="display: grid; gap: 1.5rem;">
+      <div>
+        <h3 style="color: #1B2A4A; margin-top: 0;">Is DMS really free?</h3>
+        <p style="color: #666; margin: 0;">Yes! Dental Marketing Society is completely free. We offer free membership with access to all our core resources, articles, tools, and community. We believe dental practice owners deserve free access to transparent, high-quality marketing education.</p>
+      </div>
+      <div>
+        <h3 style="color: #1B2A4A;">Do I need to provide a credit card?</h3>
+        <p style="color: #666; margin: 0;">No. We never ask for credit card information to sign up or use the free membership. You can start accessing resources immediately after signup.</p>
+      </div>
+      <div>
+        <h3 style="color: #1B2A4A;">What's the difference between free and premium membership?</h3>
+        <p style="color: #666; margin: 0;">Free membership includes access to all educational content, tools, community, and podcasts. Premium membership (coming soon) will offer optional add-ons like personalized advisory sessions with Ekwa Marketing experts.</p>
+      </div>
+      <div>
+        <h3 style="color: #1B2A4A;">Can I cancel anytime?</h3>
+        <p style="color: #666; margin: 0;">Since it's free, there's nothing to cancel. You simply delete your account if you want to stop using the platform.</p>
+      </div>
+      <div>
+        <h3 style="color: #1B2A4A;">Is DMS affiliated with Ekwa Marketing?</h3>
+        <p style="color: #666; margin: 0;">Yes. DMS is a product of Ekwa Marketing, a leading search engine marketing agency for dental practices. However, we teach you to do marketing yourself, whether you work with Ekwa or not. Our community is vendor-neutral.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ••• FOOTER ••• -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4 style="font-size:1.15rem;">Dental Marketing Society</h4>
+        <p>The #1 authority in dental practice marketing. Expert education, powerful tools, and a community of practice owners. Where dental practices grow.</p>
+        <p class="footer-ekwa">Brought to you by <strong>Ekwa Marketing</strong> – the leading search engine marketing company for dental practices.</p>
+      </div>
+      <div>
+        <h4>Marketing Channels</h4>
+        <a href="channel-seo.html">SEO & Local Search</a>
+        <a href="channel-ppc.html">PPC Advertising</a>
+        <a href="channel-social.html">Social Media</a>
+        <a href="channel-reputation.html">Reputation</a>
+        <a href="channel-website.html">Website & Conversion</a>
+        <a href="channel-email.html">Email Marketing</a>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <a href="../tools/scorecard.html">Marketing Scorecard</a>
+        <a href="../tools/roi-calculator.html">ROI Calculators</a>
+        <a href="../tools/budget-planner.html">Budget Planner</a>
+        <a href="podcast.html">Podcast</a>
+        <a href="events.html">Events & Webinars</a>
+        <a href="community.html">Community</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="about.html">About DMS</a>
+        <a href="membership.html">Membership</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://www.ekwa.com" target="_blank">Ekwa Marketing</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Dental Marketing Society. All rights reserved.</span>
+      <span>A product of <a href="https://www.ekwa.com" class="footer-ekwa" target="_blank">Ekwa Marketing</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function submitSignup() {
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const practiceName = document.getElementById('practiceName').value.trim();
+    const practiceSize = document.getElementById('practiceSize').value;
+    const primaryChallenge = document.getElementById('primaryChallenge').value;
+
+    const errorDiv = document.getElementById('errorMessage');
+    const successDiv = document.getElementById('successMessage');
+
+    // Validation
+    if (!firstName || !lastName || !email || !practiceName || !practiceSize || !primaryChallenge) {
+      errorDiv.textContent = 'Please fill in all required fields (marked with *)';
+      errorDiv.style.display = 'block';
+      successDiv.style.display = 'none';
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      errorDiv.textContent = 'Please enter a valid email address';
+      errorDiv.style.display = 'block';
+      successDiv.style.display = 'none';
+      return;
+    }
+
+    // Create lead entry (for admin dashboard leads tracking)
+    const lead = {
+      date: new Date().toISOString(),
+      name: firstName + ' ' + lastName,
+      email: email,
+      phone: phone,
+      sourcePage: 'signup.html',
+      resourceDownloaded: 'Account Signup'
+    };
+
+    // Store lead in localStorage
+    const leads = JSON.parse(localStorage.getItem('dms_leads') || '[]');
+    leads.push(lead);
+    localStorage.setItem('dms_leads', JSON.stringify(leads));
+
+    // Create member entry (for member dashboard login)
+    const member = {
+      id: Date.now(),
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      phone: phone,
+      practiceName: practiceName,
+      practiceSize: practiceSize,
+      primaryChallenge: primaryChallenge,
+      dateJoined: new Date().toISOString(),
+      password: 'temp' + Date.now() // Simple temp password for signup
+    };
+
+    const members = JSON.parse(localStorage.getItem('dms_members') || '[]');
+
+    // Check for duplicate email
+    if (members.some(m => m.email === email)) {
+      errorDiv.textContent = 'This email is already registered. Please use the login page to access your account.';
+      errorDiv.style.display = 'block';
+      successDiv.style.display = 'none';
+      return;
+    }
+
+    members.push(member);
+    localStorage.setItem('dms_members', JSON.stringify(members));
+
+    // Log in the user automatically
+    localStorage.setItem('dms_current_member', JSON.stringify(member));
+
+    // Show success message
+    errorDiv.style.display = 'none';
+    successDiv.textContent = 'Success! Your account has been created. Redirecting to your dashboard...';
+    successDiv.style.display = 'block';
+
+    // Redirect after 1 second
+    setTimeout(function() {
+      window.location.href = 'dashboard-member.html';
+    }, 1000);
+  }
+
+  // Allow Enter key to submit
+  document.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter' && document.activeElement.tagName !== 'TEXTAREA') {
+      const form = document.querySelector('.signup-form');
+      if (form && form.style.display !== 'none') {
+        submitSignup();
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

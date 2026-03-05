@@ -13,6 +13,14 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
 </head>
 <body>
 
@@ -121,7 +129,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">How to Get More Google Reviews for Your Dental Practice</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Strategy | 11 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Generate more 5-star reviews systematically. Best times to ask, messaging templates, QR codes, and review request workflows.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/get-more-dental-reviews.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -131,7 +139,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">How to Respond to Negative Reviews: Templates & Examples</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Response Guide | 9 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Respond professionally to criticism. Sample responses, what to do wrong, and how to turn unhappy patients into advocates.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/responding-negative-reviews.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -141,7 +149,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">Dealing with Fake or Unfair Reviews on Google</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Guide | 8 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Know your options when facing unfair reviews. When to report, when to respond, and when to seek legal help.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/dental-reputation-management.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -151,7 +159,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">Online Reputation Monitoring: Tools & Best Practices</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Tools Guide | 10 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Monitor your reputation 24/7. Tools for tracking reviews, alerts for new feedback, and organizing responses.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/dental-reputation-management.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -161,7 +169,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">Collecting and Using Patient Testimonials</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Strategy | 9 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Record video testimonials that build trust. Permission forms, where to use testimonials, and compliance considerations.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/get-more-dental-reviews.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -171,7 +179,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">Mastering Healthgrades, ZocDoc, and Dental Review Sites</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Platform Guide | 10 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Optimize your profiles on all major review platforms. Handling patient questions and using these channels for new patient acquisition.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/dental-reputation-management.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -353,8 +361,8 @@
         <a href="membership.html">Membership</a>
         <a href="contact.html">Contact</a>
         <a href="https://www.ekwa.com" target="_blank">Ekwa Marketing</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -365,5 +373,12 @@
 </footer>
 
 <script src="../js/main.js"></script>
+<!-- Page View Tracking -->
+<script>
+  gtag('event', 'page_view', {
+    page_title: document.title,
+    page_path: window.location.pathname
+  });
+</script>
 </body>
 </html>

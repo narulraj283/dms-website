@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Dental Marketing Society</title>
+  <meta name="description" content="DMS Admin Dashboard - Monitor leads, analytics, and member activity.">
+  <meta name="keywords" content="admin dashboard, leads, analytics, dental marketing">
+  <meta property="og:title" content="Admin Dashboard - Dental Marketing Society">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <style>
+    .dashboard-wrapper { display: flex; min-height: 100vh; }
+    .dashboard-content { flex: 1; background: #f5f7fb; padding: 2rem; }
+    .dashboard-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
+    .dashboard-header h1 { font-size: 1.8rem; color: #1B2A4A; margin: 0; }
+    .dashboard-controls { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .dashboard-controls input { padding: 0.5rem 1rem; border: 1px solid #ddd; border-radius: 6px; font-size: 0.9rem; font-family: 'Inter', sans-serif; }
+    .dashboard-controls button { padding: 0.5rem 1.5rem; background: #D4A843; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
+    .dashboard-controls button:hover { background: #c49a38; }
+    .logout-btn { background: #2E75B6; }
+    .logout-btn:hover { background: #1e5294; }
+
+    .dashboard-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+    .stat-card { background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border-left: 4px solid #D4A843; }
+    .stat-card h3 { font-size: 2rem; color: #1B2A4A; margin-bottom: 0.25rem; }
+    .stat-card p { color: #666; font-size: 0.9rem; margin: 0; }
+
+    .dashboard-section { background: white; border-radius: 12px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    .dashboard-section h2 { color: #1B2A4A; margin-top: 0; margin-bottom: 1.5rem; font-size: 1.4rem; }
+
+    .leads-table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; }
+    .leads-table th { background: #1B2A4A; color: white; padding: 12px 16px; text-align: left; font-size: 0.9rem; font-weight: 600; }
+    .leads-table td { padding: 12px 16px; border-bottom: 1px solid #f0f0f0; font-size: 0.9rem; }
+    .leads-table tr:hover { background: #f7f9fc; }
+    .leads-table tbody tr:last-child td { border-bottom: none; }
+
+    .no-data { text-align: center; padding: 2rem; color: #999; }
+
+    .analytics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+    .analytics-card { background: #f9f9f9; padding: 1.5rem; border-radius: 8px; border: 1px solid #eee; }
+    .analytics-card h4 { color: #1B2A4A; margin-top: 0; margin-bottom: 1rem; }
+    .analytics-card p { margin: 0; color: #666; font-size: 0.9rem; }
+
+    .login-container { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: linear-gradient(135deg, #1B2A4A 0%, #2E75B6 100%); }
+    .login-box { background: white; padding: 3rem; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); width: 100%; max-width: 400px; }
+    .login-box h1 { color: #1B2A4A; text-align: center; margin-bottom: 2rem; }
+    .login-box input { width: 100%; padding: 1rem; border: 1px solid #ddd; border-radius: 6px; margin-bottom: 1rem; font-family: 'Inter', sans-serif; font-size: 1rem; box-sizing: border-box; }
+    .login-box button { width: 100%; padding: 1rem; background: #D4A843; color: white; border: none; border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; }
+    .login-box button:hover { background: #c49a38; }
+    .error-message { color: #d32f2f; margin-bottom: 1rem; padding: 0.75rem; background: #ffebee; border-radius: 6px; }
+  </style>
+</head>
+<body>
+
+<!-- LOGIN GATE -->
+<div id="loginContainer" class="login-container" style="display: none;">
+  <div class="login-box">
+    <h1>Admin Dashboard</h1>
+    <div id="errorMessage" class="error-message" style="display: none;"></div>
+    <input type="password" id="passwordInput" placeholder="Enter admin password" />
+    <button onclick="validatePassword()">Login</button>
+    <p style="text-align: center; color: #999; margin-top: 1rem; font-size: 0.9rem;">Default password: dmsadmin2026</p>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboardContainer" style="display: none;">
+  <div class="dashboard-wrapper">
+    <div class="dashboard-content">
+      <div class="dashboard-header">
+        <div>
+          <h1>Admin Dashboard</h1>
+          <p style="color: #666; margin: 0.5rem 0 0 0;">Leads, Analytics & Insights</p>
+        </div>
+        <div class="dashboard-controls">
+          <input type="text" id="searchInput" placeholder="Search by name or email..." />
+          <button onclick="exportToCSV()">Export CSV</button>
+          <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+      </div>
+
+      <!-- STATS -->
+      <div class="dashboard-stats">
+        <div class="stat-card">
+          <h3 id="totalLeads">0</h3>
+          <p>Total Leads</p>
+        </div>
+        <div class="stat-card">
+          <h3 id="leadsThisMonth">0</h3>
+          <p>Leads This Month</p>
+        </div>
+        <div class="stat-card">
+          <h3 id="leadsThisWeek">0</h3>
+          <p>Leads This Week</p>
+        </div>
+        <div class="stat-card">
+          <h3 id="totalSubscribers">0</h3>
+          <p>Newsletter Subscribers</p>
+        </div>
+      </div>
+
+      <!-- LEADS TABLE SECTION -->
+      <div class="dashboard-section">
+        <h2>Recent Leads</h2>
+        <div style="overflow-x: auto;">
+          <table class="leads-table" id="leadsTable">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Source Page</th>
+                <th>Resource Downloaded</th>
+              </tr>
+            </thead>
+            <tbody id="leadsTableBody">
+              <tr>
+                <td colspan="6" class="no-data">No leads yet. Leads will appear here when users sign up.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ANALYTICS SECTION -->
+      <div class="dashboard-section">
+        <h2>Page Analytics Summary</h2>
+        <div class="analytics-grid" id="analyticsGrid">
+          <div class="analytics-card">
+            <h4>Total Page Views</h4>
+            <p id="totalPageViews">0</p>
+          </div>
+          <div class="analytics-card">
+            <h4>Unique Visitors</h4>
+            <p id="uniqueVisitors">0</p>
+          </div>
+          <div class="analytics-card">
+            <h4>Most Visited Page</h4>
+            <p id="mostVisitedPage">-</p>
+          </div>
+          <div class="analytics-card">
+            <h4>Resources Downloaded</h4>
+            <p id="resourcesDownloaded">0</p>
+          </div>
+          <div class="analytics-card">
+            <h4>Top Lead Source</h4>
+            <p id="topLeadSource">-</p>
+          </div>
+          <div class="analytics-card">
+            <h4>Conversion Rate</h4>
+            <p id="conversionRate">-</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- MEMBERS SECTION -->
+      <div class="dashboard-section">
+        <h2>Member Signups</h2>
+        <div style="overflow-x: auto;">
+          <table class="leads-table" id="membersTable">
+            <thead>
+              <tr>
+                <th>Date Joined</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Practice</th>
+                <th>Practice Size</th>
+              </tr>
+            </thead>
+            <tbody id="membersTableBody">
+              <tr>
+                <td colspan="5" class="no-data">No members yet. Member signups will appear here.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const ADMIN_PASSWORD = 'dmsadmin2026';
+  let allLeads = [];
+  let allMembers = [];
+  let allPageViews = {};
+
+  // Initialize dashboard
+  function initDashboard() {
+    checkAuthentication();
+    loadDataFromLocalStorage();
+    renderDashboard();
+  }
+
+  function checkAuthentication() {
+    const isAuthenticated = sessionStorage.getItem('adminAuthenticated');
+    if (!isAuthenticated) {
+      document.getElementById('loginContainer').style.display = 'flex';
+      document.getElementById('dashboardContainer').style.display = 'none';
+    } else {
+      document.getElementById('loginContainer').style.display = 'none';
+      document.getElementById('dashboardContainer').style.display = 'block';
+    }
+  }
+
+  function validatePassword() {
+    const password = document.getElementById('passwordInput').value;
+    const errorMsg = document.getElementById('errorMessage');
+
+    if (password === ADMIN_PASSWORD) {
+      sessionStorage.setItem('adminAuthenticated', 'true');
+      errorMsg.style.display = 'none';
+      checkAuthentication();
+      initDashboard();
+    } else {
+      errorMsg.textContent = 'Incorrect password. Try again.';
+      errorMsg.style.display = 'block';
+      document.getElementById('passwordInput').value = '';
+    }
+  }
+
+  function logout() {
+    sessionStorage.removeItem('adminAuthenticated');
+    document.getElementById('passwordInput').value = '';
+    checkAuthentication();
+  }
+
+  // Load data from localStorage
+  function loadDataFromLocalStorage() {
+    // Load leads (stored from form submissions)
+    const leadsData = localStorage.getItem('dms_leads');
+    allLeads = leadsData ? JSON.parse(leadsData) : [];
+
+    // Load members (stored from member dashboard signup)
+    const membersData = localStorage.getItem('dms_members');
+    allMembers = membersData ? JSON.parse(membersData) : [];
+
+    // Load page analytics (stored from page visits)
+    const analyticsData = localStorage.getItem('dms_page_analytics');
+    allPageViews = analyticsData ? JSON.parse(analyticsData) : {};
+
+    // Sort leads by date (newest first)
+    allLeads.sort((a, b) => new Date(b.date) - new Date(a.date));
+    allMembers.sort((a, b) => new Date(b.dateJoined) - new Date(a.dateJoined));
+  }
+
+  // Render dashboard with data
+  function renderDashboard() {
+    updateStats();
+    renderLeadsTable();
+    renderMembersTable();
+    updateAnalytics();
+  }
+
+  function updateStats() {
+    const now = new Date();
+    const oneMonthAgo = new Date(now.getFullYear(), now.getMonth() - 1, now.getDate());
+    const oneWeekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+
+    const leadsThisMonth = allLeads.filter(lead => new Date(lead.date) >= oneMonthAgo).length;
+    const leadsThisWeek = allLeads.filter(lead => new Date(lead.date) >= oneWeekAgo).length;
+
+    document.getElementById('totalLeads').textContent = allLeads.length;
+    document.getElementById('leadsThisMonth').textContent = leadsThisMonth;
+    document.getElementById('leadsThisWeek').textContent = leadsThisWeek;
+    document.getElementById('totalSubscribers').textContent = allMembers.length;
+  }
+
+  function renderLeadsTable() {
+    const tbody = document.getElementById('leadsTableBody');
+    const searchTerm = document.getElementById('searchInput')?.value.toLowerCase() || '';
+
+    let filteredLeads = allLeads;
+    if (searchTerm) {
+      filteredLeads = allLeads.filter(lead =>
+        lead.name.toLowerCase().includes(searchTerm) ||
+        lead.email.toLowerCase().includes(searchTerm)
+      );
+    }
+
+    if (filteredLeads.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="6" class="no-data">No leads found. ' + (searchTerm ? 'Try adjusting your search.' : 'Leads will appear here when users sign up.') + '</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = filteredLeads.map(lead => {
+      const date = new Date(lead.date).toLocaleDateString();
+      return `
+        <tr>
+          <td>${date}</td>
+          <td><strong>${lead.name}</strong></td>
+          <td>${lead.email}</td>
+          <td>${lead.phone}</td>
+          <td>${lead.sourcePage || '-'}</td>
+          <td>${lead.resourceDownloaded || '-'}</td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  function renderMembersTable() {
+    const tbody = document.getElementById('membersTableBody');
+
+    if (allMembers.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="5" class="no-data">No members yet. Member signups will appear here.</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = allMembers.map(member => {
+      const date = new Date(member.dateJoined).toLocaleDateString();
+      return `
+        <tr>
+          <td>${date}</td>
+          <td><strong>${member.firstName} ${member.lastName}</strong></td>
+          <td>${member.email}</td>
+          <td>${member.practiceName || '-'}</td>
+          <td>${member.practiceSize || '-'}</td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  function updateAnalytics() {
+    const totalViews = Object.values(allPageViews).reduce((sum, count) => sum + count, 0);
+    const uniqueVisitors = Object.keys(allPageViews).length;
+
+    const mostVisited = uniqueVisitors > 0
+      ? Object.entries(allPageViews).sort((a, b) => b[1] - a[1])[0][0]
+      : '-';
+
+    const resourcesDownloaded = allLeads.filter(l => l.resourceDownloaded).length;
+
+    const topSource = allLeads.length > 0
+      ? Object.entries(allLeads.reduce((acc, l) => {
+          acc[l.sourcePage] = (acc[l.sourcePage] || 0) + 1;
+          return acc;
+        }, {})).sort((a, b) => b[1] - a[1])[0]?.[0] || '-'
+      : '-';
+
+    const conversionRate = totalViews > 0
+      ? ((allLeads.length / totalViews) * 100).toFixed(1) + '%'
+      : '-';
+
+    document.getElementById('totalPageViews').textContent = totalViews;
+    document.getElementById('uniqueVisitors').textContent = uniqueVisitors;
+    document.getElementById('mostVisitedPage').textContent = mostVisited;
+    document.getElementById('resourcesDownloaded').textContent = resourcesDownloaded;
+    document.getElementById('topLeadSource').textContent = topSource;
+    document.getElementById('conversionRate').textContent = conversionRate;
+  }
+
+  function exportToCSV() {
+    const headers = ['Date', 'Name', 'Email', 'Phone', 'Source Page', 'Resource Downloaded'];
+    const rows = allLeads.map(lead => [
+      new Date(lead.date).toLocaleDateString(),
+      lead.name,
+      lead.email,
+      lead.phone,
+      lead.sourcePage || '-',
+      lead.resourceDownloaded || '-'
+    ]);
+
+    const csvContent = [
+      headers.join(','),
+      ...rows.map(row => row.map(cell => `"${cell}"`).join(','))
+    ].join('\n');
+
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `dms-leads-${new Date().toISOString().split('T')[0]}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  // Add event listener for search
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        renderLeadsTable();
+      });
+    }
+    initDashboard();
+  });
+
+  // Allow Enter key to submit password
+  document.addEventListener('DOMContentLoaded', function() {
+    const passwordInput = document.getElementById('passwordInput');
+    if (passwordInput) {
+      passwordInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          validatePassword();
+        }
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

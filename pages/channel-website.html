@@ -13,6 +13,14 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
 </head>
 <body>
 
@@ -121,7 +129,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">Dental Website Design Best Practices: What Converts</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Design Guide | 12 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Create a professional-looking dental website. Design principles, color psychology, typography, and layout patterns that work.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/dental-website-design-guide.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -131,7 +139,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">Dental Website Patient Experience: What Patients Actually Want</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">UX Guide | 10 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Design from the patient perspective. Information they want, navigation that makes sense, and reducing friction in the journey.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/dental-website-design-guide.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -141,7 +149,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">Dental Website Conversion Optimization: From Visitor to Lead</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Strategy | 11 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Optimize every element for conversions. CTAs, forms, value props, and psychological triggers that move visitors to action.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/dental-website-conversion.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -151,7 +159,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">Online Appointment Scheduling: Increase Bookings, Reduce No-Shows</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Integration Guide | 9 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Implement online scheduling that patients love. Booking experience, integrations, automations, and no-show reduction.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/dental-website-conversion.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -161,7 +169,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">Mobile-First Dental Website Design: Optimize for Mobile Users</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Mobile Guide | 9 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Design for mobile first. 60% of traffic is mobile. Responsive design, mobile UX, and touch-friendly interfaces.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/dental-website-design-guide.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -171,7 +179,7 @@
           <h4 style="color: #1B2A4A; margin-bottom: 0.5rem;">A/B Testing for Dental Websites: Test and Improve</h4>
           <p style="color: #999; font-size: 0.85rem; margin-bottom: 1rem;">Testing Guide | 10 min read</p>
           <p style="color: #666; font-size: 0.95rem; margin-bottom: 1rem;">Run A/B tests on your site. Headlines, CTAs, forms, colors, and images. Data-driven decisions beat gut feelings.</p>
-          <a href="#" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
+          <a href="../articles/dental-website-seo-content.html" style="color: #D4A843; font-weight: 600; text-decoration: none;">Read Article →</a>
         </div>
       </div>
 
@@ -353,8 +361,8 @@
         <a href="membership.html">Membership</a>
         <a href="contact.html">Contact</a>
         <a href="https://www.ekwa.com" target="_blank">Ekwa Marketing</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -365,5 +373,12 @@
 </footer>
 
 <script src="../js/main.js"></script>
+<!-- Page View Tracking -->
+<script>
+  gtag('event', 'page_view', {
+    page_title: document.title,
+    page_path: window.location.pathname
+  });
+</script>
 </body>
 </html>

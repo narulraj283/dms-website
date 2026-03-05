@@ -13,6 +13,8 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','GA_MEASUREMENT_ID');</script>
 </head>
 <body>
 
@@ -332,6 +334,65 @@
 </section>
 
 <!-- âââ FOOTER âââ -->
+
+<!-- EVENT REGISTRATION FORM -->
+<section class="section section-light" id="eventRegistration">
+  <div class="container">
+    <div style="max-width: 600px; margin: 0 auto;">
+      <h2 style="text-align: center; margin-bottom: 2rem;">Register for an Event</h2>
+      <form id="eventRegForm" style="display: flex; flex-direction: column; gap: 1rem;">
+        <div id="regSuccessMessage" style="display: none; background: #d4edda; border: 1px solid #c3e6cb; color: #155724; padding: 1rem; border-radius: 6px; margin-bottom: 1rem;">Thank you for registering! You'll receive a confirmation email with the event details shortly.</div>
+
+        <div>
+          <label style="display: block; font-weight: 600; color: #1B2A4A; margin-bottom: 0.5rem;">Full Name</label>
+          <input type="text" id="regName" placeholder="Dr. John Smith" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; font-family: Inter, sans-serif;">
+        </div>
+
+        <div>
+          <label style="display: block; font-weight: 600; color: #1B2A4A; margin-bottom: 0.5rem;">Email Address</label>
+          <input type="email" id="regEmail" placeholder="your@email.com" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; font-family: Inter, sans-serif;">
+        </div>
+
+        <div>
+          <label style="display: block; font-weight: 600; color: #1B2A4A; margin-bottom: 0.5rem;">Phone Number</label>
+          <input type="tel" id="regPhone" placeholder="(302) 555-1234" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; font-family: Inter, sans-serif;">
+        </div>
+
+        <div>
+          <label style="display: block; font-weight: 600; color: #1B2A4A; margin-bottom: 0.5rem;">Practice Name</label>
+          <input type="text" id="regPractice" placeholder="Your Dental Practice" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; font-family: Inter, sans-serif;">
+        </div>
+
+        <button type="submit" class="btn btn-gold btn-lg" style="width: 100%; margin-top: 0.5rem;">Register Now</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+document.getElementById('eventRegForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  var registration = {
+    name: document.getElementById('regName').value,
+    email: document.getElementById('regEmail').value,
+    phone: document.getElementById('regPhone').value,
+    practice: document.getElementById('regPractice').value,
+    timestamp: new Date().toISOString()
+  };
+
+  var registrations = JSON.parse(localStorage.getItem('dms_event_registrations') || '[]');
+  registrations.push(registration);
+  localStorage.setItem('dms_event_registrations', JSON.stringify(registrations));
+
+  document.getElementById('regSuccessMessage').style.display = 'block';
+  document.getElementById('eventRegForm').reset();
+
+  setTimeout(function() {
+    document.getElementById('regSuccessMessage').style.display = 'none';
+  }, 5000);
+});
+</script>
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
@@ -364,8 +425,8 @@
         <a href="membership.html">Membership</a>
         <a href="contact.html">Contact</a>
         <a href="https://www.ekwa.com" target="_blank">Ekwa Marketing</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
       </div>
     </div>
     <div class="footer-bottom">

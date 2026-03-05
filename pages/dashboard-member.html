@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Member Dashboard - Dental Marketing Society</title>
+  <meta name="description" content="Your DMS member dashboard - track progress, access resources, and join the community.">
+  <meta name="keywords" content="member dashboard, learning paths, resources, dental marketing">
+  <meta property="og:title" content="Member Dashboard - Dental Marketing Society">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <style>
+    .dashboard-container { max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; }
+    .member-welcome { background: linear-gradient(135deg, #1B2A4A 0%, #2E75B6 100%); color: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .member-welcome h1 { margin: 0; font-size: 2rem; }
+    .member-welcome p { margin: 0.5rem 0 0 0; opacity: 0.9; }
+    .logout-btn { background: rgba(255,255,255,0.2); border: 1px solid white; color: white; padding: 0.5rem 1.5rem; border-radius: 6px; cursor: pointer; font-weight: 600; }
+    .logout-btn:hover { background: rgba(255,255,255,0.3); }
+
+    .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+    .dashboard-card { background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    .dashboard-card h2 { color: #1B2A4A; margin-top: 0; margin-bottom: 1.5rem; font-size: 1.3rem; }
+    .dashboard-card h3 { color: #1B2A4A; margin-top: 1rem; margin-bottom: 0.5rem; font-size: 1rem; }
+    .dashboard-card p { color: #666; margin: 0.5rem 0; }
+    .progress-item { margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #f0f0f0; }
+    .progress-item:last-child { border-bottom: none; }
+    .progress-bar { background: #f0f0f0; height: 6px; border-radius: 3px; overflow: hidden; margin-top: 0.25rem; }
+    .progress-fill { background: #D4A843; height: 100%; }
+
+    .resource-item { background: #f9f9f9; padding: 1rem; border-radius: 6px; margin-bottom: 0.75rem; border-left: 3px solid #D4A843; }
+    .resource-item p { margin: 0; font-size: 0.9rem; }
+
+    .channel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .channel-link { background: linear-gradient(135deg, #D4A843, #c49a38); color: white; padding: 1rem; border-radius: 6px; text-align: center; text-decoration: none; font-weight: 600; transition: transform 0.2s; }
+    .channel-link:hover { transform: translateY(-2px); }
+
+    .event-item { background: #f9f9f9; padding: 1rem; border-radius: 6px; margin-bottom: 0.75rem; border-left: 3px solid #2E75B6; }
+    .event-item strong { color: #1B2A4A; }
+    .event-item p { margin: 0.25rem 0 0 0; font-size: 0.9rem; color: #666; }
+
+    .discussion-item { background: #f9f9f9; padding: 1rem; border-radius: 6px; margin-bottom: 0.75rem; border-left: 3px solid #1B2A4A; }
+    .discussion-item strong { color: #1B2A4A; }
+    .discussion-item p { margin: 0.25rem 0 0 0; font-size: 0.85rem; color: #999; }
+
+    .login-section { max-width: 600px; margin: 0 auto; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; color: #1B2A4A; font-weight: 600; margin-bottom: 0.5rem; }
+    .form-group input, .form-group select { width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-button { background: #D4A843; color: white; padding: 1rem; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; width: 100%; }
+    .form-button:hover { background: #c49a38; }
+    .form-link { text-align: center; margin-top: 1rem; }
+    .form-link a { color: #2E75B6; text-decoration: none; font-weight: 600; }
+    .form-link a:hover { text-decoration: underline; }
+
+    .login-container { padding: 3rem 0; }
+    .scorecard-result { background: #f0f7ff; border-left: 4px solid #2E75B6; padding: 1.5rem; border-radius: 6px; margin-top: 1rem; }
+    .scorecard-result strong { color: #1B2A4A; }
+    .scorecard-score { font-size: 2rem; color: #D4A843; font-weight: bold; }
+
+    .empty-state { text-align: center; color: #999; padding: 2rem; }
+    .empty-state p { margin: 0; }
+
+    .btn-login-toggle { background: #2E75B6; color: white; padding: 0.5rem 1rem; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
+    .btn-login-toggle:hover { background: #1e5294; }
+  </style>
+</head>
+<body>
+
+<!-- ••• HEADER ••• -->
+<header class="header">
+  <div class="header-inner">
+    <a href="../index.html" class="logo">
+      <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="8" fill="#1B2A4A"/>
+        <path d="M12 28V16c0-3.3 2.7-6 6-6h4c3.3 0 6 2.7 6 6v12" stroke="#D4A843" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M8 20h24" stroke="#D4A843" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <path d="M20 10v20" stroke="#D4A843" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="20" cy="18" r="3" fill="#D4A843"/>
+      </svg>
+      <span class="logo-text">Dental Marketing <span>Society</span></span>
+    </a>
+    <nav class="nav">
+      <div class="nav-dropdown">
+        <a href="#">Marketing Channels ⬇</a>
+        <div class="nav-dropdown-content">
+          <a href="channel-seo.html">🔍 SEO & Local Search</a>
+          <a href="channel-ppc.html">💰 Pay-Per-Click (PPC)</a>
+          <a href="channel-social.html">📱 Social Media</a>
+          <a href="channel-reputation.html">⭐ Reputation & Reviews</a>
+          <a href="channel-website.html">🌐 Website & Conversion</a>
+          <a href="channel-referral.html">🤝 Referral Marketing</a>
+          <a href="channel-email.html">📧 Email Marketing</a>
+          <a href="channel-video.html">🎬 Video Marketing</a>
+          <a href="channel-directmail.html">💬 Direct Mail</a>
+          <a href="channel-branding.html">🎨 Branding</a>
+          <a href="channel-ai.html">🤖 AI & Emerging Tech</a>
+        </div>
+      </div>
+      <a href="events.html">Events</a>
+      <a href="podcast.html">Podcast</a>
+      <a href="../tools/scorecard.html">Tools</a>
+      <a href="community.html">Community</a>
+      <a href="about.html">About</a>
+      <a href="membership.html" class="nav-cta">Join Free</a>
+    </nav>
+    <button class="mobile-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ••• LOGIN VIEW ••• -->
+<div id="loginView" style="display: none;">
+  <section class="hero" style="padding: 60px 0 40px;">
+    <div class="container">
+      <h1 style="margin-bottom: 1rem;">Member<br><span>Dashboard</span></h1>
+      <p style="font-size: 1.2rem; color: #666; max-width: 700px; margin-bottom: 0;">Sign in to your account to access your personalized dashboard, learning paths, and saved resources.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container login-section">
+      <div style="margin-bottom: 3rem;">
+        <h2 style="text-align: center; margin-bottom: 2rem;">Sign In</h2>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="loginEmail" placeholder="your@email.com" />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="loginPassword" placeholder="Enter password" />
+        </div>
+        <button class="form-button" onclick="loginMember()">Sign In</button>
+        <div class="form-link">
+          <span style="color: #666;">Don't have an account? </span><a href="#" onclick="toggleView('signup'); return false;">Sign up now</a>
+        </div>
+        <div id="loginError" style="color: #d32f2f; margin-top: 1rem; display: none;"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ••• SIGNUP VIEW ••• -->
+<div id="signupView" style="display: none;">
+  <section class="hero" style="padding: 60px 0 40px;">
+    <div class="container">
+      <h1 style="margin-bottom: 1rem;">Join Dental<br><span>Marketing Society</span></h1>
+      <p style="font-size: 1.2rem; color: #666; max-width: 700px; margin-bottom: 0;">Create your free account to access all our marketing resources and join the community.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container login-section">
+      <div style="margin-bottom: 3rem;">
+        <h2 style="text-align: center; margin-bottom: 2rem;">Create Your Account</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" id="signupFirstName" placeholder="First name" />
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" id="signupLastName" placeholder="Last name" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="signupEmail" placeholder="your@email.com" />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="signupPassword" placeholder="Create a password" />
+        </div>
+        <div class="form-group">
+          <label>Phone (Optional)</label>
+          <input type="tel" id="signupPhone" placeholder="(555) 123-4567" />
+        </div>
+        <div class="form-group">
+          <label>Dental Practice Name</label>
+          <input type="text" id="signupPracticeName" placeholder="Practice name" />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Practice Size</label>
+            <select id="signupPracticeSize">
+              <option value="">Select practice size</option>
+              <option value="solo">Solo Practice (1 location)</option>
+              <option value="small">Small Group (2-3 locations)</option>
+              <option value="medium">Medium Group (4-10 locations)</option>
+              <option value="large">Large Group (10+ locations)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Primary Marketing Challenge</label>
+            <select id="signupChallenge">
+              <option value="">Select challenge</option>
+              <option value="patient-acquisition">Patient Acquisition</option>
+              <option value="retention">Patient Retention</option>
+              <option value="seo">Local SEO</option>
+              <option value="reputation">Online Reputation</option>
+              <option value="social">Social Media</option>
+              <option value="budget">Marketing Budget</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+        <button class="form-button" onclick="signupMember()">Create Account</button>
+        <div class="form-link">
+          <span style="color: #666;">Already a member? </span><a href="#" onclick="toggleView('login'); return false;">Sign in</a>
+        </div>
+        <div id="signupError" style="color: #d32f2f; margin-top: 1rem; display: none;"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ••• DASHBOARD VIEW ••• -->
+<div id="dashboardView" style="display: none;">
+  <div class="dashboard-container">
+    <!-- Welcome Section -->
+    <div class="member-welcome">
+      <div>
+        <h1>Welcome back, <span id="memberName">Member</span>!</h1>
+        <p>Continue your learning journey and grow your practice marketing skills.</p>
+      </div>
+      <button class="logout-btn" onclick="logoutMember()">Logout</button>
+    </div>
+
+    <!-- Dashboard Grid -->
+    <div class="dashboard-grid">
+      <!-- Learning Paths Card -->
+      <div class="dashboard-card">
+        <h2>Your Progress</h2>
+        <p style="margin-top: 0;">Track your learning journey through our marketing channels:</p>
+        <div class="progress-item">
+          <h3>SEO Foundations</h3>
+          <div class="progress-bar"><div class="progress-fill" style="width: 65%;"></div></div>
+          <p style="font-size: 0.85rem; color: #999;">65% Complete</p>
+        </div>
+        <div class="progress-item">
+          <h3>Google Ads Mastery</h3>
+          <div class="progress-bar"><div class="progress-fill" style="width: 40%;"></div></div>
+          <p style="font-size: 0.85rem; color: #999;">40% Complete</p>
+        </div>
+        <div class="progress-item">
+          <h3>Social Media Strategy</h3>
+          <div class="progress-bar"><div class="progress-fill" style="width: 25%;"></div></div>
+          <p style="font-size: 0.85rem; color: #999;">25% Complete</p>
+        </div>
+        <div class="progress-item">
+          <h3>Reputation Management</h3>
+          <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
+          <p style="font-size: 0.85rem; color: #999;">80% Complete</p>
+        </div>
+      </div>
+
+      <!-- Saved Resources Card -->
+      <div class="dashboard-card">
+        <h2>Saved Resources</h2>
+        <p style="margin-top: 0;">Your downloaded resources:</p>
+        <div class="resource-item">
+          <strong>Local SEO Checklist 2026</strong>
+          <p>Downloaded 3 days ago</p>
+        </div>
+        <div class="resource-item">
+          <strong>Google Ads Budget Planner</strong>
+          <p>Downloaded 1 week ago</p>
+        </div>
+        <div class="resource-item">
+          <strong>Review Management Guide</strong>
+          <p>Downloaded 2 weeks ago</p>
+        </div>
+        <div class="resource-item">
+          <strong>Social Media Templates Pack</strong>
+          <p>Downloaded 1 month ago</p>
+        </div>
+        <a href="../tools/scorecard.html" style="display: inline-block; margin-top: 1rem; color: #2E75B6; font-weight: 600; text-decoration: none;">Download More Resources →</a>
+      </div>
+
+      <!-- Scorecard Results Card -->
+      <div class="dashboard-card">
+        <h2>Scorecard Results</h2>
+        <p style="margin-top: 0;">Your marketing assessment:</p>
+        <div class="scorecard-result">
+          <p style="margin-top: 0;">Overall Marketing Score</p>
+          <div class="scorecard-score">72/100</div>
+          <p><strong>Status:</strong> Good (Above Average)</p>
+          <p style="font-size: 0.9rem; margin-bottom: 0;">Take the scorecard again to track improvements over time.</p>
+        </div>
+        <a href="../tools/scorecard.html" style="display: inline-block; margin-top: 1rem; color: #2E75B6; font-weight: 600; text-decoration: none;">Retake Scorecard →</a>
+      </div>
+    </div>
+
+    <!-- Marketing Channels Section -->
+    <div class="dashboard-card" style="grid-column: 1 / -1;">
+      <h2>Explore the 11 Marketing Channels</h2>
+      <p>Master each channel with our comprehensive guides and resources:</p>
+      <div class="channel-grid">
+        <a href="channel-seo.html" class="channel-link">🔍 SEO</a>
+        <a href="channel-ppc.html" class="channel-link">💰 PPC</a>
+        <a href="channel-social.html" class="channel-link">📱 Social</a>
+        <a href="channel-reputation.html" class="channel-link">⭐ Reputation</a>
+        <a href="channel-website.html" class="channel-link">🌐 Website</a>
+        <a href="channel-referral.html" class="channel-link">🤝 Referral</a>
+        <a href="channel-email.html" class="channel-link">📧 Email</a>
+        <a href="channel-video.html" class="channel-link">🎬 Video</a>
+        <a href="channel-directmail.html" class="channel-link">💬 Direct Mail</a>
+        <a href="channel-branding.html" class="channel-link">🎨 Branding</a>
+        <a href="channel-ai.html" class="channel-link">🤖 AI & Tech</a>
+      </div>
+    </div>
+
+    <!-- Upcoming Events -->
+    <div class="dashboard-card">
+      <h2>Upcoming Events</h2>
+      <div class="event-item">
+        <strong>SEO Masterclass with Marcus King</strong>
+        <p>Mar 12, 2026 at 2:00 PM EST</p>
+      </div>
+      <div class="event-item">
+        <strong>Live Q&A: Google Ads Strategy</strong>
+        <p>Mar 15, 2026 at 1:00 PM EST</p>
+      </div>
+      <div class="event-item">
+        <strong>Monthly Community Networking</strong>
+        <p>Mar 20, 2026 at 3:00 PM EST</p>
+      </div>
+      <a href="events.html" style="display: inline-block; margin-top: 1rem; color: #2E75B6; font-weight: 600; text-decoration: none;">View All Events →</a>
+    </div>
+
+    <!-- Community Discussions -->
+    <div class="dashboard-card">
+      <h2>Recent Community Discussions</h2>
+      <div class="discussion-item">
+        <strong>Best practice for local service ads in 2026?</strong>
+        <p>Started by Dr. Sarah Johnson • 2 replies</p>
+      </div>
+      <div class="discussion-item">
+        <strong>Has anyone tried AI for social media content?</strong>
+        <p>Started by Mike Chen • 8 replies</p>
+      </div>
+      <div class="discussion-item">
+        <strong>Budget allocation between PPC and SEO</strong>
+        <p>Started by Emily Wright • 12 replies</p>
+      </div>
+      <div class="discussion-item">
+        <strong>New Google algorithm update impact on dental sites</strong>
+        <p>Started by David Smith • 5 replies</p>
+      </div>
+      <a href="community.html" style="display: inline-block; margin-top: 1rem; color: #2E75B6; font-weight: 600; text-decoration: none;">Join Community Discussion →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ••• FOOTER ••• -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4 style="font-size:1.15rem;">Dental Marketing Society</h4>
+        <p>The #1 authority in dental practice marketing. Expert education, powerful tools, and a community of practice owners. Where dental practices grow.</p>
+        <p class="footer-ekwa">Brought to you by <strong>Ekwa Marketing</strong> – the leading search engine marketing company for dental practices.</p>
+      </div>
+      <div>
+        <h4>Marketing Channels</h4>
+        <a href="channel-seo.html">SEO & Local Search</a>
+        <a href="channel-ppc.html">PPC Advertising</a>
+        <a href="channel-social.html">Social Media</a>
+        <a href="channel-reputation.html">Reputation</a>
+        <a href="channel-website.html">Website & Conversion</a>
+        <a href="channel-email.html">Email Marketing</a>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <a href="../tools/scorecard.html">Marketing Scorecard</a>
+        <a href="../tools/roi-calculator.html">ROI Calculators</a>
+        <a href="../tools/budget-planner.html">Budget Planner</a>
+        <a href="podcast.html">Podcast</a>
+        <a href="events.html">Events & Webinars</a>
+        <a href="community.html">Community</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="about.html">About DMS</a>
+        <a href="dashboard-member.html">Member Dashboard</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://www.ekwa.com" target="_blank">Ekwa Marketing</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Dental Marketing Society. All rights reserved.</span>
+      <span>A product of <a href="https://www.ekwa.com" class="footer-ekwa" target="_blank">Ekwa Marketing</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Check authentication on load
+  document.addEventListener('DOMContentLoaded', function() {
+    const currentMember = localStorage.getItem('dms_current_member');
+    if (currentMember) {
+      showDashboard();
+    } else {
+      showLoginSignup();
+    }
+  });
+
+  function toggleView(view) {
+    document.getElementById('loginView').style.display = 'none';
+    document.getElementById('signupView').style.display = 'none';
+    document.getElementById('dashboardView').style.display = 'none';
+
+    if (view === 'login') {
+      document.getElementById('loginView').style.display = 'block';
+      document.getElementById('loginError').style.display = 'none';
+      document.getElementById('loginEmail').value = '';
+      document.getElementById('loginPassword').value = '';
+    } else if (view === 'signup') {
+      document.getElementById('signupView').style.display = 'block';
+      document.getElementById('signupError').style.display = 'none';
+      clearSignupForm();
+    } else if (view === 'dashboard') {
+      document.getElementById('dashboardView').style.display = 'block';
+    }
+  }
+
+  function showLoginSignup() {
+    toggleView('login');
+  }
+
+  function showDashboard() {
+    const currentMember = JSON.parse(localStorage.getItem('dms_current_member'));
+    document.getElementById('memberName').textContent = currentMember.firstName;
+    toggleView('dashboard');
+  }
+
+  function loginMember() {
+    const email = document.getElementById('loginEmail').value.trim();
+    const password = document.getElementById('loginPassword').value;
+    const errorDiv = document.getElementById('loginError');
+
+    if (!email || !password) {
+      errorDiv.textContent = 'Please enter both email and password.';
+      errorDiv.style.display = 'block';
+      return;
+    }
+
+    const members = JSON.parse(localStorage.getItem('dms_members') || '[]');
+    const member = members.find(m => m.email === email && m.password === password);
+
+    if (member) {
+      localStorage.setItem('dms_current_member', JSON.stringify(member));
+      errorDiv.style.display = 'none';
+      showDashboard();
+    } else {
+      errorDiv.textContent = 'Invalid email or password.';
+      errorDiv.style.display = 'block';
+    }
+  }
+
+  function signupMember() {
+    const firstName = document.getElementById('signupFirstName').value.trim();
+    const lastName = document.getElementById('signupLastName').value.trim();
+    const email = document.getElementById('signupEmail').value.trim();
+    const password = document.getElementById('signupPassword').value;
+    const phone = document.getElementById('signupPhone').value.trim();
+    const practiceName = document.getElementById('signupPracticeName').value.trim();
+    const practiceSize = document.getElementById('signupPracticeSize').value;
+    const challenge = document.getElementById('signupChallenge').value;
+    const errorDiv = document.getElementById('signupError');
+
+    if (!firstName || !lastName || !email || !password || !practiceName || !practiceSize) {
+      errorDiv.textContent = 'Please fill in all required fields.';
+      errorDiv.style.display = 'block';
+      return;
+    }
+
+    const members = JSON.parse(localStorage.getItem('dms_members') || '[]');
+    if (members.some(m => m.email === email)) {
+      errorDiv.textContent = 'This email is already registered.';
+      errorDiv.style.display = 'block';
+      return;
+    }
+
+    const newMember = {
+      id: Date.now(),
+      firstName,
+      lastName,
+      email,
+      password,
+      phone,
+      practiceName,
+      practiceSize,
+      primaryChallenge: challenge,
+      dateJoined: new Date().toISOString(),
+      progressPaths: ['seo', 'ppc', 'social', 'reputation'],
+      savedResources: []
+    };
+
+    members.push(newMember);
+    localStorage.setItem('dms_members', JSON.stringify(members));
+    localStorage.setItem('dms_current_member', JSON.stringify(newMember));
+    errorDiv.style.display = 'none';
+    showDashboard();
+  }
+
+  function logoutMember() {
+    localStorage.removeItem('dms_current_member');
+    showLoginSignup();
+  }
+
+  function clearSignupForm() {
+    document.getElementById('signupFirstName').value = '';
+    document.getElementById('signupLastName').value = '';
+    document.getElementById('signupEmail').value = '';
+    document.getElementById('signupPassword').value = '';
+    document.getElementById('signupPhone').value = '';
+    document.getElementById('signupPracticeName').value = '';
+    document.getElementById('signupPracticeSize').value = '';
+    document.getElementById('signupChallenge').value = '';
+  }
+
+  // Allow Enter key to submit
+  document.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      if (document.getElementById('loginView').style.display !== 'none') {
+        loginMember();
+      } else if (document.getElementById('signupView').style.display !== 'none') {
+        signupMember();
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
