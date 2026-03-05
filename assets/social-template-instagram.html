@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMS Instagram Post Template</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+        }
+
+        .instagram-post {
+            width: 1080px;
+            height: 1080px;
+            background: linear-gradient(135deg, #1B2A4A 0%, #243556 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        /* Decorative gold accent bar */
+        .accent-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, #D4A843 0%, #E8C65F 50%, #D4A843 100%);
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-grow: 1;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Main headline stat */
+        .stat {
+            margin-bottom: 30px;
+        }
+
+        .stat-number {
+            font-size: 140px;
+            font-weight: 900;
+            color: #D4A843;
+            line-height: 1;
+            letter-spacing: -3px;
+            text-shadow: 0 4px 20px rgba(212, 168, 67, 0.3);
+        }
+
+        .stat-label {
+            font-size: 42px;
+            color: #FFFFFF;
+            margin-top: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Subtitle area */
+        .subtitle {
+            margin-top: 40px;
+            font-size: 28px;
+            color: #E8C65F;
+            font-weight: 500;
+            max-width: 700px;
+            line-height: 1.4;
+        }
+
+        /* Decorative elements */
+        .decoration {
+            position: absolute;
+            opacity: 0.08;
+            z-index: 1;
+        }
+
+        .decoration-left {
+            top: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #D4A843, transparent);
+            border-radius: 50%;
+        }
+
+        .decoration-right {
+            bottom: -150px;
+            right: -150px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #D4A843, transparent);
+            border-radius: 50%;
+        }
+
+        /* Watermark section */
+        .watermark {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .dms-mark {
+            font-size: 18px;
+            font-weight: 700;
+            color: #D4A843;
+            letter-spacing: 2px;
+        }
+
+        .tooth-icon {
+            width: 24px;
+            height: 24px;
+            background: #D4A843;
+            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 50% 88%, 18% 100%, 0% 38%);
+        }
+
+        @media (max-width: 1200px) {
+            .instagram-post {
+                width: 540px;
+                height: 540px;
+                padding: 30px;
+            }
+
+            .stat-number {
+                font-size: 70px;
+            }
+
+            .stat-label {
+                font-size: 21px;
+            }
+
+            .subtitle {
+                font-size: 14px;
+            }
+
+            .dms-mark {
+                font-size: 9px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="instagram-post">
+        <div class="accent-bar"></div>
+
+        <div class="decoration decoration-left"></div>
+        <div class="decoration decoration-right"></div>
+
+        <div class="content">
+            <div class="stat">
+                <div class="stat-number">47%</div>
+                <div class="stat-label">More Patients</div>
+            </div>
+
+            <div class="subtitle">
+                Dental practices using data-driven marketing strategies see dramatic patient acquisition growth
+            </div>
+        </div>
+
+        <div class="watermark">
+            <div class="dms-mark">DMS</div>
+            <div class="tooth-icon"></div>
+        </div>
+    </div>
+</body>
+</html>
