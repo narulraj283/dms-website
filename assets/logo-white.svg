@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
+  <!-- Icon section: Stylized tooth with growth arrow -->
+  <g id="icon" transform="translate(20, 20)">
+    <!-- Main tooth body in white -->
+    <path d="M 20 10 Q 15 10 12 15 L 8 40 Q 7 45 10 50 Q 15 55 20 55 Q 25 55 30 50 Q 33 45 32 40 L 28 15 Q 25 10 20 10 Z" fill="#FFFFFF"/>
+
+    <!-- Tooth highlight for dimension -->
+    <ellipse cx="18" cy="20" rx="4" ry="6" fill="#D4A843" opacity="0.3"/>
+
+    <!-- Growth arrow integrated into tooth -->
+    <g transform="translate(20, 35)">
+      <!-- Arrow shaft -->
+      <rect x="-1.5" y="-12" width="3" height="15" fill="#D4A843"/>
+      <!-- Arrow head top -->
+      <polygon points="0,-12 -3,-6 3,-6" fill="#D4A843"/>
+      <!-- Arrow accent -->
+      <circle cx="0" cy="-10" r="2" fill="#E8C65F"/>
+    </g>
+  </g>
+
+  <!-- Text section -->
+  <g id="text" transform="translate(100, 35)">
+    <!-- "Dental Marketing" in White -->
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#FFFFFF" letter-spacing="-0.5">
+      Dental Marketing
+    </text>
+
+    <!-- "Society" in Gold -->
+    <text x="0" y="35" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#D4A843" letter-spacing="-0.5">
+      Society
+    </text>
+  </g>
+</svg>
