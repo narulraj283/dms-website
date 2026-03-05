@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMS LinkedIn Article Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+        }
+
+        .linkedin-card {
+            width: 1200px;
+            height: 627px;
+            background: #FFFFFF;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            border-left: 6px solid #D4A843;
+        }
+
+        /* Left content section */
+        .content-section {
+            padding: 50px 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FB 100%);
+        }
+
+        .headline {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1B2A4A;
+            line-height: 1.3;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .insight {
+            font-size: 16px;
+            color: #666666;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .insight-highlight {
+            color: #D4A843;
+            font-weight: 600;
+        }
+
+        .author-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-top: 24px;
+            border-top: 1px solid #E0E0E0;
+        }
+
+        .author-photo {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #D4A843, #1B2A4A);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            font-weight: bold;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1B2A4A;
+        }
+
+        .author-title {
+            font-size: 12px;
+            color: #999999;
+        }
+
+        /* Right visual section */
+        .visual-section {
+            background: linear-gradient(135deg, #1B2A4A 0%, #243556 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative tooth element */
+        .tooth-decoration {
+            position: absolute;
+            width: 200px;
+            height: 280px;
+            opacity: 0.12;
+        }
+
+        .tooth-shape {
+            width: 100%;
+            height: 100%;
+            background: #D4A843;
+            clip-path: polygon(
+                50% 0%,
+                100% 30%,
+                95% 100%,
+                50% 90%,
+                5% 100%,
+                0% 30%
+            );
+        }
+
+        .badge {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .badge-label {
+            font-size: 14px;
+            color: #D4A843;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .badge-icon {
+            font-size: 64px;
+            margin-bottom: 16px;
+        }
+
+        .badge-text {
+            font-size: 18px;
+            color: #FFFFFF;
+            font-weight: 600;
+        }
+
+        /* Responsive design */
+        @media (max-width: 1400px) {
+            .linkedin-card {
+                width: 600px;
+                height: 313px;
+                grid-template-columns: 1fr;
+            }
+
+            .visual-section {
+                display: none;
+            }
+
+            .content-section {
+                padding: 35px 30px;
+            }
+
+            .headline {
+                font-size: 24px;
+                margin-bottom: 16px;
+            }
+
+            .insight {
+                font-size: 14px;
+                margin-bottom: 24px;
+            }
+
+            .author-photo {
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
+            }
+
+            .author-name {
+                font-size: 12px;
+            }
+
+            .author-title {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="linkedin-card">
+        <!-- Content Section -->
+        <div class="content-section">
+            <h1 class="headline">The Future of Dental Marketing is Data-Driven</h1>
+
+            <p class="insight">
+                Discover why <span class="insight-highlight">leading practices are adopting AI-powered analytics</span> to understand patient behavior and deliver personalized experiences.
+            </p>
+
+            <div class="author-section">
+                <div class="author-photo">DMS</div>
+                <div class="author-info">
+                    <div class="author-name">Dental Marketing Society</div>
+                    <div class="author-title">Industry Insights</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visual Section -->
+        <div class="visual-section">
+            <div class="tooth-decoration">
+                <div class="tooth-shape"></div>
+            </div>
+
+            <div class="badge">
+                <div class="badge-label">Featured Article</div>
+                <div class="badge-icon">ð</div>
+                <div class="badge-text">Read Now</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
