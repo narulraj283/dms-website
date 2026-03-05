@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROI Calculator Suite - Dental Marketing Society</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1B2A4A;
+            --gold: #D4A843;
+            --blue: #2E75B6;
+            --light-blue: #D5E8F0;
+            --light-gold: #FFF8E7;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f0f7 100%);
+            color: var(--navy);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            border-bottom: 3px solid var(--gold);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.8rem;
+            color: var(--navy);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .header-link {
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .header-link:hover {
+            color: var(--gold);
+        }
+
+        /* Main Container */
+        main {
+            flex: 1;
+            max-width: 1000px;
+            margin: 2rem auto;
+            width: 100%;
+            padding: 0 1.5rem;
+        }
+
+        /* Tabs */
+        .tabs-container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .tabs-header {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            background: #f5f5f5;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .tab-button {
+            padding: 1.5rem;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #888;
+            transition: all 0.3s ease;
+            position: relative;
+            text-align: center;
+        }
+
+        .tab-button:hover {
+            color: var(--blue);
+            background: rgba(46, 117, 182, 0.05);
+        }
+
+        .tab-button.active {
+            color: var(--navy);
+            background: white;
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blue) 0%, var(--gold) 100%);
+        }
+
+        /* Tab Content */
+        .tabs-content {
+            padding: 2.5rem;
+        }
+
+        .tab-pane {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Form Layout */
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .input-help {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+
+        input[type="number"],
+        input[type="range"],
+        select {
+            width: 100%;
+            padding: 0.85rem;
+            border: 2px solid #d0d0d0;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input[type="number"]:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(46, 117, 182, 0.1);
+        }
+
+        input[type="range"] {
+            padding: 0;
+            height: 8px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: #d0d0d0;
+            border: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--blue);
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(46, 117, 182, 0.4);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--blue);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 6px rgba(46, 117, 182, 0.4);
+        }
+
+        .range-value {
+            font-weight: 700;
+            color: var(--blue);
+            margin-top: 0.3rem;
+            font-size: 1.1rem;
+        }
+
+        /* Results Grid */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, var(--light-blue) 0%, #e8f0f7 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--blue);
+            transition: all 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(46, 117, 182, 0.2);
+        }
+
+        .result-label {
+            font-size: 0.9rem;
+            color: var(--blue);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .result-value {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1;
+        }
+
+        .result-subtext {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* Highlight cards */
+        .result-card.highlight {
+            background: linear-gradient(135deg, var(--light-gold) 0%, #fffaf0 100%);
+            border-left-color: var(--gold);
+        }
+
+        .result-card.highlight .result-label {
+            color: #b8860b;
+        }
+
+        .result-card.highlight .result-value {
+            color: var(--navy);
+        }
+
+        .result-card.positive {
+            background: linear-gradient(135deg, #c8f0d8 0%, #e0f7ea 100%);
+            border-left-color: #2a7d3a;
+        }
+
+        .result-card.positive .result-label {
+            color: #2a7d3a;
+        }
+
+        .result-card.positive .result-value {
+            color: #1a5a2a;
+        }
+
+        /* Divider */
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #d0d0d0 50%, transparent 100%);
+            margin: 2rem 0;
+        }
+
+        /* Timeline */
+        .timeline-container {
+            background: var(--light-blue);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+
+        .timeline-title {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 3px solid var(--blue);
+        }
+
+        .timeline-period {
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-value {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--blue);
+        }
+
+        /* Insight Box */
+        .insight-box {
+            background: #f0f8ff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--blue);
+            margin: 2rem 0;
+        }
+
+        .insight-title {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .insight-text {
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: auto;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            header h1 {
+                font-size: 1.4rem;
+            }
+
+            .tabs-header {
+                grid-template-columns: 1fr;
+            }
+
+            .tab-button {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .tabs-content {
+                padding: 1.5rem;
+            }
+
+            .calculator-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .result-value {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>DMS ROI Calculator Suite</h1>
+        <a href="/" class="header-link">← Back to DMS</a>
+    </header>
+
+    <main>
+        <div class="tabs-container">
+            <!-- Tabs Header -->
+            <div class="tabs-header">
+                <button class="tab-button active" onclick="switchTab(0)">Google Ads ROI</button>
+                <button class="tab-button" onclick="switchTab(1)">SEO Investment</button>
+                <button class="tab-button" onclick="switchTab(2)">Patient Lifetime Value</button>
+            </div>
+
+            <!-- Tabs Content -->
+            <div class="tabs-content">
+                <!-- Tab 1: Google Ads ROI -->
+                <div class="tab-pane active" id="tab-0">
+                    <div class="calculator-grid">
+                        <div>
+                            <div class="input-group">
+                                <label>Monthly Ad Budget ($)</label>
+                                <div class="input-help">How much are you spending on Google Ads per month?</div>
+                                <input type="number" id="adBudget" value="2000" min="0" step="100" oninput="calculateGoogleAdsROI()">
+                            </div>
+
+                            <div class="input-group">
+                                <label>Average Cost-Per-Click ($)</label>
+                                <div class="input-help">Your average CPC for dental keywords</div>
+                                <input type="number" id="cpc" value="8.50" min="0" step="0.25" oninput="calculateGoogleAdsROI()">
+                            </div>
+
+                            <div class="input-group">
+                                <label>Landing Page Conversion Rate (%)</label>
+                                <div class="input-help">What percentage of clicks become leads?</div>
+                                <input type="number" id="conversionRate" value="8" min="0" max="100" step="0.5" oninput="calculateGoogleAdsROI()">
+                                <div class="range-value" id="conversionDisplay">8%</div>
+                            </div>
+
+                            <div class="input-group">
+                                <label>New Patient Value ($)</label>
+                                <div class="input-help">Average revenue per new patient acquisition</div>
+                                <input type="number" id="patientValue" value="500" min="0" step="50" oninput="calculateGoogleAdsROI()">
+                            </div>
+                        </div>
+
+                        <div id="googleAdsResults" class="results-grid"></div>
+                    </div>
+
+                    <div class="insight-box">
+                        <div class="insight-title">Google Ads Strategy Tips</div>
+                        <div class="insight-text">Focus on high-intent keywords like "emergency dentist" and "teeth whitening near me." Use location modifiers to target local patients. A/B test your landing pages and implement proper conversion tracking to optimize your CPC and conversion rate over time.</div>
+                    </div>
+                </div>
+
+                <!-- Tab 2: SEO Investment -->
+                <div class="tab-pane" id="tab-1">
+                    <div class="calculator-grid">
+                        <div>
+                            <div class="input-group">
+                                <label>Monthly SEO Investment ($)</label>
+                                <div class="input-help">Your monthly SEO budget or agency cost</div>
+                                <input type="number" id="seoInvestment" value="1500" min="0" step="100" oninput="calculateSEOROI()">
+                            </div>
+
+                            <div class="input-group">
+                                <label>Current Organic Patients/Month</label>
+                                <div class="input-help">How many patients are you currently getting from organic search?</div>
+                                <input type="number" id="currentPatients" value="5" min="0" step="1" oninput="calculateSEOROI()">
+                            </div>
+
+                            <div class="input-group">
+                                <label>Expected Growth Rate (%)</label>
+                                <div class="input-help">Monthly growth rate from SEO efforts (typically 5-15%)</div>
+                                <input type="range" id="growthRate" value="10" min="1" max="30" oninput="calculateSEOROI(); updateRangeDisplay(this, 'growthDisplay')">
+                                <div class="range-value" id="growthDisplay">10% monthly</div>
+                            </div>
+
+                            <div class="input-group">
+                                <label>Average Patient Lifetime Value ($)</label>
+                                <div class="input-help">Total revenue from a patient across their lifetime</div>
+                                <input type="number" id="seoPatientLTV" value="3000" min="0" step="100" oninput="calculateSEOROI()">
+                            </div>
+                        </div>
+
+                        <div id="seoResults" class="results-grid"></div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="timeline-container">
+                        <div class="timeline-title">Projected Growth Over Time</div>
+                        <div class="timeline" id="seoTimeline"></div>
+                    </div>
+
+                    <div class="insight-box">
+                        <div class="insight-title">SEO Investment Reality</div>
+                        <div class="insight-text">SEO is a long-term investment that typically takes 3-6 months to show significant results. Focus on building local citations, optimizing for local keywords, creating high-quality content, and building backlinks. The compounding growth over 12-24 months can provide exceptional ROI.</div>
+                    </div>
+                </div>
+
+                <!-- Tab 3: Patient Lifetime Value -->
+                <div class="tab-pane" id="tab-2">
+                    <div class="calculator-grid">
+                        <div>
+                            <div class="input-group">
+                                <label>Average Revenue Per Visit ($)</label>
+                                <div class="input-help">Average service revenue per patient visit</div>
+                                <input type="number" id="revenuePerVisit" value="250" min="0" step="50" oninput="calculatePLTV()">
+                            </div>
+
+                            <div class="input-group">
+                                <label>Visits Per Year</label>
+                                <div class="input-help">Average number of visits per patient per year</div>
+                                <input type="number" id="visitsPerYear" value="2" min="0" step="0.5" oninput="calculatePLTV()">
+                            </div>
+
+                            <div class="input-group">
+                                <label>Average Patient Retention (Years)</label>
+                                <div class="input-help">How long does an average patient stay with you?</div>
+                                <input type="number" id="retention" value="8" min="0" step="1" oninput="calculatePLTV()">
+                            </div>
+
+                            <div class="input-group">
+                                <label>Referral Rate (%)</label>
+                                <div class="input-help">What percentage of patients refer others?</div>
+                                <input type="range" id="referralRate" value="30" min="0" max="100" step="5" oninput="calculatePLTV(); updateRangeDisplay(this, 'referralDisplay')">
+                                <div class="range-value" id="referralDisplay">30%</div>
+                            </div>
+
+                            <div class="input-group">
+                                <label>Average Referrals Per Patient</label>
+                                <div class="input-help">Average number of referrals per referring patient</div>
+                                <input type="number" id="avgReferrals" value="1.5" min="0" step="0.5" oninput="calculatePLTV()">
+                            </div>
+                        </div>
+
+                        <div id="pltvResults" class="results-grid"></div>
+                    </div>
+
+                    <div class="insight-box">
+                        <div class="insight-title">Why Patient Lifetime Value Matters</div>
+                        <div class="insight-text">Your Patient Lifetime Value should guide your marketing spend. If a patient is worth $4,000, you can justify spending $400-500 to acquire them (10-12.5% CAC ratio). Referrals amplify this value significantly, making patient satisfaction and retention your highest ROI activities.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Dental Marketing Society. All rights reserved. | <a href="/">Back to Website</a></p>
+    </footer>
+
+    <script>
+        function switchTab(tabIndex) {
+            // Hide all panes
+            document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+
+            // Show selected pane
+            document.getElementById(`tab-${tabIndex}`).classList.add('active');
+            document.querySelectorAll('.tab-button')[tabIndex].classList.add('active');
+        }
+
+        function updateRangeDisplay(input, displayId) {
+            const value = input.value;
+            const displayEl = document.getElementById(displayId);
+            if (displayId === 'growthDisplay') {
+                displayEl.textContent = value + '% monthly';
+            } else if (displayId === 'referralDisplay') {
+                displayEl.textContent = value + '%';
+            }
+        }
+
+        // Google Ads ROI Calculator
+        function calculateGoogleAdsROI() {
+            const budget = parseFloat(document.getElementById('adBudget').value) || 0;
+            const cpc = parseFloat(document.getElementById('cpc').value) || 0;
+            const conversionRate = parseFloat(document.getElementById('conversionRate').value) || 0;
+            const patientValue = parseFloat(document.getElementById('patientValue').value) || 0;
+
+            const conversionDisplay = document.getElementById('conversionDisplay');
+            conversionDisplay.textContent = conversionRate + '%';
+
+            const clicks = cpc > 0 ? Math.floor(budget / cpc) : 0;
+            const leads = Math.floor(clicks * (conversionRate / 100));
+            const costPerLead = leads > 0 ? budget / leads : 0;
+            const newPatients = leads;
+            const monthlyRevenue = newPatients * patientValue;
+            const roi = budget > 0 ? ((monthlyRevenue - budget) / budget) * 100 : 0;
+
+            const html = `
+                <div class="result-card">
+                    <div class="result-label">Estimated Clicks</div>
+                    <div class="result-value">${clicks.toLocaleString()}</div>
+                    <div class="result-subtext">per month</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-label">Estimated Leads</div>
+                    <div class="result-value">${leads.toLocaleString()}</div>
+                    <div class="result-subtext">per month</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-label">Cost Per Lead</div>
+                    <div class="result-value">$${costPerLead.toFixed(2)}</div>
+                    <div class="result-subtext">acquisition cost</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-label">New Patients</div>
+                    <div class="result-value">${newPatients}</div>
+                    <div class="result-subtext">per month</div>
+                </div>
+                <div class="result-card highlight">
+                    <div class="result-label">Monthly Revenue</div>
+                    <div class="result-value">$${monthlyRevenue.toLocaleString('en-US', {maximumFractionDigits: 0})}</div>
+                    <div class="result-subtext">from Google Ads</div>
+                </div>
+                <div class="result-card positive">
+                    <div class="result-label">ROI</div>
+                    <div class="result-value">${roi.toFixed(0)}%</div>
+                    <div class="result-subtext">return on ad spend</div>
+                </div>
+            `;
+
+            document.getElementById('googleAdsResults').innerHTML = html;
+        }
+
+        // SEO ROI Calculator
+        function calculateSEOROI() {
+            const investment = parseFloat(document.getElementById('seoInvestment').value) || 0;
+            const currentPatients = parseFloat(document.getElementById('currentPatients').value) || 0;
+            const growthRate = parseFloat(document.getElementById('growthRate').value) || 0;
+            const ltv = parseFloat(document.getElementById('seoPatientLTV').value) || 0;
+
+            // Calculate projections
+            let patients6m = currentPatients;
+            let patients12m = currentPatients;
+            let patients24m = currentPatients;
+
+            const monthlyGrowth = growthRate / 100;
+            for (let i = 0; i < 6; i++) {
+                patients6m = patients6m * (1 + monthlyGrowth);
+            }
+            for (let i = 0; i < 12; i++) {
+                patients12m = patients12m * (1 + monthlyGrowth);
+            }
+            for (let i = 0; i < 24; i++) {
+                patients24m = patients24m * (1 + monthlyGrowth);
+            }
+
+            const additionalPatients6m = patients6m - currentPatients;
+            const additionalPatients12m = patients12m - currentPatients;
+            const additionalPatients24m = patients24m - currentPatients;
+
+            const revenue6m = additionalPatients6m * ltv;
+            const revenue12m = additionalPatients12m * ltv;
+            const revenue24m = additionalPatients24m * ltv;
+
+            const investmentCost6m = investment * 6;
+            const investmentCost12m = investment * 12;
+            const investmentCost24m = investment * 24;
+
+            const roi6m = investmentCost6m > 0 ? ((revenue6m - investmentCost6m) / investmentCost6m) * 100 : 0;
+            const roi12m = investmentCost12m > 0 ? ((revenue12m - investmentCost12m) / investmentCost12m) * 100 : 0;
+            const roi24m = investmentCost24m > 0 ? ((revenue24m - investmentCost24m) / investmentCost24m) * 100 : 0;
+
+            let breakEvenMonth = 0;
+            let cumulativeRevenue = 0;
+            for (let month = 1; month <= 24; month++) {
+                let monthlyPatients = currentPatients;
+                for (let i = 0; i < month; i++) {
+                    monthlyPatients = monthlyPatients * (1 + monthlyGrowth);
+                }
+                const additionalThisMonth = monthlyPatients - currentPatients;
+                cumulativeRevenue += additionalThisMonth * ltv;
+                if (cumulativeRevenue >= investment * month && breakEvenMonth === 0) {
+                    breakEvenMonth = month;
+                }
+            }
+
+            const html = `
+                <div class="result-card">
+                    <div class="result-label">6-Month Revenue</div>
+                    <div class="result-value">$${revenue6m.toLocaleString('en-US', {maximumFractionDigits: 0})}</div>
+                    <div class="result-subtext">from new patients</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-label">6-Month ROI</div>
+                    <div class="result-value">${roi6m.toFixed(0)}%</div>
+                    <div class="result-subtext">return on investment</div>
+                </div>
+                <div class="result-card highlight">
+                    <div class="result-label">12-Month Revenue</div>
+                    <div class="result-value">$${revenue12m.toLocaleString('en-US', {maximumFractionDigits: 0})}</div>
+                    <div class="result-subtext">from new patients</div>
+                </div>
+                <div class="result-card positive">
+                    <div class="result-label">12-Month ROI</div>
+                    <div class="result-value">${roi12m.toFixed(0)}%</div>
+                    <div class="result-subtext">return on investment</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-label">24-Month Revenue</div>
+                    <div class="result-value">$${revenue24m.toLocaleString('en-US', {maximumFractionDigits: 0})}</div>
+                    <div class="result-subtext">from new patients</div>
+                </div>
+                <div class="result-card positive">
+                    <div class="result-label">24-Month ROI</div>
+                    <div class="result-value">${roi24m.toFixed(0)}%</div>
+                    <div class="result-subtext">return on investment</div>
+                </div>
+            `;
+
+            document.getElementById('seoResults').innerHTML = html;
+
+            // Timeline
+            const timelineHtml = `
+                <div class="timeline-item">
+                    <div class="timeline-period">6 Months</div>
+                    <div class="timeline-value">${Math.round(patients6m)}</div>
+                    <div class="result-subtext">patients/month</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-period">12 Months</div>
+                    <div class="timeline-value">${Math.round(patients12m)}</div>
+                    <div class="result-subtext">patients/month</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-period">24 Months</div>
+                    <div class="timeline-value">${Math.round(patients24m)}</div>
+                    <div class="result-subtext">patients/month</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-period">Break-Even</div>
+                    <div class="timeline-value">${breakEvenMonth === 0 ? '>24' : breakEvenMonth}</div>
+                    <div class="result-subtext">months</div>
+                </div>
+            `;
+
+            document.getElementById('seoTimeline').innerHTML = timelineHtml;
+        }
+
+        // Patient Lifetime Value Calculator
+        function calculatePLTV() {
+            const revenuePerVisit = parseFloat(document.getElementById('revenuePerVisit').value) || 0;
+            const visitsPerYear = parseFloat(document.getElementById('visitsPerYear').value) || 0;
+            const retention = parseFloat(document.getElementById('retention').value) || 0;
+            const referralRate = parseFloat(document.getElementById('referralRate').value) || 0;
+            const avgReferrals = parseFloat(document.getElementById('avgReferrals').value) || 0;
+
+            const directLTV = revenuePerVisit * visitsPerYear * retention;
+
+            const referringPatients = (referralRate / 100);
+            const referralLTV = directLTV * referringPatients * avgReferrals;
+
+            const totalLTV = directLTV + referralLTV;
+
+            const lostPatientCost = directLTV;
+
+            const html = `
+                <div class="result-card">
+                    <div class="result-label">Direct LTV</div>
+                    <div class="result-value">$${directLTV.toLocaleString('en-US', {maximumFractionDigits: 0})}</div>
+                    <div class="result-subtext">direct patient revenue</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-label">Referral LTV</div>
+                    <div class="result-value">$${referralLTV.toLocaleString('en-US', {maximumFractionDigits: 0})}</div>
+                    <div class="result-subtext">value from referrals</div>
+                </div>
+                <div class="result-card highlight">
+                    <div class="result-label">Total LTV</div>
+                    <div class="result-value">$${totalLTV.toLocaleString('en-US', {maximumFractionDigits: 0})}</div>
+                    <div class="result-subtext">lifetime value per patient</div>
+                </div>
+                <div class="result-card" style="border-left-color: #d9534f; background: linear-gradient(135deg, #fae8e6 0%, #f5eded 100%);">
+                    <div class="result-label" style="color: #d9534f;">Cost of Losing 1 Patient</div>
+                    <div class="result-value" style="color: #c9302c;">$${lostPatientCost.toLocaleString('en-US', {maximumFractionDigits: 0})}</div>
+                    <div class="result-subtext">potential lost value</div>
+                </div>
+            `;
+
+            document.getElementById('pltvResults').innerHTML = html;
+        }
+
+        // Initialize
+        calculateGoogleAdsROI();
+        calculateSEOROI();
+        calculatePLTV();
+    </script>
+</body>
+</html>

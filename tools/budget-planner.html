@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Budget Planner - Dental Marketing Society</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1B2A4A;
+            --gold: #D4A843;
+            --blue: #2E75B6;
+            --light-blue: #D5E8F0;
+            --light-gold: #FFF8E7;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f0f7 100%);
+            color: var(--navy);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            border-bottom: 3px solid var(--gold);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.8rem;
+            color: var(--navy);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .header-link {
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .header-link:hover {
+            color: var(--gold);
+        }
+
+        /* Main Container */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 2rem auto;
+            width: 100%;
+            padding: 0 1.5rem;
+        }
+
+        /* Two Column Layout */
+        .planner-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Input Panel */
+        .input-panel {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .input-panel h2 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.6rem;
+            font-size: 0.95rem;
+        }
+
+        .input-help {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 0.85rem;
+            border: 2px solid #d0d0d0;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input[type="number"]:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(46, 117, 182, 0.1);
+        }
+
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%232E75B6' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.7rem center;
+            padding-right: 2.5rem;
+        }
+
+        /* Budget Input */
+        .budget-input-wrapper {
+            position: relative;
+        }
+
+        .budget-input-wrapper::before {
+            content: '$';
+            position: absolute;
+            left: 0.85rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: 700;
+            color: var(--blue);
+            font-size: 1.1rem;
+        }
+
+        .budget-input-wrapper input {
+            padding-left: 2rem;
+        }
+
+        button {
+            font-family: 'DM Sans', sans-serif;
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            width: 100%;
+            background: linear-gradient(135deg, var(--blue) 0%, #1a5a9a 100%);
+            color: white;
+            margin-top: 1rem;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 6px 16px rgba(46, 117, 182, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, var(--gold) 0%, #b8860b 100%);
+            color: white;
+            margin-top: 1.5rem;
+            width: 100%;
+        }
+
+        .btn-download:hover {
+            box-shadow: 0 6px 16px rgba(212, 168, 67, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Results Panel */
+        .results-panel {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
+        }
+
+        .results-panel h2 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Donut Chart */
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        svg {
+            width: 280px;
+            height: 280px;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
+        }
+
+        .chart-label {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .legend {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.6rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .legend-item:hover {
+            background: #f5f5f5;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .legend-text {
+            flex: 1;
+        }
+
+        .legend-percent {
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        /* Allocation Table */
+        .table-container {
+            margin-top: 2rem;
+            overflow-x: auto;
+        }
+
+        .allocation-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .allocation-table thead {
+            background: var(--light-blue);
+        }
+
+        .allocation-table th {
+            padding: 0.9rem 0.7rem;
+            text-align: left;
+            font-weight: 700;
+            color: var(--navy);
+            border-bottom: 2px solid #c0d5e0;
+        }
+
+        .allocation-table td {
+            padding: 0.9rem 0.7rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .allocation-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .channel-cell {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .amount-cell {
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .priority-badge {
+            display: inline-block;
+            padding: 0.3rem 0.7rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .priority-1 {
+            background: #c8f0d8;
+            color: #1a5a3a;
+        }
+
+        .priority-2 {
+            background: #d5f0d8;
+            color: #1a5a3a;
+        }
+
+        .priority-3 {
+            background: #fff4c8;
+            color: #8b7500;
+        }
+
+        /* Full Width Results */
+        .full-results {
+            display: none;
+        }
+
+        .full-results.show {
+            display: block;
+        }
+
+        .results-section {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+
+        .results-section h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.3rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .recommendation {
+            padding: 1rem;
+            background: var(--light-gold);
+            border-left: 3px solid var(--gold);
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+
+        .recommendation:last-child {
+            margin-bottom: 0;
+        }
+
+        .recommendation-title {
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.3rem;
+        }
+
+        .recommendation-desc {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+
+            header, footer, .input-panel, .planner-container {
+                display: none;
+            }
+
+            main {
+                margin: 0;
+                padding: 0;
+                max-width: 100%;
+            }
+
+            .results-panel {
+                position: static;
+                box-shadow: none;
+            }
+
+            .full-results {
+                display: block !important;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: auto;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .planner-container {
+                grid-template-columns: 1fr;
+            }
+
+            .results-panel {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            header h1 {
+                font-size: 1.4rem;
+            }
+
+            main {
+                margin: 1rem auto;
+            }
+
+            .allocation-table {
+                font-size: 0.85rem;
+            }
+
+            .allocation-table th,
+            .allocation-table td {
+                padding: 0.6rem 0.5rem;
+            }
+
+            svg {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        .insight-note {
+            background: #f0f8ff;
+            padding: 1rem;
+            border-left: 3px solid var(--blue);
+            border-radius: 6px;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>DMS Marketing Budget Planner</h1>
+        <a href="/" class="header-link">← Back to DMS</a>
+    </header>
+
+    <main>
+        <div class="planner-container">
+            <!-- Input Panel -->
+            <div class="input-panel">
+                <h2>Your Practice Profile</h2>
+
+                <div class="input-group">
+                    <label>Monthly Marketing Budget</label>
+                    <div class="input-help">Total monthly budget to allocate across channels</div>
+                    <div class="budget-input-wrapper">
+                        <input type="number" id="budget" value="5000" min="500" step="100" oninput="updateAllocation()">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Practice Type</label>
+                    <select id="practiceType" onchange="updateAllocation()">
+                        <option value="general">General Dentistry</option>
+                        <option value="pediatric">Pediatric</option>
+                        <option value="ortho">Orthodontic</option>
+                        <option value="cosmetic">Cosmetic/Aesthetic</option>
+                        <option value="implant">Implant Specialist</option>
+                        <option value="multispec">Multi-specialty</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Practice Size</label>
+                    <select id="practiceSize" onchange="updateAllocation()">
+                        <option value="solo">Solo Practitioner</option>
+                        <option value="small">Small Group (2-5 dentists)</option>
+                        <option value="large">Large Group (6+ dentists)</option>
+                        <option value="dso">DSO (Multi-location)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Primary Goal</label>
+                    <select id="primaryGoal" onchange="updateAllocation()">
+                        <option value="newpatients">New Patient Acquisition</option>
+                        <option value="awareness">Brand Awareness</option>
+                        <option value="retention">Patient Retention</option>
+                        <option value="expansion">New Location Launch</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Market Competition Level</label>
+                    <select id="competition" onchange="updateAllocation()">
+                        <option value="low">Low (Rural/Emerging area)</option>
+                        <option value="medium">Medium (Growing market)</option>
+                        <option value="high">High (Urban/Competitive)</option>
+                    </select>
+                </div>
+
+                <button class="btn-primary" onclick="updateAllocation()">Calculate Allocation</button>
+                <button class="btn-download" onclick="downloadPlan()">⬇ Download Your Plan</button>
+
+                <div class="insight-note">
+                    <strong>Pro Tip:</strong> These allocations are based on industry benchmarks. Adjust channels based on your specific results and market conditions.
+                </div>
+            </div>
+
+            <!-- Results Panel -->
+            <div class="results-panel">
+                <h2>Recommended Budget</h2>
+
+                <div class="chart-container">
+                    <svg id="donutChart" viewBox="0 0 200 200">
+                        <circle cx="100" cy="100" r="90" fill="none" stroke="#e8e8e8" stroke-width="20"/>
+                        <text x="100" y="100" text-anchor="middle" dy="0.3em" font-size="24" font-weight="bold" fill="#1B2A4A" id="budgetLabel">$5,000</text>
+                        <text x="100" y="125" text-anchor="middle" dy="0.3em" font-size="12" fill="#888">monthly</text>
+                    </svg>
+                </div>
+
+                <div class="legend" id="legend"></div>
+
+                <div class="table-container">
+                    <table class="allocation-table">
+                        <thead>
+                            <tr>
+                                <th>Channel</th>
+                                <th>%</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="allocationTable"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Full Results (for download/print) -->
+        <div class="full-results" id="fullResults">
+            <div class="results-section">
+                <h3>Your Marketing Budget Strategy</h3>
+                <div id="strategyContent"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Dental Marketing Society. All rights reserved. | <a href="/">Back to Website</a></p>
+    </footer>
+
+    <script>
+        const channelColors = {
+            'SEO': '#2E75B6',
+            'PPC': '#E74C3C',
+            'Social Media': '#9B59B6',
+            'Reputation': '#F39C12',
+            'Website': '#27AE60',
+            'Email': '#16A085',
+            'Direct Mail': '#D4A843',
+            'Branding': '#8E44AD'
+        };
+
+        const allocationStrategies = {
+            'general-solo-newpatients-low': {
+                'SEO': 25,
+                'PPC': 20,
+                'Social Media': 15,
+                'Reputation': 15,
+                'Website': 10,
+                'Email': 10,
+                'Direct Mail': 5,
+                'Branding': 0
+            },
+            'general-solo-newpatients-medium': {
+                'SEO': 20,
+                'PPC': 25,
+                'Social Media': 15,
+                'Reputation': 15,
+                'Website': 10,
+                'Email': 10,
+                'Direct Mail': 5,
+                'Branding': 0
+            },
+            'general-solo-newpatients-high': {
+                'SEO': 15,
+                'PPC': 30,
+                'Social Media': 15,
+                'Reputation': 15,
+                'Website': 10,
+                'Email': 10,
+                'Direct Mail': 5,
+                'Branding': 0
+            },
+            'general-small-newpatients-low': {
+                'SEO': 20,
+                'PPC': 20,
+                'Social Media': 18,
+                'Reputation': 15,
+                'Website': 12,
+                'Email': 10,
+                'Direct Mail': 5,
+                'Branding': 0
+            },
+            'general-small-newpatients-medium': {
+                'SEO': 18,
+                'PPC': 25,
+                'Social Media': 18,
+                'Reputation': 15,
+                'Website': 10,
+                'Email': 9,
+                'Direct Mail': 5,
+                'Branding': 0
+            },
+            'general-small-newpatients-high': {
+                'SEO': 12,
+                'PPC': 35,
+                'Social Media': 15,
+                'Reputation': 15,
+                'Website': 10,
+                'Email': 8,
+                'Direct Mail': 5,
+                'Branding': 0
+            },
+            'general-large-newpatients-low': {
+                'SEO': 18,
+                'PPC': 18,
+                'Social Media': 20,
+                'Reputation': 15,
+                'Website': 10,
+                'Email': 10,
+                'Direct Mail': 5,
+                'Branding': 4
+            },
+            'general-large-newpatients-medium': {
+                'SEO': 16,
+                'PPC': 22,
+                'Social Media': 20,
+                'Reputation': 15,
+                'Website': 10,
+                'Email': 10,
+                'Direct Mail': 5,
+                'Branding': 2
+            },
+            'general-large-newpatients-high': {
+                'SEO': 10,
+                'PPC': 32,
+                'Social Media': 18,
+                'Reputation': 15,
+                'Website': 10,
+                'Email': 10,
+                'Direct Mail': 5,
+                'Branding': 0
+            },
+            'general-dso-newpatients-low': {
+                'SEO': 15,
+                'PPC': 15,
+                'Social Media': 20,
+                'Reputation': 15,
+                'Website': 12,
+                'Email': 12,
+                'Direct Mail': 5,
+                'Branding': 6
+            },
+            'general-dso-newpatients-medium': {
+                'SEO': 12,
+                'PPC': 20,
+                'Social Media': 22,
+                'Reputation': 15,
+                'Website': 12,
+                'Email': 10,
+                'Direct Mail': 5,
+                'Branding': 4
+            },
+            'general-dso-newpatients-high': {
+                'SEO': 8,
+                'PPC': 28,
+                'Social Media': 20,
+                'Reputation': 15,
+                'Website': 12,
+                'Email': 10,
+                'Direct Mail': 5,
+                'Branding': 2
+            },
+            'cosmetic-solo-newpatients-low': {
+                'SEO': 20,
+                'PPC': 20,
+                'Social Media': 20,
+                'Reputation': 15,
+                'Website': 10,
+                'Email': 10,
+                'Direct Mail': 0,
+                'Branding': 5
+            },
+            'cosmetic-solo-newpatients-medium': {
+                'SEO': 15,
+                'PPC': 25,
+                'Social Media': 22,
+                'Reputation': 15,
+                'Website': 10,
+                'Email': 8,
+                'Direct Mail': 0,
+                'Branding': 5
+            },
+            'cosmetic-solo-newpatients-high': {
+                'SEO': 10,
+                'PPC': 30,
+                'Social Media': 25,
+                'Reputation': 15,
+                'Website': 10,
+                'Email': 5,
+                'Direct Mail': 0,
+                'Branding': 5
+            },
+            'ortho-solo-newpatients-low': {
+                'SEO': 20,
+                'PPC': 20,
+                'Social Media': 15,
+                'Reputation': 15,
+                'Website': 15,
+                'Email': 10,
+                'Direct Mail': 5,
+                'Branding': 0
+            },
+            'ortho-solo-newpatients-medium': {
+                'SEO': 18,
+                'PPC': 25,
+                'Social Media': 15,
+                'Reputation': 15,
+                'Website': 15,
+                'Email': 10,
+                'Direct Mail': 2,
+                'Branding': 0
+            },
+            'ortho-solo-newpatients-high': {
+                'SEO': 12,
+                'PPC': 32,
+                'Social Media': 15,
+                'Reputation': 15,
+                'Website': 15,
+                'Email': 8,
+                'Direct Mail': 3,
+                'Branding': 0
+            },
+            'implant-small-newpatients-medium': {
+                'SEO': 20,
+                'PPC': 25,
+                'Social Media': 10,
+                'Reputation': 20,
+                'Website': 15,
+                'Email': 5,
+                'Direct Mail': 5,
+                'Branding': 0
+            },
+            'implant-small-newpatients-high': {
+                'SEO': 15,
+                'PPC': 30,
+                'Social Media': 10,
+                'Reputation': 20,
+                'Website': 15,
+                'Email': 5,
+                'Direct Mail': 5,
+                'Branding': 0
+            },
+            'pediatric-small-newpatients-low': {
+                'SEO': 20,
+                'PPC': 15,
+                'Social Media': 20,
+                'Reputation': 15,
+                'Website': 10,
+                'Email': 15,
+                'Direct Mail': 5,
+                'Branding': 0
+            },
+            'pediatric-small-newpatients-medium': {
+                'SEO': 18,
+                'PPC': 20,
+                'Social Media': 22,
+                'Reputation': 15,
+                'Website': 10,
+                'Email': 12,
+                'Direct Mail': 3,
+                'Branding': 0
+            },
+            'multispec-large-awareness-high': {
+                'SEO': 10,
+                'PPC': 15,
+                'Social Media': 25,
+                'Reputation': 15,
+                'Website': 12,
+                'Email': 12,
+                'Direct Mail': 5,
+                'Branding': 6
+            },
+            'general-solo-retention-low': {
+                'SEO': 5,
+                'PPC': 5,
+                'Social Media': 15,
+                'Reputation': 10,
+                'Website': 10,
+                'Email': 40,
+                'Direct Mail': 10,
+                'Branding': 5
+            },
+            'general-large-retention-medium': {
+                'SEO': 3,
+                'PPC': 3,
+                'Social Media': 12,
+                'Reputation': 10,
+                'Website': 10,
+                'Email': 45,
+                'Direct Mail': 12,
+                'Branding': 5
+            },
+            'general-solo-expansion-high': {
+                'SEO': 30,
+                'PPC': 35,
+                'Social Media': 10,
+                'Reputation': 10,
+                'Website': 5,
+                'Email': 5,
+                'Direct Mail': 5,
+                'Branding': 0
+            }
+        };
+
+        const channelRecommendations = {
+            'SEO': 'Focus on local SEO for your service area. Optimize Google Business Profile, build citations, and target local keywords.',
+            'PPC': 'High-intent search ads for patients actively looking for your services. Use location targeting and conversion tracking.',
+            'Social Media': 'Build community and showcase before/afters, patient testimonials, and educational content.',
+            'Reputation': 'Monitor and respond to reviews, request patient testimonials, and build your online reputation score.',
+            'Website': 'Ensure fast, mobile-optimized site with clear CTAs, easy appointment booking, and trust signals.',
+            'Email': 'Segment your list and send targeted campaigns for appointment reminders, special offers, and retention.',
+            'Direct Mail': 'Target new movers and neighborhoods with personalized offers. Best for high-value services.',
+            'Branding': 'Develop consistent visual identity, messaging, and brand presence across all channels.'
+        };
+
+        function getDefaultAllocation(budget) {
+            return {
+                'SEO': 0.15,
+                'PPC': 0.20,
+                'Social Media': 0.15,
+                'Reputation': 0.15,
+                'Website': 0.12,
+                'Email': 0.12,
+                'Direct Mail': 0.06,
+                'Branding': 0.05
+            };
+        }
+
+        function updateAllocation() {
+            const budget = parseFloat(document.getElementById('budget').value) || 5000;
+            const practiceType = document.getElementById('practiceType').value;
+            const practiceSize = document.getElementById('practiceSize').value;
+            const primaryGoal = document.getElementById('primaryGoal').value;
+            const competition = document.getElementById('competition').value;
+
+            // Build allocation key
+            let allocationKey = `${practiceType}-${practiceSize}-${primaryGoal}-${competition}`;
+
+            let allocation = allocationStrategies[allocationKey];
+
+            // Fallback strategy
+            if (!allocation) {
+                const fallbacks = [
+                    `${practiceType}-${practiceSize}-${primaryGoal}`,
+                    `general-${practiceSize}-${primaryGoal}-${competition}`,
+                    `general-small-${primaryGoal}-${competition}`
+                ];
+
+                for (let fallback of fallbacks) {
+                    const matches = Object.keys(allocationStrategies).filter(k => k.startsWith(fallback));
+                    if (matches.length > 0) {
+                        allocation = allocationStrategies[matches[0]];
+                        break;
+                    }
+                }
+            }
+
+            // Final fallback to default
+            if (!allocation) {
+                allocation = {
+                    'SEO': 15,
+                    'PPC': 20,
+                    'Social Media': 15,
+                    'Reputation': 15,
+                    'Website': 12,
+                    'Email': 12,
+                    'Direct Mail': 6,
+                    'Branding': 5
+                };
+            }
+
+            displayResults(budget, allocation);
+        }
+
+        function displayResults(budget, allocation) {
+            // Update budget display
+            document.getElementById('budgetLabel').textContent = '$' + budget.toLocaleString('en-US', {maximumFractionDigits: 0});
+
+            // Calculate amounts
+            const channels = Object.keys(allocation);
+            const amounts = {};
+            channels.forEach(channel => {
+                amounts[channel] = (budget * allocation[channel]) / 100;
+            });
+
+            // Draw donut chart
+            drawDonutChart(allocation);
+
+            // Update legend
+            updateLegend(allocation, amounts);
+
+            // Update table
+            updateAllocationTable(allocation, amounts);
+
+            // Update full results
+            updateFullResults(budget, allocation, amounts);
+        }
+
+        function drawDonutChart(allocation) {
+            const svg = document.getElementById('donutChart');
+            const existingSlices = svg.querySelectorAll('circle[data-slice]');
+            existingSlices.forEach(el => el.remove());
+
+            const channels = Object.keys(allocation);
+            let currentAngle = -90; // Start from top
+
+            channels.forEach(channel => {
+                const percentage = allocation[channel];
+                const sliceAngle = (percentage / 100) * 360;
+
+                const radius = 90;
+                const strokeWidth = 20;
+
+                // Create circle slice
+                const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                circle.setAttribute('cx', '100');
+                circle.setAttribute('cy', '100');
+                circle.setAttribute('r', radius - strokeWidth / 2);
+                circle.setAttribute('fill', 'none');
+                circle.setAttribute('stroke', channelColors[channel]);
+                circle.setAttribute('stroke-width', strokeWidth);
+                circle.setAttribute('stroke-dasharray', `${(sliceAngle / 360) * Math.PI * 2 * radius} ${Math.PI * 2 * radius}`);
+                circle.setAttribute('stroke-dashoffset', `${-(currentAngle / 360) * Math.PI * 2 * radius}`);
+                circle.setAttribute('transform', `rotate(${currentAngle} 100 100)`);
+                circle.setAttribute('data-slice', 'true');
+
+                svg.insertBefore(circle, svg.querySelector('text'));
+
+                currentAngle += sliceAngle;
+            });
+        }
+
+        function updateLegend(allocation, amounts) {
+            const legend = document.getElementById('legend');
+            const channels = Object.keys(allocation).sort((a, b) => allocation[b] - allocation[a]);
+
+            let html = '';
+            channels.forEach((channel, idx) => {
+                const percent = allocation[channel];
+                const amount = amounts[channel];
+                html += `
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: ${channelColors[channel]}"></div>
+                        <div class="legend-text">${channel}</div>
+                        <div style="font-weight: 700; color: var(--navy);">${percent}%</div>
+                    </div>
+                `;
+            });
+
+            legend.innerHTML = html;
+        }
+
+        function updateAllocationTable(allocation, amounts) {
+            const table = document.getElementById('allocationTable');
+            const channels = Object.keys(allocation).sort((a, b) => allocation[b] - allocation[a]);
+
+            let html = '';
+            channels.forEach((channel, idx) => {
+                const percent = allocation[channel];
+                const amount = amounts[channel];
+                let priority = idx < 3 ? idx + 1 : 'secondary';
+
+                html += `
+                    <tr>
+                        <td class="channel-cell">${channel}</td>
+                        <td>${percent}%</td>
+                        <td class="amount-cell">$${amount.toLocaleString('en-US', {maximumFractionDigits: 0})}</td>
+                    </tr>
+                `;
+            });
+
+            table.innerHTML = html;
+        }
+
+        function updateFullResults(budget, allocation, amounts) {
+            const channels = Object.keys(allocation).sort((a, b) => allocation[b] - allocation[a]);
+
+            let html = '<div class="priority-ranking">';
+            html += '<h4 style="font-family: \'DM Sans\', sans-serif; color: var(--navy); margin-bottom: 1rem;">Priority Investment Order</h4>';
+            html += '<ol style="padding-left: 1.5rem;">';
+
+            channels.slice(0, 5).forEach((channel, idx) => {
+                const percent = allocation[channel];
+                const amount = amounts[channel];
+                html += `
+                    <li style="margin-bottom: 0.8rem; color: #555;">
+                        <strong>${channel}</strong> - ${percent}% ($${amount.toLocaleString('en-US', {maximumFractionDigits: 0})}/month)
+                        <div style="color: #888; font-size: 0.9rem; margin-top: 0.3rem;">${channelRecommendations[channel]}</div>
+                    </li>
+                `;
+            });
+
+            html += '</ol></div>';
+
+            document.getElementById('strategyContent').innerHTML = html;
+        }
+
+        function downloadPlan() {
+            const budget = parseFloat(document.getElementById('budget').value) || 5000;
+            const practiceType = document.getElementById('practiceType').value;
+            const practiceSize = document.getElementById('practiceSize').value;
+
+            let content = 'DENTAL MARKETING BUDGET PLAN\n';
+            content += '='.repeat(50) + '\n\n';
+            content += `Monthly Budget: $${budget.toLocaleString('en-US', {maximumFractionDigits: 0})}\n`;
+            content += `Practice Type: ${document.getElementById('practiceType').options[document.getElementById('practiceType').selectedIndex].text}\n`;
+            content += `Practice Size: ${document.getElementById('practiceSize').options[document.getElementById('practiceSize').selectedIndex].text}\n\n`;
+
+            content += 'RECOMMENDED ALLOCATION:\n';
+            content += '-'.repeat(50) + '\n';
+
+            const rows = document.querySelectorAll('.allocation-table tbody tr');
+            rows.forEach(row => {
+                const cells = row.querySelectorAll('td');
+                const channel = cells[0].textContent;
+                const percent = cells[1].textContent;
+                const amount = cells[2].textContent;
+                content += `${channel.padEnd(20)} ${percent.padEnd(6)} ${amount}\n`;
+            });
+
+            const element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(content));
+            element.setAttribute('download', 'DMS_Budget_Plan.txt');
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+
+            alert('Your budget plan has been downloaded!');
+        }
+
+        // Initialize
+        updateAllocation();
+    </script>
+</body>
+</html>
