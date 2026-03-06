@@ -3,10 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marketing Scorecard Tool - Dental Marketing Society</title>
+    <meta name="description" content="Free dental marketing diagnostic scorecard. Evaluate your practice's marketing across website, SEO, paid advertising, patient marketing, and branding.">
+    <title>Dental Marketing Diagnostic Scorecard | Ekwa Marketing</title>
+    <link rel="canonical" href="https://dms.narenlife.com/tools/scorecard.html">
+    <meta property="og:url" content="https://dms.narenlife.com/tools/scorecard.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Dental Marketing Diagnostic Scorecard">
+    <meta property="og:description" content="Free dental marketing diagnostic scorecard. Evaluate your practice's marketing strategy.">
+    <meta property="og:site_name" content="Ekwa Marketing">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dental Marketing Diagnostic Scorecard">
+    <meta name="twitter:description" content="Free dental marketing diagnostic scorecard. Evaluate your practice's marketing strategy.">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -18,15 +31,22 @@
             --navy: #1B2A4A;
             --gold: #D4A843;
             --blue: #2E75B6;
-            --light-blue: #D5E8F0;
             --light-gold: #FFF8E7;
+            --light-blue: #D5E8F0;
+            --red: #E85D5D;
+            --orange: #F59E0B;
+            --yellow: #FBBF24;
+            --green: #10B981;
+        }
+
+        html, body {
+            height: 100%;
         }
 
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #f5f7fa 0%, #e8f0f7 100%);
             color: var(--navy);
-            min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
@@ -35,7 +55,7 @@
         header {
             background: white;
             border-bottom: 3px solid var(--gold);
-            padding: 1.5rem 2rem;
+            padding: 1.25rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -44,7 +64,7 @@
 
         header h1 {
             font-family: 'DM Sans', sans-serif;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: var(--navy);
             font-weight: 700;
             letter-spacing: -0.5px;
@@ -54,6 +74,7 @@
             color: var(--blue);
             text-decoration: none;
             font-weight: 600;
+            font-size: 0.95rem;
             transition: color 0.3s ease;
         }
 
@@ -68,6 +89,8 @@
             margin: 2rem auto;
             width: 100%;
             padding: 0 1.5rem;
+            display: flex;
+            flex-direction: column;
         }
 
         /* Progress Bar */
@@ -80,10 +103,12 @@
         }
 
         .progress-text {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--blue);
             font-weight: 600;
             margin-bottom: 0.8rem;
+            display: flex;
+            justify-content: space-between;
         }
 
         .progress-bar {
@@ -98,24 +123,24 @@
             height: 100%;
             background: linear-gradient(90deg, var(--blue) 0%, var(--gold) 100%);
             transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            width: 0%;
         }
 
-        /* Screens */
+        /* Screen Navigation */
         .screen {
             opacity: 0;
             transform: translateX(20px);
             transition: opacity 0.5s ease, transform 0.5s ease;
+            pointer-events: none;
             position: absolute;
             width: 100%;
-            max-width: 900px;
-            pointer-events: none;
         }
 
         .screen.active {
             opacity: 1;
             transform: translateX(0);
-            position: relative;
             pointer-events: auto;
+            position: relative;
         }
 
         .screen.exit-left {
@@ -140,37 +165,54 @@
 
         .welcome-screen h2 {
             font-family: 'DM Sans', sans-serif;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: var(--navy);
             margin-bottom: 1rem;
             font-weight: 700;
+            line-height: 1.2;
         }
 
         .welcome-screen p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #666;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             line-height: 1.6;
         }
 
-        .channel-grid {
+        .welcome-features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
             margin: 2rem 0;
             padding: 2rem;
             background: var(--light-gold);
             border-radius: 12px;
         }
 
-        .channel-tag {
-            background: white;
-            padding: 0.8rem;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--blue);
-            border: 2px solid var(--light-blue);
+        .feature-item {
+            text-align: left;
+        }
+
+        .feature-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .feature-item strong {
+            color: var(--navy);
+            font-family: 'DM Sans', sans-serif;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .feature-item span {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .welcome-cta {
+            margin-top: 2rem;
         }
 
         /* Assessment Screen */
@@ -179,6 +221,15 @@
             border-radius: 16px;
             padding: 3rem 2rem;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            color: var(--gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
         }
 
         .section-title {
@@ -190,10 +241,10 @@
         }
 
         .section-subtitle {
-            color: var(--blue);
+            color: #666;
             font-size: 0.95rem;
             margin-bottom: 2rem;
-            font-weight: 500;
+            line-height: 1.5;
         }
 
         .question-group {
@@ -204,18 +255,21 @@
 
         .question-group:last-child {
             border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
 
         .question-text {
             font-weight: 600;
             color: var(--navy);
-            margin-bottom: 1.2rem;
-            font-size: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.4;
         }
 
         .radio-group {
             display: flex;
-            gap: 1rem;
+            gap: 0.8rem;
             flex-wrap: wrap;
         }
 
@@ -230,7 +284,7 @@
 
         .radio-label {
             display: inline-block;
-            padding: 0.8rem 1.2rem;
+            padding: 0.75rem 1.2rem;
             border: 2px solid #d0d0d0;
             border-radius: 8px;
             cursor: pointer;
@@ -238,7 +292,8 @@
             font-size: 0.9rem;
             font-weight: 500;
             text-align: center;
-            min-width: 110px;
+            min-width: 100px;
+            background: white;
         }
 
         .radio-option input[type="radio"]:checked + .radio-label {
@@ -251,6 +306,36 @@
 
         .radio-label:hover {
             border-color: var(--gold);
+        }
+
+        .text-input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .text-input-label {
+            display: block;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .text-input-group input,
+        .text-input-group select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid #d0d0d0;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .text-input-group input:focus,
+        .text-input-group select:focus {
+            outline: none;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(46, 117, 182, 0.1);
         }
 
         /* Navigation Buttons */
@@ -266,7 +351,7 @@
             padding: 0.9rem 2rem;
             border: none;
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -277,7 +362,7 @@
             color: var(--blue);
         }
 
-        .btn-secondary:hover {
+        .btn-secondary:hover:not(:disabled) {
             background: #c1dae3;
             transform: translateY(-2px);
         }
@@ -285,7 +370,6 @@
         .btn-secondary:disabled {
             opacity: 0.5;
             cursor: not-allowed;
-            transform: none;
         }
 
         .btn-primary {
@@ -309,30 +393,31 @@
 
         .results-screen h2 {
             font-family: 'DM Sans', sans-serif;
-            font-size: 2.2rem;
+            font-size: 2rem;
             color: var(--navy);
             margin-bottom: 2rem;
             text-align: center;
         }
 
+        /* Overall Score */
         .overall-score {
             text-align: center;
             margin-bottom: 3rem;
         }
 
-        .circular-score {
-            width: 200px;
-            height: 200px;
+        .score-gauge {
+            width: 220px;
+            height: 220px;
             margin: 0 auto 1.5rem;
             position: relative;
         }
 
-        svg {
+        .gauge-svg {
             width: 100%;
             height: 100%;
         }
 
-        .score-text {
+        .score-display {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -345,187 +430,288 @@
             font-size: 3rem;
             font-weight: 700;
             color: var(--navy);
+            line-height: 1;
         }
 
         .score-label {
             color: var(--blue);
             font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
         }
 
         .grade-badge {
             display: inline-block;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            padding: 0.3rem 0.8rem;
-            border-radius: 4px;
-            margin-top: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .grade-aplus {
+            background: #10B98133;
+            color: #065F46;
         }
 
         .grade-a {
-            background: #c8f0d8;
-            color: #1a5a3a;
+            background: #10B98133;
+            color: #065F46;
+        }
+
+        .grade-bplus {
+            background: #10B98133;
+            color: #065F46;
         }
 
         .grade-b {
-            background: #d5f0d8;
-            color: #1a5a3a;
+            background: #DBEAFE;
+            color: #1E40AF;
+        }
+
+        .grade-cplus {
+            background: #FEF08A;
+            color: #78350F;
         }
 
         .grade-c {
-            background: #fff4c8;
-            color: #8b7500;
+            background: #FECACA;
+            color: #7F1D1D;
         }
 
         .grade-d {
-            background: #ffd9b3;
-            color: #8b4500;
+            background: #FECACA;
+            color: #7F1D1D;
         }
 
         .grade-f {
-            background: #f0d0d0;
-            color: #8b1a1a;
+            background: #FECACA;
+            color: #7F1D1D;
         }
 
-        /* Channel Scores */
-        .channel-scores {
+        .grade-description {
+            font-size: 0.95rem;
+            color: #666;
+            margin-top: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Category Scores */
+        .category-scores {
             margin: 3rem 0;
+            padding: 2rem;
+            background: #f9fafb;
+            border-radius: 12px;
         }
 
-        .channel-score-item {
+        .category-scores h3 {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .category-score-item {
             margin-bottom: 1.5rem;
         }
 
-        .channel-score-header {
+        .category-score-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 0.5rem;
         }
 
-        .channel-name {
+        .category-name {
             font-weight: 600;
             color: var(--navy);
         }
 
-        .channel-value {
+        .category-value {
             font-weight: 700;
             color: var(--blue);
         }
 
         .score-bar {
-            height: 12px;
-            background: #e0e0e0;
-            border-radius: 6px;
+            height: 10px;
+            background: #e5e7eb;
+            border-radius: 5px;
             overflow: hidden;
         }
 
         .score-bar-fill {
             height: 100%;
             background: linear-gradient(90deg, var(--blue) 0%, var(--gold) 100%);
-            transition: width 0.8s ease;
+            width: 0%;
+            transition: width 0.8s ease 0.2s;
         }
 
-        /* Insights */
-        .insights-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .insight-box {
-            background: var(--light-gold);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--gold);
-        }
-
-        .insight-box h3 {
-            font-family: 'DM Sans', sans-serif;
-            color: var(--navy);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .insight-box ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .insight-box li {
-            padding: 0.4rem 0;
-            color: #555;
-            font-size: 0.95rem;
-        }
-
-        .insight-box li:before {
-            content: "→ ";
-            color: var(--gold);
-            font-weight: 700;
-            margin-right: 0.5rem;
-        }
-
-        .recommendations {
-            background: #f0f8ff;
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--blue);
+        /* Radar Chart */
+        .radar-container {
+            text-align: center;
             margin: 2rem 0;
         }
 
-        .recommendations h3 {
+        .radar-svg {
+            max-width: 400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Revenue Impact */
+        .revenue-impact {
+            background: linear-gradient(135deg, var(--light-gold) 0%, #FFF3E0 100%);
+            border: 2px solid var(--gold);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .revenue-impact h3 {
             font-family: 'DM Sans', sans-serif;
             color: var(--navy);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .revenue-impact p {
+            color: #666;
             margin-bottom: 1rem;
-            font-size: 1.2rem;
+        }
+
+        .revenue-number {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        /* Recommendations */
+        .recommendations-section {
+            margin: 3rem 0;
+        }
+
+        .recommendations-section h3 {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
         }
 
         .recommendation-item {
-            padding: 1rem;
-            background: white;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            border-left: 3px solid var(--gold);
+            background: #f0f8ff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--blue);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .recommendation-item:hover {
+            box-shadow: 0 4px 12px rgba(46, 117, 182, 0.15);
         }
 
         .recommendation-item:last-child {
             margin-bottom: 0;
         }
 
+        .rec-number {
+            display: inline-block;
+            background: var(--blue);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 700;
+            margin-right: 0.8rem;
+        }
+
         .recommendation-title {
             font-weight: 700;
             color: var(--navy);
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
         }
 
-        .recommendation-desc {
-            font-size: 0.9rem;
+        .recommendation-text {
+            font-size: 0.95rem;
             color: #666;
+            line-height: 1.5;
+            margin-bottom: 0.8rem;
         }
 
+        .recommendation-link {
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .recommendation-link:hover {
+            color: var(--gold);
+            text-decoration: underline;
+        }
+
+        /* CTA Section */
         .cta-section {
             background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
+            border-radius: 16px;
+            padding: 3rem 2rem;
             margin: 2rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
         }
 
         .cta-section p {
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
         }
 
         .btn-cta {
             background: var(--gold);
             color: var(--navy);
             padding: 1rem 2.5rem;
-            font-size: 1.05rem;
+            font-size: 1rem;
+            margin-top: 1.5rem;
+            display: inline-block;
         }
 
         .btn-cta:hover {
             background: #f0c855;
             box-shadow: 0 6px 16px rgba(212, 168, 67, 0.4);
+        }
+
+        /* Action Buttons */
+        .results-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-print, .btn-share {
+            background: white;
+            color: var(--blue);
+            border: 2px solid var(--blue);
+            padding: 0.8rem 1.5rem;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .btn-print:hover, .btn-share:hover {
+            background: var(--light-blue);
         }
 
         /* Footer */
@@ -535,7 +721,7 @@
             text-align: center;
             padding: 2rem;
             margin-top: auto;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         footer a {
@@ -556,11 +742,12 @@
             }
 
             header h1 {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
             }
 
             main {
                 margin: 1rem auto;
+                padding: 0 1rem;
             }
 
             .welcome-screen {
@@ -568,11 +755,19 @@
             }
 
             .welcome-screen h2 {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
 
             .assessment-screen {
                 padding: 1.5rem;
+            }
+
+            .results-screen {
+                padding: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
             }
 
             .radio-group {
@@ -581,7 +776,7 @@
 
             .radio-label {
                 padding: 0.6rem 0.9rem;
-                min-width: 90px;
+                min-width: 85px;
                 font-size: 0.8rem;
             }
 
@@ -589,479 +784,878 @@
                 flex-direction: column;
             }
 
-            .circular-score {
-                width: 150px;
-                height: 150px;
+            .score-gauge {
+                width: 160px;
+                height: 160px;
             }
 
             .score-number {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
 
-            .insights-section {
+            .welcome-features {
                 grid-template-columns: 1fr;
             }
+
+            .results-actions {
+                flex-direction: column;
+            }
+
+            .btn-print, .btn-share {
+                min-width: 100%;
+            }
+
+            .cta-section {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.1rem;
+            }
+
+            .welcome-screen h2 {
+                font-size: 1.3rem;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+            }
+
+            .score-gauge {
+                width: 140px;
+                height: 140px;
+            }
+
+            .score-number {
+                font-size: 1.6rem;
+            }
+
+            .radio-label {
+                min-width: 75px;
+                padding: 0.5rem 0.8rem;
+            }
+
+            .results-screen h2 {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            header, footer, .button-group, .progress-container {
+                display: none;
+            }
+
+            body {
+                background: white;
+            }
+
+            .results-screen {
+                box-shadow: none;
+                padding: 0;
+            }
+        }
+
+        /* Schema Markup - Hidden but important for SEO */
+        script[type="application/ld+json"] {
+            display: none;
         }
     </style>
-  <link rel="canonical" href="https://dms.narenlife.com/tools/scorecard.html">
-  <meta property="og:url" content="https://dms.narenlife.com/tools/scorecard.html">
-  <meta property="og:site_name" content="Dental Marketing Society">
-  <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Dental Marketing Diagnostic Scorecard",
+        "description": "Free diagnostic tool to evaluate dental practice marketing performance across website, SEO, paid advertising, patient marketing, and branding.",
+        "url": "https://dms.narenlife.com/tools/scorecard.html",
+        "applicationCategory": "BusinessApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "Ekwa Marketing",
+            "url": "https://www.ekwa.com"
+        }
+    }
+    </script>
 </head>
 <body>
     <header>
-        <h1>DMS Marketing Scorecard</h1>
+        <h1>Dental Marketing Diagnostic</h1>
         <a href="/" class="header-link">← Back to DMS</a>
     </header>
 
     <main>
         <div class="progress-container">
-            <div class="progress-text" id="progressText">Getting Started...</div>
+            <div class="progress-text">
+                <span id="progressLabel">Getting Started...</span>
+                <span id="progressPercent">0%</span>
+            </div>
             <div class="progress-bar">
-                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                <div class="progress-fill" id="progressFill"></div>
             </div>
         </div>
 
         <!-- Welcome Screen -->
         <div class="screen active" id="welcomeScreen">
             <div class="welcome-screen">
-                <h2>Marketing Scorecard Assessment</h2>
-                <p>Discover how your dental practice stacks up across 11 essential marketing channels. Get personalized insights to grow your patient base and practice revenue.</p>
-                <div class="channel-grid">
-                    <div class="channel-tag">SEO</div>
-                    <div class="channel-tag">PPC</div>
-                    <div class="channel-tag">Social Media</div>
-                    <div class="channel-tag">Reputation</div>
-                    <div class="channel-tag">Website</div>
-                    <div class="channel-tag">Referral</div>
-                    <div class="channel-tag">Email</div>
-                    <div class="channel-tag">Video</div>
-                    <div class="channel-tag">Direct Mail</div>
-                    <div class="channel-tag">Branding</div>
-                    <div class="channel-tag">AI/Emerging</div>
+                <h2>Your Dental Marketing Diagnostic</h2>
+                <p>Comprehensive analysis of your practice marketing across 5 critical channels. Get actionable insights to grow your patient base and revenue.</p>
+
+                <div class="welcome-features">
+                    <div class="feature-item">
+                        <span class="feature-icon">🌐</span>
+                        <strong>Website & SEO</strong>
+                        <span>Mobile responsiveness, page load speed, local rankings</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📊</span>
+                        <strong>Paid Advertising</strong>
+                        <span>Google Ads, Facebook/Instagram, cost per acquisition</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">⭐</span>
+                        <strong>Patient Marketing</strong>
+                        <span>Email systems, reviews, referrals, patient retention</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📹</span>
+                        <strong>Content & Branding</strong>
+                        <span>Video content, brand consistency, social media strategy</span>
+                    </div>
                 </div>
-                <p style="margin-top: 2rem; font-size: 0.95rem; color: #888;">Takes approximately 10 minutes • 33 questions • Completely free</p>
-                <button class="btn-primary" onclick="startAssessment()" style="margin-top: 1.5rem; max-width: 300px;">Start Your Assessment</button>
+
+                <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #888;">
+                    <strong>~10 minutes • Personalized recommendations • Completely free</strong>
+                </p>
+
+                <div class="welcome-cta">
+                    <button class="btn-primary" onclick="startDiagnostic()" style="max-width: 320px; margin: 0 auto; display: block;">Start Your Diagnostic →</button>
+                </div>
             </div>
         </div>
 
-        <!-- Assessment Screens -->
+        <!-- Assessment Screens Container -->
         <div id="assessmentContainer"></div>
 
         <!-- Results Screen -->
         <div class="screen" id="resultsScreen">
             <div class="results-screen">
-                <h2>Your Marketing Scorecard Results</h2>
+                <h2>Your Marketing Diagnostic Results</h2>
 
+                <!-- Overall Score Gauge -->
                 <div class="overall-score">
-                    <div class="circular-score">
-                        <svg viewBox="0 0 200 200">
-                            <circle cx="100" cy="100" r="90" fill="none" stroke="#e0e0e0" stroke-width="8"/>
-                            <circle cx="100" cy="100" r="90" fill="none" stroke="url(#scoreGradient)" stroke-width="8"
-                                    stroke-dasharray="565" stroke-dashoffset="565" id="scoreCircle"
-                                    stroke-linecap="round" transform="rotate(-90 100 100)"/>
+                    <div class="score-gauge">
+                        <svg viewBox="0 0 200 200" class="gauge-svg">
                             <defs>
-                                <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                                     <stop offset="0%" style="stop-color:#2E75B6;stop-opacity:1" />
                                     <stop offset="100%" style="stop-color:#D4A843;stop-opacity:1" />
                                 </linearGradient>
                             </defs>
+                            <!-- Background circle -->
+                            <circle cx="100" cy="100" r="85" fill="none" stroke="#e5e7eb" stroke-width="6"/>
+                            <!-- Score circle -->
+                            <circle cx="100" cy="100" r="85" fill="none" stroke="url(#gaugeGradient)" stroke-width="6"
+                                    id="scoreArc" stroke-dasharray="534" stroke-dashoffset="534"
+                                    stroke-linecap="round" transform="rotate(-90 100 100)"/>
                         </svg>
-                        <div class="score-text">
+                        <div class="score-display">
                             <div class="score-number" id="overallScore">0</div>
                             <div class="score-label">out of 100</div>
                         </div>
                     </div>
+                    <div class="grade-badge" id="gradeBadge"></div>
+                    <div class="grade-description" id="gradeDescription"></div>
                 </div>
 
-                <div id="channelScoresContainer"></div>
-
-                <div class="insights-section">
-                    <div class="insight-box">
-                        <h3>Top 3 Strengths</h3>
-                        <ul id="strengthsList"></ul>
-                    </div>
-                    <div class="insight-box" style="border-left-color: var(--blue); background: #d5e8f0;">
-                        <h3 style="color: var(--blue);">Top 3 Areas for Improvement</h3>
-                        <ul id="improvementList"></ul>
-                    </div>
+                <!-- Category Scores -->
+                <div class="category-scores">
+                    <h3>Category Breakdown</h3>
+                    <div id="categoryScoresContainer"></div>
                 </div>
 
-                <div class="recommendations" id="recommendationsContainer"></div>
+                <!-- Revenue Impact -->
+                <div class="revenue-impact">
+                    <h3>Potential Revenue Impact</h3>
+                    <p id="impactText">By addressing your top gaps, you could increase annual revenue by:</p>
+                    <div class="revenue-number" id="revenueImpact">$0</div>
+                </div>
 
+                <!-- Recommendations -->
+                <div class="recommendations-section">
+                    <h3>Your Personalized Action Plan</h3>
+                    <div id="recommendationsContainer"></div>
+                </div>
+
+                <!-- CTA -->
                 <div class="cta-section">
-                    <p><strong>Ready to transform your dental marketing?</strong></p>
-                    <p>Join the Dental Marketing Society to access in-depth resources, case studies, and expert guidance for each channel.</p>
-                    <button class="btn-cta" onclick="window.location.href='/'">Join DMS Today</button>
+                    <h2>Want a Deeper Analysis? Let's Talk.</h2>
+                    <p><strong>Ekwa Marketing has helped 500+ dental practices grow</strong></p>
+                    <p>with data-driven strategies tailored to your practice</p>
+                    <p style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.9;">Book a free 30-minute strategy session to review your diagnostic results and create a growth plan</p>
+                    <a href="https://www.ekwa.com/msm/?utm_source=dms&utm_medium=tool&utm_campaign=dms-scorecard" class="btn-cta">Book Your Free Strategy Session →</a>
                 </div>
 
-                <div class="button-group">
-                    <button class="btn-secondary" onclick="restartAssessment()">Start Over</button>
-                    <button class="btn-primary" onclick="downloadResults()">Download Results</button>
+                <!-- Results Actions -->
+                <div class="results-actions">
+                    <button class="btn-print" onclick="printResults()">🖨️ Print Results</button>
+                    <button class="btn-share" onclick="shareResults()">📤 Share Diagnostic</button>
+                    <button class="btn-secondary" onclick="restartDiagnostic()" style="flex: 1; min-width: 150px;">Start Over</button>
                 </div>
             </div>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 Dental Marketing Society. All rights reserved. | <a href="../pages/privacy.html">Privacy</a> | <a href="../pages/terms.html">Terms</a> | <a href="/">Back to Website</a></p>
+        <p>&copy; 2026 Ekwa Marketing. Dental Marketing Society. | <a href="/">Back to DMS</a> | <a href="https://www.ekwa.com">Ekwa Marketing</a></p>
     </footer>
 
     <script>
-        const channels = [
-            { name: 'SEO', description: 'Search Engine Optimization' },
-            { name: 'PPC', description: 'Pay-Per-Click Advertising' },
-            { name: 'Social Media', description: 'Social Media Marketing' },
-            { name: 'Reputation', description: 'Online Reputation Management' },
-            { name: 'Website', description: 'Website Performance' },
-            { name: 'Referral', description: 'Patient Referral Programs' },
-            { name: 'Email', description: 'Email Marketing' },
-            { name: 'Video', description: 'Video Marketing' },
-            { name: 'Direct Mail', description: 'Direct Mail Campaigns' },
-            { name: 'Branding', description: 'Brand Development' },
-            { name: 'AI/Emerging Tech', description: 'AI & Emerging Technologies' }
-        ];
-
-        const questions = [
-            // SEO
-            [
-                'How well is your practice ranking for local dental keywords?',
-                'Do you have optimized Google Business Profile with regular updates?',
-                'Are you building local citations and backlinks consistently?'
-            ],
-            // PPC
-            [
-                'How effectively are you running Google Ads campaigns?',
-                'Is your PPC budget allocated based on ROI data?',
-                'Do you have conversion tracking and lead quality optimization?'
-            ],
-            // Social Media
-            [
-                'How often do you post on social media platforms?',
-                'Are you engaging with your audience and responding to comments?',
-                'Do you run paid social campaigns to reach new patients?'
-            ],
-            // Reputation
-            [
-                'Are you actively monitoring and responding to online reviews?',
-                'What percentage of your patients leave reviews?',
-                'Do you have a system to generate more positive reviews?'
-            ],
-            // Website
-            [
-                'How mobile-optimized and fast is your website?',
-                'Are your contact forms and CTAs converting visitors effectively?',
-                'Do you A/B test and optimize your website regularly?'
-            ],
-            // Referral
-            [
-                'Do you have a formal referral program for patient recommendations?',
-                'Are you incentivizing referrals appropriately?',
-                'Do you track and reward your top referring patients?'
-            ],
-            // Email
-            [
-                'How often do you send targeted email campaigns?',
-                'Is your email list growing and segmented by patient type?',
-                'What is your email open and click-through rate?'
-            ],
-            // Video
-            [
-                'Are you creating video content for your practice?',
-                'Do you use video on your website and social platforms?',
-                'Are you measuring video engagement and conversions?'
-            ],
-            // Direct Mail
-            [
-                'Are you running periodic direct mail campaigns?',
-                'Is your direct mail integrated with digital marketing efforts?',
-                'Do you track ROI from direct mail campaigns?'
-            ],
-            // Branding
-            [
-                'Do you have a strong, consistent brand identity?',
-                'Is your brand clearly communicated across all channels?',
-                'Do patients recognize and prefer your brand?'
-            ],
-            // AI/Emerging Tech
-            [
-                'Are you using chatbots or AI for patient communication?',
-                'Do you leverage automation for marketing tasks?',
-                'Are you exploring emerging technologies for your practice?'
-            ]
-        ];
-
-        const recommendations = {
-            'SEO': 'Invest in local SEO optimization. Claim and optimize your Google Business Profile, build local citations, and create location-specific content.',
-            'PPC': 'Implement structured PPC campaigns with proper tracking. Focus on high-intent keywords and optimize landing pages for conversions.',
-            'Social Media': 'Create a content calendar and post 3-4 times per week. Engage with followers and consider running targeted ads.',
-            'Reputation': 'Set up a review generation system. Ask satisfied patients for reviews immediately after treatment and respond to all feedback.',
-            'Website': 'Redesign for mobile-first experience. Ensure fast loading times, clear CTAs, and easy appointment booking.',
-            'Referral': 'Launch a formal referral program. Recognize top referrers and make it easy for patients to refer friends and family.',
-            'Email': 'Build a segmented email list and send weekly newsletters. Include educational content and special offers.',
-            'Video': 'Create welcome videos, treatment explainers, and patient testimonials. Post on YouTube and embed on your website.',
-            'Direct Mail': 'Send targeted mailers to your area and new mover lists. Use personalization and clear ROI tracking.',
-            'Branding': 'Develop a professional brand guide. Ensure consistent messaging and visual identity across all platforms.',
-            'AI/Emerging Tech': 'Implement a chatbot for appointment scheduling. Explore AI for personalized patient communications.'
+        // Application State
+        const app = {
+            currentStep: 0,
+            practiceProfile: {},
+            scores: {
+                websiteSEO: 0,
+                paidAds: 0,
+                patientMarketing: 0,
+                contentBranding: 0
+            },
+            questionResponses: {}
         };
 
-        let currentSection = 0;
-        let scores = Array(11).fill(0);
+        // Data Structure
+        const steps = [
+            {
+                id: 'profile',
+                title: 'Practice Profile',
+                subtitle: 'Tell us about your practice',
+                type: 'profile',
+                fields: [
+                    {
+                        name: 'practiceName',
+                        label: 'Practice Name',
+                        type: 'text',
+                        placeholder: 'Enter your practice name',
+                        required: true
+                    },
+                    {
+                        name: 'practiceType',
+                        label: 'Practice Type',
+                        type: 'select',
+                        options: ['General', 'Cosmetic', 'Pediatric', 'Orthodontic', 'Oral Surgery', 'Periodontics', 'Endodontics', 'Multi-specialty'],
+                        required: true
+                    },
+                    {
+                        name: 'annualRevenue',
+                        label: 'Annual Revenue Range',
+                        type: 'select',
+                        options: ['Under $500K', '$500K-$1M', '$1M-$2M', '$2M-$5M', '$5M+'],
+                        required: true
+                    },
+                    {
+                        name: 'locations',
+                        label: 'Number of Locations',
+                        type: 'select',
+                        options: ['1', '2-3', '4+'],
+                        required: true
+                    },
+                    {
+                        name: 'monthlyBudget',
+                        label: 'Current Monthly Marketing Budget',
+                        type: 'select',
+                        options: ['Under $1K', '$1K-$3K', '$3K-$5K', '$5K-$10K', '$10K+'],
+                        required: true
+                    },
+                    {
+                        name: 'newPatients',
+                        label: 'Current Monthly New Patients',
+                        type: 'select',
+                        options: ['Under 10', '10-20', '20-40', '40-60', '60+'],
+                        required: true
+                    }
+                ]
+            },
+            {
+                id: 'websiteSEO',
+                title: 'Website & SEO Assessment',
+                subtitle: '8 questions about your online visibility',
+                category: 'websiteSEO',
+                questions: [
+                    {
+                        text: 'Is your website mobile-responsive?',
+                        options: ['No', 'Basic mobile support', 'Fully optimized']
+                    },
+                    {
+                        text: 'Does your site load in under 3 seconds?',
+                        options: ["Don't know", 'No', 'Yes']
+                    },
+                    {
+                        text: 'Do you have online scheduling on your website?',
+                        options: ['No', 'Link to third party', 'Fully integrated']
+                    },
+                    {
+                        text: 'How many service pages does your website have?',
+                        options: ['Under 5', '5-15', '15-30', '30+']
+                    },
+                    {
+                        text: 'How often do you publish blog/educational content?',
+                        options: ['Never', 'Occasionally (1-2x/month)', '2-4x per month', 'Weekly or more']
+                    },
+                    {
+                        text: 'Is your Google Business Profile optimized?',
+                        options: ['Not claimed/no profile', 'Basic info only', 'Fully optimized with regular posts']
+                    },
+                    {
+                        text: 'How many Google reviews do you have?',
+                        options: ['Under 20', '20-50', '50-100', '100+']
+                    },
+                    {
+                        text: 'Are you tracking SEO rankings and performance?',
+                        options: ['No tracking', 'Basic manual tracking', 'Professional SEO tools']
+                    }
+                ]
+            },
+            {
+                id: 'paidAds',
+                title: 'Paid Advertising Assessment',
+                subtitle: '6 questions about your ad campaigns',
+                category: 'paidAds',
+                questions: [
+                    {
+                        text: 'Do you run Google Ads campaigns?',
+                        options: ['No', 'Managed in-house', 'Professionally managed']
+                    },
+                    {
+                        text: "What's your cost per new patient from Google Ads?",
+                        options: ["Don't know", 'Over $200', '$100-200', 'Under $100']
+                    },
+                    {
+                        text: 'Do you run Facebook/Instagram ads?',
+                        options: ['No', 'Boosted posts only', 'Professional campaigns']
+                    },
+                    {
+                        text: 'Do you retarget website visitors with ads?',
+                        options: ['No', "Don't know/not sure", 'Yes']
+                    },
+                    {
+                        text: 'Are you tracking cost per acquisition precisely?',
+                        options: ['No', 'Rough estimates only', 'Precise tracking']
+                    },
+                    {
+                        text: 'Do you A/B test your ad creative?',
+                        options: ['Never', 'Sometimes', 'Systematically']
+                    }
+                ]
+            },
+            {
+                id: 'patientMarketing',
+                title: 'Patient Marketing Assessment',
+                subtitle: '6 questions about patient retention and growth',
+                category: 'patientMarketing',
+                questions: [
+                    {
+                        text: 'Do you have an email marketing system?',
+                        options: ['No', 'Basic email list only', 'Automated sequences']
+                    },
+                    {
+                        text: 'Do you have a patient referral program?',
+                        options: ['No', 'Informal/not tracked', 'Structured program']
+                    },
+                    {
+                        text: 'Do you actively ask patients for Google reviews?',
+                        options: ['Never', 'Sometimes', 'Systematic process']
+                    },
+                    {
+                        text: 'How do you handle negative online reviews?',
+                        options: ['Ignore them', 'Respond sometimes', 'Always respond within 24-48 hours']
+                    },
+                    {
+                        text: 'Do you have a patient reactivation system?',
+                        options: ['No system', 'Ad-hoc attempts', 'Automated multi-channel']
+                    },
+                    {
+                        text: 'Do you have a membership/loyalty plan for uninsured patients?',
+                        options: ['No plan', 'Considering', 'Active program']
+                    }
+                ]
+            },
+            {
+                id: 'contentBranding',
+                title: 'Content & Branding Assessment',
+                subtitle: '5 questions about your marketing materials',
+                category: 'contentBranding',
+                questions: [
+                    {
+                        text: 'Do you create video content?',
+                        options: ['Never', 'Occasionally', 'Regular production']
+                    },
+                    {
+                        text: 'Is your branding consistent across all platforms?',
+                        options: ['Not really', 'Somewhat consistent', 'Fully consistent']
+                    },
+                    {
+                        text: 'Do you have patient testimonial videos?',
+                        options: ['None', 'A few (1-5)', '10+ professional videos']
+                    },
+                    {
+                        text: 'Do you have a social media posting schedule?',
+                        options: ['No schedule', 'Irregular posting', '3-5x per week consistently']
+                    },
+                    {
+                        text: 'Do you track marketing ROI?',
+                        options: ['No tracking', 'Rough estimates', 'Detailed analytics']
+                    }
+                ]
+            }
+        ];
 
-        function startAssessment() {
-            document.getElementById('welcomeScreen').classList.remove('active');
-            document.getElementById('welcomeScreen').classList.add('exit-left');
-
+        // Initialize
+        function startDiagnostic() {
+            const welcomeScreen = document.getElementById('welcomeScreen');
+            welcomeScreen.classList.add('exit-left');
             setTimeout(() => {
-                renderAssessmentSection(0);
-                document.getElementById('assessmentContainer').querySelector('.screen').classList.add('active');
+                welcomeScreen.classList.remove('active');
+                app.currentStep = 0;
+                renderStep(0);
+                const firstStep = document.querySelector('.screen.active');
+                if (firstStep) firstStep.classList.add('active');
             }, 300);
         }
 
-        function renderAssessmentSection(sectionIndex) {
+        function renderStep(stepIndex) {
+            const step = steps[stepIndex];
             const container = document.getElementById('assessmentContainer');
-            const html = `
-                <div class="screen" id="section-${sectionIndex}">
+            let html = '';
+
+            if (step.type === 'profile') {
+                html = renderProfileStep(step);
+            } else {
+                html = renderQuestionStep(step, stepIndex);
+            }
+
+            const screenId = `step-${stepIndex}`;
+            const existingScreen = document.getElementById(screenId);
+
+            if (!existingScreen) {
+                const div = document.createElement('div');
+                div.id = screenId;
+                div.className = 'screen';
+                div.innerHTML = html;
+                container.appendChild(div);
+            }
+
+            setTimeout(() => {
+                const screen = document.getElementById(screenId);
+                if (screen) screen.classList.add('active');
+            }, 50);
+        }
+
+        function renderProfileStep(step) {
+            let fieldsHtml = '';
+            step.fields.forEach(field => {
+                fieldsHtml += `
+                    <div class="text-input-group">
+                        <label class="text-input-label">${field.label}</label>
+                `;
+                if (field.type === 'text') {
+                    fieldsHtml += `<input type="text" id="${field.name}" placeholder="${field.placeholder}" required>`;
+                } else if (field.type === 'select') {
+                    fieldsHtml += `
+                        <select id="${field.name}" required>
+                            <option value="">Select an option...</option>
+                            ${field.options.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+                        </select>
+                    `;
+                }
+                fieldsHtml += '</div>';
+            });
+
+            return `
+                <div class="screen" id="step-0">
                     <div class="assessment-screen">
-                        <div style="margin-bottom: 0.5rem; color: var(--blue); font-size: 0.9rem; font-weight: 600;">
-                            Channel ${sectionIndex + 1} of 11
-                        </div>
-                        <h2 class="section-title">${channels[sectionIndex].name}</h2>
-                        <p class="section-subtitle">${channels[sectionIndex].description}</p>
-
-                        ${questions[sectionIndex].map((q, i) => `
-                            <div class="question-group">
-                                <div class="question-text">Q${i + 1}. ${q}</div>
-                                <div class="radio-group">
-                                    <label class="radio-option">
-                                        <input type="radio" name="q${sectionIndex}-${i}" value="1" onchange="updateProgress()">
-                                        <span class="radio-label">Not at all</span>
-                                    </label>
-                                    <label class="radio-option">
-                                        <input type="radio" name="q${sectionIndex}-${i}" value="2" onchange="updateProgress()">
-                                        <span class="radio-label">Barely</span>
-                                    </label>
-                                    <label class="radio-option">
-                                        <input type="radio" name="q${sectionIndex}-${i}" value="3" onchange="updateProgress()">
-                                        <span class="radio-label">Somewhat</span>
-                                    </label>
-                                    <label class="radio-option">
-                                        <input type="radio" name="q${sectionIndex}-${i}" value="4" onchange="updateProgress()">
-                                        <span class="radio-label">Good</span>
-                                    </label>
-                                    <label class="radio-option">
-                                        <input type="radio" name="q${sectionIndex}-${i}" value="5" onchange="updateProgress()">
-                                        <span class="radio-label">Excellent</span>
-                                    </label>
-                                </div>
-                            </div>
-                        `).join('')}
-
+                        <div class="section-label">Step 1 of 5</div>
+                        <h2 class="section-title">${step.title}</h2>
+                        <p class="section-subtitle">${step.subtitle}</p>
+                        ${fieldsHtml}
                         <div class="button-group">
-                            <button class="btn-secondary" onclick="previousSection()" ${sectionIndex === 0 ? 'disabled' : ''}>← Previous</button>
-                            <button class="btn-primary" onclick="nextSection()">
-                                ${sectionIndex === 10 ? 'See Results' : 'Next →'}
-                            </button>
+                            <button class="btn-primary" onclick="nextStep()" style="flex: 1;">Next →</button>
                         </div>
                     </div>
                 </div>
             `;
-            container.innerHTML += html;
         }
 
-        function updateProgress() {
-            const answered = document.querySelectorAll('input[type="radio"]:checked').length;
-            const total = 33;
-            const percent = (answered / total) * 100;
-            document.getElementById('progressFill').style.width = percent + '%';
+        function renderQuestionStep(step, stepIndex) {
+            let questionsHtml = '';
+            step.questions.forEach((q, idx) => {
+                const name = `q-${step.id}-${idx}`;
+                questionsHtml += `
+                    <div class="question-group">
+                        <div class="question-text">Q${idx + 1}. ${q.text}</div>
+                        <div class="radio-group">
+                `;
+                q.options.forEach((opt, optIdx) => {
+                    questionsHtml += `
+                        <label class="radio-option">
+                            <input type="radio" name="${name}" value="${optIdx}" onchange="updateProgress()">
+                            <span class="radio-label">${opt}</span>
+                        </label>
+                    `;
+                });
+                questionsHtml += `
+                        </div>
+                    </div>
+                `;
+            });
+
+            const stepLabel = `Step ${stepIndex + 1} of 5`;
+            const isLastStep = stepIndex === steps.length - 1;
+
+            return `
+                <div class="screen">
+                    <div class="assessment-screen">
+                        <div class="section-label">${stepLabel}</div>
+                        <h2 class="section-title">${step.title}</h2>
+                        <p class="section-subtitle">${step.subtitle}</p>
+                        ${questionsHtml}
+                        <div class="button-group">
+                            <button class="btn-secondary" onclick="previousStep()" ${stepIndex === 1 ? 'disabled' : ''}>← Previous</button>
+                            <button class="btn-primary" onclick="nextStep()">${isLastStep ? 'View Results →' : 'Next →'}</button>
+                        </div>
+                    </div>
+                </div>
+            `;
         }
 
-        function nextSection() {
-            if (!validateCurrentSection()) {
-                alert('Please answer all questions in this section before continuing.');
-                return;
+        function nextStep() {
+            // Validate current step
+            if (app.currentStep === 0) {
+                // Validate profile
+                const required = ['practiceName', 'practiceType', 'annualRevenue', 'locations', 'monthlyBudget', 'newPatients'];
+                for (let field of required) {
+                    const value = document.getElementById(field)?.value;
+                    if (!value) {
+                        alert(`Please fill in all required fields`);
+                        return;
+                    }
+                    app.practiceProfile[field] = value;
+                }
+            } else if (app.currentStep > 0) {
+                // Validate questions
+                const step = steps[app.currentStep];
+                const allAnswered = step.questions.every((q, idx) => {
+                    const name = `q-${step.id}-${idx}`;
+                    return document.querySelector(`input[name="${name}"]:checked`);
+                });
+                if (!allAnswered) {
+                    alert('Please answer all questions before continuing');
+                    return;
+                }
+                // Store responses
+                step.questions.forEach((q, idx) => {
+                    const name = `q-${step.id}-${idx}`;
+                    const checked = document.querySelector(`input[name="${name}"]:checked`);
+                    if (checked) {
+                        app.questionResponses[name] = parseInt(checked.value);
+                    }
+                });
             }
 
-            const currentSectionEl = document.querySelector('.assessment-screen').closest('.screen');
-            currentSectionEl.classList.add('exit-left');
+            const currentScreen = document.querySelector('.screen.active');
+            if (currentScreen) {
+                currentScreen.classList.add('exit-left');
+            }
 
-            currentSection++;
+            app.currentStep++;
+            updateProgress();
+
             setTimeout(() => {
-                if (currentSection < 11) {
-                    if (!document.getElementById(`section-${currentSection}`)) {
-                        renderAssessmentSection(currentSection);
-                    }
-                    const nextSectionEl = document.getElementById(`section-${currentSection}`);
-                    nextSectionEl.classList.add('active');
-                    updateProgressBar();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                if (currentScreen) currentScreen.classList.remove('active');
+
+                if (app.currentStep >= steps.length) {
+                    calculateResults();
                 } else {
-                    calculateAndShowResults();
+                    renderStep(app.currentStep);
+                    const newScreen = document.querySelector('.screen.active');
+                    if (newScreen) {
+                        newScreen.classList.add('active');
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
                 }
             }, 300);
         }
 
-        function previousSection() {
-            const currentSectionEl = document.querySelector('.screen.active');
-            currentSectionEl.classList.remove('active');
-            currentSection--;
-            document.getElementById(`section-${currentSection}`).classList.add('active');
-            updateProgressBar();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        function previousStep() {
+            const currentScreen = document.querySelector('.screen.active');
+            if (currentScreen) currentScreen.classList.remove('active');
+
+            app.currentStep--;
+            updateProgress();
+
+            const prevScreen = document.querySelector('.screen.active') || document.getElementById(`step-${app.currentStep}`);
+            if (prevScreen) {
+                prevScreen.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
         }
 
-        function validateCurrentSection() {
-            const inputs = document.querySelectorAll(`input[name^="q${currentSection}-"]`);
-            const groups = new Set();
-            inputs.forEach(input => {
-                groups.add(input.name);
+        function updateProgress() {
+            const totalSteps = steps.length;
+            const percent = Math.round(((app.currentStep + 1) / totalSteps) * 100);
+            document.getElementById('progressFill').style.width = percent + '%';
+            document.getElementById('progressPercent').textContent = percent + '%';
+
+            if (app.currentStep === 0) {
+                document.getElementById('progressLabel').textContent = 'Practice Profile';
+            } else if (app.currentStep > 0 && app.currentStep < totalSteps) {
+                document.getElementById('progressLabel').textContent = steps[app.currentStep].title;
+            }
+        }
+
+        function calculateResults() {
+            // Calculate category scores (0-100 scale)
+            calculateCategoryScore('websiteSEO', 1);
+            calculateCategoryScore('paidAds', 2);
+            calculateCategoryScore('patientMarketing', 3);
+            calculateCategoryScore('contentBranding', 4);
+
+            const overall = Math.round(
+                (app.scores.websiteSEO + app.scores.paidAds + app.scores.patientMarketing + app.scores.contentBranding) / 4
+            );
+
+            showResults(overall);
+        }
+
+        function calculateCategoryScore(category, stepIndex) {
+            const step = steps[stepIndex];
+            let totalScore = 0;
+            let maxScore = step.questions.length * 3; // Max 3 points per question
+
+            step.questions.forEach((q, idx) => {
+                const name = `q-${step.id}-${idx}`;
+                const value = app.questionResponses[name];
+                if (value !== undefined) {
+                    totalScore += value;
+                }
             });
 
-            for (let group of groups) {
-                const checked = document.querySelector(`input[name="${group}"]:checked`);
-                if (!checked) return false;
-            }
-            return true;
+            app.scores[category] = Math.round((totalScore / maxScore) * 100);
         }
 
-        function updateProgressBar() {
-            const percent = ((currentSection + 1) / 11) * 100;
-            document.getElementById('progressFill').style.width = percent + '%';
-            document.getElementById('progressText').textContent = `Section ${currentSection + 1} of 11 - ${channels[currentSection].name}`;
-        }
+        function showResults(overall) {
+            // Hide assessment screens
+            document.querySelectorAll('.screen.active').forEach(s => s.classList.remove('active'));
 
-        function calculateAndShowResults() {
-            // Calculate section scores
-            for (let s = 0; s < 11; s++) {
-                let sectionScore = 0;
-                for (let q = 0; q < 3; q++) {
-                    const checked = document.querySelector(`input[name="q${s}-${q}"]:checked`);
-                    if (checked) {
-                        sectionScore += parseInt(checked.value);
-                    }
-                }
-                scores[s] = (sectionScore / 15) * 10;
-            }
+            // Update overall score
+            document.getElementById('overallScore').textContent = overall;
 
-            const overall = Math.round(scores.reduce((a, b) => a + b, 0) / 11 * 10);
+            // Animate score arc
+            const circumference = 534; // 2 * PI * 85
+            const offset = circumference - (overall / 100) * circumference;
+            const arc = document.getElementById('scoreArc');
+            setTimeout(() => {
+                arc.style.strokeDashoffset = offset;
+                arc.style.transition = 'stroke-dashoffset 2s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            }, 100);
 
-            // Show results
-            displayResults(overall);
+            // Display grade
+            const grade = getGradeDetails(overall);
+            const badge = document.getElementById('gradeBadge');
+            badge.textContent = grade.letter;
+            badge.className = `grade-badge grade-${grade.class}`;
 
-            document.querySelector('.screen.active').classList.remove('active');
+            document.getElementById('gradeDescription').innerHTML = `
+                <strong>${grade.title}</strong><br>
+                ${grade.description}
+            `;
+
+            // Category scores
+            let categoryHtml = '';
+            const categories = [
+                { key: 'websiteSEO', label: 'Website & SEO' },
+                { key: 'paidAds', label: 'Paid Advertising' },
+                { key: 'patientMarketing', label: 'Patient Marketing' },
+                { key: 'contentBranding', label: 'Content & Branding' }
+            ];
+
+            categories.forEach((cat, idx) => {
+                const score = app.scores[cat.key];
+                const gradeInfo = getGradeDetails(score);
+                categoryHtml += `
+                    <div class="category-score-item">
+                        <div class="category-score-header">
+                            <span class="category-name">${cat.label}</span>
+                            <span class="category-value">${score}/100 <span class="grade-badge grade-${gradeInfo.class}" style="font-size: 0.9rem; padding: 0.3rem 0.6rem;">${gradeInfo.letter}</span></span>
+                        </div>
+                        <div class="score-bar">
+                            <div class="score-bar-fill" style="width: 0%; transition: width 0.8s ease ${0.2 + idx * 0.1}s;"></div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            document.getElementById('categoryScoresContainer').innerHTML = categoryHtml;
+
+            // Trigger bar animations
+            setTimeout(() => {
+                document.querySelectorAll('.score-bar-fill').forEach((bar, idx) => {
+                    const score = Object.values(app.scores)[idx];
+                    bar.style.width = (score / 100) * 100 + '%';
+                });
+            }, 100);
+
+            // Revenue impact calculation
+            const lowestScore = Math.min(...Object.values(app.scores));
+            const revenueMultiplier = getRevenueMultiplier(app.practiceProfile.annualRevenue);
+            const gapPercentage = (100 - lowestScore) / 100;
+            const potentialIncrease = Math.round(revenueMultiplier * gapPercentage * 0.15); // 15% potential uplift
+
+            document.getElementById('revenueImpact').textContent = `+$${potentialIncrease.toLocaleString()}`;
+            document.getElementById('impactText').textContent =
+                `By addressing your weakest areas (${lowestScore}/100 in ${getLowestCategory()}), you could increase annual revenue by:`;
+
+            // Generate recommendations
+            generateRecommendations(overall);
+
+            // Show results screen
             document.getElementById('resultsScreen').classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function displayResults(overall) {
-            document.getElementById('overallScore').textContent = overall;
+        function getGradeDetails(score) {
+            if (score >= 90) return { letter: 'A+', class: 'aplus', title: 'Elite', description: 'Top 5% of dental practices - exceptional marketing execution' };
+            if (score >= 80) return { letter: 'A', class: 'a', title: 'Excellent', description: 'Strong competitive position with effective marketing systems' };
+            if (score >= 70) return { letter: 'B+', class: 'bplus', title: 'Good', description: 'Above average with clear growth opportunities' };
+            if (score >= 60) return { letter: 'B', class: 'b', title: 'Average', description: 'Significant untapped potential across channels' };
+            if (score >= 50) return { letter: 'C+', class: 'cplus', title: 'Below Average', description: 'Missing major growth channels and optimization' };
+            if (score >= 40) return { letter: 'C', class: 'c', title: 'Weak', description: 'Competitors are outperforming in key areas' };
+            if (score >= 25) return { letter: 'D', class: 'd', title: 'Critical', description: 'Major gaps across all marketing channels' };
+            return { letter: 'F', class: 'f', title: 'Emergency', description: 'Essential marketing infrastructure needed immediately' };
+        }
 
-            // Save results to localStorage for member dashboard
-            const results = {
-                overall: overall,
-                scores: scores,
-                channels: channels,
-                timestamp: new Date().toISOString()
-            };
-            localStorage.setItem('dms_scorecard_results', JSON.stringify(results));
+        function getLowestCategory() {
+            let lowest = 'Website & SEO';
+            let lowestScore = app.scores.websiteSEO;
 
-            // Animate circle
-            const circumference = 2 * Math.PI * 90;
-            const offset = circumference - (overall / 100) * circumference;
-            document.getElementById('scoreCircle').style.strokeDashoffset = offset;
-
-            // Channel scores
-            let scoresHtml = '';
-            scores.forEach((score, i) => {
-                const width = (score / 10) * 100;
-                scoresHtml += `
-                    <div class="channel-score-item">
-                        <div class="channel-score-header">
-                            <span class="channel-name">${channels[i].name}</span>
-                            <span class="channel-value">${score.toFixed(1)}/10 <span class="grade-badge grade-${getGrade(score)}">${getGrade(score).toUpperCase()}</span></span>
-                        </div>
-                        <div class="score-bar">
-                            <div class="score-bar-fill" style="width: 0%; transition: width 0.8s ease 0.2s;"></div>
-                        </div>
-                    </div>
-                `;
+            Object.entries(app.scores).forEach(([key, score]) => {
+                if (score < lowestScore) {
+                    lowestScore = score;
+                    if (key === 'websiteSEO') lowest = 'Website & SEO';
+                    else if (key === 'paidAds') lowest = 'Paid Advertising';
+                    else if (key === 'patientMarketing') lowest = 'Patient Marketing';
+                    else if (key === 'contentBranding') lowest = 'Content & Branding';
+                }
             });
-            document.getElementById('channelScoresContainer').innerHTML = scoresHtml;
+            return lowest;
+        }
 
-            // Animate bars
-            setTimeout(() => {
-                document.querySelectorAll('.score-bar-fill').forEach((bar, i) => {
-                    const width = (scores[i] / 10) * 100;
-                    bar.style.width = width + '%';
-                });
-            }, 100);
+        function getRevenueMultiplier(revenueRange) {
+            const ranges = {
+                'Under $500K': 500000,
+                '$500K-$1M': 750000,
+                '$1M-$2M': 1500000,
+                '$2M-$5M': 3500000,
+                '$5M+': 7500000
+            };
+            return ranges[revenueRange] || 500000;
+        }
 
-            // Strengths and improvements
-            const sorted = [...scores].map((s, i) => ({ score: s, index: i })).sort((a, b) => b.score - a.score);
+        function generateRecommendations(overall) {
+            const sorted = Object.entries(app.scores)
+                .map(([key, score]) => ({ key, score }))
+                .sort((a, b) => a.score - b.score);
 
-            const strengths = sorted.slice(0, 3).map(s => channels[s.index].name);
-            const improvements = sorted.slice(-3).reverse().map(s => channels[s.index].name);
+            const categoryLabels = {
+                'websiteSEO': 'Website & SEO',
+                'paidAds': 'Paid Advertising',
+                'patientMarketing': 'Patient Marketing',
+                'contentBranding': 'Content & Branding'
+            };
 
-            document.getElementById('strengthsList').innerHTML = strengths.map(s => `<li>${s}</li>`).join('');
-            document.getElementById('improvementList').innerHTML = improvements.map(i => `<li>${i}</li>`).join('');
+            const categoryArticles = {
+                'websiteSEO': '../articles/optimize-dental-website.html',
+                'paidAds': '../articles/dental-google-ads-guide.html',
+                'patientMarketing': '../articles/patient-retention-strategies.html',
+                'contentBranding': '../articles/dental-branding-guide.html'
+            };
 
-            // Recommendations
-            const weakest = sorted.slice(-3).reverse();
-            let recsHtml = '<h3>Recommended Action Plan</h3>';
-            weakest.forEach(w => {
-                const channelName = channels[w.index].name;
+            const recommendationTexts = {
+                'websiteSEO': 'Your website scoring below 50/100 means missed patient inquiries and organic traffic. Practices with optimized sites see 40% more appointment requests.',
+                'paidAds': 'Without effective paid ads, you\'re losing budget efficiency. Optimized Google Ads campaigns deliver 3-5x ROI for dental practices.',
+                'patientMarketing': 'Weak patient marketing metrics indicate lost revenue from existing patients. Strong retention systems increase lifetime value by 60%.',
+                'contentBranding': 'Inconsistent branding and content leave money on the table. Regular content attracts 2-3x more qualified leads.'
+            };
+
+            let recsHtml = '';
+            sorted.slice(0, 5).forEach((item, idx) => {
+                const category = categoryLabels[item.key];
+                const article = categoryArticles[item.key];
+                const stat = recommendationTexts[item.key];
+
                 recsHtml += `
                     <div class="recommendation-item">
-                        <div class="recommendation-title">${channelName}</div>
-                        <div class="recommendation-desc">${recommendations[channelName]}</div>
+                        <span class="rec-number">${idx + 1}</span>
+                        <div style="display: inline-block; vertical-align: top; width: calc(100% - 50px);">
+                            <div class="recommendation-title">${category}</div>
+                            <div class="recommendation-text">
+                                ${stat}
+                            </div>
+                            <a href="${article}" class="recommendation-link">Read our ${category.toLowerCase()} guide →</a>
+                        </div>
                     </div>
                 `;
             });
+
             document.getElementById('recommendationsContainer').innerHTML = recsHtml;
         }
 
-        function getGrade(score) {
-            if (score >= 9) return 'a';
-            if (score >= 8) return 'b';
-            if (score >= 7) return 'c';
-            if (score >= 6) return 'd';
-            return 'f';
+        function printResults() {
+            window.print();
         }
 
-        function restartAssessment() {
-            currentSection = 0;
-            scores = Array(11).fill(0);
+        function shareResults() {
+            const score = document.getElementById('overallScore').textContent;
+            const grade = document.querySelector('.grade-badge').textContent;
+            const text = `I scored ${score}/100 (${grade}) on the Dental Marketing Diagnostic from Ekwa Marketing. See where your practice stands: https://dms.narenlife.com/tools/scorecard.html`;
+
+            if (navigator.share) {
+                navigator.share({ title: 'Dental Marketing Diagnostic', text: text });
+            } else {
+                alert(`Your Score: ${score}/100 (${grade})\n\nCopy this link to share:\nhttps://dms.narenlife.com/tools/scorecard.html`);
+            }
+        }
+
+        function restartDiagnostic() {
+            app.currentStep = 0;
+            app.scores = { websiteSEO: 0, paidAds: 0, patientMarketing: 0, contentBranding: 0 };
+            app.questionResponses = {};
+            app.practiceProfile = {};
+
             document.getElementById('assessmentContainer').innerHTML = '';
             document.getElementById('resultsScreen').classList.remove('active');
-            document.getElementById('welcomeScreen').classList.remove('exit-left');
             document.getElementById('welcomeScreen').classList.add('active');
+            document.getElementById('welcomeScreen').classList.remove('exit-left');
             document.getElementById('progressFill').style.width = '0%';
-            document.getElementById('progressText').textContent = 'Getting Started...';
+            document.getElementById('progressPercent').textContent = '0%';
+            document.getElementById('progressLabel').textContent = 'Getting Started...';
+
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function downloadResults() {
-            const overall = parseInt(document.getElementById('overallScore').textContent);
-            let content = 'DENTAL MARKETING SCORECARD - ASSESSMENT RESULTS\n';
-            content += '='.repeat(50) + '\n\n';
-            content += `Overall Score: ${overall}/100\n\n`;
-            content += 'Channel Scores:\n';
-            scores.forEach((score, i) => {
-                content += `${channels[i].name}: ${score.toFixed(1)}/10 (Grade: ${getGrade(score).toUpperCase()})\n`;
-            });
-
-            const element = document.createElement('a');
-            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(content));
-            element.setAttribute('download', 'DMS_Scorecard_Results.txt');
-            element.style.display = 'none';
-            document.body.appendChild(element);
-            element.click();
-            document.body.removeChild(element);
-        }
-
-        // Initialize
-        renderAssessmentSection(0);
-        document.getElementById(`section-0`).style.display = 'none';
+        // Initialize on load
+        window.addEventListener('load', () => {
+            updateProgress();
+            renderStep(0);
+            document.getElementById(`step-0`).style.display = 'none';
+        });
     </script>
 </body>
 </html>
