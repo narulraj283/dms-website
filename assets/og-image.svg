@@ -1,0 +1,32 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Navy background -->
+  <rect width="1200" height="630" fill="#1B2A4A"/>
+
+  <!-- Gold accent line at top -->
+  <rect x="0" y="0" width="1200" height="6" fill="#D4A843"/>
+
+  <!-- Decorative circle elements -->
+  <circle cx="100" cy="100" r="80" fill="#D4A843" opacity="0.1"/>
+  <circle cx="1100" cy="550" r="120" fill="#2E75B6" opacity="0.1"/>
+
+  <!-- Main text: "Dental Marketing Society" -->
+  <text x="600" y="220" font-family="'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif" font-size="72" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">
+    Dental Marketing
+  </text>
+  <text x="600" y="310" font-family="'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif" font-size="72" font-weight="700" fill="#D4A843" text-anchor="middle" letter-spacing="0.5">
+    Society
+  </text>
+
+  <!-- Gold line separator -->
+  <line x1="150" y1="350" x2="1050" y2="350" stroke="#D4A843" stroke-width="3"/>
+
+  <!-- Tagline -->
+  <text x="600" y="410" font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-size="32" font-weight="400" fill="#FFFFFF" text-anchor="middle" opacity="0.95">
+    Expert Guides • Powerful Tools • Growing Community
+  </text>
+
+  <!-- Small accent text -->
+  <text x="600" y="570" font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-size="18" font-weight="500" fill="#D4A843" text-anchor="middle" opacity="0.9">
+    dms.narenlife.com
+  </text>
+</svg>
