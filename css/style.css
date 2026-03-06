@@ -284,6 +284,8 @@ p { margin-bottom: 1rem; }
 
 /* ── ARTICLE PAGES ── */
 .article-hero { padding: 140px 0 40px; background: linear-gradient(135deg, #1B2A4A 0%, #2a3d66 100%); color: #fff; }
+.article-hero h1 { color: #fff; }
+.article-hero .author { color: rgba(255,255,255,0.85); }
 .article-meta { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 1rem; }
 .article-meta span { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
 .article-content { max-width: 800px; margin: 0 auto; padding: 3rem 24px; }
