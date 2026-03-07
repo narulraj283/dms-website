@@ -4,28 +4,448 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DMS Membership Plans - Free to Premium</title>
-  <meta name="description" content="Dental Marketing Society membership: All tiers now free for limited time. Join 10,000+ practice owners with access to education, tools, and community.">
-  <meta name="keywords" content="DMS membership, dental marketing membership, free membership, premium membership, dental community">
-  <meta property="og:title" content="DMS Membership - All Free for Limited Time">
-  <meta property="og:description" content="Start free. All membership levels are free for the first 2 months!">
+  <meta name="description" content="Dental Marketing Society membership: Choose Foundation (free forever), Growth ($29/month), or Elite ($79/month). All plans free for first 2 months. 10,000+ members.">
+  <meta name="keywords" content="DMS membership, dental marketing membership, free membership, premium membership, dental community, pricing tiers">
+  <meta property="og:title" content="DMS Membership Plans - Choose Your Tier">
+  <meta property="og:description" content="Choose Your DMS Membership. All plans free for the first 2 months! Foundation free forever, Growth $29/month, Elite $79/month.">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css?v=2">
   <style>
-    .faq-item { border: 1px solid #eee; border-radius: 8px; margin-bottom: 8px; overflow: hidden; }
-    .faq-question { padding: 16px 20px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center; background: #f9f9f9; transition: background 0.3s; }
-    .faq-question:hover { background: #f0f0f0; }
-    .faq-question::after { content: '+'; font-size: 1.5rem; color: #D4A843; transition: transform 0.3s; }
-    .faq-item.open .faq-question::after { content: ''; }
-    .faq-answer { display: none; padding: 0 20px 16px; color: #555; background: #fafafa; }
-    .faq-item.open .faq-answer { display: block; }
-    .comparison-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
-    .comparison-table th { background: #1B2A4A; color: white; padding: 12px; text-align: left; font-weight: 600; }
-    .comparison-table td { padding: 12px; border-bottom: 1px solid #eee; }
-    .comparison-table tr:hover { background: #f9f9f9; }
-    .feature-check { color: #D4A843; font-weight: bold; }
-    .feature-x { color: #999; }
+    /* HERO SECTION */
+    .hero-membership {
+      background: linear-gradient(135deg, #1B2A4A 0%, #2E5A8F 100%);
+      color: white;
+      padding: 100px 0 80px;
+      text-align: center;
+    }
+    .hero-membership h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+    .hero-membership h1 span {
+      color: #D4A843;
+    }
+    .hero-membership .subtitle {
+      font-size: 1.25rem;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+    }
+    .hero-membership .trial-badge {
+      display: inline-block;
+      background: #D4A843;
+      color: #1B2A4A;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-top: 1rem;
+    }
+
+    /* PRICING TOGGLE */
+    .pricing-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .pricing-toggle-btn {
+      padding: 8px 16px;
+      border: 2px solid #ddd;
+      background: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
+    .pricing-toggle-btn.active {
+      background: #1B2A4A;
+      color: white;
+      border-color: #1B2A4A;
+    }
+    .pricing-toggle .savings {
+      background: rgba(212, 168, 67, 0.2);
+      color: #D4A843;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* PRICING GRID */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* PRICING CARD */
+    .pricing-card {
+      background: white;
+      border: 2px solid #eee;
+      border-radius: 12px;
+      padding: 2.5rem;
+      position: relative;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .pricing-card:hover {
+      border-color: #D4A843;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transform: translateY(-5px);
+    }
+    .pricing-card.featured {
+      border: 2px solid #D4A843;
+      background: linear-gradient(135deg, rgba(212, 168, 67, 0.05) 0%, rgba(46, 117, 182, 0.03) 100%);
+      transform: scale(1.05);
+    }
+    .pricing-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1B2A4A;
+      margin-bottom: 0.5rem;
+    }
+    .pricing-badge {
+      position: absolute;
+      top: -12px;
+      left: 20px;
+      background: #D4A843;
+      color: #1B2A4A;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* PRICING CONTENT */
+    .pricing-header {
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 2px solid #f0f0f0;
+    }
+    .pricing-amount {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #1B2A4A;
+    }
+    .pricing-amount .currency {
+      font-size: 1.5rem;
+    }
+    .pricing-amount .period {
+      font-size: 1rem;
+      color: #666;
+      font-weight: 400;
+    }
+    .pricing-subtext {
+      color: #999;
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+    }
+
+    /* FEATURES LIST */
+    .pricing-features {
+      list-style: none;
+      padding: 0;
+      margin: 2rem 0;
+      flex-grow: 1;
+    }
+    .pricing-features li {
+      padding: 0.75rem 0;
+      color: #555;
+      border-bottom: 1px solid #f5f5f5;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .pricing-features li:last-child {
+      border-bottom: none;
+    }
+    .pricing-features li::before {
+      content: "✓";
+      color: #D4A843;
+      font-weight: bold;
+      margin-right: 0.75rem;
+    }
+
+    /* PRICING CTA */
+    .pricing-cta {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .btn-pricing {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      width: 100%;
+    }
+    .btn-primary {
+      background: #1B2A4A;
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #0f1a2d;
+      box-shadow: 0 5px 15px rgba(27, 42, 74, 0.3);
+    }
+    .btn-secondary {
+      background: #D4A843;
+      color: #1B2A4A;
+    }
+    .btn-secondary:hover {
+      background: #c49332;
+      box-shadow: 0 5px 15px rgba(212, 168, 67, 0.3);
+    }
+
+    /* COMPARISON TABLE */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+      background: white;
+    }
+    .comparison-table thead {
+      background: #1B2A4A;
+      color: white;
+    }
+    .comparison-table th {
+      padding: 18px 15px;
+      text-align: left;
+      font-weight: 600;
+      border: none;
+    }
+    .comparison-table th:first-child {
+      min-width: 250px;
+    }
+    .comparison-table td {
+      padding: 16px 15px;
+      border-bottom: 1px solid #eee;
+      color: #555;
+      font-size: 0.95rem;
+    }
+    .comparison-table tbody tr:hover {
+      background: #f9f9f9;
+    }
+    .comparison-table .category-row {
+      background: #f0f0f0;
+      font-weight: 700;
+      color: #1B2A4A;
+      padding: 14px 15px;
+    }
+    .comparison-table .feature-check {
+      color: #D4A843;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .comparison-table .feature-x {
+      color: #ccc;
+      font-size: 1.2rem;
+    }
+
+    /* GUARANTEE SECTION */
+    .guarantee-box {
+      background: white;
+      border: 2px solid #D4A843;
+      padding: 3rem;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .guarantee-box h3 {
+      color: #1B2A4A;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .guarantee-box .seal {
+      color: #D4A843;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    /* FAQ SECTION */
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: white;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .faq-item:hover {
+      border-color: #D4A843;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    .faq-question {
+      padding: 18px 22px;
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f9f9f9;
+      transition: background 0.3s;
+      color: #1B2A4A;
+    }
+    .faq-question:hover {
+      background: #f0f0f0;
+    }
+    .faq-toggle {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #D4A843;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    .faq-item.open .faq-toggle {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      display: none;
+      padding: 0 22px 18px;
+      color: #666;
+      background: #fafafa;
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    /* SOCIAL PROOF */
+    .social-proof {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .social-proof h2 {
+      margin-bottom: 2rem;
+    }
+    .social-proof-stat {
+      display: inline-block;
+      background: linear-gradient(135deg, #1B2A4A 0%, #2E75B6 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .testimonial-card {
+      background: white;
+      border: 1px solid #eee;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    .testimonial-card .stars {
+      color: #D4A843;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .testimonial-card .quote {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    .testimonial-card .author {
+      font-weight: 600;
+      color: #1B2A4A;
+    }
+    .testimonial-card .title {
+      color: #999;
+      font-size: 0.9rem;
+    }
+    .testimonial-card .tier {
+      display: inline-block;
+      background: #f0f0f0;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 1rem;
+    }
+
+    /* SECTION STYLING */
+    .section {
+      padding: 60px 0;
+    }
+    .section-light {
+      background: #f9f9f9;
+    }
+    .section-dark {
+      background: linear-gradient(135deg, #1B2A4A 0%, #2E5A8F 100%);
+      color: white;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero-membership h1 {
+        font-size: 2rem;
+      }
+      .hero-membership .subtitle {
+        font-size: 1rem;
+      }
+      .pricing-card.featured {
+        transform: scale(1);
+      }
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+      .pricing-toggle {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .comparison-table {
+        font-size: 0.9rem;
+      }
+      .comparison-table th:first-child,
+      .comparison-table td {
+        padding: 12px 10px;
+      }
+      .comparison-table th:first-child {
+        min-width: 180px;
+      }
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* SCHEMA MARKUP SUPPORT */
+    .schema-hidden {
+      display: none;
+    }
   </style>
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -70,7 +490,17 @@
       <a href="articles.html">Articles</a>
       <a href="events.html">Events</a>
       <a href="podcast.html">Podcast</a>
-      <a href="../tools/scorecard.html">Tools</a>
+      <div class="nav-dropdown">
+        <a href="#">Tools ▾</a>
+        <div class="nav-dropdown-content">
+          <a href="../tools/scorecard.html">📊 Marketing Scorecard</a>
+          <a href="../tools/seo-audit.html">🔍 SEO Audit Tool</a>
+          <a href="../tools/roi-calculator.html">💰 ROI Calculator</a>
+          <a href="../tools/budget-planner.html">📋 Budget Planner</a>
+          <a href="../tools/social-calendar.html">📱 Social Calendar</a>
+          <a href="../tools/marketing-plan.html">📝 Marketing Plan Builder</a>
+        </div>
+      </div>
       <a href="community.html">Community</a>
       <a href="about.html">About</a>
       <a href="membership.html" class="nav-cta">Join Free</a>
@@ -82,99 +512,89 @@
 </header>
 
 <!-- HERO -->
-<section class="hero" style="padding: 80px 0 60px;">
+<section class="hero-membership">
   <div class="container">
-    <h1 style="margin-bottom: 1rem;">Choose Your <span>Membership Level</span></h1>
-    <p style="font-size: 1.2rem; color: #666; max-width: 700px; margin-bottom: 2rem;">ALL TIERS NOW FREE! Start with free access to thousands of articles, the podcast, and monthly webinars. Upgrade when you're ready for more depth, premium tools, and expert guidance.</p>
+    <h1>Choose Your <span>DMS Membership</span></h1>
+    <p class="subtitle">Every plan includes our core dental marketing education. Upgrade for advanced tools and exclusive access.</p>
+    <div class="trial-badge">All plans free for the first 2 months!</div>
   </div>
 </section>
 
-<!-- WHY IS EVERYTHING FREE? -->
-<section class="section" style="background: rgba(212, 168, 67, 0.08); border-top: 4px solid #D4A843; border-bottom: 4px solid #D4A843;">
-  <div class="container">
-    <div style="max-width: 800px; margin: 0 auto;">
-      <h2 style="text-align: center; margin-bottom: 2rem;">Why Is Everything Free?</h2>
-      <p style="font-size: 1.05rem; color: #555; line-height: 1.8; text-align: center;">At Dental Marketing Society, we believe community comes first. For the next 2 months, we're offering free access to ALL membership tiers - Explorer, Basic, and Premium. This is our way of building a vibrant community of practice owners who are serious about growth. We're not testing the waters with limited access; you get the full experience immediately. After 2 months, we'll evaluate pricing, but for now, we're all-in on community first.</p>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING CARDS -->
+<!-- PRICING SECTION -->
 <section class="section">
   <div class="container">
+    <!-- Pricing Toggle -->
+    <div class="pricing-toggle">
+      <button class="pricing-toggle-btn active" onclick="togglePricing('monthly')">Monthly</button>
+      <button class="pricing-toggle-btn" onclick="togglePricing('annual')">Annual</button>
+      <span class="savings" id="savingsLabel" style="display:none;">Save 28%</span>
+    </div>
+
+    <!-- Pricing Cards Grid -->
     <div class="pricing-grid">
-      <!-- EXPLORER FREE -->
+      <!-- FOUNDATION FREE -->
       <div class="pricing-card">
-        <h3>Explorer</h3>
-        <div class="pricing-price">Free</div>
-        <p class="text-gray">Forever free. Always.</p>
+        <h3>Foundation</h3>
+        <div class="pricing-header">
+          <div class="pricing-amount"><span class="currency">$</span><span id="foundation-price">0</span><span class="period">/forever</span></div>
+          <p class="pricing-subtext">Free forever. Always included.</p>
+        </div>
         <ul class="pricing-features">
-          <li>All articles & blog content</li>
-          <li>Weekly podcast episodes</li>
-          <li>DMS Daily Briefing email</li>
-          <li>1 free webinar per month</li>
-          <li>Basic Marketing Scorecard (3 channels)</li>
-          <li>5 free templates</li>
-          <li>Community access (view-only)</li>
-          <li>Access to member dashboard</li>
+          <li>25 expert articles</li>
+          <li>Marketing Scorecard tool</li>
+          <li>Monthly newsletter</li>
+          <li>Community access (read-only)</li>
+          <li>Basic learning path</li>
         </ul>
-        <a href="signup.html" class="btn btn-navy" style="width:100%;">Join Free</a>
-        <p style="text-align:center; color:#999; font-size:0.85rem; margin-top:1rem;">Perfect for getting started</p>
+        <div class="pricing-cta">
+          <a href="https://www.ekwa.com/msm/?utm_source=dms&utm_medium=page&utm_campaign=dms-membership" class="btn-pricing btn-primary">Get Started Free</a>
+        </div>
       </div>
 
-      <!-- BASIC -->
+      <!-- GROWTH PLAN -->
       <div class="pricing-card featured">
-        <div class="pricing-badge">Most Popular</div>
-        <h3>Basic</h3>
-        <div class="pricing-price">Free</div>
-        <p class="text-gray">For a limited time</p>
+        <div class="pricing-badge">MOST POPULAR</div>
+        <h3>Growth</h3>
+        <div class="pricing-header">
+          <div class="pricing-amount"><span class="currency">$</span><span id="growth-price">29</span><span class="period">/month</span></div>
+          <p class="pricing-subtext" id="growth-subtext">After 2-month free trial</p>
+        </div>
         <ul class="pricing-features">
-          <li>Everything in Explorer</li>
-          <li>Unlimited webinars + recordings</li>
-          <li>Full community access (post, ask, comment)</li>
-          <li>200+ template library</li>
-          <li>Full Marketing Scorecard (all 11 channels)</li>
-          <li>All learning paths & certifications</li>
-          <li>ROI calculator suite</li>
-          <li>Free CE credits with all webinars</li>
+          <li>Everything in Foundation, plus:</li>
+          <li>All tools (SEO Audit, Budget Planner, ROI Calculator, Social Calendar, Marketing Plan Generator)</li>
+          <li>Full community access (post & comment)</li>
+          <li>Growth learning path</li>
+          <li>Monthly webinars (live)</li>
+          <li>Webinar replays library</li>
+          <li>Email templates library</li>
+          <li>Priority support</li>
         </ul>
-        <a href="signup.html" class="btn btn-gold" style="width:100%;">Join Free</a>
-        <p style="text-align:center; color:#999; font-size:0.85rem; margin-top:1rem;">For serious practice owners</p>
+        <div class="pricing-cta">
+          <a href="https://www.ekwa.com/msm/?utm_source=dms&utm_medium=page&utm_campaign=dms-membership" class="btn-pricing btn-secondary">Start Free Trial</a>
+        </div>
       </div>
 
-      <!-- PREMIUM -->
+      <!-- ELITE PLAN -->
       <div class="pricing-card">
-        <h3>Premium</h3>
-        <div class="pricing-price">Free</div>
-        <p class="text-gray">For a limited time</p>
+        <h3>Elite</h3>
+        <div class="pricing-header">
+          <div class="pricing-amount"><span class="currency">$</span><span id="elite-price">79</span><span class="period">/month</span></div>
+          <p class="pricing-subtext" id="elite-subtext">After 2-month free trial</p>
+        </div>
         <ul class="pricing-features">
-          <li>Everything in Basic</li>
-          <li>Monthly private mastermind sessions</li>
-          <li>Private community groups (exclusive)</li>
-          <li>Premium templates & advanced tools</li>
-          <li>Quarterly scorecard review & benchmarking</li>
-          <li>2 expert advisory sessions/year</li>
-          <li>Annual Summit ticket included</li>
-          <li>Vendor Comparison Guide + consult</li>
+          <li>Everything in Growth, plus:</li>
+          <li>Mastery learning path</li>
+          <li>Monthly mastermind groups (small group)</li>
+          <li>1-on-1 quarterly strategy call</li>
+          <li>DMS Certification program</li>
+          <li>Early access to new tools</li>
+          <li>Private Slack channel</li>
+          <li>Annual summit ticket (virtual)</li>
+          <li>Ambassador program eligibility</li>
         </ul>
-        <a href="signup.html" class="btn btn-navy" style="width:100%;">Join Free</a>
-        <p style="text-align:center; color:#999; font-size:0.85rem; margin-top:1rem;">For growth-focused leaders</p>
-      </div>
-
-      <!-- ENTERPRISE -->
-      <div class="pricing-card" style="grid-column: 1 / -1; max-width: 400px; margin: 0 auto; text-align: center;">
-        <h3>Enterprise</h3>
-        <div class="pricing-price">Free</div>
-        <p class="text-gray">For multi-location practices & groups</p>
-        <ul class="pricing-features" style="text-align: left;">
-          <li>Everything in Premium</li>
-          <li>Unlimited team member seats</li>
-          <li>Dedicated Slack channel with DMS team</li>
-          <li>Custom workshop for your team</li>
-          <li>Quarterly business review meetings</li>
-          <li>Priority support & consulting hours</li>
-        </ul>
-        <a href="dashboard-member.html" class="btn btn-navy" style="width:100%;">Access Member Dashboard</a>
+        <div class="pricing-cta">
+          <a href="https://www.ekwa.com/msm/?utm_source=dms&utm_medium=page&utm_campaign=dms-membership" class="btn-pricing btn-primary">Start Free Trial</a>
+        </div>
       </div>
     </div>
   </div>
@@ -183,123 +603,181 @@
 <!-- FEATURE COMPARISON -->
 <section class="section section-light">
   <div class="container">
-    <h2 style="text-align: center; margin-bottom: 2rem;">Feature Comparison</h2>
+    <h2 style="text-align: center; margin-bottom: 2rem;">Complete Feature Comparison</h2>
     <div style="overflow-x: auto;">
       <table class="comparison-table">
         <thead>
           <tr>
             <th>Feature</th>
-            <th>Explorer</th>
-            <th>Basic</th>
-            <th>Premium</th>
-            <th>Enterprise</th>
+            <th>Foundation</th>
+            <th>Growth</th>
+            <th>Elite</th>
           </tr>
         </thead>
         <tbody>
+          <!-- PRICING ROW -->
           <tr>
             <td><strong>Price</strong></td>
-            <td>Free</td>
-            <td>Free (Limited Time)</td>
-            <td>Free (Limited Time)</td>
-            <td>Contact Us</td>
+            <td>Free Forever</td>
+            <td id="growth-price-row">$29/month</td>
+            <td id="elite-price-row">$79/month</td>
+          </tr>
+
+          <!-- EDUCATION -->
+          <tr class="category-row">
+            <td colspan="4">EDUCATION</td>
           </tr>
           <tr>
-            <td>All articles & guides</td>
-            <td class="feature-check">✓</td>
-            <td class="feature-check">✓</td>
-            <td class="feature-check">✓</td>
-            <td class="feature-check">✓</td>
+            <td>Expert articles & guides</td>
+            <td><span class="feature-check">✓</span></td>
+            <td><span class="feature-check">✓</span></td>
+            <td><span class="feature-check">✓</span></td>
           </tr>
           <tr>
-            <td>Podcast episodes</td>
-            <td class="feature-check">✓</td>
-            <td class="feature-check">✓</td>
-            <td class="feature-check">✓</td>
-            <td class="feature-check">✓</td>
+            <td>Number of articles</td>
+            <td>25+</td>
+            <td>500+</td>
+            <td>500+</td>
           </tr>
           <tr>
-            <td>Monthly webinars</td>
-            <td>1/month</td>
-            <td class="feature-check">Unlimited</td>
-            <td class="feature-check">Unlimited</td>
-            <td class="feature-check">Unlimited</td>
+            <td>Monthly newsletter</td>
+            <td><span class="feature-check">✓</span></td>
+            <td><span class="feature-check">✓</span></td>
+            <td><span class="feature-check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Learning paths</td>
+            <td>Basic</td>
+            <td>Growth</td>
+            <td>Mastery</td>
+          </tr>
+          <tr>
+            <td>DMS Certification program</td>
+            <td><span class="feature-x">—</span></td>
+            <td><span class="feature-x">—</span></td>
+            <td><span class="feature-check">✓</span></td>
+          </tr>
+
+          <!-- TOOLS -->
+          <tr class="category-row">
+            <td colspan="4">TOOLS</td>
+          </tr>
+          <tr>
+            <td>Marketing Scorecard tool</td>
+            <td><span class="feature-check">✓</span></td>
+            <td><span class="feature-check">✓</span></td>
+            <td><span class="feature-check">✓</span></td>
+          </tr>
+          <tr>
+            <td>SEO Audit tool</td>
+            <td><span class="feature-x">—</span></td>
+            <td><span class="feature-check">✓</span></td>
+            <td><span class="feature-check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Budget Planner tool</td>
+            <td><span class="feature-x">—</span></td>
+            <td><span class="feature-check">✓</span></td>
+            <td><span class="feature-check">✓</span></td>
+          </tr>
+          <tr>
+            <td>ROI Calculator tool</td>
+            <td><span class="feature-x">—</span></td>
+            <td><span class="feature-check">✓</span></td>
+            <td><span class="feature-check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Social Calendar tool</td>
+            <td><span class="feature-x">—</span></td>
+            <td><span class="feature-check">✓</span></td>
+            <td><span class="feature-check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Marketing Plan Generator</td>
+            <td><span class="feature-x">—</span></td>
+            <td><span class="feature-check">✓</span></td>
+            <td><span class="feature-check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Email templates library</td>
+            <td><span class="feature-x">—</span></td>
+            <td>200+</td>
+            <td>200+</td>
+          </tr>
+          <tr>
+            <td>Early access to new tools</td>
+            <td><span class="feature-x">—</span></td>
+            <td><span class="feature-x">—</span></td>
+            <td><span class="feature-check">✓</span></td>
+          </tr>
+
+          <!-- COMMUNITY -->
+          <tr class="category-row">
+            <td colspan="4">COMMUNITY</td>
           </tr>
           <tr>
             <td>Community access</td>
-            <td>View-only</td>
-            <td class="feature-check">Full</td>
-            <td class="feature-check">Full</td>
-            <td class="feature-check">Full</td>
+            <td>Read-only</td>
+            <td>Full (post & comment)</td>
+            <td>Full (post & comment)</td>
           </tr>
           <tr>
-            <td>Private groups</td>
-            <td class="feature-x">-</td>
-            <td class="feature-x">-</td>
-            <td class="feature-check">✓</td>
-            <td class="feature-check">✓</td>
+            <td>Private Slack channel</td>
+            <td><span class="feature-x">—</span></td>
+            <td><span class="feature-x">—</span></td>
+            <td><span class="feature-check">✓</span></td>
           </tr>
           <tr>
-            <td>Marketing Scorecard</td>
-            <td>Basic (3 channels)</td>
-            <td class="feature-check">Full (11 channels)</td>
-            <td class="feature-check">Full + Quarterly Review</td>
-            <td class="feature-check">Full + Quarterly Review</td>
+            <td>Ambassador program eligibility</td>
+            <td><span class="feature-x">—</span></td>
+            <td><span class="feature-x">—</span></td>
+            <td><span class="feature-check">✓</span></td>
+          </tr>
+
+          <!-- EVENTS & WEBINARS -->
+          <tr class="category-row">
+            <td colspan="4">EVENTS & WEBINARS</td>
           </tr>
           <tr>
-            <td>Template library</td>
-            <td>5 templates</td>
-            <td class="feature-check">200+ templates</td>
-            <td class="feature-check">200+ Premium templates</td>
-            <td class="feature-check">200+ Premium templates</td>
+            <td>Monthly webinars (live)</td>
+            <td><span class="feature-x">—</span></td>
+            <td><span class="feature-check">✓</span></td>
+            <td><span class="feature-check">✓</span></td>
           </tr>
           <tr>
-            <td>Learning paths & certifications</td>
-            <td class="feature-x">-</td>
-            <td class="feature-check">✓</td>
-            <td class="feature-check">✓</td>
-            <td class="feature-check">✓</td>
+            <td>Webinar replays library</td>
+            <td><span class="feature-x">—</span></td>
+            <td><span class="feature-check">✓</span></td>
+            <td><span class="feature-check">✓</span></td>
           </tr>
           <tr>
-            <td>ROI calculators</td>
-            <td class="feature-x">-</td>
-            <td class="feature-check">✓</td>
-            <td class="feature-check">✓</td>
-            <td class="feature-check">✓</td>
+            <td>Monthly mastermind groups</td>
+            <td><span class="feature-x">—</span></td>
+            <td><span class="feature-x">—</span></td>
+            <td><span class="feature-check">✓</span></td>
           </tr>
           <tr>
-            <td>Expert advisory sessions</td>
-            <td class="feature-x">-</td>
-            <td class="feature-x">-</td>
-            <td>2/year</td>
-            <td class="feature-check">Quarterly</td>
+            <td>Annual summit ticket (virtual)</td>
+            <td><span class="feature-x">—</span></td>
+            <td><span class="feature-x">—</span></td>
+            <td><span class="feature-check">✓</span></td>
+          </tr>
+
+          <!-- SUPPORT & STRATEGY -->
+          <tr class="category-row">
+            <td colspan="4">SUPPORT & STRATEGY</td>
           </tr>
           <tr>
-            <td>Monthly masterminds</td>
-            <td class="feature-x">-</td>
-            <td class="feature-x">-</td>
-            <td class="feature-check">✓</td>
-            <td class="feature-check">✓</td>
+            <td>Priority support</td>
+            <td><span class="feature-x">—</span></td>
+            <td><span class="feature-check">✓</span></td>
+            <td><span class="feature-check">✓</span></td>
           </tr>
           <tr>
-            <td>Annual Summit ticket</td>
-            <td class="feature-x">-</td>
-            <td class="feature-x">-</td>
-            <td class="feature-check">✓</td>
-            <td class="feature-check">✓</td>
-          </tr>
-          <tr>
-            <td>Unlimited team members</td>
-            <td class="feature-x">-</td>
-            <td class="feature-x">-</td>
-            <td class="feature-x">-</td>
-            <td class="feature-check">✓</td>
-          </tr>
-          <tr>
-            <td>Dedicated support channel</td>
-            <td class="feature-x">-</td>
-            <td class="feature-x">-</td>
-            <td class="feature-x">-</td>
-            <td class="feature-check">✓</td>
+            <td>1-on-1 quarterly strategy call</td>
+            <td><span class="feature-x">—</span></td>
+            <td><span class="feature-x">—</span></td>
+            <td><span class="feature-check">✓</span></td>
           </tr>
         </tbody>
       </table>
@@ -307,45 +785,119 @@
   </div>
 </section>
 
-<!-- WHY UPGRADE -->
+<!-- GUARANTEE SECTION -->
+<section class="section">
+  <div class="container">
+    <div class="guarantee-box">
+      <div class="seal">✓</div>
+      <h3>30-Day Satisfaction Guarantee</h3>
+      <p style="color: #666; font-size: 1.05rem; line-height: 1.8;">If you don't find value in your membership within the first 30 days after your trial ends, we'll refund 100% of your payment. No questions asked. We're confident you'll love it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
 <section class="section section-light">
   <div class="container">
-    <h2 style="text-align: center; margin-bottom: 3rem;">Why Join?</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1100px; margin: 0 auto;">
-      <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #eee;">
-        <h3 style="color: #D4A843; margin-bottom: 1rem;">Save Time</h3>
-        <p style="color: #666;">The average Basic member saves 5+ hours per month by having everything in one place. That's $500+ in productivity.</p>
-      </div>
-      <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #eee;">
-        <h3 style="color: #2E75B6; margin-bottom: 1rem;">Real Results</h3>
-        <p style="color: #666;">Basic & Premium members average 15-25 new patients per year from applying DMS strategies. At $1,200 patient lifetime value, that's $18K-$30K ROI.</p>
-      </div>
-      <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #eee;">
-        <h3 style="color: #1B2A4A; margin-bottom: 1rem;">Expert Peer Network</h3>
-        <p style="color: #666;">Ask 10,000 practice owners what's working. Get real answers from people in your exact situation. No sales pitch. Just peers.</p>
-      </div>
-      <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #eee;">
-        <h3 style="color: #D4A843; margin-bottom: 1rem;">Continuous Learning</h3>
-        <p style="color: #666;">Marketing evolves. AI is changing things. Google updates constantly. Stay current with weekly new content and expert updates.</p>
-      </div>
-      <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #eee;">
-        <h3 style="color: #2E75B6; margin-bottom: 1rem;">Battle-Tested Tools</h3>
-        <p style="color: #666;">200+ templates built by practitioners. ROI calculators that work. Marketing scorecards used by 10,000+ practices.</p>
-      </div>
-      <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #eee;">
-        <h3 style="color: #1B2A4A; margin-bottom: 1rem;">Benchmarking Data</h3>
-        <p style="color: #666;">See how your marketing stacks up against practices your size in your region. Know where you're winning and where to improve.</p>
+    <div class="social-proof">
+      <h2>Trusted by Dental Practices Nationwide</h2>
+      <div class="social-proof-stat">Join 10,000+ dental practice owners</div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote">"I implemented the SEO strategies from DMS and saw 15 new patients in the first month. This membership paid for itself 10x over. The community support is incredible."</p>
+          <div class="author">Dr. Sarah Mitchell</div>
+          <div class="title">Bright Smile Dental, Denver, CO</div>
+          <div class="tier">Growth Member</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote">"The masterminds have been game-changing. Talking to other practices and sharing what's working—it's like having a peer advisory board. The Elite plan is the best investment we've made."</p>
+          <div class="author">Dr. James Chen</div>
+          <div class="title">Metro Dental Partners, Seattle, WA</div>
+          <div class="tier">Elite Member</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote">"The tools alone are worth it—the Budget Planner helped me allocate $50K more effectively, and the ROI Calculator showed exactly where I was losing money. Foundation is a perfect starting point."</p>
+          <div class="author">Dr. Maria Rodriguez</div>
+          <div class="title">Healthy Teeth Clinic, Austin, TX</div>
+          <div class="tier">Foundation Member</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- GUARANTEE -->
+<!-- FAQ SECTION -->
 <section class="section">
   <div class="container">
-    <div style="background: rgba(212, 168, 67, 0.1); border: 2px solid #D4A843; padding: 3rem; border-radius: 8px; text-align: center; max-width: 700px; margin: 0 auto;">
-      <h3 style="color: #1B2A4A; margin-bottom: 1rem;">Our Promise</h3>
-      <p style="font-size: 1.05rem; color: #555; line-height: 1.8;">Join DMS free and get access to the best education, tools, and community in dental marketing. If you don't find value within 30 days after our free period ends, we'll refund your membership, no questions asked. We're confident you'll see the value.</p>
+    <h2 style="text-align: center; margin-bottom: 3rem;">Frequently Asked Questions</h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What's included in the Foundation tier?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">The Foundation tier includes 25+ expert articles, the Marketing Scorecard tool, monthly newsletter, read-only community access, and a basic learning path. It's perfect for practice owners just getting started with dental marketing and it's completely free—forever.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Can I upgrade or downgrade anytime?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">Yes! You can upgrade from Foundation to Growth or Elite anytime, and you can downgrade to a lower tier whenever you like. There are no long-term contracts or commitments. Changes take effect at the start of your next billing cycle.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How does the free trial work?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">All new Growth and Elite members get 2 months completely free. After the trial period ends, your membership will automatically continue at the monthly price ($29 for Growth, $79 for Elite). You can cancel anytime during or after your trial—no credit card required to start.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What payment methods do you accept?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">We accept all major credit cards (Visa, Mastercard, American Express), PayPal, and ACH bank transfers for annual subscriptions. All payments are secure and processed through industry-standard payment gateways.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Is there an annual discount?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">Yes! Pay annually and save 28%: Growth is $249/year (normally $29/month = $348/year), and Elite is $699/year (normally $79/month = $948/year). You still get the 2-month free trial, and you can cancel anytime with a pro-rated refund.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Can my team members join?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">Foundation and Growth tiers are for individual members. Elite members can share their login with up to 2 additional team members. For larger teams or multi-location practices, please contact us about custom group pricing—we offer special rates for DSOs and group practices.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What happens if I cancel my membership?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">You can cancel anytime with no penalties. Your access continues through the end of your current billing period. If you've paid for an annual plan and cancel early, we'll provide a pro-rated refund for unused months. Your data and learning progress is saved if you decide to rejoin later.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Do you offer group or DSO pricing?</span>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-answer">Absolutely! We offer custom volume pricing for dental groups, multi-location practices, and DSOs. Contact our team to discuss your specific needs and get a personalized quote. Most groups save 35-50% off regular per-seat pricing.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -354,8 +906,8 @@
 <section class="section section-dark" style="text-align: center;">
   <div class="container">
     <h2 style="color: white; margin-bottom: 1rem;">Ready to Join?</h2>
-    <p style="color: rgba(255,255,255,0.8); margin-bottom: 2rem; font-size: 1.1rem;">Start free today and see why 10,000+ practice owners trust DMS.</p>
-    <a href="signup.html" class="btn btn-gold btn-lg">Join Free Today</a>
+    <p style="color: rgba(255,255,255,0.9); margin-bottom: 2rem; font-size: 1.1rem;">Start with your free trial today. All plans are free for the first 2 months. Cancel anytime.</p>
+    <a href="https://www.ekwa.com/msm/?utm_source=dms&utm_medium=page&utm_campaign=dms-membership" class="btn btn-gold btn-lg">Get Started Free</a>
   </div>
 </section>
 
@@ -402,6 +954,96 @@
     </div>
   </div>
 </footer>
+
+<!-- SCHEMA MARKUP -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "DMS Membership",
+  "description": "Dental Marketing Society membership plans: Foundation (free forever), Growth ($29/month), Elite ($79/month). All plans free for first 2 months.",
+  "url": "https://dms.narenlife.com/pages/membership.html",
+  "brand": {
+    "@type": "Brand",
+    "name": "Dental Marketing Society"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Foundation",
+      "description": "Free forever membership with 25+ articles, Marketing Scorecard, newsletter, and read-only community access",
+      "price": "0",
+      "priceCurrency": "USD",
+      "url": "https://www.ekwa.com/msm/?utm_source=dms&utm_medium=page&utm_campaign=dms-membership"
+    },
+    {
+      "@type": "Offer",
+      "name": "Growth",
+      "description": "Growth plan with all tools, full community access, webinars, and priority support",
+      "price": "29",
+      "priceCurrency": "USD",
+      "priceValidUntil": "2026-12-31",
+      "url": "https://www.ekwa.com/msm/?utm_source=dms&utm_medium=page&utm_campaign=dms-membership"
+    },
+    {
+      "@type": "Offer",
+      "name": "Elite",
+      "description": "Elite plan with mastery path, mastermind groups, strategy calls, certification, and private Slack",
+      "price": "79",
+      "priceCurrency": "USD",
+      "priceValidUntil": "2026-12-31",
+      "url": "https://www.ekwa.com/msm/?utm_source=dms&utm_medium=page&utm_campaign=dms-membership"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "ratingCount": "1200"
+  }
+}
+</script>
+
+<!-- PRICING TOGGLE SCRIPT -->
+<script>
+function togglePricing(period) {
+  // Update button states
+  document.querySelectorAll('.pricing-toggle-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  event.target.classList.add('active');
+
+  // Show/hide savings label
+  const savingsLabel = document.getElementById('savingsLabel');
+
+  if (period === 'annual') {
+    // Annual prices (28% discount)
+    document.getElementById('growth-price').textContent = '249';
+    document.getElementById('elite-price').textContent = '699';
+    document.getElementById('growth-subtext').textContent = 'Billed annually (save 28%)';
+    document.getElementById('elite-subtext').textContent = 'Billed annually (save 28%)';
+    document.getElementById('growth-price-row').textContent = '$249/year';
+    document.getElementById('elite-price-row').textContent = '$699/year';
+    savingsLabel.style.display = 'inline-block';
+  } else {
+    // Monthly prices
+    document.getElementById('growth-price').textContent = '29';
+    document.getElementById('elite-price').textContent = '79';
+    document.getElementById('growth-subtext').textContent = 'After 2-month free trial';
+    document.getElementById('elite-subtext').textContent = 'After 2-month free trial';
+    document.getElementById('growth-price-row').textContent = '$29/month';
+    document.getElementById('elite-price-row').textContent = '$79/month';
+    savingsLabel.style.display = 'none';
+  }
+}
+
+// FAQ Accordion
+document.querySelectorAll('.faq-question').forEach(question => {
+  question.addEventListener('click', function() {
+    const faqItem = this.parentElement;
+    faqItem.classList.toggle('open');
+  });
+});
+</script>
 
 <script src="../js/main.js"></script>
 </body>

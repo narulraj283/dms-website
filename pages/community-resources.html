@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DMS Community Resources — Marketing Templates, Checklists & Tools</title>
+  <meta name="description" content="Access 200+ marketing templates, checklists, and tools created by dental practice owners in the DMS community. Social media, email, ads, SEO, and more.">
+  <meta name="keywords" content="dental marketing templates, checklists, marketing tools, social media templates, email templates, dental practice resources">
+  <meta property="og:title" content="DMS Community Resources">
+  <meta property="og:description" content="Templates, checklists, and tools built by dental practice owners, for dental practice owners.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=2">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+  <link rel="canonical" href="https://dms.narenlife.com/pages/community-resources.html">
+  <meta property="og:url" content="https://dms.narenlife.com/pages/community-resources.html">
+  <meta property="og:site_name" content="Dental Marketing Society">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    .resource-tabs {
+      display: flex;
+      gap: 1rem;
+      margin: 2rem 0;
+      border-bottom: 2px solid #e0e0e0;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+    }
+    .resource-tabs button {
+      padding: 0.75rem 1.5rem;
+      background: none;
+      border: none;
+      color: #666;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      white-space: nowrap;
+      transition: all 0.3s;
+    }
+    .resource-tabs button.active {
+      color: #2E75B6;
+      border-bottom-color: #2E75B6;
+    }
+    .resource-tabs button:hover {
+      color: #1B2A4A;
+    }
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .resource-card {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s;
+    }
+    .resource-card:hover {
+      border-color: #D4A843;
+      box-shadow: 0 4px 12px rgba(212, 168, 67, 0.15);
+    }
+    .resource-card h3 {
+      color: #1B2A4A;
+      margin-bottom: 0.75rem;
+      font-size: 1.1rem;
+      line-height: 1.4;
+    }
+    .resource-card p {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+      line-height: 1.5;
+    }
+    .resource-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: #999;
+      padding-top: 1rem;
+      border-top: 1px solid #f0f0f0;
+    }
+    .resource-download {
+      display: inline-block;
+      background: #2E75B6;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background 0.3s;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+    }
+    .resource-download:hover {
+      background: #1B5a96;
+    }
+    .category-section {
+      display: none;
+    }
+    .category-section.active {
+      display: block;
+    }
+    .submit-form {
+      background: #f9f9f9;
+      padding: 3rem;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: 3rem auto;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-group label {
+      display: block;
+      color: #1B2A4A;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      box-sizing: border-box;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #2E75B6;
+      box-shadow: 0 0 0 3px rgba(46, 117, 182, 0.1);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .form-submit {
+      background: #D4A843;
+      color: #1B2A4A;
+      padding: 1rem 2rem;
+      border-radius: 6px;
+      border: none;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s;
+    }
+    .form-submit:hover {
+      background: #b8903a;
+    }
+    .popular-resources {
+      background: linear-gradient(135deg, #f9f9f9 0%, #f0f8f4 100%);
+      padding: 3rem;
+      border-radius: 12px;
+      margin: 3rem 0;
+    }
+    .popular-resources h3 {
+      color: #1B2A4A;
+      margin-bottom: 2rem;
+      font-size: 1.4rem;
+    }
+    .popular-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      border-left: 4px solid #2E75B6;
+    }
+    .popular-item:last-child {
+      margin-bottom: 0;
+    }
+    .popular-name {
+      color: #1B2A4A;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .popular-downloads {
+      background: #D4A843;
+      color: #1B2A4A;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .category-intro {
+      color: #666;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .cta-section {
+      background: linear-gradient(135deg, #1B2A4A 0%, #2E75B6 100%);
+      color: white;
+      padding: 3rem;
+      border-radius: 12px;
+      margin-top: 3rem;
+      text-align: center;
+    }
+    .cta-section h3 {
+      color: #D4A843;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    .cta-section p {
+      margin-bottom: 1.5rem;
+      opacity: 0.95;
+      font-size: 1.05rem;
+    }
+    .cta-button {
+      display: inline-block;
+      background: #D4A843;
+      color: #1B2A4A;
+      padding: 1rem 2.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: background 0.3s;
+    }
+    .cta-button:hover {
+      background: #b8903a;
+    }
+    @media (max-width: 768px) {
+      .resource-grid {
+        grid-template-columns: 1fr;
+      }
+      .resource-tabs {
+        flex-wrap: wrap;
+      }
+      .popular-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .popular-downloads {
+        margin-top: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ——— HEADER ——— -->
+<header class="header">
+  <div class="header-inner">
+    <a href="../index.html" class="logo">
+      <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="8" fill="#1B2A4A"/>
+        <path d="M12 28V16c0-3.3 2.7-6 6-6h4c3.3 0 6 2.7 6 6v12" stroke="#D4A843" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M8 20h24" stroke="#D4A843" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <path d="M20 10v20" stroke="#D4A843" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="20" cy="18" r="3" fill="#D4A843"/>
+      </svg>
+      <span class="logo-text">Dental Marketing <span>Society</span></span>
+    </a>
+    <nav class="nav">
+      <div class="nav-dropdown">
+        <a href="#">Marketing Channels —¾</a>
+        <div class="nav-dropdown-content">
+          <a href="channel-seo.html">ð SEO & Local Search</a>
+          <a href="channel-ppc.html">ð° Pay-Per-Click (PPC)</a>
+          <a href="channel-social.html">ð± Social Media</a>
+          <a href="channel-reputation.html">—­ Reputation & Reviews</a>
+          <a href="channel-website.html">ð Website & Conversion</a>
+          <a href="channel-referral.html">ð¤ Referral Marketing</a>
+          <a href="channel-email.html">ð§ Email Marketing</a>
+          <a href="channel-video.html">ð¬ Video Marketing</a>
+          <a href="channel-directmail.html">ð¬ Direct Mail</a>
+          <a href="channel-branding.html">ð¨ Branding</a>
+          <a href="channel-ai.html">ð¤ AI & Emerging Tech</a>
+        </div>
+      </div>
+      <a href="articles.html">Articles</a>
+      <a href="events.html">Events</a>
+      <a href="podcast.html">Podcast</a>
+      <div class="nav-dropdown">
+        <a href="#">Tools ▾</a>
+        <div class="nav-dropdown-content">
+          <a href="../tools/scorecard.html">📊 Marketing Scorecard</a>
+          <a href="../tools/seo-audit.html">🔍 SEO Audit Tool</a>
+          <a href="../tools/roi-calculator.html">💰 ROI Calculator</a>
+          <a href="../tools/budget-planner.html">📋 Budget Planner</a>
+          <a href="../tools/social-calendar.html">📱 Social Calendar</a>
+          <a href="../tools/marketing-plan.html">📝 Marketing Plan Builder</a>
+        </div>
+      </div>
+      <a href="community.html">Community</a>
+      <a href="about.html">About</a>
+      <a href="membership.html" class="nav-cta">Join Free</a>
+    </nav>
+    <button class="mobile-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ——— HERO ——— -->
+<section class="hero" style="padding: 80px 0 60px;">
+  <div class="container">
+    <h1 style="margin-bottom: 1rem;">Community Resources <span>— Templates, Checklists, and Tools Built by Members, for Members</span></h1>
+    <p style="font-size: 1.2rem; color: #666; max-width: 800px; margin-bottom: 2rem;">200+ ready-to-use marketing templates, checklists, and calculators created by real dental practice owners. Download for free. Share your own resources with the community.</p>
+  </div>
+</section>
+
+<!-- ——— RESOURCE CATEGORIES ——— -->
+<section class="section">
+  <div class="container">
+    <div class="resource-tabs">
+      <button class="tab-btn active" onclick="showCategory('templates')">Marketing Templates</button>
+      <button class="tab-btn" onclick="showCategory('checklists')">Checklists</button>
+      <button class="tab-btn" onclick="showCategory('calculators')">Calculators & Tools</button>
+      <button class="tab-btn" onclick="showCategory('casestudies')">Case Studies</button>
+    </div>
+
+    <!-- TEMPLATES CATEGORY -->
+    <div id="templates" class="category-section active">
+      <p class="category-intro">Social media post templates, email campaigns, ad copy frameworks, video scripts, and more. Copy and customize for your practice.</p>
+      <div class="resource-grid">
+        <div class="resource-card">
+          <h3>Social Media Post Template Kit</h3>
+          <p>8 pre-written social posts for dental practices. Includes captions, hashtags, and posting schedule. Ready to customize for your brand.</p>
+          <div class="resource-meta">
+            <span>️ By Sarah C.</span>
+            <a href="#" class="resource-download">Download</a>
+          </div>
+        </div>
+
+        <div class="resource-card">
+          <h3>Email Campaign Series (5-Part)</h3>
+          <p>Complete email sequence for new patient follow-up. Includes subject lines, body copy, and CTAs. Proven to increase appointment attendance.</p>
+          <div class="resource-meta">
+            <span>️ By Marcus T.</span>
+            <a href="#" class="resource-download">Download</a>
+          </div>
+        </div>
+
+        <div class="resource-card">
+          <h3>Google Ads Copy Frameworks</h3>
+          <p>5 proven headline and description templates for Google Ads. Customize with your location and offers. Includes best practices for CTR.</p>
+          <div class="resource-meta">
+            <span>️ By Jennifer L.</span>
+            <a href="#" class="resource-download">Download</a>
+          </div>
+        </div>
+
+        <div class="resource-card">
+          <h3>Blog Post Outline Templates</h3>
+          <p>10 blog post outlines for dental SEO. Topics include implants, whitening, orthodontics, and more. Based on actual patient FAQs.</p>
+          <div class="resource-meta">
+            <span>️ By David K.</span>
+            <a href="#" class="resource-download">Download</a>
+          </div>
+        </div>
+
+        <div class="resource-card">
+          <h3>Review Request Email & Text Templates</h3>
+          <p>3 versions of review request messages (email, SMS, in-office). Personalization tokens included. Increases review submission rate by 40%.</p>
+          <div class="resource-meta">
+            <span>️ By Rebecca M.</span>
+            <a href="#" class="resource-download">Download</a>
+          </div>
+        </div>
+
+        <div class="resource-card">
+          <h3>New Patient Welcome Packet</h3>
+          <p>Complete welcome sequence for new patients. Includes welcome email, first appointment checklist, team intro, and FAQ document.</p>
+          <div class="resource-meta">
+            <span>️ By Dr. Patricia G.</span>
+            <a href="#" class="resource-download">Download</a>
+          </div>
+        </div>
+
+        <div class="resource-card">
+          <h3>Referral Cards & Postcards</h3>
+          <p>Print-ready templates for referral cards and thank-you postcards. High-res files for local printing. Includes editable PDFs and Canva links.</p>
+          <div class="resource-meta">
+            <span>️ By Tony R.</span>
+            <a href="#" class="resource-download">Download</a>
+          </div>
+        </div>
+
+        <div class="resource-card">
+          <h3>Video Script Collection</h3>
+          <p>Scripts for 10 promotional videos (30-60 sec). Topics: virtual tours, team introductions, service overviews, testimonial prompts.</p>
+          <div class="resource-meta">
+            <span>️ By Amanda W.</span>
+            <a href="#" class="resource-download">Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHECKLISTS CATEGORY -->
+    <div id="checklists" class="category-section">
+      <p class="category-intro">Step-by-step checklists to ensure nothing falls through the cracks. For marketing audits, new patient onboarding, and more.</p>
+      <div class="resource-grid">
+        <div class="resource-card">
+          <h3>Monthly Marketing Audit Checklist</h3>
+          <p>Complete monthly review checklist. Covers website, Google Business Profile, social media, reviews, email, paid ads, analytics. 50+ checkpoints.</p>
+          <div class="resource-meta">
+            <span>️ By Lisa F.</span>
+            <a href="#" class="resource-download">Download</a>
+          </div>
+        </div>
+
+        <div class="resource-card">
+          <h3>New Patient Onboarding Checklist</h3>
+          <p>Step-by-step process for welcoming new patients. Pre-appointment, check-in, during visit, and post-appointment touchpoints included.</p>
+          <div class="resource-meta">
+            <span>️ By Brandi K.</span>
+            <a href="#" class="resource-download">Download</a>
+          </div>
+        </div>
+
+        <div class="resource-card">
+          <h3>Google Business Profile Setup & Optimization</h3>
+          <p>Complete checklist for setting up and optimizing your Google Business Profile. Photos, posts, messaging, Q&A, attributes all covered.</p>
+          <div class="resource-meta">
+            <span>️ By Roberto S.</span>
+            <a href="#" class="resource-download">Download</a>
+          </div>
+        </div>
+
+        <div class="resource-card">
+          <h3>Website Launch Checklist</h3>
+          <p>Everything to check before going live. SEO, mobile, forms, tracking, accessibility, performance, security. 75+ items.</p>
+          <div class="resource-meta">
+            <span>️ By Christine A.</span>
+            <a href="#" class="resource-download">Download</a>
+          </div>
+        </div>
+
+        <div class="resource-card">
+          <h3>Social Media Setup Checklist</h3>
+          <p>Set up profiles on Facebook, Instagram, LinkedIn, TikTok correctly from the start. Includes handle strategies, bio templates, content calendar.</p>
+          <div class="resource-meta">
+            <span>️ By Kyle M.</span>
+            <a href="#" class="resource-download">Download</a>
+          </div>
+        </div>
+
+        <div class="resource-card">
+          <h3>Reputation Monitoring & Review Response</h3>
+          <p>Monthly checklist for monitoring reviews across Google, Yelp, Healthgrades, and more. Response templates for positive and negative reviews.</p>
+          <div class="resource-meta">
+            <span>️ By Tasha P.</span>
+            <a href="#" class="resource-download">Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CALCULATORS & TOOLS CATEGORY -->
+    <div id="calculators" class="category-section">
+      <p class="category-intro">Interactive tools and calculators to help you plan, measure, and optimize your marketing investments.</p>
+      <div class="resource-grid">
+        <div class="resource-card">
+          <h3>Marketing ROI Calculator</h3>
+          <p>Calculate return on investment for each marketing channel. Input spend and new patients acquired. Tracks CAC, LTV, and payback period.</p>
+          <div class="resource-meta">
+            <span>️ Interactive Tool</span>
+            <a href="../tools/roi-calculator.html" class="resource-download">Go To Tool</a>
+          </div>
+        </div>
+
+        <div class="resource-card">
+          <h3>Annual Marketing Budget Planner</h3>
+          <p>Allocate budget across channels based on your practice size and goals. Includes benchmarks for different practice types and growth stages.</p>
+          <div class="resource-meta">
+            <span>️ Interactive Tool</span>
+            <a href="../tools/budget-planner.html" class="resource-download">Go To Tool</a>
+          </div>
+        </div>
+
+        <div class="resource-card">
+          <h3>Practice Marketing Scorecard</h3>
+          <p>Evaluate your current marketing across 10 channels. See your strengths and biggest opportunities. Benchmark against other practices.</p>
+          <div class="resource-meta">
+            <span>️ Interactive Tool</span>
+            <a href="../tools/scorecard.html" class="resource-download">Go To Tool</a>
+          </div>
+        </div>
+
+        <div class="resource-card">
+          <h3>SEO Audit & Competitor Analysis</h3>
+          <p>Technical SEO audit tool. Crawl your site, identify issues, compare keyword rankings with competitors. Export detailed reports.</p>
+          <div class="resource-meta">
+            <span>️ Interactive Tool</span>
+            <a href="../tools/seo-audit.html" class="resource-download">Go To Tool</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASE STUDIES CATEGORY -->
+    <div id="casestudies" class="category-section">
+      <p class="category-intro">Real results from real practices. Learn what worked (and what didn't) from community members who have been in your shoes.</p>
+      <div class="resource-grid">
+        <div class="resource-card">
+          <h3>How Dr. Adams Added 47 New Patients in 6 Months</h3>
+          <p>A single-doctor practice implemented a social media + Google Ads strategy. Details: budget, content, results, and lessons learned.</p>
+          <div class="resource-meta">
+            <span>️ Case Study</span>
+            <a href="articles.html" class="resource-download">Read</a>
+          </div>
+        </div>
+
+        <div class="resource-card">
+          <h3>From Dying Referral Program to 35% of New Patients</h3>
+          <p>How a DSO revived their referral program with better tracking, incentives, and communication. Increased hygiene case acceptance by 22%.</p>
+          <div class="resource-meta">
+            <span>️ Case Study</span>
+            <a href="articles.html" class="resource-download">Read</a>
+          </div>
+        </div>
+
+        <div class="resource-card">
+          <h3>Website Redesign Increased Bookings by 63%</h3>
+          <p>Before and after story of a complete website overhaul. Improved mobile experience, faster load times, better CTAs. Data from Google Analytics included.</p>
+          <div class="resource-meta">
+            <span>️ Case Study</span>
+            <a href="articles.html" class="resource-download">Read</a>
+          </div>
+        </div>
+
+        <div class="resource-card">
+          <h3>Reputation Management: From 3.2 to 4.8 Stars in 9 Months</h3>
+          <p>How a practice addressed negative reviews, encouraged positive ones, and improved their online reputation. Includes actual response examples.</p>
+          <div class="resource-meta">
+            <span>️ Case Study</span>
+            <a href="articles.html" class="resource-download">Read</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ——— POPULAR THIS MONTH ——— -->
+<section class="section" style="background: #f9f9f9;">
+  <div class="container">
+    <div class="popular-resources">
+      <h3>Most Popular This Month</h3>
+      <div class="popular-item">
+        <span class="popular-name">Social Media Post Template Kit</span>
+        <span class="popular-downloads">2,847 downloads</span>
+      </div>
+      <div class="popular-item">
+        <span class="popular-name">Monthly Marketing Audit Checklist</span>
+        <span class="popular-downloads">2,234 downloads</span>
+      </div>
+      <div class="popular-item">
+        <span class="popular-name">Email Campaign Series (5-Part)</span>
+        <span class="popular-downloads">1,956 downloads</span>
+      </div>
+      <div class="popular-item">
+        <span class="popular-name">Review Request Email & Text Templates</span>
+        <span class="popular-downloads">1,743 downloads</span>
+      </div>
+      <div class="popular-item">
+        <span class="popular-name">Google Ads Copy Frameworks</span>
+        <span class="popular-downloads">1,621 downloads</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ——— SUBMIT YOUR RESOURCE ——— -->
+<section class="section">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 1rem; color: #1B2A4A;">Have a Resource to Share?</h2>
+    <p style="text-align: center; color: #666; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; font-size: 1.05rem;">We'd love to feature your template, checklist, or tool. It's a great way to share your expertise and help fellow community members. Submit below:</p>
+
+    <div class="submit-form">
+      <form onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="name">Your Name *</label>
+          <input type="text" id="name" name="name" required placeholder="Dr. Jane Smith">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" required placeholder="jane@practice.com">
+        </div>
+
+        <div class="form-group">
+          <label for="title">Resource Title *</label>
+          <input type="text" id="title" name="title" required placeholder="e.g., Social Media Post Templates">
+        </div>
+
+        <div class="form-group">
+          <label for="category">Category *</label>
+          <select id="category" name="category" required>
+            <option value="">Select a category</option>
+            <option value="templates">Marketing Templates</option>
+            <option value="checklists">Checklists</option>
+            <option value="calculators">Calculators & Tools</option>
+            <option value="casestudies">Case Studies</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description *</label>
+          <textarea id="description" name="description" required placeholder="What does your resource include? How is it helpful? Any specific tips for using it?"></textarea>
+        </div>
+
+        <button type="submit" class="form-submit">Submit Resource for Review →</button>
+      </form>
+      <p style="text-align: center; color: #999; margin-top: 1rem; font-size: 0.85rem;">Our team will review your submission and reach out within 2 business days.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ——— STRATEGY SESSION CTA ——— -->
+<section class="section">
+  <div class="container">
+    <div class="cta-section">
+      <h3>Need More Than Templates?</h3>
+      <p>Get personalized guidance from the Ekwa marketing team</p>
+      <p style="opacity: 0.9; font-size: 0.95rem;">Book a free 30-minute strategy session. We'll review your current marketing and recommend the specific tactics that will work best for your practice.</p>
+      <a href="https://www.ekwa.com/msm/?utm_source=dms&utm_medium=page&utm_campaign=dms-community-resources" class="cta-button">Book Your Free Strategy Session →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ——— FOOTER ——— -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4 style="font-size:1.15rem;">Dental Marketing Society</h4>
+        <p>The #1 authority in dental practice marketing. Expert education, powerful tools, and a community of practice owners. Where dental practices grow.</p>
+        <p class="footer-ekwa">Brought to you by <strong>Ekwa Marketing</strong> — the leading search engine marketing company for dental practices.</p>
+      </div>
+      <div>
+        <h4>Marketing Channels</h4>
+        <a href="channel-seo.html">SEO & Local Search</a>
+        <a href="channel-ppc.html">PPC Advertising</a>
+        <a href="channel-social.html">Social Media</a>
+        <a href="channel-reputation.html">Reputation</a>
+        <a href="channel-website.html">Website & Conversion</a>
+        <a href="channel-email.html">Email Marketing</a>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <a href="../tools/scorecard.html">Marketing Scorecard</a>
+        <a href="../tools/roi-calculator.html">ROI Calculators</a>
+        <a href="../tools/budget-planner.html">Budget Planner</a>
+        <a href="podcast.html">Podcast</a>
+        <a href="events.html">Events & Webinars</a>
+        <a href="community.html">Community</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="about.html">About DMS</a>
+        <a href="membership.html">Membership</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://www.ekwa.com" target="_blank">Ekwa Marketing</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Dental Marketing Society. All rights reserved.</span>
+      <span>A product of <a href="https://www.ekwa.com" class="footer-ekwa" target="_blank">Ekwa Marketing</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+  function showCategory(categoryId) {
+    // Hide all categories
+    const categories = document.querySelectorAll('.category-section');
+    categories.forEach(cat => cat.classList.remove('active'));
+
+    // Remove active state from all buttons
+    const buttons = document.querySelectorAll('.tab-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    // Show selected category
+    document.getElementById(categoryId).classList.add('active');
+
+    // Add active state to clicked button
+    event.target.classList.add('active');
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    // Get form values
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const title = document.getElementById('title').value;
+    const category = document.getElementById('category').value;
+    const description = document.getElementById('description').value;
+
+    // Log submission (in real implementation, would send to backend)
+    console.log('Resource submission:', {
+      name,
+      email,
+      title,
+      category,
+      description,
+      submittedAt: new Date().toISOString()
+    });
+
+    // Show success message
+    alert('Thank you! We\'ve received your resource submission. Our team will review it and reach out within 2 business days.');
+
+    // Reset form
+    event.target.reset();
+  }
+</script>
+</body>
+</html>

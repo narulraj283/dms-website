@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DMS Community Guidelines — Respectful Peer-to-Peer Networking</title>
+  <meta name="description" content="DMS Community Guidelines. Learn our core values, dos and don'ts, content policies, and moderation process. Building the most supportive dental marketing community.">
+  <meta name="keywords" content="community guidelines, dental community, code of conduct, community standards, dental marketing network">
+  <meta property="og:title" content="DMS Community Guidelines">
+  <meta property="og:description" content="Our core values and guidelines for the most respectful, helpful dental practice community.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=2">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+  <link rel="canonical" href="https://dms.narenlife.com/pages/community-guidelines.html">
+  <meta property="og:url" content="https://dms.narenlife.com/pages/community-guidelines.html">
+  <meta property="og:site_name" content="Dental Marketing Society">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    .guidelines-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .core-value {
+      padding: 2rem;
+      border-radius: 12px;
+      background: #f9f9f9;
+      border-left: 4px solid #D4A843;
+    }
+    .core-value h3 {
+      color: #1B2A4A;
+      margin-bottom: 0.75rem;
+      font-size: 1.2rem;
+    }
+    .core-value p {
+      color: #666;
+      line-height: 1.6;
+    }
+    .dos-donts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin: 2rem 0;
+    }
+    .do-list, .dont-list {
+      padding: 2rem;
+      border-radius: 12px;
+    }
+    .do-list {
+      background: #f0f8f4;
+      border-left: 4px solid #2E75B6;
+    }
+    .dont-list {
+      background: #fef5f5;
+      border-left: 4px solid #d9534f;
+    }
+    .do-list h3, .dont-list h3 {
+      margin-bottom: 1.5rem;
+      font-size: 1.3rem;
+    }
+    .do-list h3 {
+      color: #2E75B6;
+    }
+    .dont-list h3 {
+      color: #d9534f;
+    }
+    .do-list ul, .dont-list ul {
+      list-style: none;
+      padding: 0;
+    }
+    .do-list li, .dont-list li {
+      margin-bottom: 1rem;
+      padding-left: 1.5rem;
+      color: #333;
+      position: relative;
+      line-height: 1.5;
+    }
+    .do-list li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #2E75B6;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .dont-list li:before {
+      content: "✕";
+      position: absolute;
+      left: 0;
+      color: #d9534f;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .content-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .category-card {
+      background: linear-gradient(135deg, #1B2A4A 0%, #2E75B6 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .category-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #D4A843;
+    }
+    .category-card p {
+      line-height: 1.6;
+      opacity: 0.95;
+      font-size: 0.95rem;
+    }
+    .moderation-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .step {
+      background: #f9f9f9;
+      padding: 2rem;
+      border-radius: 12px;
+      border-top: 4px solid #1B2A4A;
+      text-align: center;
+    }
+    .step-number {
+      display: inline-block;
+      background: #D4A843;
+      color: #1B2A4A;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      line-height: 40px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .step h3 {
+      color: #1B2A4A;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    .step p {
+      color: #666;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .report-box {
+      background: linear-gradient(135deg, #f0f8f4 0%, #f9f9f9 100%);
+      padding: 3rem;
+      border-radius: 12px;
+      border-left: 4px solid #2E75B6;
+      margin: 2rem 0;
+    }
+    .report-box h3 {
+      color: #1B2A4A;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+    .report-box p {
+      color: #333;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    .report-box ul {
+      margin-left: 2rem;
+      color: #333;
+      line-height: 1.8;
+    }
+    .report-box ul li {
+      margin-bottom: 0.5rem;
+    }
+    @media (max-width: 768px) {
+      .dos-donts {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .guidelines-grid {
+        grid-template-columns: 1fr;
+      }
+      .content-categories {
+        grid-template-columns: 1fr;
+      }
+      .moderation-steps {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ——— HEADER ——— -->
+<header class="header">
+  <div class="header-inner">
+    <a href="../index.html" class="logo">
+      <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="8" fill="#1B2A4A"/>
+        <path d="M12 28V16c0-3.3 2.7-6 6-6h4c3.3 0 6 2.7 6 6v12" stroke="#D4A843" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M8 20h24" stroke="#D4A843" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <path d="M20 10v20" stroke="#D4A843" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="20" cy="18" r="3" fill="#D4A843"/>
+      </svg>
+      <span class="logo-text">Dental Marketing <span>Society</span></span>
+    </a>
+    <nav class="nav">
+      <div class="nav-dropdown">
+        <a href="#">Marketing Channels —¾</a>
+        <div class="nav-dropdown-content">
+          <a href="channel-seo.html">ð SEO & Local Search</a>
+          <a href="channel-ppc.html">ð° Pay-Per-Click (PPC)</a>
+          <a href="channel-social.html">ð± Social Media</a>
+          <a href="channel-reputation.html">—­ Reputation & Reviews</a>
+          <a href="channel-website.html">ð Website & Conversion</a>
+          <a href="channel-referral.html">ð¤ Referral Marketing</a>
+          <a href="channel-email.html">ð§ Email Marketing</a>
+          <a href="channel-video.html">ð¬ Video Marketing</a>
+          <a href="channel-directmail.html">ð¬ Direct Mail</a>
+          <a href="channel-branding.html">ð¨ Branding</a>
+          <a href="channel-ai.html">ð¤ AI & Emerging Tech</a>
+        </div>
+      </div>
+      <a href="articles.html">Articles</a>
+      <a href="events.html">Events</a>
+      <a href="podcast.html">Podcast</a>
+      <div class="nav-dropdown">
+        <a href="#">Tools ▾</a>
+        <div class="nav-dropdown-content">
+          <a href="../tools/scorecard.html">📊 Marketing Scorecard</a>
+          <a href="../tools/seo-audit.html">🔍 SEO Audit Tool</a>
+          <a href="../tools/roi-calculator.html">💰 ROI Calculator</a>
+          <a href="../tools/budget-planner.html">📋 Budget Planner</a>
+          <a href="../tools/social-calendar.html">📱 Social Calendar</a>
+          <a href="../tools/marketing-plan.html">📝 Marketing Plan Builder</a>
+        </div>
+      </div>
+      <a href="community.html">Community</a>
+      <a href="about.html">About</a>
+      <a href="membership.html" class="nav-cta">Join Free</a>
+    </nav>
+    <button class="mobile-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ——— HERO ——— -->
+<section class="hero" style="padding: 80px 0 60px;">
+  <div class="container">
+    <h1 style="margin-bottom: 1rem;">Community Guidelines <span>— Building the Most Supportive Dental Marketing Community</span></h1>
+    <p style="font-size: 1.2rem; color: #666; max-width: 800px; margin-bottom: 2rem;">We're committed to creating a respectful, safe, and productive space where 10,000+ practice owners can learn from each other, share real results, and grow together. These guidelines help us protect that culture.</p>
+  </div>
+</section>
+
+<!-- ——— OUR MISSION ——— -->
+<section class="section">
+  <div class="container">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <h2 style="margin-bottom: 2rem; color: #1B2A4A;">Why These Guidelines Exist</h2>
+      <p style="color: #333; line-height: 1.8; font-size: 1.05rem; margin-bottom: 1.5rem;">Our community is built on peer-to-peer advice and authentic sharing. These guidelines protect that culture. They ensure members can ask vulnerable questions, share mistakes without judgment, and trust that the advice they receive comes from real practitioners with skin in the game — not vendors trying to sell them something.</p>
+      <p style="color: #333; line-height: 1.8; font-size: 1.05rem; margin-bottom: 1.5rem;">We believe the best networking happens when there's mutual respect, psychological safety, and a shared commitment to helping each other win. These guidelines are how we maintain that standard.</p>
+      <p style="color: #333; line-height: 1.8; font-size: 1.05rem;">Last updated: <strong>March 2026</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ——— CORE VALUES ——— -->
+<section class="section" style="background: #f9f9f9;">
+  <div class="container">
+    <h2 style="margin-bottom: 3rem; color: #1B2A4A; text-align: center;">Our 5 Core Values</h2>
+
+    <div class="guidelines-grid">
+      <div class="core-value">
+        <h3>🤝 Generosity</h3>
+        <p>Share freely. The best ideas thrive when they're shared without gatekeeping. Give credit. Pay it forward. If you've benefited from the community, help others do the same.</p>
+      </div>
+
+      <div class="core-value">
+        <h3>✨ Respect</h3>
+        <p>We come from different practice types, locations, and backgrounds. There's no one "right" way to run a practice. Listen with curiosity before judgment. Disagree gracefully.</p>
+      </div>
+
+      <div class="core-value">
+        <h3>🎯 Authenticity</h3>
+        <p>Share real wins and real losses. Pretending you have it all figured out doesn't help anyone. The most valuable advice comes from actual experience — including the mistakes that taught us lessons.</p>
+      </div>
+
+      <div class="core-value">
+        <h3>🔒 Privacy</h3>
+        <p>Patient data stays confidential. Practice details you share in the community stay in the community. We protect member privacy fiercely. No sharing member discussions on social media or elsewhere.</p>
+      </div>
+
+      <div class="core-value">
+        <h3>📈 Growth Mindset</h3>
+        <p>Everyone here is committed to getting better. We celebrate wins, learn from failures, and believe that practice growth is always possible. Negativity and cynicism work against that culture.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ——— DO'S AND DON'TS ——— -->
+<section class="section">
+  <div class="container">
+    <h2 style="margin-bottom: 3rem; color: #1B2A4A; text-align: center;">Do's and Don'ts</h2>
+
+    <div class="dos-donts">
+      <div class="do-list">
+        <h3>✓ DO</h3>
+        <ul>
+          <li><strong>Share wins and losses.</strong> Both teach the community something valuable. Your failure might save someone else thousands.</li>
+          <li><strong>Ask questions fearlessly.</strong> No question is dumb if it helps you grow. That's what peers are for.</li>
+          <li><strong>Offer help generously.</strong> If you have relevant experience, share it. Keep your answer focused on solving their problem, not promoting your services.</li>
+          <li><strong>Give credit.</strong> Built on someone's idea? Mention them. Sharing a resource? Link to the original creator.</li>
+          <li><strong>Stay on topic.</strong> Keep discussions relevant to dental practice growth, marketing, and operations. Off-topic posts make the community harder to navigate.</li>
+          <li><strong>Disagree respectfully.</strong> Different approaches work for different practices. You can disagree without being disagreeable.</li>
+        </ul>
+      </div>
+
+      <div class="dont-list">
+        <h3>✕ DON'T</h3>
+        <ul>
+          <li><strong>Spam or self-promote.</strong> "Check out my agency" posts aren't helping peers. Vendors have their place — but the community forum isn't it.</li>
+          <li><strong>Share patient information.</strong> HIPAA violations are serious. Don't post patient names, conditions, financial details, or identifiable information.</li>
+          <li><strong>Bash competitors by name.</strong> You can discuss bad experiences with specific agencies or service providers, but do it to warn peers — not to attack or defame.</li>
+          <li><strong>Share community content outside the group.</strong> Screenshots of member advice on social media break trust. Respect member privacy.</li>
+          <li><strong>Use aggressive sales tactics.</strong> Mentioning your service is okay if it's genuinely relevant to someone's question. Pushing it repeatedly is not.</li>
+          <li><strong>Post content that violates platform norms.</strong> We follow Slack's (or your platform's) usage policies. Harassment, misinformation, and hate speech have no place here.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ——— CONTENT CATEGORIES ——— -->
+<section class="section" style="background: #f9f9f9;">
+  <div class="container">
+    <h2 style="margin-bottom: 3rem; color: #1B2A4A; text-align: center;">Content Categories — What to Post Where</h2>
+    <p style="text-align: center; color: #666; max-width: 700px; margin: 0 auto 3rem; font-size: 1.05rem;">We organize discussions by channel to keep the community easy to navigate. Here's what belongs where:</p>
+
+    <div class="content-categories">
+      <div class="category-card">
+        <div>
+          <h3>#general</h3>
+          <p>Practice updates, questions about running a dental business, ideas, discussions about the industry.</p>
+        </div>
+      </div>
+
+      <div class="category-card" style="background: linear-gradient(135deg, #2E75B6 0%, #1B5a96 100%);">
+        <div>
+          <h3>#wins</h3>
+          <p>Share your wins. New patient numbers, revenue milestones, successful marketing campaigns, team wins, practice culture improvements.</p>
+        </div>
+      </div>
+
+      <div class="category-card" style="background: linear-gradient(135deg, #D4A843 0%, #b8903a 100%); color: #1B2A4A;">
+        <div>
+          <h3 style="color: #1B2A4A;">#questions</h3>
+          <p style="color: #333;">Ask for advice. "How do I..." "Has anyone tried..." "What's your experience with..." This is where most peer learning happens.</p>
+        </div>
+      </div>
+
+      <div class="category-card" style="background: linear-gradient(135deg, #1B2A4A 0%, #2E75B6 100%);">
+        <div>
+          <h3>#resources</h3>
+          <p>Share templates, checklists, tools, articles, and guides that the community can use. Submit your own resources here.</p>
+        </div>
+      </div>
+
+      <div class="category-card" style="background: linear-gradient(135deg, #2E75B6 0%, #1B2A4A 100%);">
+        <div>
+          <h3>#introductions</h3>
+          <p>New to the community? Introduce yourself: practice type, location, goals, biggest challenge right now. Helps you build connections with peers.</p>
+        </div>
+      </div>
+
+      <div class="category-card" style="background: linear-gradient(135deg, #1B2A4A 0%, #155a8a 100%);">
+        <div>
+          <h3>#off-topic</h3>
+          <p>Life outside dentistry. Practice-adjacent topics, encouragement, personal wins. Keep it relevant to the community's spirit.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ——— MODERATION PROCESS ——— -->
+<section class="section">
+  <div class="container">
+    <h2 style="margin-bottom: 3rem; color: #1B2A4A; text-align: center;">Moderation Process</h2>
+    <p style="text-align: center; color: #666; max-width: 700px; margin: 0 auto 3rem; font-size: 1.05rem;">We believe in education first, enforcement second. Here's how we handle violations:</p>
+
+    <div class="moderation-steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Warning</h3>
+        <p>First violation: A moderator reaches out with a private message explaining the issue and reminding you of the guidelines.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>24-Hour Mute</h3>
+        <p>Second violation or after warning ignored: Temporary mute. You can read but not post for 24 hours.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>7-Day Suspension</h3>
+        <p>Third violation or serious misconduct: 7-day suspension from the community. Full access restored after the period.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>Permanent Ban</h3>
+        <p>Repeated violations or severe misconduct (harassment, HIPAA violations, etc.): Permanent removal from the community.</p>
+      </div>
+    </div>
+
+    <p style="text-align: center; color: #666; margin-top: 3rem; font-size: 0.95rem;"><strong>Note:</strong> Serious violations (HIPAA breaches, harassment, threats) may skip steps and result in immediate suspension or ban. We also use judgment — context matters.</p>
+  </div>
+</section>
+
+<!-- ——— HOW TO REPORT ——— -->
+<section class="section" style="background: #f9f9f9;">
+  <div class="container">
+    <h2 style="margin-bottom: 2rem; color: #1B2A4A;">How to Report Issues</h2>
+
+    <div class="report-box">
+      <h3>See Something? Report It</h3>
+      <p>We can't catch every violation. If you see content that violates these guidelines, report it. Here's how:</p>
+      <ul>
+        <li><strong>In-platform reporting:</strong> Most community platforms have a "Report" button on messages. Use it.</li>
+        <li><strong>Direct message to moderation team:</strong> Private message @moderators with details about what happened and why it concerns you.</li>
+        <li><strong>Email:</strong> guidelines@dms.community with details. Include screenshots if relevant.</li>
+      </ul>
+      <p style="margin-top: 1.5rem;"><strong>What happens next:</strong> Our moderation team reviews within 24 hours. You'll get a brief acknowledgment that we received it. If action is taken, we won't share details (to protect privacy), but you'll know we took it seriously.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ——— STRATEGY SESSION CTA ——— -->
+<section style="padding:60px 0;">
+  <div style="max-width:800px;margin:0 auto;padding:0 24px;">
+    <div style="background:linear-gradient(135deg,#1B2A4A 0%,#2E75B6 100%);border-radius:16px;padding:3rem;text-align:center;color:#fff;">
+      <h2 style="color:#D4A843;margin-bottom:1rem;font-size:1.8rem;">Ready to Join a Community That Gets It?</h2>
+      <p style="font-size:1.15rem;margin-bottom:0.5rem;">Join 10,000+ practice owners who support each other's growth</p>
+      <p style="margin-bottom:2rem;opacity:0.9;">Verify your practice and join the conversation in minutes</p>
+      <a href="membership.html" style="display:inline-block;background:#D4A843;color:#1B2A4A;padding:1rem 2.5rem;border-radius:8px;text-decoration:none;font-weight:700;font-size:1.1rem;">Join the Community Free →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ——— FOOTER ——— -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4 style="font-size:1.15rem;">Dental Marketing Society</h4>
+        <p>The #1 authority in dental practice marketing. Expert education, powerful tools, and a community of practice owners. Where dental practices grow.</p>
+        <p class="footer-ekwa">Brought to you by <strong>Ekwa Marketing</strong> — the leading search engine marketing company for dental practices.</p>
+      </div>
+      <div>
+        <h4>Marketing Channels</h4>
+        <a href="channel-seo.html">SEO & Local Search</a>
+        <a href="channel-ppc.html">PPC Advertising</a>
+        <a href="channel-social.html">Social Media</a>
+        <a href="channel-reputation.html">Reputation</a>
+        <a href="channel-website.html">Website & Conversion</a>
+        <a href="channel-email.html">Email Marketing</a>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <a href="../tools/scorecard.html">Marketing Scorecard</a>
+        <a href="../tools/roi-calculator.html">ROI Calculators</a>
+        <a href="../tools/budget-planner.html">Budget Planner</a>
+        <a href="podcast.html">Podcast</a>
+        <a href="events.html">Events & Webinars</a>
+        <a href="community.html">Community</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="about.html">About DMS</a>
+        <a href="membership.html">Membership</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://www.ekwa.com" target="_blank">Ekwa Marketing</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Dental Marketing Society. All rights reserved.</span>
+      <span>A product of <a href="https://www.ekwa.com" class="footer-ekwa" target="_blank">Ekwa Marketing</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

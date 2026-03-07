@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DMS Launch 2026 - Something Big is Coming</title>
+  <meta name="description" content="Something big is coming to the Dental Marketing Society. New AI tools, mastermind groups, certification programs, and more. Join 1,847+ on the early access list.">
+  <meta name="keywords" content="DMS launch, dental marketing, pre-launch, early access, AI marketing tools, dental certification">
+  <meta property="og:title" content="Something Big is Coming to DMS">
+  <meta property="og:description" content="The Dental Marketing Society is expanding with new tools, content, and growth programs. Be first to know.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=2">
+  <style>
+    /* Launch Page Specific Styles */
+    .hero-section {
+      background: linear-gradient(135deg, #1B2A4A 0%, #2a3d5a 50%, #1B2A4A 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 120px 20px;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Animated particles background */
+    .particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #D4A843;
+      border-radius: 50%;
+      opacity: 0;
+      animation: float 8s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% {
+        opacity: 0;
+        transform: translateY(0) translateX(0);
+      }
+      50% {
+        opacity: 0.8;
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-100vh) translateX(50px);
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-headline {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: white;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      font-family: 'DM Sans', sans-serif;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-subheadline {
+      font-size: 1.3rem;
+      color: #e0e0e0;
+      margin-bottom: 50px;
+      line-height: 1.6;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Countdown Timer */
+    .countdown-wrapper {
+      margin: 50px 0;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(212, 168, 67, 0.3);
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+    }
+
+    .countdown-label {
+      font-size: 0.9rem;
+      color: #D4A843;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .countdown-timer {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .countdown-box {
+      min-width: 80px;
+      padding: 20px 15px;
+      background: linear-gradient(135deg, #2E75B6 0%, #1f5aa0 100%);
+      border-radius: 8px;
+      border: 1px solid #3a8fd6;
+      box-shadow: 0 4px 15px rgba(46, 117, 182, 0.3);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .countdown-box:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .countdown-box:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    .countdown-box:nth-child(4) {
+      animation-delay: 0.6s;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 4px 15px rgba(46, 117, 182, 0.3);
+      }
+      50% {
+        box-shadow: 0 4px 25px rgba(212, 168, 67, 0.4);
+      }
+    }
+
+    .countdown-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #D4A843;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .countdown-label-small {
+      font-size: 0.75rem;
+      color: #b0c4de;
+      margin-top: 8px;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    /* Features Section */
+    .features-section {
+      padding: 100px 20px;
+      background: white;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #1B2A4A;
+      text-align: center;
+      margin-bottom: 60px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      position: relative;
+      padding: 40px 25px;
+      background: white;
+      border: 2px solid #f0f0f0;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+
+    .feature-card:hover {
+      border-color: #D4A843;
+      box-shadow: 0 8px 30px rgba(212, 168, 67, 0.15);
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #2E75B6 0%, #1B2A4A 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+
+    .feature-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #1B2A4A;
+      margin-bottom: 12px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .feature-description {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .coming-soon-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #D4A843;
+      color: #1B2A4A;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Early Access Section */
+    .early-access-section {
+      background: linear-gradient(135deg, #1B2A4A 0%, #2a3d5a 100%);
+      padding: 100px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .early-access-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .early-access-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .early-access-subtitle {
+      font-size: 1.05rem;
+      color: #d0d0d0;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .signup-form {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .signup-form input {
+      flex: 1;
+      min-width: 250px;
+      padding: 15px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      background: white;
+    }
+
+    .signup-form input::placeholder {
+      color: #999;
+    }
+
+    .signup-form button {
+      padding: 15px 40px;
+      background: linear-gradient(135deg, #D4A843 0%, #c9953a 100%);
+      color: #1B2A4A;
+      border: none;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      font-family: 'DM Sans', sans-serif;
+      white-space: nowrap;
+    }
+
+    .signup-form button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(212, 168, 67, 0.4);
+    }
+
+    .signup-success {
+      display: none;
+      background: rgba(76, 175, 80, 0.1);
+      border: 1px solid #4CAF50;
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      text-align: center;
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .early-access-count {
+      font-size: 0.95rem;
+      color: #D4A843;
+      margin-top: 20px;
+      font-weight: 600;
+    }
+
+    /* Sneak Peek Section */
+    .sneak-peek-section {
+      background: #f8f9fa;
+      padding: 100px 20px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .testimonial-card {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      border-left: 4px solid #D4A843;
+    }
+
+    .testimonial-text {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: #1B2A4A;
+      font-size: 0.9rem;
+    }
+
+    .testimonial-role {
+      color: #999;
+      font-size: 0.85rem;
+      margin-top: 4px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 50px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .stat-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #D4A843;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .stat-label {
+      color: #666;
+      margin-top: 8px;
+      font-size: 0.9rem;
+    }
+
+    /* Social Share Section */
+    .social-section {
+      background: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .social-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .social-subtitle {
+      color: #666;
+      margin-bottom: 40px;
+      font-size: 1rem;
+    }
+
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .social-btn {
+      padding: 12px 25px;
+      border: 2px solid #ddd;
+      background: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .social-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .social-btn.twitter {
+      border-color: #1DA1F2;
+      color: #1DA1F2;
+    }
+
+    .social-btn.twitter:hover {
+      background: #1DA1F2;
+      color: white;
+    }
+
+    .social-btn.facebook {
+      border-color: #1877F2;
+      color: #1877F2;
+    }
+
+    .social-btn.facebook:hover {
+      background: #1877F2;
+      color: white;
+    }
+
+    .social-btn.linkedin {
+      border-color: #0A66C2;
+      color: #0A66C2;
+    }
+
+    .social-btn.linkedin:hover {
+      background: #0A66C2;
+      color: white;
+    }
+
+    .share-text {
+      background: #f5f5f5;
+      padding: 15px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.6;
+      margin-top: 20px;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      background: #f8f9fa;
+      padding: 100px 20px;
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item:hover {
+      border-color: #D4A843;
+      box-shadow: 0 2px 8px rgba(212, 168, 67, 0.1);
+    }
+
+    .faq-question {
+      padding: 20px;
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      color: #1B2A4A;
+      transition: background 0.3s;
+      font-size: 1rem;
+    }
+
+    .faq-question:hover {
+      background: #f9f9f9;
+    }
+
+    .faq-question::after {
+      content: '+';
+      font-size: 1.5rem;
+      color: #D4A843;
+      transition: transform 0.3s;
+    }
+
+    .faq-item.open .faq-question::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 20px 20px;
+      color: #666;
+      background: #fafafa;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+      animation: slideIn 0.3s ease;
+    }
+
+    /* Footer CTA Section */
+    .footer-cta {
+      background: linear-gradient(135deg, #D4A843 0%, #c9953a 100%);
+      padding: 60px 20px;
+      text-align: center;
+      color: #1B2A4A;
+    }
+
+    .footer-cta-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .footer-cta-title {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .footer-cta-text {
+      font-size: 1.05rem;
+      margin-bottom: 30px;
+      line-height: 1.6;
+      opacity: 0.95;
+    }
+
+    .footer-cta-btn {
+      display: inline-block;
+      background: #1B2A4A;
+      color: white;
+      padding: 15px 40px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+
+    .footer-cta-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(27, 42, 74, 0.4);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-headline {
+        font-size: 2.2rem;
+      }
+
+      .hero-subheadline {
+        font-size: 1.05rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .countdown-timer {
+        gap: 10px;
+      }
+
+      .countdown-box {
+        min-width: 70px;
+        padding: 15px 10px;
+      }
+
+      .countdown-number {
+        font-size: 1.8rem;
+      }
+
+      .signup-form {
+        flex-direction: column;
+      }
+
+      .signup-form input,
+      .signup-form button {
+        width: 100%;
+      }
+
+      .features-grid {
+        gap: 20px;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+
+      .early-access-title {
+        font-size: 1.8rem;
+      }
+
+      .footer-cta-title {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-section {
+        padding: 60px 15px;
+        min-height: auto;
+      }
+
+      .hero-headline {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+      }
+
+      .hero-subheadline {
+        font-size: 0.95rem;
+        margin-bottom: 30px;
+      }
+
+      .countdown-wrapper {
+        padding: 20px;
+      }
+
+      .countdown-box {
+        min-width: 60px;
+        padding: 12px 8px;
+      }
+
+      .countdown-number {
+        font-size: 1.5rem;
+      }
+
+      .features-section,
+      .early-access-section,
+      .sneak-peek-section,
+      .social-section,
+      .faq-section {
+        padding: 60px 15px;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 40px;
+      }
+
+      .feature-card {
+        padding: 25px 15px;
+      }
+
+      .social-buttons {
+        flex-direction: column;
+      }
+
+      .social-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+  <link rel="canonical" href="https://dms.narenlife.com/pages/launch.html">
+  <meta property="og:url" content="https://dms.narenlife.com/pages/launch.html">
+  <meta property="og:site_name" content="Dental Marketing Society">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="../index.html" class="logo">
+      <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="8" fill="#1B2A4A"/>
+        <path d="M12 28V16c0-3.3 2.7-6 6-6h4c3.3 0 6 2.7 6 6v12" stroke="#D4A843" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M8 20h24" stroke="#D4A843" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <path d="M20 10v20" stroke="#D4A843" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="20" cy="18" r="3" fill="#D4A843"/>
+      </svg>
+      <span class="logo-text">Dental Marketing <span>Society</span></span>
+    </a>
+    <nav class="nav">
+      <div class="nav-dropdown">
+        <a href="#">Marketing Channels &#8595;</a>
+        <div class="nav-dropdown-content">
+          <a href="channel-seo.html">SEO & Local Search</a>
+          <a href="channel-ppc.html">Pay-Per-Click (PPC)</a>
+          <a href="channel-social.html">Social Media</a>
+          <a href="channel-reputation.html">Reputation & Reviews</a>
+          <a href="channel-website.html">Website & Conversion</a>
+          <a href="channel-referral.html">Referral Marketing</a>
+          <a href="channel-email.html">Email Marketing</a>
+          <a href="channel-video.html">Video Marketing</a>
+          <a href="channel-directmail.html">Direct Mail</a>
+          <a href="channel-branding.html">Branding</a>
+          <a href="channel-ai.html">AI & Emerging Tech</a>
+        </div>
+      </div>
+      <a href="articles.html">Articles</a>
+      <a href="events.html">Events</a>
+      <a href="podcast.html">Podcast</a>
+      <div class="nav-dropdown">
+        <a href="#">Tools ▾</a>
+        <div class="nav-dropdown-content">
+          <a href="../tools/scorecard.html">📊 Marketing Scorecard</a>
+          <a href="../tools/seo-audit.html">🔍 SEO Audit Tool</a>
+          <a href="../tools/roi-calculator.html">💰 ROI Calculator</a>
+          <a href="../tools/budget-planner.html">📋 Budget Planner</a>
+          <a href="../tools/social-calendar.html">📱 Social Calendar</a>
+          <a href="../tools/marketing-plan.html">📝 Marketing Plan Builder</a>
+        </div>
+      </div>
+      <a href="community.html">Community</a>
+      <a href="about.html">About</a>
+      <a href="launch.html" class="nav-cta">Launch Updates</a>
+    </nav>
+    <button class="mobile-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO SECTION WITH COUNTDOWN -->
+<section class="hero-section">
+  <div class="particles" id="particles-container"></div>
+  <div class="hero-content">
+    <h1 class="hero-headline">Something Big is Coming to DMS</h1>
+    <p class="hero-subheadline">The Dental Marketing Society is expanding — new tools, new content, new ways to grow your practice</p>
+
+    <div class="countdown-wrapper">
+      <div class="countdown-label">Launch in</div>
+      <div class="countdown-timer">
+        <div class="countdown-box">
+          <div class="countdown-number" id="days">00</div>
+          <div class="countdown-label-small">Days</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-number" id="hours">00</div>
+          <div class="countdown-label-small">Hours</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-number" id="minutes">00</div>
+          <div class="countdown-label-small">Minutes</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-number" id="seconds">00</div>
+          <div class="countdown-label-small">Seconds</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES SECTION -->
+<section class="features-section">
+  <h2 class="section-title">What's Coming</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="coming-soon-badge">Coming Soon</div>
+      <div class="feature-icon">🤖</div>
+      <h3 class="feature-title">Advanced AI Marketing Tools</h3>
+      <p class="feature-description">Let AI analyze your practice and recommend strategies tailored to your unique goals and market position.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="coming-soon-badge">Coming Soon</div>
+      <div class="feature-icon">👥</div>
+      <h3 class="feature-title">Live Mastermind Groups</h3>
+      <p class="feature-description">Monthly small-group sessions with top dental marketers. Network, share wins, and solve problems together.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="coming-soon-badge">Coming Soon</div>
+      <div class="feature-icon">🏆</div>
+      <h3 class="feature-title">DMS Certification Program</h3>
+      <p class="feature-description">Earn your Certified Dental Marketing Professional credential and stand out in the dental marketing space.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="coming-soon-badge">Coming Soon</div>
+      <div class="feature-icon">🚀</div>
+      <h3 class="feature-title">Practice Growth Accelerator</h3>
+      <p class="feature-description">12-week intensive program with guaranteed results. Direct support from DMS mentors and growth specialists.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EARLY ACCESS SIGNUP -->
+<section class="early-access-section">
+  <div class="early-access-content">
+    <h2 class="early-access-title">Be the First to Know</h2>
+    <p class="early-access-subtitle">Get exclusive early access to the new DMS tools and programs before they launch. Join our growing community of practice owners ready to take their growth to the next level.</p>
+
+    <div id="signup-success" class="signup-success">
+      ✓ Thanks for signing up! Check your email for exclusive launch updates.
+    </div>
+
+    <form class="signup-form" id="early-access-form">
+      <input
+        type="email"
+        id="email-input"
+        placeholder="Enter your email"
+        required
+        autocomplete="email"
+      >
+      <button type="submit">Get Early Access</button>
+    </form>
+
+    <p class="early-access-count">Join <strong id="signup-count">1,847</strong> practice owners on the early access list</p>
+  </div>
+</section>
+
+<!-- SNEAK PEEK SECTION -->
+<section class="sneak-peek-section">
+  <h2 class="section-title">What Beta Testers Are Saying</h2>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <p class="testimonial-text">"The AI marketing tools analyzed my practice's data and identified 3 untapped patient segments. Implemented the recommendations and we're seeing a 42% increase in new patient inquiries."</p>
+      <div class="testimonial-author">Dr. Sarah Mitchell</div>
+      <div class="testimonial-role">Family Dentistry, Dallas TX</div>
+    </div>
+
+    <div class="testimonial-card">
+      <p class="testimonial-text">"The mastermind group has been invaluable. Getting real strategies from other dentists who understand the business - priceless. Worth every penny."</p>
+      <div class="testimonial-author">Dr. James Chen</div>
+      <div class="testimonial-role">Cosmetic & Implant Specialist, Los Angeles CA</div>
+    </div>
+
+    <div class="testimonial-card">
+      <p class="testimonial-text">"DMS tools helped us optimize our Google Ads spending. Cut our cost-per-patient-acquisition by 31% while increasing total new patients. Best investment we made this year."</p>
+      <div class="testimonial-author">Dr. Amanda Brooks</div>
+      <div class="testimonial-role">Multi-Practice Owner, Phoenix AZ</div>
+    </div>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-box">
+      <div class="stat-number">47%</div>
+      <div class="stat-label">Average Increase in New Patients</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">3,200+</div>
+      <div class="stat-label">Practices Served</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">$2.3M+</div>
+      <div class="stat-label">In Tracked ROI</div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL SHARE SECTION -->
+<section class="social-section">
+  <div class="social-content">
+    <h2 class="section-title">Spread the Word</h2>
+    <p class="social-subtitle">Help your dental marketing friends stay ahead of the curve. Share the DMS launch with your network.</p>
+
+    <div class="social-buttons">
+      <button class="social-btn twitter" onclick="shareOnTwitter()">
+        <span>𝕏</span> Share on Twitter
+      </button>
+      <button class="social-btn facebook" onclick="shareOnFacebook()">
+        <span>f</span> Share on Facebook
+      </button>
+      <button class="social-btn linkedin" onclick="shareOnLinkedIn()">
+        <span>in</span> Share on LinkedIn
+      </button>
+    </div>
+
+    <div class="share-text">
+      "Something Big is Coming to DMS. Check out the new AI tools, mastermind groups, certification program, and practice growth accelerator launching April 15. Be first to know → [link]"
+    </div>
+  </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="faq-section">
+  <div class="faq-container">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-question">When is the DMS launch?</div>
+      <div class="faq-answer">The new DMS tools and programs launch on April 15, 2026. Early access members will get priority onboarding and exclusive bonuses. You can see the countdown timer above!</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">What exactly is launching?</div>
+      <div class="faq-answer">We're launching four major offerings: Advanced AI Marketing Tools (practice-specific strategy recommendations), Live Mastermind Groups (monthly sessions with top dental marketers), DMS Certification Program (professional credential), and Practice Growth Accelerator (12-week intensive program with guaranteed results).</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Do I get any early access benefits?</div>
+      <div class="faq-answer">Yes! Early access members will receive: Special launch pricing locked in for life, exclusive onboarding with a DMS mentor, access to beta content and tools one week before general launch, and a limited-time bonus training bundle ($297 value) free.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How much will it cost?</div>
+      <div class="faq-answer">Pricing varies by program. AI tools start at $99/month, Mastermind Groups are $297/month, the Certification Program is a one-time $1,997, and the Growth Accelerator is $4,997 for the 12-week program. Early access members lock in 20% lifetime discount on all programs.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CTA SECTION -->
+<section class="footer-cta">
+  <div class="footer-cta-content">
+    <h2 class="footer-cta-title">Ready to Scale Your Practice?</h2>
+    <p class="footer-cta-text">Learn how dentists are growing their practices with proven DMS strategies and tools. Join our webinar and Q&A with top practice growth experts.</p>
+    <a href="https://www.ekwa.com/msm/?utm_source=dms&utm_medium=page&utm_campaign=dms-launch-prelaunch" class="footer-cta-btn" target="_blank" rel="noopener noreferrer">Explore MSM Program</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Company</h4>
+        <a href="about.html">About DMS</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact</a>
+        <a href="#">Careers</a>
+      </div>
+      <div class="footer-section">
+        <h4>Resources</h4>
+        <a href="articles.html">Articles</a>
+        <a href="events.html">Events</a>
+        <a href="podcast.html">Podcast</a>
+        <a href="community.html">Community</a>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Disclaimer</a>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <a href="#">Twitter</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Facebook</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Dental Marketing Society. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Initialize particles
+  function createParticles() {
+    const container = document.getElementById('particles-container');
+    const particleCount = 30;
+
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.top = Math.random() * 100 + '%';
+      particle.style.animation = `float ${5 + Math.random() * 4}s infinite ease-in-out`;
+      particle.style.animationDelay = Math.random() * 2 + 's';
+      container.appendChild(particle);
+    }
+  }
+
+  // Countdown Timer
+  function updateCountdown() {
+    const launchDate = new Date('April 15, 2026').getTime();
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = launchDate - now;
+
+      if (distance < 0) {
+        document.getElementById('days').textContent = '00';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+        clearInterval(timer);
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = String(days).padStart(2, '0');
+      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }, 1000);
+  }
+
+  // Email Signup Handler
+  document.getElementById('early-access-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email-input').value;
+
+    // Save to localStorage
+    let signups = JSON.parse(localStorage.getItem('dms-early-access') || '[]');
+    if (!signups.includes(email)) {
+      signups.push(email);
+      localStorage.setItem('dms-early-access', JSON.stringify(signups));
+    }
+
+    // Show success message
+    document.getElementById('signup-success').style.display = 'block';
+    document.getElementById('early-access-form').style.display = 'none';
+
+    // Update count
+    const currentCount = parseInt(document.getElementById('signup-count').textContent);
+    document.getElementById('signup-count').textContent = currentCount + 1;
+
+    // Reset after 5 seconds
+    setTimeout(() => {
+      document.getElementById('early-access-form').style.display = 'flex';
+      document.getElementById('signup-success').style.display = 'none';
+      document.getElementById('email-input').value = '';
+    }, 5000);
+  });
+
+  // Social Share Functions
+  function shareOnTwitter() {
+    const text = "Something Big is Coming to DMS - New AI tools, mastermind groups, certification program & more. Get early access! 🚀";
+    const url = "https://dms.narenlife.com/pages/launch.html";
+    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+  }
+
+  function shareOnFacebook() {
+    const url = "https://dms.narenlife.com/pages/launch.html";
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+  }
+
+  function shareOnLinkedIn() {
+    const url = "https://dms.narenlife.com/pages/launch.html";
+    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'width=550,height=420');
+  }
+
+  // FAQ Toggle
+  document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+      const item = question.parentElement;
+      item.classList.toggle('open');
+    });
+  });
+
+  // Initialize on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    createParticles();
+    updateCountdown();
+  });
+</script>
+
+</body>
+</html>

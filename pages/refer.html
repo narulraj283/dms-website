@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DMS Referral Program - Share and Earn Rewards</title>
+  <meta name="description" content="Join the DMS Referral Program and earn rewards for every practice you refer. Share your unique referral link and both you and your colleague get exclusive benefits.">
+  <meta name="keywords" content="DMS referral program, affiliate program, dental marketing referral, earn rewards, referral incentives">
+  <meta property="og:title" content="DMS Referral Program - Share the Society">
+  <meta property="og:description" content="Share the Dental Marketing Society with colleagues and earn rewards for every practice that joins.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=2">
+  <style>
+    /* Referral Program Specific Styles */
+    .how-it-works { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .step-card { background: white; padding: 2.5rem 2rem; border-radius: 12px; border: 2px solid #eee; text-align: center; transition: all 0.3s; }
+    .step-card:hover { border-color: #D4A843; box-shadow: 0 8px 20px rgba(212, 168, 67, 0.15); transform: translateY(-4px); }
+    .step-number { font-size: 3rem; font-weight: 800; color: #D4A843; margin-bottom: 0.5rem; font-family: 'DM Sans'; }
+    .step-card h3 { color: #1B2A4A; margin-bottom: 1rem; font-size: 1.3rem; }
+    .step-card p { color: #666; line-height: 1.6; }
+    .rewards-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; background: white; }
+    .rewards-table th { background: #1B2A4A; color: white; padding: 16px; text-align: left; font-weight: 600; font-family: 'DM Sans'; }
+    .rewards-table td { padding: 16px; border-bottom: 1px solid #eee; }
+    .rewards-table tr:hover { background: #f9f9f9; }
+    .reward-badge { display: inline-block; padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+    .badge-gold { background: rgba(212, 168, 67, 0.2); color: #B8860B; }
+    .badge-elite { background: rgba(46, 117, 182, 0.2); color: #1e3a5f; }
+    .badge-ambassador { background: rgba(27, 42, 74, 0.2); color: #1B2A4A; }
+
+    /* Dashboard Mockup */
+    .dashboard-mockup { background: white; border-radius: 12px; border: 1px solid #ddd; overflow: hidden; margin-top: 2rem; }
+    .dashboard-header { background: linear-gradient(135deg, #1B2A4A 0%, #2E75B6 100%); color: white; padding: 2rem; }
+    .dashboard-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+    .stat-box { background: rgba(255, 255, 255, 0.1); padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); }
+    .stat-number { font-size: 2rem; font-weight: 800; color: #D4A843; }
+    .stat-label { font-size: 0.9rem; color: rgba(255, 255, 255, 0.9); margin-top: 0.5rem; }
+    .dashboard-content { padding: 2rem; }
+    .referral-link-box { background: #f9f9f9; padding: 1.5rem; border-radius: 8px; border: 1px solid #ddd; display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+    .referral-link-box input { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 0.9rem; }
+    .copy-btn { padding: 12px 20px; background: #D4A843; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; transition: background 0.3s; }
+    .copy-btn:hover { background: #B8860B; }
+    .copy-btn.copied { background: #2E75B6; }
+    .referral-list { margin-top: 2rem; }
+    .referral-item { display: flex; justify-content: space-between; align-items: center; padding: 1rem; border-bottom: 1px solid #eee; font-size: 0.95rem; }
+    .referral-item:last-child { border-bottom: none; }
+    .referral-name { font-weight: 600; color: #1B2A4A; }
+    .referral-date { color: #999; font-size: 0.85rem; }
+
+    /* Ambassador Section */
+    .ambassador-benefits { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .benefit-item { background: white; padding: 2rem; border-radius: 8px; border-left: 4px solid #D4A843; }
+    .benefit-item h4 { color: #1B2A4A; margin-bottom: 0.8rem; font-size: 1.1rem; }
+    .benefit-item p { color: #666; line-height: 1.6; font-size: 0.95rem; }
+
+    /* Leaderboard */
+    .leaderboard { background: white; border-radius: 12px; padding: 2rem; margin-top: 2rem; }
+    .leaderboard-item { display: flex; align-items: center; justify-content: space-between; padding: 1.5rem; border-bottom: 1px solid #eee; }
+    .leaderboard-item:last-child { border-bottom: none; }
+    .rank-badge { display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, #D4A843, #B8860B); color: white; font-weight: 800; font-size: 1.3rem; margin-right: 1.5rem; }
+    .leaderboard-info h4 { color: #1B2A4A; margin: 0; }
+    .leaderboard-info p { color: #999; font-size: 0.9rem; margin: 0.3rem 0 0; }
+    .leaderboard-stats { display: flex; gap: 2rem; align-items: center; }
+    .stat-item { text-align: right; }
+    .stat-item-value { font-size: 1.3rem; font-weight: 700; color: #1B2A4A; }
+    .stat-item-label { font-size: 0.85rem; color: #999; }
+
+    /* FAQ Accordion */
+    .faq-item { border: 1px solid #eee; border-radius: 8px; margin-bottom: 8px; overflow: hidden; }
+    .faq-question { padding: 16px 20px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center; background: #f9f9f9; transition: background 0.3s; }
+    .faq-question:hover { background: #f0f0f0; }
+    .faq-question::after { content: '+'; font-size: 1.5rem; color: #D4A843; transition: transform 0.3s; }
+    .faq-item.open .faq-question::after { content: '−'; }
+    .faq-answer { display: none; padding: 0 20px 16px; color: #555; background: #fafafa; }
+    .faq-item.open .faq-answer { display: block; }
+
+    /* Tier Badges */
+    .tier-badge { display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-left: 0.5rem; }
+    .tier-bronze { background: rgba(205, 127, 50, 0.2); color: #8B4513; }
+    .tier-silver { background: rgba(192, 192, 192, 0.2); color: #696969; }
+    .tier-gold { background: rgba(212, 168, 67, 0.2); color: #B8860B; }
+    .tier-platinum { background: rgba(46, 117, 182, 0.2); color: #1e3a5f; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .dashboard-stats { grid-template-columns: repeat(2, 1fr); }
+      .referral-link-box { flex-direction: column; align-items: stretch; }
+      .referral-link-box input { width: 100%; }
+      .leaderboard-stats { flex-direction: column; gap: 0.5rem; }
+      .stat-item { text-align: left; }
+      .step-card { padding: 1.5rem 1rem; }
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+  <link rel="canonical" href="https://dms.narenlife.com/pages/refer.html">
+  <meta property="og:url" content="https://dms.narenlife.com/pages/refer.html">
+  <meta property="og:site_name" content="Dental Marketing Society">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="../index.html" class="logo">
+      <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="8" fill="#1B2A4A"/>
+        <path d="M12 28V16c0-3.3 2.7-6 6-6h4c3.3 0 6 2.7 6 6v12" stroke="#D4A843" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M8 20h24" stroke="#D4A843" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <path d="M20 10v20" stroke="#D4A843" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="20" cy="18" r="3" fill="#D4A843"/>
+      </svg>
+      <span class="logo-text">Dental Marketing <span>Society</span></span>
+    </a>
+    <nav class="nav">
+      <div class="nav-dropdown">
+        <a href="#">Marketing Channels &#8595;</a>
+        <div class="nav-dropdown-content">
+          <a href="channel-seo.html">SEO & Local Search</a>
+          <a href="channel-ppc.html">Pay-Per-Click (PPC)</a>
+          <a href="channel-social.html">Social Media</a>
+          <a href="channel-reputation.html">Reputation & Reviews</a>
+          <a href="channel-website.html">Website & Conversion</a>
+          <a href="channel-referral.html">Referral Marketing</a>
+          <a href="channel-email.html">Email Marketing</a>
+          <a href="channel-video.html">Video Marketing</a>
+          <a href="channel-directmail.html">Direct Mail</a>
+          <a href="channel-branding.html">Branding</a>
+          <a href="channel-ai.html">AI & Emerging Tech</a>
+        </div>
+      </div>
+      <a href="articles.html">Articles</a>
+      <a href="events.html">Events</a>
+      <a href="podcast.html">Podcast</a>
+      <div class="nav-dropdown">
+        <a href="#">Tools ▾</a>
+        <div class="nav-dropdown-content">
+          <a href="../tools/scorecard.html">📊 Marketing Scorecard</a>
+          <a href="../tools/seo-audit.html">🔍 SEO Audit Tool</a>
+          <a href="../tools/roi-calculator.html">💰 ROI Calculator</a>
+          <a href="../tools/budget-planner.html">📋 Budget Planner</a>
+          <a href="../tools/social-calendar.html">📱 Social Calendar</a>
+          <a href="../tools/marketing-plan.html">📝 Marketing Plan Builder</a>
+        </div>
+      </div>
+      <a href="community.html">Community</a>
+      <a href="about.html">About</a>
+      <a href="membership.html" class="nav-cta">Join Free</a>
+    </nav>
+    <button class="mobile-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" style="padding: 80px 0 60px; background: linear-gradient(135deg, #1B2A4A 0%, #2E75B6 100%);">
+  <div class="container">
+    <h1 style="margin-bottom: 1rem; color: white;">DMS Referral <span style="color: #D4A843;">Program</span></h1>
+    <p style="font-size: 1.25rem; color: rgba(255, 255, 255, 0.95); max-width: 750px; margin-bottom: 2rem; line-height: 1.6;">Share the Dental Marketing Society with colleagues and earn rewards for every practice that joins. Grow the community while building your rewards tier.</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 0.5rem;">How It Works</h2>
+    <p style="text-align: center; color: #666; margin-bottom: 3rem; font-size: 1.05rem;">Three simple steps to start earning rewards</p>
+    <div class="how-it-works">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3>Share Your Link</h3>
+        <p>Get your unique referral link from your dashboard and share it with colleagues. You can send it via email, Slack, LinkedIn, or any channel you prefer.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3>Colleague Joins</h3>
+        <p>When they sign up using your link, their membership is automatically credited to your referral account. They get immediate access to DMS benefits.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3>Both Earn Rewards</h3>
+        <p>You unlock rewards based on your tier. They get a special welcome bonus. Track everything in real-time on your referral dashboard.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REWARDS TIERS -->
+<section class="section section-light">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 3rem;">Rewards Tiers</h2>
+    <div style="overflow-x: auto;">
+      <table class="rewards-table">
+        <thead>
+          <tr>
+            <th>Referrals</th>
+            <th>Your Reward</th>
+            <th>Their Reward</th>
+            <th>Tier Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1–2</strong></td>
+            <td>1 month Pro free</td>
+            <td>1 month Pro free</td>
+            <td><span class="reward-badge badge-gold">Bronze</span></td>
+          </tr>
+          <tr>
+            <td><strong>3–5</strong></td>
+            <td>3 months Pro free</td>
+            <td>1 month Pro free</td>
+            <td><span class="reward-badge badge-gold">Silver</span></td>
+          </tr>
+          <tr>
+            <td><strong>6–10</strong></td>
+            <td>6 months Elite free</td>
+            <td>2 months Pro free</td>
+            <td><span class="reward-badge badge-elite">Gold</span></td>
+          </tr>
+          <tr>
+            <td><strong>11+</strong></td>
+            <td>Lifetime Elite + Ambassador badge</td>
+            <td>3 months Pro free</td>
+            <td><span class="reward-badge badge-ambassador">Platinum</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- REFERRAL DASHBOARD MOCKUP -->
+<section class="section">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 2rem;">Your Referral Dashboard</h2>
+    <div class="dashboard-mockup">
+      <div class="dashboard-header">
+        <h3 style="margin: 0; color: white;">Welcome back, Dr. Sarah Chen</h3>
+        <div class="dashboard-stats">
+          <div class="stat-box">
+            <div class="stat-number">7</div>
+            <div class="stat-label">Total Referrals</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">5</div>
+            <div class="stat-label">Active Referrals</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">2</div>
+            <div class="stat-label">Pending Activation</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">Gold <span style="font-size: 1rem;">(6-10)</span></div>
+            <div class="stat-label">Current Tier</div>
+          </div>
+        </div>
+      </div>
+      <div class="dashboard-content">
+        <div style="background: rgba(212, 168, 67, 0.1); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; border: 1px solid #D4A843;">
+          <h4 style="color: #1B2A4A; margin-top: 0;">Your Reward Status</h4>
+          <p style="color: #666; margin-bottom: 0;">6 months Elite access — <span style="color: #D4A843; font-weight: 600;">Active until March 2027</span></p>
+        </div>
+        <h4 style="color: #1B2A4A; margin-bottom: 1rem;">Your Referral Link</h4>
+        <div class="referral-link-box">
+          <input type="text" value="https://dms.narenlife.com/join?ref=sarahchen_dent_2024" readonly>
+          <button class="copy-btn" onclick="copyToClipboard()">Copy Link</button>
+        </div>
+        <h4 style="color: #1B2A4A; margin-bottom: 1rem;">Recent Referrals</h4>
+        <div class="referral-list">
+          <div class="referral-item">
+            <div>
+              <div class="referral-name">Dr. James Martinez</div>
+              <div class="referral-date">Martinez Family Dentistry • Chicago, IL • Joined Feb 15</div>
+            </div>
+            <span style="color: #2E75B6; font-weight: 600;">Active</span>
+          </div>
+          <div class="referral-item">
+            <div>
+              <div class="referral-name">Dr. Lisa Wong</div>
+              <div class="referral-date">Wong & Associates • Seattle, WA • Joined Feb 12</div>
+            </div>
+            <span style="color: #2E75B6; font-weight: 600;">Active</span>
+          </div>
+          <div class="referral-item">
+            <div>
+              <div class="referral-name">Dr. Michael Rodriguez</div>
+              <div class="referral-date">Bright Smile Dental • Denver, CO • Joined Feb 8</div>
+            </div>
+            <span style="color: #2E75B6; font-weight: 600;">Active</span>
+          </div>
+          <div class="referral-item">
+            <div>
+              <div class="referral-name">Dr. Emily Thompson</div>
+              <div class="referral-date">Sunrise Dental Group • Boston, MA • Joined Feb 1</div>
+            </div>
+            <span style="color: #2E75B6; font-weight: 600;">Active</span>
+          </div>
+          <div class="referral-item">
+            <div>
+              <div class="referral-name">Dr. Robert Kim</div>
+              <div class="referral-date">Kim Dental Studios • Los Angeles, CA • Joined Jan 25</div>
+            </div>
+            <span style="color: #2E75B6; font-weight: 600;">Active</span>
+          </div>
+          <div class="referral-item">
+            <div>
+              <div class="referral-name">Dr. Jennifer Adams</div>
+              <div class="referral-date">Adams Family Dentistry • Austin, TX • Joined Jan 18</div>
+            </div>
+            <span style="color: #999; font-weight: 600;">Pending</span>
+          </div>
+          <div class="referral-item">
+            <div>
+              <div class="referral-name">Dr. David Foster</div>
+              <div class="referral-date">Foster & Associates • Miami, FL • Referred Jan 10</div>
+            </div>
+            <span style="color: #999; font-weight: 600;">Pending</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AMBASSADOR PROGRAM -->
+<section class="section section-light">
+  <div class="container">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <h2 style="text-align: center; margin-bottom: 1rem;">DMS Ambassador Program</h2>
+      <p style="text-align: center; color: #666; margin-bottom: 3rem; font-size: 1.05rem; line-height: 1.6;">Top referrers become part of an exclusive community of practice leaders. Ambassadors receive special recognition, speaking opportunities, and direct access to the DMS leadership team.</p>
+      <div class="ambassador-benefits">
+        <div class="benefit-item">
+          <h4>Speaking Opportunities</h4>
+          <p>Share your marketing wins with the DMS community. Present at webinars, roundtables, and the annual summit. Build your thought leadership.</p>
+        </div>
+        <div class="benefit-item">
+          <h4>Exclusive Roundtables</h4>
+          <p>Monthly private mastermind sessions with 10-15 other ambassadors. Discuss challenges, share strategies, and network with peer leaders.</p>
+        </div>
+        <div class="benefit-item">
+          <h4>Early Access</h4>
+          <p>Get first access to new courses, tools, and resources before they launch to the general membership. Shape the future of DMS.</p>
+        </div>
+        <div class="benefit-item">
+          <h4>Ambassador Badge</h4>
+          <p>Display an exclusive DMS Ambassador badge on your profile, website, and LinkedIn. Increase credibility with your patients and colleagues.</p>
+        </div>
+        <div class="benefit-item">
+          <h4>Lifetime Elite Access</h4>
+          <p>Unlock permanent access to all premium features, tools, and resources. Never worry about renewal or membership tiers.</p>
+        </div>
+        <div class="benefit-item">
+          <h4>Direct DMS Support</h4>
+          <p>Access to a dedicated Slack channel with the DMS team. Get priority support and direct input on product development.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERBOARD -->
+<section class="section">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 3rem;">Top Referrers</h2>
+    <div class="leaderboard">
+      <div class="leaderboard-item">
+        <div style="display: flex; align-items: center;">
+          <div class="rank-badge">1</div>
+          <div class="leaderboard-info">
+            <h4>Dr. Patricia Williams</h4>
+            <p>Cornerstone Dental Group • Portland, OR</p>
+          </div>
+        </div>
+        <div class="leaderboard-stats">
+          <div class="stat-item">
+            <div class="stat-item-value">24</div>
+            <div class="stat-item-label">Referrals</div>
+          </div>
+          <span class="reward-badge badge-ambassador" style="margin: 0;">Platinum</span>
+        </div>
+      </div>
+      <div class="leaderboard-item">
+        <div style="display: flex; align-items: center;">
+          <div class="rank-badge">2</div>
+          <div class="leaderboard-info">
+            <h4>Dr. Robert Chen</h4>
+            <p>Chen Family Dentistry • San Francisco, CA</p>
+          </div>
+        </div>
+        <div class="leaderboard-stats">
+          <div class="stat-item">
+            <div class="stat-item-value">18</div>
+            <div class="stat-item-label">Referrals</div>
+          </div>
+          <span class="reward-badge badge-ambassador" style="margin: 0;">Platinum</span>
+        </div>
+      </div>
+      <div class="leaderboard-item">
+        <div style="display: flex; align-items: center;">
+          <div class="rank-badge">3</div>
+          <div class="leaderboard-info">
+            <h4>Dr. Amanda Sinclair</h4>
+            <p>Sinclair Dental Partners • Nashville, TN</p>
+          </div>
+        </div>
+        <div class="leaderboard-stats">
+          <div class="stat-item">
+            <div class="stat-item-value">15</div>
+            <div class="stat-item-label">Referrals</div>
+          </div>
+          <span class="reward-badge badge-elite" style="margin: 0;">Gold</span>
+        </div>
+      </div>
+      <div class="leaderboard-item">
+        <div style="display: flex; align-items: center;">
+          <div class="rank-badge">4</div>
+          <div class="leaderboard-info">
+            <h4>Dr. Marcus Johnson</h4>
+            <p>Johnson & Associates Dentistry • Atlanta, GA</p>
+          </div>
+        </div>
+        <div class="leaderboard-stats">
+          <div class="stat-item">
+            <div class="stat-item-value">12</div>
+            <div class="stat-item-label">Referrals</div>
+          </div>
+          <span class="reward-badge badge-elite" style="margin: 0;">Gold</span>
+        </div>
+      </div>
+      <div class="leaderboard-item">
+        <div style="display: flex; align-items: center;">
+          <div class="rank-badge">5</div>
+          <div class="leaderboard-info">
+            <h4>Dr. Victoria Park</h4>
+            <p>Park Dental Excellence • Phoenix, AZ</p>
+          </div>
+        </div>
+        <div class="leaderboard-stats">
+          <div class="stat-item">
+            <div class="stat-item-value">9</div>
+            <div class="stat-item-label">Referrals</div>
+          </div>
+          <span class="reward-badge badge-gold" style="margin: 0;">Silver</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY REFER -->
+<section class="section section-light">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 3rem;">Why Share DMS?</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1100px; margin: 0 auto;">
+      <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #eee;">
+        <h3 style="color: #D4A843; margin-bottom: 1rem;">Help Your Colleagues Grow</h3>
+        <p style="color: #666;">Share knowledge that's helping 10,000+ practice owners improve their marketing and patient acquisition. Make a real impact.</p>
+      </div>
+      <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #eee;">
+        <h3 style="color: #2E75B6; margin-bottom: 1rem;">Earn Valuable Rewards</h3>
+        <p style="color: #666;">Unlock free Premium and Elite access based on your referrals. Your network builds your benefits. No catch, no limits.</p>
+      </div>
+      <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #eee;">
+        <h3 style="color: #1B2A4A; margin-bottom: 1rem;">Build Your Legacy</h3>
+        <p style="color: #666;">Become a DMS Ambassador. Get recognized as a thought leader. Build your personal brand in the dental community.</p>
+      </div>
+      <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #eee;">
+        <h3 style="color: #D4A843; margin-bottom: 1rem;">Join an Exclusive Community</h3>
+        <p style="color: #666;">Top referrers get direct access to DMS leadership, exclusive events, and a network of ambitious practice owners.</p>
+      </div>
+      <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #eee;">
+        <h3 style="color: #2E75B6; margin-bottom: 1rem;">Easy to Share</h3>
+        <p style="color: #666;">One unique link. Copy it once. Share it everywhere. Track results in real-time from your dashboard. Zero friction.</p>
+      </div>
+      <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #eee;">
+        <h3 style="color: #1B2A4A; margin-bottom: 1rem;">Lifetime Rewards</h3>
+        <p style="color: #666;">Reach Platinum tier? Get lifetime Elite access. Your rewards compound over time. Keep earning forever.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 3rem;">Frequently Asked Questions</h2>
+    <div style="max-width: 800px; margin: 0 auto;">
+      <div class="faq-item">
+        <div class="faq-question">How do I get my unique referral link?</div>
+        <div class="faq-answer">
+          <p>Log into your DMS member dashboard and navigate to the Referral Program section. Your unique referral link is displayed prominently. Copy it and share it wherever you'd like — email, LinkedIn, Slack, social media, or in person. Every referral using your link will be automatically tracked.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">When do I get my rewards?</div>
+        <div class="faq-answer">
+          <p>Your referral counts immediately once your colleague signs up using your link. Once they activate their membership (usually within 24 hours), your reward gets applied to your account. For example, if you're at 6 referrals, you'll have 6 months of free Elite access added to your account. You can track everything in real-time on your dashboard.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Can I share my referral link on social media or my website?</div>
+        <div class="faq-answer">
+          <p>Absolutely! Share your referral link anywhere. You can add it to your email signature, website footer, LinkedIn bio, Facebook, Instagram, or anywhere else you'd like. The more places you share it, the more referrals you'll typically get. Just make sure each share feels authentic and relevant to your audience.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Do my referrals stay active forever or expire?</div>
+        <div class="faq-answer">
+          <p>Your referrals count permanently. Once someone signs up using your link and activates their membership, that referral is locked in and counts toward your tier forever. This means your rewards keep compounding. Even if a referred member leaves DMS later, the referral still counts toward your lifetime total and tier benefits.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">What happens if I reach Ambassador status (11+ referrals)?</div>
+        <div class="faq-answer">
+          <p>Congratulations! You're now a DMS Ambassador. You get lifetime Elite access, an exclusive Ambassador badge for your profile, direct access to the leadership team, invitation to exclusive roundtables, speaking opportunities at DMS events, and priority support. You also join a community of the top 5% of referrers who are shaping the future of DMS.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="section section-light">
+  <div class="container">
+    <div style="background: rgba(212, 168, 67, 0.1); border: 2px solid #D4A843; padding: 3rem; border-radius: 8px; text-align: center; max-width: 700px; margin: 0 auto;">
+      <h3 style="color: #1B2A4A; margin-bottom: 1rem;">Our Referral Promise</h3>
+      <p style="font-size: 1.05rem; color: #555; line-height: 1.8;">We believe in rewarding your loyalty. Your referrals are tracked accurately, rewards are applied instantly, and you have full transparency into everything on your dashboard. If you ever have questions about your referrals or rewards, reach out to our support team anytime. We're here to make sure you get every benefit you've earned.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section section-dark" style="text-align: center;">
+  <div class="container">
+    <h2 style="color: white; margin-bottom: 1rem;">Ready to Start Earning?</h2>
+    <p style="color: rgba(255,255,255,0.8); margin-bottom: 2rem; font-size: 1.1rem;">Join or log into your DMS account to get your unique referral link and start building your rewards today.</p>
+    <a href="dashboard-member.html" class="btn btn-gold btn-lg" style="margin-right: 1rem;">Access Your Dashboard</a>
+    <a href="membership.html" class="btn btn-light btn-lg">Join DMS Free</a>
+  </div>
+</section>
+
+<!-- MARKETING CTA -->
+<section class="section" style="background: rgba(46, 117, 182, 0.05); border-top: 1px solid #2E75B6; border-bottom: 1px solid #2E75B6;">
+  <div class="container" style="text-align: center;">
+    <h3 style="color: #1B2A4A; margin-bottom: 1rem;">Want to Learn More About Referral Marketing?</h3>
+    <p style="color: #666; margin-bottom: 2rem; font-size: 1.05rem;">Referral marketing is one of the most powerful channels for dental practice growth. Discover strategies, systems, and real-world examples from practice owners who've built thriving referral programs.</p>
+    <a href="https://www.ekwa.com/msm/?utm_source=dms&utm_medium=page&utm_campaign=dms-referral-program" target="_blank" class="btn btn-navy">Explore Referral Marketing Strategies</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4 style="font-size:1.15rem;">Dental Marketing Society</h4>
+        <p>The #1 authority in dental practice marketing. Expert education, powerful tools, and a community of practice owners. Where dental practices grow.</p>
+        <p class="footer-ekwa">Brought to you by <strong>Ekwa Marketing</strong> - the leading search engine marketing company for dental practices.</p>
+      </div>
+      <div>
+        <h4>Marketing Channels</h4>
+        <a href="channel-seo.html">SEO & Local Search</a>
+        <a href="channel-ppc.html">PPC Advertising</a>
+        <a href="channel-social.html">Social Media</a>
+        <a href="channel-reputation.html">Reputation</a>
+        <a href="channel-website.html">Website & Conversion</a>
+        <a href="channel-email.html">Email Marketing</a>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <a href="../tools/scorecard.html">Marketing Scorecard</a>
+        <a href="../tools/roi-calculator.html">ROI Calculators</a>
+        <a href="../tools/budget-planner.html">Budget Planner</a>
+        <a href="podcast.html">Podcast</a>
+        <a href="events.html">Events & Webinars</a>
+        <a href="community.html">Community</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="about.html">About DMS</a>
+        <a href="membership.html">Membership</a>
+        <a href="refer.html">Referral Program</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://www.ekwa.com" target="_blank">Ekwa Marketing</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Dental Marketing Society. All rights reserved.</span>
+      <span>A product of <a href="https://www.ekwa.com" class="footer-ekwa" target="_blank">Ekwa Marketing</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+  // Copy to Clipboard Functionality
+  function copyToClipboard() {
+    const input = document.querySelector('.referral-link-box input');
+    const btn = document.querySelector('.copy-btn');
+
+    // Copy the text to clipboard
+    navigator.clipboard.writeText(input.value).then(() => {
+      // Visual feedback
+      const originalText = btn.textContent;
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+
+      // Reset after 2 seconds
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.classList.remove('copied');
+      }, 2000);
+    }).catch(() => {
+      // Fallback for older browsers
+      input.select();
+      document.execCommand('copy');
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'Copy Link';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+
+  // FAQ Accordion Functionality
+  document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', function() {
+      const faqItem = this.parentElement;
+      faqItem.classList.toggle('open');
+    });
+  });
+</script>
+</body>
+</html>

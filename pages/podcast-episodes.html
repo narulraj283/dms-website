@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DMS Podcast Episode Library — Dental Marketing Strategy & Growth</title>
+  <meta name="description" content="Browse the complete Dental Marketing Society podcast episode library. Expert interviews on SEO, PPC, social media, reputation, website conversion, email, video, branding, and AI strategies for dental practices.">
+  <meta name="keywords" content="dental podcast, podcast episodes, dental marketing strategy, podcast library, dental business growth">
+  <meta property="og:title" content="DMS Podcast Episode Library">
+  <meta property="og:description" content="Every episode of the Dental Marketing Society podcast — actionable strategies from the industry's top experts.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=2">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+  <link rel="canonical" href="https://dms.narenlife.com/pages/podcast-episodes.html">
+  <meta property="og:url" content="https://dms.narenlife.com/pages/podcast-episodes.html">
+  <meta property="og:site_name" content="Dental Marketing Society">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "PodcastSeries",
+    "name": "Dental Marketing Society Podcast",
+    "description": "Weekly interviews with successful dental practice owners and marketing experts covering SEO, PPC, social media, reputation, website conversion, email, video, branding, and AI strategies.",
+    "url": "https://dms.narenlife.com/pages/podcast.html",
+    "image": "https://dms.narenlife.com/assets/podcast-cover.jpg",
+    "author": {
+      "@type": "Organization",
+      "name": "Dental Marketing Society",
+      "url": "https://dms.narenlife.com"
+    }
+  }
+  </script>
+
+  <style>
+    /* Episode Grid & Cards */
+    .episode-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .episode-card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .episode-card:hover {
+      border-color: #D4A843;
+      box-shadow: 0 8px 24px rgba(27, 42, 74, 0.1);
+      transform: translateY(-4px);
+    }
+
+    .episode-header {
+      padding: 1.5rem;
+      background: linear-gradient(135deg, #1B2A4A 0%, #2E75B6 100%);
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .episode-number {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      opacity: 0.9;
+    }
+
+    .category-badge {
+      display: inline-block;
+      background: #D4A843;
+      color: #1B2A4A;
+      padding: 0.35rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-left: 0.5rem;
+    }
+
+    .episode-content {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .episode-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1B2A4A;
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .episode-guest {
+      font-size: 0.9rem;
+      color: #2E75B6;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .episode-duration {
+      font-size: 0.85rem;
+      color: #999;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .episode-duration::before {
+      content: "⏱";
+      margin-right: 0.35rem;
+    }
+
+    .episode-description {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+
+    .episode-footer {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: auto;
+    }
+
+    .btn-listen {
+      flex: 1;
+      background: #D4A843;
+      color: #fff;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+      text-align: center;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn-listen:hover {
+      background: #c49630;
+    }
+
+    .btn-article {
+      flex: 1;
+      background: #f0f0f0;
+      color: #1B2A4A;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      text-align: center;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn-article:hover {
+      background: #e0e0e0;
+      border-color: #1B2A4A;
+    }
+
+    /* Filter Section */
+    .filter-section {
+      background: #f8f9fa;
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 1.5rem;
+    }
+
+    .search-box::placeholder {
+      color: #999;
+    }
+
+    .filter-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .filter-btn {
+      padding: 0.6rem 1.2rem;
+      border: 2px solid #1B2A4A;
+      background: #fff;
+      color: #1B2A4A;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: #1B2A4A;
+      color: #fff;
+    }
+
+    /* Subscribe Section */
+    .subscribe-section {
+      background: linear-gradient(135deg, #1B2A4A 0%, #2E75B6 100%);
+      color: #fff;
+      padding: 3rem 2rem;
+      border-radius: 8px;
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .subscribe-section h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .subscribe-section p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+
+    .platform-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .platform-btn {
+      padding: 0.75rem 1.5rem;
+      background: #D4A843;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .platform-btn:hover {
+      background: #c49630;
+    }
+
+    /* Guest Application Form */
+    .guest-section {
+      background: #f8f9fa;
+      padding: 3rem 2rem;
+      border-radius: 8px;
+      margin: 3rem 0;
+    }
+
+    .guest-section h3 {
+      font-size: 1.6rem;
+      color: #1B2A4A;
+      margin-bottom: 0.5rem;
+    }
+
+    .guest-section p {
+      color: #666;
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      color: #1B2A4A;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+      grid-column: 1 / -1;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #D4A843;
+      box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.1);
+    }
+
+    .submit-btn {
+      background: #D4A843;
+      color: #fff;
+      padding: 0.85rem 2rem;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-family: 'DM Sans', sans-serif;
+      align-self: flex-start;
+    }
+
+    .submit-btn:hover {
+      background: #c49630;
+    }
+
+    /* No Results */
+    .no-results {
+      text-align: center;
+      padding: 2rem;
+      color: #666;
+    }
+
+    .no-results p {
+      font-size: 1.1rem;
+    }
+
+    /* CTA Section */
+    .cta-footer {
+      background: linear-gradient(135deg, #2E75B6 0%, #1B2A4A 100%);
+      color: #fff;
+      padding: 3rem 2rem;
+      border-radius: 8px;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .cta-footer h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-footer p {
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: #D4A843;
+      color: #fff;
+      padding: 1rem 2.5rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background: #c49630;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .episode-container {
+        grid-template-columns: 1fr;
+      }
+
+      .filter-buttons {
+        justify-content: center;
+      }
+
+      .platform-buttons {
+        flex-direction: column;
+      }
+
+      .platform-btn {
+        width: 100%;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ——— HEADER ——— -->
+<header class="header">
+  <div class="header-inner">
+    <a href="../index.html" class="logo">
+      <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="8" fill="#1B2A4A"/>
+        <path d="M12 28V16c0-3.3 2.7-6 6-6h4c3.3 0 6 2.7 6 6v12" stroke="#D4A843" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M8 20h24" stroke="#D4A843" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <path d="M20 10v20" stroke="#D4A843" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="20" cy="18" r="3" fill="#D4A843"/>
+      </svg>
+      <span class="logo-text">Dental Marketing <span>Society</span></span>
+    </a>
+    <nav class="nav">
+      <div class="nav-dropdown">
+        <a href="#">Marketing Channels —¾</a>
+        <div class="nav-dropdown-content">
+          <a href="channel-seo.html">ð SEO & Local Search</a>
+          <a href="channel-ppc.html">ð° Pay-Per-Click (PPC)</a>
+          <a href="channel-social.html">ð± Social Media</a>
+          <a href="channel-reputation.html">—­ Reputation & Reviews</a>
+          <a href="channel-website.html">ð Website & Conversion</a>
+          <a href="channel-referral.html">ð¤ Referral Marketing</a>
+          <a href="channel-email.html">ð§ Email Marketing</a>
+          <a href="channel-video.html">ð¬ Video Marketing</a>
+          <a href="channel-directmail.html">ð¬ Direct Mail</a>
+          <a href="channel-branding.html">ð¨ Branding</a>
+          <a href="channel-ai.html">ð¤ AI & Emerging Tech</a>
+        </div>
+      </div>
+      <a href="articles.html">Articles</a>
+      <a href="events.html">Events</a>
+      <a href="podcast.html">Podcast</a>
+      <div class="nav-dropdown">
+        <a href="#">Tools ▾</a>
+        <div class="nav-dropdown-content">
+          <a href="../tools/scorecard.html">📊 Marketing Scorecard</a>
+          <a href="../tools/seo-audit.html">🔍 SEO Audit Tool</a>
+          <a href="../tools/roi-calculator.html">💰 ROI Calculator</a>
+          <a href="../tools/budget-planner.html">📋 Budget Planner</a>
+          <a href="../tools/social-calendar.html">📱 Social Calendar</a>
+          <a href="../tools/marketing-plan.html">📝 Marketing Plan Builder</a>
+        </div>
+      </div>
+      <a href="community.html">Community</a>
+      <a href="about.html">About</a>
+      <a href="membership.html" class="nav-cta">Join Free</a>
+    </nav>
+    <button class="mobile-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ——— HERO ——— -->
+<section class="hero" style="padding: 80px 0 60px;">
+  <div class="container">
+    <h1 style="margin-bottom: 1rem;">DMS Podcast Episode Library</h1>
+    <p style="font-size: 1.3rem; color: #D4A843; font-weight: 600; margin-bottom: 1rem;">Every episode of the Dental Marketing Society podcast</p>
+    <p style="font-size: 1.1rem; color: #666; max-width: 700px; margin-bottom: 2rem;">Actionable strategies from the industry's top experts. Browse our complete episode archive, find topics relevant to your practice, and discover insights that drive real growth.</p>
+    <div class="hero-buttons">
+      <a href="#" class="btn btn-gold btn-lg">🎙 Listen on Apple Podcasts</a>
+      <a href="#" class="btn btn-outline btn-lg">🎵 Listen on Spotify</a>
+      <a href="#" class="btn btn-outline btn-lg">🔴 Listen on Google Podcasts</a>
+    </div>
+  </div>
+</section>
+
+<!-- ——— FILTER & SEARCH ——— -->
+<section class="section">
+  <div class="container">
+    <div class="filter-section">
+      <input type="text" id="searchBox" class="search-box" placeholder="Search episodes by keyword, guest, or topic...">
+
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-category="all">All Episodes</button>
+        <button class="filter-btn" data-category="seo">SEO</button>
+        <button class="filter-btn" data-category="ppc">PPC</button>
+        <button class="filter-btn" data-category="social">Social</button>
+        <button class="filter-btn" data-category="reputation">Reputation</button>
+        <button class="filter-btn" data-category="website">Website</button>
+        <button class="filter-btn" data-category="email">Email</button>
+        <button class="filter-btn" data-category="video">Video</button>
+        <button class="filter-btn" data-category="branding">Branding</button>
+        <button class="filter-btn" data-category="ai">AI</button>
+      </div>
+    </div>
+
+    <!-- ——— EPISODE GRID ——— -->
+    <div id="episodeContainer" class="episode-container">
+      <!-- Episodes will be inserted here by JavaScript -->
+    </div>
+
+    <div id="noResults" class="no-results" style="display: none;">
+      <p>No episodes found matching your search. Try different keywords or browse all episodes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ——— SUBSCRIBE SECTION ——— -->
+<section class="subscribe-section">
+  <div class="container">
+    <h3>Subscribe & Never Miss an Episode</h3>
+    <p>Get notified when new episodes drop. New strategies every week.</p>
+    <div class="platform-buttons">
+      <a href="#" class="platform-btn">🎙 Apple Podcasts</a>
+      <a href="#" class="platform-btn">🎵 Spotify</a>
+      <a href="#" class="platform-btn">🔴 Google Podcasts</a>
+    </div>
+  </div>
+</section>
+
+<!-- ——— BE A GUEST SECTION ——— -->
+<section class="section">
+  <div class="container">
+    <div class="guest-section">
+      <h3>Be a Guest on the DMS Podcast</h3>
+      <p>Are you a dental practice owner, marketing expert, or industry thought leader? We'd love to feature you.</p>
+
+      <form id="guestForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="guestName">Your Name</label>
+            <input type="text" id="guestName" name="guestName" required>
+          </div>
+          <div class="form-group">
+            <label for="guestEmail">Email Address</label>
+            <input type="email" id="guestEmail" name="guestEmail" required>
+          </div>
+          <div class="form-group">
+            <label for="guestTopic">Proposed Topic</label>
+            <input type="text" id="guestTopic" name="guestTopic" placeholder="e.g., 'SEO for Multi-Location Practices'" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="guestWhy">Why Should We Feature You?</label>
+          <textarea id="guestWhy" name="guestWhy" placeholder="Tell us about your expertise and why this topic matters to dentists..." required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Submit Guest Application</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ——— CTA SECTION ——— -->
+<section class="cta-footer">
+  <div class="container">
+    <h3>Ready to Transform Your Dental Practice Marketing?</h3>
+    <p>Get access to proven strategies, templates, and tools that help dentists attract more patients and grow revenue.</p>
+    <a href="https://www.ekwa.com/msm/?utm_source=dms&utm_medium=page&utm_campaign=dms-podcast-episodes" class="cta-btn">Explore Full DMS Guide</a>
+  </div>
+</section>
+
+<!-- ——— FOOTER ——— -->
+<footer class="footer">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+      <div>
+        <h4 style="color: #1B2A4A; margin-bottom: 1rem;">Channels</h4>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li><a href="channel-seo.html" style="color: #666; text-decoration: none;">SEO & Local Search</a></li>
+          <li><a href="channel-ppc.html" style="color: #666; text-decoration: none;">Pay-Per-Click</a></li>
+          <li><a href="channel-social.html" style="color: #666; text-decoration: none;">Social Media</a></li>
+          <li><a href="channel-reputation.html" style="color: #666; text-decoration: none;">Reputation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color: #1B2A4A; margin-bottom: 1rem;">Resources</h4>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li><a href="articles.html" style="color: #666; text-decoration: none;">Articles</a></li>
+          <li><a href="events.html" style="color: #666; text-decoration: none;">Events</a></li>
+          <li><a href="podcast.html" style="color: #666; text-decoration: none;">Podcast</a></li>
+          <li><a href="../tools/scorecard.html" style="color: #666; text-decoration: none;">Tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color: #1B2A4A; margin-bottom: 1rem;">Community</h4>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li><a href="community.html" style="color: #666; text-decoration: none;">Join Community</a></li>
+          <li><a href="about.html" style="color: #666; text-decoration: none;">About DMS</a></li>
+          <li><a href="membership.html" style="color: #666; text-decoration: none;">Membership</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="border-top: 1px solid #e0e0e0; padding-top: 2rem; text-align: center; color: #999; font-size: 0.9rem;">
+      <p>&copy; 2026 Dental Marketing Society. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Episode Data
+  const episodes = [
+    {
+      number: 47,
+      title: "SEO in 2026: What Actually Moves the Needle",
+      guest: "Dr. Sarah Chen",
+      guestTitle: "SEO Strategist",
+      duration: 34,
+      category: "seo",
+      description: "Discover what SEO tactics are actually working for dental practices in 2026. We break down the myths and focus on what moves the needle for local search visibility.",
+      articleUrl: "dental-seo-basics.html"
+    },
+    {
+      number: 46,
+      title: "Building a 5-Star Reputation Machine",
+      guest: "Dr. Michael Torres",
+      guestTitle: "Reputation Specialist",
+      duration: 28,
+      category: "reputation",
+      description: "Learn the systematic approach to generating consistent 5-star reviews. Dr. Torres shares the exact processes his team uses to turn patients into advocates.",
+      articleUrl: "get-more-dental-reviews.html"
+    },
+    {
+      number: 45,
+      title: "Google Ads Without the Waste",
+      guest: "Lisa Park",
+      guestTitle: "PPC Strategist",
+      duration: 41,
+      category: "ppc",
+      description: "Stop throwing money at Google Ads. Lisa reveals the optimization secrets that cut waste and double your return on ad spend for dental practices.",
+      articleUrl: "google-ads-dental-guide.html"
+    },
+    {
+      number: 44,
+      title: "The Website That Converts",
+      guest: "Dr. James Wilson",
+      guestTitle: "Web Conversion Expert",
+      duration: 32,
+      category: "website",
+      description: "Your website is your best salesperson. We walk through the exact elements that turn visitors into booked appointments and increase patient lifetime value.",
+      articleUrl: "dental-website-conversion.html"
+    },
+    {
+      number: 43,
+      title: "Video Marketing for Dentists",
+      guest: "Dr. Emily Brooks",
+      guestTitle: "Video Content Creator",
+      duration: 37,
+      category: "video",
+      description: "Video is the highest-engaging content format. Discover how to leverage YouTube, TikTok, and Instagram Reels to attract and educate patients.",
+      articleUrl: "dental-video-marketing-guide.html"
+    },
+    {
+      number: 42,
+      title: "Email That Gets Opened",
+      guest: "Dr. Rachel Kim",
+      guestTitle: "Email Marketing Specialist",
+      duration: 29,
+      category: "email",
+      description: "Your email list is gold. Learn the subject lines, send times, and content strategies that get opened, clicked, and turn into recurring revenue.",
+      articleUrl: "dental-email-marketing-guide.html"
+    },
+    {
+      number: 41,
+      title: "Social Media Strategy That Works",
+      guest: "Dr. David Martinez",
+      guestTitle: "Social Strategy Expert",
+      duration: 35,
+      category: "social",
+      description: "Forget vanity metrics. We dive into the social media strategies that build community, establish authority, and drive patient inquiries consistently.",
+      articleUrl: "dental-social-media-calendar.html"
+    },
+    {
+      number: 40,
+      title: "AI in Dental Marketing",
+      guest: "Naren Arulrajah",
+      guestTitle: "AI & Marketing Innovator",
+      duration: 44,
+      category: "ai",
+      description: "AI is transforming how dentists market. Explore the practical applications of AI for patient acquisition, retention, and practice growth in 2026.",
+      articleUrl: "ai-dental-marketing.html"
+    },
+    {
+      number: 39,
+      title: "PPO Optimization Secrets",
+      guest: "Dr. Andrew Foster",
+      guestTitle: "Practice Finance Expert",
+      duration: 38,
+      category: "ppc",
+      description: "PPO contracts don't have to be a race to the bottom. Discover strategies to optimize contracts, increase case acceptance, and maintain profitability.",
+      articleUrl: "dental-ppo-optimization.html"
+    },
+    {
+      number: 38,
+      title: "Direct Mail Renaissance",
+      guest: "Dr. Rachel Adams",
+      guestTitle: "Direct Mail Strategist",
+      duration: 31,
+      category: "website",
+      description: "Direct mail is making a comeback. Learn how to integrate it with digital channels for a truly omnipresent marketing approach that converts.",
+      articleUrl: "dental-direct-mail-guide.html"
+    },
+    {
+      number: 37,
+      title: "Building Your Brand",
+      guest: "Dr. Kevin Liu",
+      guestTitle: "Branding Consultant",
+      duration: 33,
+      category: "branding",
+      description: "Your brand is more than a logo. We discuss positioning, messaging, and visual identity that sets your practice apart in a crowded market.",
+      articleUrl: "dental-practice-branding.html"
+    },
+    {
+      number: 36,
+      title: "The Referral Flywheel",
+      guest: "Dr. Jennifer Hayes",
+      guestTitle: "Referral Program Architect",
+      duration: 27,
+      category: "reputation",
+      description: "Referrals are the highest-quality patients. Dr. Hayes shares the systematic framework to turn your patient base into a referral generating machine.",
+      articleUrl: "dental-referral-program.html"
+    }
+  ];
+
+  let currentCategory = 'all';
+  let currentSearch = '';
+
+  // Initialize
+  function init() {
+    renderEpisodes();
+    setupEventListeners();
+  }
+
+  // Render Episodes
+  function renderEpisodes() {
+    const container = document.getElementById('episodeContainer');
+    const noResults = document.getElementById('noResults');
+
+    const filtered = episodes.filter(ep => {
+      const matchCategory = currentCategory === 'all' || ep.category === currentCategory;
+      const matchSearch = currentSearch === '' ||
+        ep.title.toLowerCase().includes(currentSearch.toLowerCase()) ||
+        ep.guest.toLowerCase().includes(currentSearch.toLowerCase()) ||
+        ep.category.toLowerCase().includes(currentSearch.toLowerCase());
+
+      return matchCategory && matchSearch;
+    });
+
+    if (filtered.length === 0) {
+      container.innerHTML = '';
+      noResults.style.display = 'block';
+      return;
+    }
+
+    noResults.style.display = 'none';
+    container.innerHTML = filtered.map(ep => `
+      <div class="episode-card">
+        <div class="episode-header">
+          <div class="episode-number">EP ${ep.number}</div>
+          <div class="category-badge">${ep.category.toUpperCase()}</div>
+        </div>
+        <div class="episode-content">
+          <h4 class="episode-title">"${ep.title}"</h4>
+          <div class="episode-guest">with ${ep.guest}, ${ep.guestTitle}</div>
+          <div class="episode-duration">${ep.duration} minutes</div>
+          <p class="episode-description">${ep.description}</p>
+          <div class="episode-footer">
+            <a href="#" class="btn-listen">▶ Listen Now</a>
+            <a href="${ep.articleUrl}" class="btn-article">📄 Related Article</a>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Event Listeners
+  function setupEventListeners() {
+    // Category Filters
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        currentCategory = this.dataset.category;
+        renderEpisodes();
+      });
+    });
+
+    // Search
+    document.getElementById('searchBox').addEventListener('input', function() {
+      currentSearch = this.value;
+      renderEpisodes();
+    });
+
+    // Guest Form
+    document.getElementById('guestForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your interest! We\'ll review your application and be in touch soon.');
+      this.reset();
+    });
+  }
+
+  // Load on DOM Ready
+  document.addEventListener('DOMContentLoaded', init);
+</script>
+
+</body>
+</html>

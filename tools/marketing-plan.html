@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DMS Marketing Plan Generator - Build a customized 12-month marketing plan for your dental practice in minutes. Free dental marketing planning tool by Ekwa Marketing.">
+    <title>DMS Marketing Plan Generator | Ekwa Marketing</title>
+    <link rel="canonical" href="https://dms.narenlife.com/tools/marketing-plan.html">
+    <meta property="og:url" content="https://dms.narenlife.com/tools/marketing-plan.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="DMS Marketing Plan Generator">
+    <meta property="og:description" content="Build a customized 12-month marketing plan for your dental practice in 5 minutes with our free plan generator.">
+    <meta property="og:site_name" content="Ekwa Marketing">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DMS Marketing Plan Generator">
+    <meta name="twitter:description" content="Build a customized 12-month marketing plan for your dental practice.">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "DMS Marketing Plan Generator",
+        "description": "Build a customized 12-month marketing plan for your dental practice in 5 minutes",
+        "url": "https://dms.narenlife.com/tools/marketing-plan.html",
+        "applicationCategory": "BusinessApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css?v=2">
+
+    <style>
+        :root {
+            --navy: #1B2A4A;
+            --gold: #D4A843;
+            --blue: #2E75B6;
+            --light-gold: #FFF8E7;
+            --light-blue: #D5E8F0;
+            --red: #E85D5D;
+            --orange: #F59E0B;
+            --yellow: #FBBF24;
+            --green: #10B981;
+            --gray-light: #F3F4F6;
+            --gray-medium: #D1D5DB;
+            --gray-dark: #6B7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            border-bottom: 3px solid var(--gold);
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.6rem;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .header-link {
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .header-link:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1B2A4A 0%, #2E4A7C 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Wizard Styles */
+        .wizard-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin: 2rem 0;
+        }
+
+        .wizard-progress {
+            display: flex;
+            background: var(--gray-light);
+            padding: 1.5rem;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .progress-step {
+            flex: 1;
+            min-width: 150px;
+            padding: 1rem;
+            border-radius: 8px;
+            background: white;
+            text-align: center;
+            font-weight: 600;
+            color: var(--gray-dark);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .progress-step.active {
+            background: var(--gold);
+            color: white;
+            border-color: var(--gold);
+            transform: scale(1.05);
+        }
+
+        .progress-step.completed {
+            background: var(--green);
+            color: white;
+            border-color: var(--green);
+        }
+
+        .wizard-steps {
+            padding: 2rem;
+            min-height: 500px;
+        }
+
+        .step {
+            display: none;
+        }
+
+        .step.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .step h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--navy);
+        }
+
+        .step-subtitle {
+            font-size: 0.95rem;
+            color: var(--gray-dark);
+            margin-bottom: 2rem;
+        }
+
+        /* Form Fields */
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .form-group input[type="text"],
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--gray-medium);
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(46, 117, 182, 0.1);
+        }
+
+        /* Radio & Checkbox Groups */
+        .radio-group,
+        .checkbox-group {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .radio-item,
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border: 2px solid var(--gray-medium);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .radio-item:hover,
+        .checkbox-item:hover {
+            border-color: var(--blue);
+            background: var(--light-blue);
+        }
+
+        .radio-item input,
+        .checkbox-item input {
+            margin-right: 1rem;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+        }
+
+        .radio-item input:checked ~ label,
+        .checkbox-item input:checked ~ label {
+            color: var(--blue);
+            font-weight: 600;
+        }
+
+        .radio-item.selected,
+        .checkbox-item.selected {
+            border-color: var(--blue);
+            background: var(--light-blue);
+        }
+
+        .radio-item label,
+        .checkbox-item label {
+            cursor: pointer;
+            flex: 1;
+            margin: 0;
+        }
+
+        /* Multi-select Buttons */
+        .button-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-toggle {
+            padding: 0.75rem;
+            border: 2px solid var(--gray-medium);
+            border-radius: 8px;
+            background: white;
+            color: var(--navy);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-toggle:hover {
+            border-color: var(--blue);
+            background: var(--light-blue);
+        }
+
+        .btn-toggle.selected {
+            background: var(--blue);
+            color: white;
+            border-color: var(--blue);
+        }
+
+        /* Navigation Buttons */
+        .wizard-nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 2rem;
+            border-top: 1px solid var(--gray-medium);
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1E5AA0;
+        }
+
+        .btn-secondary {
+            background: var(--gray-light);
+            color: var(--navy);
+            border: 2px solid var(--gray-medium);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--blue);
+            color: var(--blue);
+        }
+
+        .btn-secondary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Results Section */
+        .results-container {
+            display: none;
+        }
+
+        .results-container.active {
+            display: block;
+        }
+
+        .result-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .result-section h2 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.8rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .summary-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--gray-dark);
+        }
+
+        /* Channel Mix Pie Chart */
+        .channel-mix {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .channel-pie {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: conic-gradient(
+                var(--blue) 0deg 90deg,
+                var(--gold) 90deg 180deg,
+                var(--green) 180deg 270deg,
+                var(--orange) 270deg 360deg
+            );
+            margin: 0 auto;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .channel-pie::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150px;
+            height: 150px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .channel-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .channel-item {
+            padding: 0.75rem;
+            border-left: 4px solid var(--blue);
+            background: var(--gray-light);
+            border-radius: 4px;
+        }
+
+        .channel-item.google {
+            border-left-color: var(--blue);
+        }
+
+        .channel-item.social {
+            border-left-color: var(--gold);
+        }
+
+        .channel-item.email {
+            border-left-color: var(--green);
+        }
+
+        .channel-item.other {
+            border-left-color: var(--orange);
+        }
+
+        .channel-name {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.25rem;
+        }
+
+        .channel-details {
+            font-size: 0.9rem;
+            color: var(--gray-dark);
+        }
+
+        /* Timeline */
+        .timeline {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .timeline-quarter {
+            border-left: 4px solid var(--gold);
+            padding-left: 1.5rem;
+            padding-bottom: 1rem;
+        }
+
+        .timeline-quarter h4 {
+            color: var(--blue);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-quarter p {
+            color: var(--gray-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .timeline-item {
+            color: var(--gray-dark);
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '→';
+            position: absolute;
+            left: -0.75rem;
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        /* Quick Wins */
+        .quick-wins {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .win-card {
+            background: var(--light-gold);
+            border: 2px solid var(--gold);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .win-number {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: var(--gold);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .win-title {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .win-description {
+            font-size: 0.9rem;
+            color: var(--gray-dark);
+            margin-bottom: 1rem;
+        }
+
+        .win-link {
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .win-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Projections */
+        .projections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .projection-card {
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--light-gold) 100%);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .projection-month {
+            color: var(--gray-dark);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .projection-number {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .projection-label {
+            color: var(--gray-dark);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Resources */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .resource-card {
+            background: var(--gray-light);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--blue);
+        }
+
+        .resource-type {
+            color: var(--blue);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-title {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-link {
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Action Buttons */
+        .result-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-medium);
+        }
+
+        .btn-large {
+            padding: 1rem 2rem;
+            font-size: 1.05rem;
+        }
+
+        .btn-expert {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .btn-expert:hover {
+            background: #C4943A;
+        }
+
+        .btn-print {
+            border: 2px solid var(--blue);
+            background: white;
+            color: var(--blue);
+        }
+
+        .btn-print:hover {
+            background: var(--light-blue);
+        }
+
+        /* Educational Section */
+        .education-section {
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--light-gold) 100%);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .education-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .education-section h2 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .benefit-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-title {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.2rem;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+
+        .benefit-text {
+            color: var(--gray-dark);
+            font-size: 0.95rem;
+        }
+
+        /* Success Stories */
+        .stories-section {
+            padding: 3rem 2rem;
+            background: white;
+        }
+
+        .stories-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stories-section h2 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .story-card {
+            background: var(--gray-light);
+            border-radius: 8px;
+            padding: 2rem;
+            border-top: 4px solid var(--gold);
+        }
+
+        .story-quote {
+            font-style: italic;
+            color: var(--gray-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .story-author {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.25rem;
+        }
+
+        .story-practice {
+            font-size: 0.9rem;
+            color: var(--blue);
+        }
+
+        .story-metric {
+            background: white;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            border-left: 3px solid var(--green);
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: var(--gray-dark);
+        }
+
+        .metric-value {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--green);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            header h1 {
+                font-size: 1.3rem;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .wizard-progress {
+                flex-direction: column;
+            }
+
+            .progress-step {
+                width: 100%;
+            }
+
+            .channel-mix {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+
+            .quick-wins {
+                grid-template-columns: 1fr;
+            }
+
+            .result-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .stories-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            header, .wizard-container, .education-section, .stories-section {
+                display: none !important;
+            }
+
+            .results-container {
+                display: block !important;
+            }
+
+            .result-section {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid var(--gray-medium);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎯 DMS Marketing Plan Generator</h1>
+        <a href="../" class="header-link">← Back to DMS</a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>DMS Marketing Plan Generator</h2>
+            <p>Build a customized 12-month marketing plan for your dental practice in 5 minutes</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Wizard Container -->
+        <div class="wizard-container" id="wizardContainer">
+            <!-- Progress Bar -->
+            <div class="wizard-progress" id="wizardProgress">
+                <div class="progress-step active" data-step="1">Step 1: Profile</div>
+                <div class="progress-step" data-step="2">Step 2: Goals</div>
+                <div class="progress-step" data-step="3">Step 3: Channels</div>
+                <div class="progress-step" data-step="4">Step 4: Services</div>
+                <div class="progress-step" data-step="5">Review</div>
+            </div>
+
+            <!-- Wizard Steps -->
+            <div class="wizard-steps" id="wizardSteps">
+                <!-- Step 1: Practice Profile -->
+                <div class="step active" data-step="1">
+                    <h3>Step 1: Tell Us About Your Practice</h3>
+                    <p class="step-subtitle">Let's start with the basics about your dental practice</p>
+
+                    <div class="form-group">
+                        <label for="practiceName">Practice Name</label>
+                        <input type="text" id="practiceName" placeholder="e.g., Smile Dental Studio">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="practiceLocation">Location (City, State)</label>
+                        <input type="text" id="practiceLocation" placeholder="e.g., Denver, CO">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="yearsInBusiness">Years in Business</label>
+                        <select id="yearsInBusiness">
+                            <option value="">Select...</option>
+                            <option value="startup">0-1 years (New Practice)</option>
+                            <option value="young">2-5 years</option>
+                            <option value="established">6-10 years</option>
+                            <option value="mature">10+ years</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Practice Type</label>
+                        <div class="radio-group">
+                            <div class="radio-item" data-value="solo">
+                                <input type="radio" id="typeSolo" name="practiceType" value="solo">
+                                <label for="typeSolo">Solo Practice</label>
+                            </div>
+                            <div class="radio-item" data-value="group">
+                                <input type="radio" id="typeGroup" name="practiceType" value="group">
+                                <label for="typeGroup">Group Practice (2-3 dentists)</label>
+                            </div>
+                            <div class="radio-item" data-value="multi">
+                                <input type="radio" id="typeMulti" name="practiceType" value="multi">
+                                <label for="typeMulti">Multi-location (4+ dentists)</label>
+                            </div>
+                            <div class="radio-item" data-value="dso">
+                                <input type="radio" id="typeDSO" name="practiceType" value="dso">
+                                <label for="typeDSO">DSO / Larger Organization</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Monthly Marketing Budget Range</label>
+                        <div class="radio-group">
+                            <div class="radio-item" data-value="under2k">
+                                <input type="radio" id="budgetUnder2k" name="marketingBudget" value="under2k">
+                                <label for="budgetUnder2k">Less than $2,000</label>
+                            </div>
+                            <div class="radio-item" data-value="2k5k">
+                                <input type="radio" id="budget2k5k" name="marketingBudget" value="2k5k">
+                                <label for="budget2k5k">$2,000 - $5,000</label>
+                            </div>
+                            <div class="radio-item" data-value="5k10k">
+                                <input type="radio" id="budget5k10k" name="marketingBudget" value="5k10k">
+                                <label for="budget5k10k">$5,000 - $10,000</label>
+                            </div>
+                            <div class="radio-item" data-value="10k20k">
+                                <input type="radio" id="budget10k20k" name="marketingBudget" value="10k20k">
+                                <label for="budget10k20k">$10,000 - $20,000</label>
+                            </div>
+                            <div class="radio-item" data-value="over20k">
+                                <input type="radio" id="budgetOver20k" name="marketingBudget" value="over20k">
+                                <label for="budgetOver20k">$20,000+</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Current New Patients Per Month</label>
+                        <div class="radio-group">
+                            <div class="radio-item" data-value="under10">
+                                <input type="radio" id="patientsUnder10" name="newPatients" value="under10">
+                                <label for="patientsUnder10">Less than 10</label>
+                            </div>
+                            <div class="radio-item" data-value="10to20">
+                                <input type="radio" id="patients10to20" name="newPatients" value="10to20">
+                                <label for="patients10to20">10-20 per month</label>
+                            </div>
+                            <div class="radio-item" data-value="20to40">
+                                <input type="radio" id="patients20to40" name="newPatients" value="20to40">
+                                <label for="patients20to40">20-40 per month</label>
+                            </div>
+                            <div class="radio-item" data-value="40to60">
+                                <input type="radio" id="patients40to60" name="newPatients" value="40to60">
+                                <label for="patients40to60">40-60 per month</label>
+                            </div>
+                            <div class="radio-item" data-value="over60">
+                                <input type="radio" id="patientsOver60" name="newPatients" value="over60">
+                                <label for="patientsOver60">60+ per month</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Goals -->
+                <div class="step" data-step="2">
+                    <h3>Step 2: What Are Your Goals?</h3>
+                    <p class="step-subtitle">Select all that apply (choose at least 2)</p>
+
+                    <div class="checkbox-group" id="goalsGroup">
+                        <div class="checkbox-item" data-value="new-patients">
+                            <input type="checkbox" id="goalNewPatients" value="new-patients">
+                            <label for="goalNewPatients">Increase New Patients</label>
+                        </div>
+                        <div class="checkbox-item" data-value="reputation">
+                            <input type="checkbox" id="goalReputation" value="reputation">
+                            <label for="goalReputation">Improve Online Reputation & Reviews</label>
+                        </div>
+                        <div class="checkbox-item" data-value="case-acceptance">
+                            <input type="checkbox" id="goalCaseAcceptance" value="case-acceptance">
+                            <label for="goalCaseAcceptance">Boost Case Acceptance Rates</label>
+                        </div>
+                        <div class="checkbox-item" data-value="new-services">
+                            <input type="checkbox" id="goalNewServices" value="new-services">
+                            <label for="goalNewServices">Launch New Service Line</label>
+                        </div>
+                        <div class="checkbox-item" data-value="reduce-ppo">
+                            <input type="checkbox" id="goalReducePPO" value="reduce-ppo">
+                            <label for="goalReducePPO">Reduce PPO Dependence</label>
+                        </div>
+                        <div class="checkbox-item" data-value="brand-awareness">
+                            <input type="checkbox" id="goalBrandAwareness" value="brand-awareness">
+                            <label for="goalBrandAwareness">Build Brand Awareness Locally</label>
+                        </div>
+                        <div class="checkbox-item" data-value="retention">
+                            <input type="checkbox" id="goalRetention" value="retention">
+                            <label for="goalRetention">Increase Patient Retention</label>
+                        </div>
+                        <div class="checkbox-item" data-value="local-search">
+                            <input type="checkbox" id="goalLocalSearch" value="local-search">
+                            <label for="goalLocalSearch">Dominate Local Search Results</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Current Channels -->
+                <div class="step" data-step="3">
+                    <h3>Step 3: What Channels Are You Currently Using?</h3>
+                    <p class="step-subtitle">Check the channels you already have in place</p>
+
+                    <div class="checkbox-group" id="channelsGroup">
+                        <div class="checkbox-item" data-value="seo">
+                            <input type="checkbox" id="channelSEO" value="seo">
+                            <label for="channelSEO">SEO & Organic Search</label>
+                        </div>
+                        <div class="checkbox-item" data-value="google-ads">
+                            <input type="checkbox" id="channelGoogleAds" value="google-ads">
+                            <label for="channelGoogleAds">Google Ads (PPC)</label>
+                        </div>
+                        <div class="checkbox-item" data-value="facebook-ads">
+                            <input type="checkbox" id="channelFacebookAds" value="facebook-ads">
+                            <label for="channelFacebookAds">Facebook & Instagram Ads</label>
+                        </div>
+                        <div class="checkbox-item" data-value="social-media">
+                            <input type="checkbox" id="channelSocialMedia" value="social-media">
+                            <label for="channelSocialMedia">Organic Social Media</label>
+                        </div>
+                        <div class="checkbox-item" data-value="email-marketing">
+                            <input type="checkbox" id="channelEmailMarketing" value="email-marketing">
+                            <label for="channelEmailMarketing">Email Marketing</label>
+                        </div>
+                        <div class="checkbox-item" data-value="direct-mail">
+                            <input type="checkbox" id="channelDirectMail" value="direct-mail">
+                            <label for="channelDirectMail">Direct Mail Campaigns</label>
+                        </div>
+                        <div class="checkbox-item" data-value="video">
+                            <input type="checkbox" id="channelVideo" value="video">
+                            <label for="channelVideo">Video Marketing (YouTube/TikTok)</label>
+                        </div>
+                        <div class="checkbox-item" data-value="referral-program">
+                            <input type="checkbox" id="channelReferral" value="referral-program">
+                            <label for="channelReferral">Referral Program</label>
+                        </div>
+                        <div class="checkbox-item" data-value="community-events">
+                            <input type="checkbox" id="channelCommunity" value="community-events">
+                            <label for="channelCommunity">Community Events & Sponsorships</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Priority Services -->
+                <div class="step" data-step="4">
+                    <h3>Step 4: What Are Your Priority Services?</h3>
+                    <p class="step-subtitle">Select the services you want to promote most (choose up to 3)</p>
+
+                    <div class="checkbox-group" id="servicesGroup">
+                        <div class="checkbox-item" data-value="general-family">
+                            <input type="checkbox" id="serviceGeneral" value="general-family">
+                            <label for="serviceGeneral">General / Family Dentistry</label>
+                        </div>
+                        <div class="checkbox-item" data-value="cosmetic">
+                            <input type="checkbox" id="serviceCosmetic" value="cosmetic">
+                            <label for="serviceCosmetic">Cosmetic Dentistry</label>
+                        </div>
+                        <div class="checkbox-item" data-value="implants">
+                            <input type="checkbox" id="serviceImplants" value="implants">
+                            <label for="serviceImplants">Dental Implants</label>
+                        </div>
+                        <div class="checkbox-item" data-value="ortho">
+                            <input type="checkbox" id="serviceOrtho" value="ortho">
+                            <label for="serviceOrtho">Orthodontics / Invisalign</label>
+                        </div>
+                        <div class="checkbox-item" data-value="pediatric">
+                            <input type="checkbox" id="servicePediatric" value="pediatric">
+                            <label for="servicePediatric">Pediatric Dentistry</label>
+                        </div>
+                        <div class="checkbox-item" data-value="endo">
+                            <input type="checkbox" id="serviceEndo" value="endo">
+                            <label for="serviceEndo">Endodontics (Root Canals)</label>
+                        </div>
+                        <div class="checkbox-item" data-value="perio">
+                            <input type="checkbox" id="servicePerio" value="perio">
+                            <label for="servicePerio">Periodontics</label>
+                        </div>
+                        <div class="checkbox-item" data-value="emergency">
+                            <input type="checkbox" id="serviceEmergency" value="emergency">
+                            <label for="serviceEmergency">Emergency Dentistry</label>
+                        </div>
+                        <div class="checkbox-item" data-value="sleep-tmj">
+                            <input type="checkbox" id="serviceSleep" value="sleep-tmj">
+                            <label for="serviceSleep">Sleep Apnea / TMJ Treatment</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5: Review -->
+                <div class="step" data-step="5">
+                    <h3>Step 5: Review Your Answers</h3>
+                    <p class="step-subtitle">Make sure everything looks good before generating your plan</p>
+
+                    <div id="reviewSummary"></div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="wizard-nav">
+                <button class="btn btn-secondary" id="btnPrevious" disabled>← Previous</button>
+                <button class="btn btn-primary" id="btnNext">Next →</button>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-container" id="resultsContainer">
+            <!-- Executive Summary -->
+            <div class="result-section">
+                <h2>Your Custom Marketing Plan</h2>
+                <p class="summary-text" id="executiveSummary"></p>
+            </div>
+
+            <!-- Channel Mix -->
+            <div class="result-section">
+                <h2>Recommended Channel Mix</h2>
+                <div class="channel-mix">
+                    <div class="channel-pie" id="channelPie"></div>
+                    <div class="channel-list" id="channelListResults"></div>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="result-section">
+                <h2>12-Month Marketing Timeline</h2>
+                <div class="timeline" id="timelineResults"></div>
+            </div>
+
+            <!-- Quick Wins -->
+            <div class="result-section">
+                <h2>Quick Wins: First 30 Days</h2>
+                <div class="quick-wins" id="quickWinsResults"></div>
+            </div>
+
+            <!-- Projections -->
+            <div class="result-section">
+                <h2>Projected Results</h2>
+                <div class="projections" id="projectionsResults"></div>
+            </div>
+
+            <!-- Resources -->
+            <div class="result-section">
+                <h2>Recommended DMS Resources</h2>
+                <div class="resources-grid" id="resourcesResults"></div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="result-section result-actions">
+                <button class="btn btn-primary btn-large" onclick="window.print()">📄 Save / Print Plan</button>
+                <a href="https://www.ekwa.com/msm/?utm_source=dms&utm_medium=tool&utm_campaign=dms-marketing-plan" target="_blank" class="btn btn-expert btn-large">💬 Get Expert Help</a>
+                <button class="btn btn-secondary btn-large" onclick="resetWizard()">↻ Start Over</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Educational Section -->
+    <section class="education-section">
+        <div class="education-content">
+            <h2>Why You Need a Marketing Plan</h2>
+
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">📊</div>
+                    <h3 class="benefit-title">Clarity & Direction</h3>
+                    <p class="benefit-text">Know exactly what strategies to focus on and how to allocate your budget for maximum impact.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">💡</div>
+                    <h3 class="benefit-title">Smart Budget Allocation</h3>
+                    <p class="benefit-text">Stop wasting money on channels that don't work. Invest strategically in high-ROI tactics.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">📈</div>
+                    <h3 class="benefit-title">Measurable Growth</h3>
+                    <p class="benefit-text">Set realistic targets and track progress monthly. See which tactics drive new patients.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎯</div>
+                    <h3 class="benefit-title">Competitive Edge</h3>
+                    <p class="benefit-text">Stay ahead of local competitors with a structured, consistent marketing approach.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">⏰</div>
+                    <h3 class="benefit-title">Time Efficiency</h3>
+                    <p class="benefit-text">Know what needs to happen each quarter. Less guessing, more consistent execution.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">🚀</div>
+                    <h3 class="benefit-title">Scalability</h3>
+                    <p class="benefit-text">Build systems that work as you grow. Scale winning tactics without breaking your budget.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="stories-section">
+        <div class="stories-content">
+            <h2>Success Stories</h2>
+
+            <div class="stories-grid">
+                <div class="story-card">
+                    <p class="story-quote">"We implemented the DMS plan and saw 35 new patients in our first month. The structured approach made it so clear what to focus on instead of trying everything at once."</p>
+                    <div class="story-author">Dr. Michael Chen</div>
+                    <div class="story-practice">Smile Bright Dental, Austin TX</div>
+                    <div class="story-metric">
+                        <div class="metric-label">New Patients / Month</div>
+                        <div class="metric-value">+35</div>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <p class="story-quote">"The marketing plan helped us reduce our PPO dependence by 40% in just 6 months. We now have a steady flow of high-value cosmetic cases."</p>
+                    <div class="story-author">Dr. Sarah Rodriguez</div>
+                    <div class="story-practice">Cosmetic Dentistry Center, Miami FL</div>
+                    <div class="story-metric">
+                        <div class="metric-label">PPO Dependence Reduced</div>
+                        <div class="metric-value">-40%</div>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <p class="story-quote">"Following the 12-month timeline gave us structure and accountability. Our whole team knew what to execute each quarter. Revenue grew 52%."</p>
+                    <div class="story-author">Dr. James Wong</div>
+                    <div class="story-practice">Wong Family Dentistry, Seattle WA</div>
+                    <div class="story-metric">
+                        <div class="metric-label">Revenue Growth (Year 1)</div>
+                        <div class="metric-value">+52%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Dental Marketing Suite by <a href="https://www.ekwa.com">Ekwa Marketing</a>. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Wizard State
+        let currentStep = 1;
+        const totalSteps = 5;
+        let formData = {
+            practiceName: '',
+            practiceLocation: '',
+            yearsInBusiness: '',
+            practiceType: '',
+            marketingBudget: '',
+            newPatients: '',
+            goals: [],
+            channels: [],
+            services: []
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            setupEventListeners();
+        });
+
+        function setupEventListeners() {
+            // Next/Previous buttons
+            document.getElementById('btnNext').addEventListener('click', nextStep);
+            document.getElementById('btnPrevious').addEventListener('click', previousStep);
+
+            // Radio buttons - Step 1
+            document.querySelectorAll('input[name="practiceType"]').forEach(radio => {
+                radio.addEventListener('change', function(e) {
+                    formData.practiceType = this.value;
+                    document.querySelectorAll('[data-step="1"] .radio-item').forEach(item => item.classList.remove('selected'));
+                    this.parentElement.classList.add('selected');
+                });
+            });
+
+            document.querySelectorAll('input[name="marketingBudget"]').forEach(radio => {
+                radio.addEventListener('change', function(e) {
+                    formData.marketingBudget = this.value;
+                    document.querySelectorAll('[data-step="1"] .radio-group').eq(2).find('.radio-item').removeClass('selected');
+                    this.parentElement.classList.add('selected');
+                });
+            });
+
+            document.querySelectorAll('input[name="newPatients"]').forEach(radio => {
+                radio.addEventListener('change', function(e) {
+                    formData.newPatients = this.value;
+                    this.parentElement.classList.add('selected');
+                });
+            });
+
+            // Checkbox groups - Steps 2, 3, 4
+            document.querySelectorAll('#goalsGroup input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    formData.goals = Array.from(document.querySelectorAll('#goalsGroup input[type="checkbox"]:checked')).map(el => el.value);
+                    this.parentElement.classList.toggle('selected', this.checked);
+                });
+            });
+
+            document.querySelectorAll('#channelsGroup input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    formData.channels = Array.from(document.querySelectorAll('#channelsGroup input[type="checkbox"]:checked')).map(el => el.value);
+                    this.parentElement.classList.toggle('selected', this.checked);
+                });
+            });
+
+            document.querySelectorAll('#servicesGroup input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    formData.services = Array.from(document.querySelectorAll('#servicesGroup input[type="checkbox"]:checked')).map(el => el.value);
+                    this.parentElement.classList.toggle('selected', this.checked);
+                });
+            });
+
+            // Text inputs
+            document.getElementById('practiceName').addEventListener('change', function() {
+                formData.practiceName = this.value;
+            });
+
+            document.getElementById('practiceLocation').addEventListener('change', function() {
+                formData.practiceLocation = this.value;
+            });
+
+            document.getElementById('yearsInBusiness').addEventListener('change', function() {
+                formData.yearsInBusiness = this.value;
+            });
+        }
+
+        function nextStep() {
+            // Validation
+            if (!validateStep(currentStep)) {
+                alert('Please fill in all required fields on this step.');
+                return;
+            }
+
+            if (currentStep < totalSteps) {
+                currentStep++;
+                if (currentStep === totalSteps) {
+                    updateReviewSummary();
+                }
+                updateUI();
+            } else if (currentStep === totalSteps) {
+                generatePlan();
+            }
+        }
+
+        function previousStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateUI();
+            }
+        }
+
+        function validateStep(step) {
+            switch(step) {
+                case 1:
+                    return formData.practiceName && formData.practiceLocation &&
+                           formData.yearsInBusiness && formData.practiceType &&
+                           formData.marketingBudget && formData.newPatients;
+                case 2:
+                    return formData.goals.length >= 2;
+                case 3:
+                    return true; // Channels are optional
+                case 4:
+                    return formData.services.length > 0;
+                case 5:
+                    return true;
+                default:
+                    return true;
+            }
+        }
+
+        function updateUI() {
+            // Update step visibility
+            document.querySelectorAll('.step').forEach(step => step.classList.remove('active'));
+            document.querySelector(`.step[data-step="${currentStep}"]`).classList.add('active');
+
+            // Update progress bar
+            document.querySelectorAll('.progress-step').forEach((step, index) => {
+                const stepNum = index + 1;
+                step.classList.remove('active', 'completed');
+                if (stepNum === currentStep) {
+                    step.classList.add('active');
+                } else if (stepNum < currentStep) {
+                    step.classList.add('completed');
+                }
+            });
+
+            // Update button states
+            document.getElementById('btnPrevious').disabled = currentStep === 1;
+            document.getElementById('btnNext').textContent = currentStep === totalSteps ? '✓ Generate Plan' : 'Next →';
+
+            // Scroll to top
+            document.querySelector('.wizard-steps').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function updateReviewSummary() {
+            const summary = `
+                <div style="background: var(--gray-light); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                    <h4 style="margin-bottom: 1rem; color: var(--navy);">Practice Information</h4>
+                    <p><strong>Practice Name:</strong> ${formData.practiceName}</p>
+                    <p><strong>Location:</strong> ${formData.practiceLocation}</p>
+                    <p><strong>Years in Business:</strong> ${formData.yearsInBusiness}</p>
+                    <p><strong>Practice Type:</strong> ${formData.practiceType}</p>
+                    <p><strong>Monthly Budget:</strong> ${formData.marketingBudget}</p>
+                    <p><strong>Current New Patients/Month:</strong> ${formData.newPatients}</p>
+                </div>
+
+                <div style="background: var(--light-gold); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                    <h4 style="margin-bottom: 1rem; color: var(--navy);">Goals</h4>
+                    <p>${formData.goals.join(', ')}</p>
+                </div>
+
+                <div style="background: var(--light-blue); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                    <h4 style="margin-bottom: 1rem; color: var(--navy);">Current Channels</h4>
+                    <p>${formData.channels.length > 0 ? formData.channels.join(', ') : 'Not yet determined'}</p>
+                </div>
+
+                <div style="background: white; padding: 1.5rem; border-radius: 8px; border: 2px solid var(--gold);">
+                    <h4 style="margin-bottom: 1rem; color: var(--navy);">Priority Services</h4>
+                    <p>${formData.services.join(', ')}</p>
+                </div>
+            `;
+            document.getElementById('reviewSummary').innerHTML = summary;
+        }
+
+        function generatePlan() {
+            generateExecutiveSummary();
+            generateChannelMix();
+            generateTimeline();
+            generateQuickWins();
+            generateProjections();
+            generateResources();
+
+            // Hide wizard, show results
+            document.getElementById('wizardContainer').style.display = 'none';
+            document.getElementById('resultsContainer').classList.add('active');
+
+            // Scroll to results
+            document.getElementById('resultsContainer').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function generateExecutiveSummary() {
+            const serviceNames = {
+                'general-family': 'general dentistry',
+                'cosmetic': 'cosmetic dentistry',
+                'implants': 'dental implants',
+                'ortho': 'orthodontics',
+                'pediatric': 'pediatric dentistry',
+                'endo': 'endodontics',
+                'perio': 'periodontics',
+                'emergency': 'emergency dentistry',
+                'sleep-tmj': 'sleep apnea/TMJ treatment'
+            };
+
+            const topServices = formData.services.slice(0, 2).map(s => serviceNames[s] || s).join(' and ');
+            const budgetRanges = {
+                'under2k': '$2,000',
+                '2k5k': '$3,500',
+                '5k10k': '$7,500',
+                '10k20k': '$15,000',
+                'over20k': '$25,000+'
+            };
+            const monthlyBudget = budgetRanges[formData.marketingBudget] || 'TBD';
+
+            const summary = `
+                <p>Your custom 12-month marketing plan for <strong>${formData.practiceName}</strong> is designed to help you attract more patients and grow your practice sustainably. Based on your profile—a ${formData.practiceType} in ${formData.practiceLocation} with a monthly marketing budget of ${monthlyBudget}—we've created a strategic roadmap that balances your top goals with realistic execution.</p>
+
+                <p style="margin-top: 1rem;">This plan focuses on <strong>${topServices}</strong> while building a strong foundation across SEO, reputation management, and patient acquisition channels. You'll see immediate wins in the first 30 days, steady growth through the middle quarters, and scalable systems by year-end.</p>
+
+                <p style="margin-top: 1rem;"><strong>Expected Results:</strong> By following this plan, practices like yours typically see <strong>40-65% increase in new patient inquiries</strong> by month 12, with improved case acceptance and patient lifetime value.</p>
+            `;
+            document.getElementById('executiveSummary').innerHTML = summary;
+        }
+
+        function generateChannelMix() {
+            const channels = [
+                { name: 'Google Ads & Local Search', percentage: 25, class: 'google', monthly: '$3,750-$6,250' },
+                { name: 'Social Media Advertising', percentage: 25, class: 'social', monthly: '$3,750-$6,250' },
+                { name: 'Email & Retention Marketing', percentage: 20, class: 'email', monthly: '$3,000-$5,000' },
+                { name: 'Content & SEO', percentage: 20, class: 'other', monthly: '$3,000-$5,000' },
+                { name: 'Direct Mail & Community', percentage: 10, class: 'other', monthly: '$1,500-$2,500' }
+            ];
+
+            let coniccGradient = 'conic-gradient(';
+            let gradientParts = [];
+            let currentDegree = 0;
+
+            channels.forEach((channel, index) => {
+                const colorMap = {
+                    'google': 'var(--blue)',
+                    'social': 'var(--gold)',
+                    'email': 'var(--green)',
+                    'other': 'var(--orange)'
+                };
+                const color = colorMap[channel.class];
+                const endDegree = currentDegree + (channel.percentage * 3.6);
+                gradientParts.push(`${color} ${currentDegree}deg ${endDegree}deg`);
+                currentDegree = endDegree;
+            });
+
+            coniccGradient += gradientParts.join(', ') + ')';
+            document.getElementById('channelPie').style.background = coniccGradient;
+
+            let channelHTML = '';
+            channels.forEach(channel => {
+                channelHTML += `
+                    <div class="channel-item ${channel.class}">
+                        <div class="channel-name">${channel.name}</div>
+                        <div class="channel-details">${channel.percentage}% of budget • ${channel.monthly}/month</div>
+                    </div>
+                `;
+            });
+            document.getElementById('channelListResults').innerHTML = channelHTML;
+        }
+
+        function generateTimeline() {
+            const quarters = [
+                {
+                    quarter: 'Q1: Foundation',
+                    subtitle: 'Build Your Marketing Backbone',
+                    items: [
+                        'Optimize Google Business Profile & local citations',
+                        'Launch SEO campaign & content strategy',
+                        'Website audit & improvements',
+                        'Begin collecting & managing online reviews',
+                        'Set up email marketing system'
+                    ]
+                },
+                {
+                    quarter: 'Q2: Growth',
+                    subtitle: 'Acquire New Patients & Market Share',
+                    items: [
+                        'Launch Google Ads & Facebook/Instagram campaigns',
+                        'Create service-specific landing pages',
+                        'Begin regular email nurture sequences',
+                        'Content marketing at scale (blog, video)',
+                        'Referral program activation'
+                    ]
+                },
+                {
+                    quarter: 'Q3: Scale',
+                    subtitle: 'Expand Reach & Diversify Channels',
+                    items: [
+                        'Video marketing campaigns (YouTube, testimonials)',
+                        'Implement retargeting campaigns',
+                        'Community event sponsorships',
+                        'Expand high-performing ad campaigns',
+                        'Launch patient loyalty program'
+                    ]
+                },
+                {
+                    quarter: 'Q4: Optimize',
+                    subtitle: 'Refine Systems & Plan for Next Year',
+                    items: [
+                        'Full-year analytics review & ROI analysis',
+                        'Identify top-performing channels & campaigns',
+                        'Case acceptance improvement training',
+                        'Plan next year strategy based on results',
+                        'Year-end review with marketing team'
+                    ]
+                }
+            ];
+
+            let timelineHTML = '';
+            quarters.forEach(q => {
+                timelineHTML += `
+                    <div class="timeline-quarter">
+                        <h4>${q.quarter}</h4>
+                        <p style="font-style: italic; color: var(--blue); margin-bottom: 0.75rem;">${q.subtitle}</p>
+                        <div class="timeline-items">
+                            ${q.items.map(item => `<div class="timeline-item">${item}</div>`).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+            document.getElementById('timelineResults').innerHTML = timelineHTML;
+        }
+
+        function generateQuickWins() {
+            const wins = [
+                {
+                    number: 1,
+                    title: 'Claim & Optimize GBP',
+                    description: 'If you haven\'t already, claim your Google Business Profile and fully optimize it with photos, services, and hours.',
+                    link: 'DMS Guide to GBP Optimization'
+                },
+                {
+                    number: 2,
+                    title: 'Generate 20+ Reviews',
+                    description: 'Send a targeted email/text campaign asking your best patients to leave reviews. Offer a small incentive.',
+                    link: 'How to Generate More Google Reviews'
+                },
+                {
+                    number: 3,
+                    title: 'Create a Lead Magnet',
+                    description: 'Design a simple lead magnet (smile guide, implant guide) to capture email addresses from your website.',
+                    link: 'Lead Magnet Templates for Dental Practices'
+                },
+                {
+                    number: 4,
+                    title: 'Start an Email Sequence',
+                    description: 'Set up a 3-5 email welcome sequence for new leads. Nurture them toward your highest-value services.',
+                    link: 'Email Marketing Templates for Dentists'
+                },
+                {
+                    number: 5,
+                    title: 'Referral Program Launch',
+                    description: 'Create a simple patient referral program with incentives. Start with current patients first.',
+                    link: 'Dental Referral Program Best Practices'
+                }
+            ];
+
+            let winsHTML = '';
+            wins.forEach(win => {
+                winsHTML += `
+                    <div class="win-card">
+                        <div class="win-number">${win.number}</div>
+                        <div class="win-title">${win.title}</div>
+                        <div class="win-description">${win.description}</div>
+                        <a href="#" class="win-link">→ ${win.link}</a>
+                    </div>
+                `;
+            });
+            document.getElementById('quickWinsResults').innerHTML = winsHTML;
+        }
+
+        function generateProjections() {
+            const projections = [
+                { month: 'Month 3', newPatients: '18-24', revenue: '$8,500-$12,000' },
+                { month: 'Month 6', newPatients: '28-35', revenue: '$18,000-$24,500' },
+                { month: 'Month 9', newPatients: '38-48', revenue: '$28,000-$38,000' },
+                { month: 'Month 12', newPatients: '50-65', revenue: '$42,000-$58,000' }
+            ];
+
+            let projectionsHTML = '';
+            projections.forEach(proj => {
+                projectionsHTML += `
+                    <div class="projection-card">
+                        <div class="projection-month">${proj.month}</div>
+                        <div class="projection-number">+${proj.newPatients}</div>
+                        <div class="projection-label">New Patients</div>
+                        <div style="border-top: 1px solid var(--gray-medium); padding-top: 0.75rem; margin-top: 0.75rem;">
+                            <div class="projection-label" style="margin-bottom: 0;">Projected Revenue</div>
+                            <div class="metric-value" style="font-size: 1.3rem;">${proj.revenue}</div>
+                        </div>
+                    </div>
+                `;
+            });
+            document.getElementById('projectionsResults').innerHTML = projectionsHTML;
+        }
+
+        function generateResources() {
+            const resources = [
+                { type: 'Article', title: 'Complete Guide to Dental SEO', url: '#' },
+                { type: 'Tool', title: 'Google Ads Audit Checklist', url: '#' },
+                { type: 'Template', title: 'Email Marketing Sequences', url: '#' },
+                { type: 'Course', title: 'Dental Patient Acquisition 101', url: '#' },
+                { type: 'Article', title: 'Reputation Management for Dentists', url: '#' },
+                { type: 'Tool', title: 'Marketing Budget Planner', url: '#' }
+            ];
+
+            let resourcesHTML = '';
+            resources.forEach(res => {
+                resourcesHTML += `
+                    <div class="resource-card">
+                        <div class="resource-type">${res.type}</div>
+                        <div class="resource-title">${res.title}</div>
+                        <a href="${res.url}" class="resource-link">Learn More →</a>
+                    </div>
+                `;
+            });
+            document.getElementById('resourcesResults').innerHTML = resourcesHTML;
+        }
+
+        function resetWizard() {
+            currentStep = 1;
+            formData = {
+                practiceName: '',
+                practiceLocation: '',
+                yearsInBusiness: '',
+                practiceType: '',
+                marketingBudget: '',
+                newPatients: '',
+                goals: [],
+                channels: [],
+                services: []
+            };
+
+            // Reset form
+            document.querySelectorAll('input[type="text"]').forEach(input => input.value = '');
+            document.querySelectorAll('select').forEach(select => select.value = '');
+            document.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(input => {
+                input.checked = false;
+                input.parentElement.classList.remove('selected');
+            });
+
+            // Show wizard, hide results
+            document.getElementById('wizardContainer').style.display = 'block';
+            document.getElementById('resultsContainer').classList.remove('active');
+
+            updateUI();
+            document.querySelector('.wizard-steps').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

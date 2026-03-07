@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DMS Learning Paths & Certifications - Dental Marketing Education</title>
+  <meta name="description" content="Complete learning paths for dental practice owners: Foundation, Growth, and Mastery certifications. Structured marketing education with assessments and digital badges.">
+  <meta name="keywords" content="dental marketing certification, learning paths, dental education, marketing training, dentist certification, DMS courses">
+  <meta property="og:title" content="DMS Learning Paths & Certifications">
+  <meta property="og:description" content="Structured marketing education designed specifically for dental practice owners — from beginner to advanced">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=2">
+  <style>
+    .learning-path-card { background: white; border-radius: 12px; border: 2px solid #eee; padding: 2rem; transition: all 0.3s ease; text-align: center; height: 100%; }
+    .learning-path-card:hover { border-color: #D4A843; box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+    .learning-path-card h3 { color: #1B2A4A; font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .path-tier { color: #D4A843; font-weight: 700; font-size: 1rem; margin-bottom: 0.5rem; display: block; }
+    .path-modules { color: #666; font-size: 0.95rem; margin-bottom: 1.5rem; }
+    .module-list { list-style: none; padding: 0; margin: 1.5rem 0; text-align: left; }
+    .module-list li { padding: 0.6rem 0; color: #555; border-bottom: 1px solid #f0f0f0; font-size: 0.95rem; }
+    .module-list li:last-child { border-bottom: none; }
+    .module-list li::before { content: "✓ "; color: #D4A843; font-weight: bold; margin-right: 0.5rem; }
+    .path-cta { background: #1B2A4A; color: white; padding: 0.8rem 2rem; border-radius: 6px; text-decoration: none; display: inline-block; margin-top: 1rem; transition: background 0.3s; font-weight: 600; }
+    .path-cta:hover { background: #2E75B6; }
+    .path-cta.gold { background: #D4A843; color: #1B2A4A; }
+    .path-cta.gold:hover { background: #c4963d; }
+    .path-elite { background: linear-gradient(135deg, #1B2A4A 0%, #2E75B6 100%); color: white; padding: 0.15rem; border-radius: 12px; position: relative; }
+    .path-elite > div { background: white; border-radius: 10px; padding: 2rem; }
+    .path-elite h3 { background: linear-gradient(135deg, #1B2A4A 0%, #2E75B6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    .how-it-works { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .step-box { background: white; border: 2px solid #D4A843; padding: 2rem; border-radius: 8px; text-align: center; position: relative; }
+    .step-number { background: #D4A843; color: #1B2A4A; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; margin: 0 auto 1rem; }
+    .step-box h3 { color: #1B2A4A; margin-bottom: 0.5rem; }
+    .step-box p { color: #666; font-size: 0.95rem; }
+
+    .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .benefit-item { background: rgba(212, 168, 67, 0.08); padding: 1.5rem; border-radius: 8px; border-left: 4px solid #D4A843; }
+    .benefit-item h4 { color: #1B2A4A; margin-bottom: 0.5rem; font-weight: 600; }
+    .benefit-item p { color: #666; font-size: 0.95rem; }
+
+    .progress-demo { background: white; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #eee; }
+    .progress-demo h4 { color: #1B2A4A; margin-bottom: 1rem; }
+    .progress-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; font-size: 0.9rem; color: #555; }
+    .progress-bar { background: #e0e0e0; border-radius: 8px; height: 12px; overflow: hidden; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg, #D4A843, #2E75B6); border-radius: 8px; transition: width 0.3s; }
+
+    .faq-item { border: 1px solid #eee; border-radius: 8px; margin-bottom: 8px; overflow: hidden; }
+    .faq-question { padding: 16px 20px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center; background: #f9f9f9; transition: background 0.3s; }
+    .faq-question:hover { background: #f0f0f0; }
+    .faq-question::after { content: '+'; font-size: 1.5rem; color: #D4A843; transition: transform 0.3s; }
+    .faq-item.open .faq-question::after { content: '–'; }
+    .faq-answer { display: none; padding: 0 20px 16px; color: #555; background: #fafafa; line-height: 1.6; }
+    .faq-item.open .faq-answer { display: block; }
+
+    @media (max-width: 768px) {
+      .learning-path-card { padding: 1.5rem; }
+      .path-elite > div { padding: 1.5rem; }
+      .step-box { padding: 1.5rem; }
+      .how-it-works { gap: 1rem; }
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+  <link rel="canonical" href="https://dms.narenlife.com/pages/learning-paths.html">
+  <meta property="og:url" content="https://dms.narenlife.com/pages/learning-paths.html">
+  <meta property="og:site_name" content="Dental Marketing Society">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "DMS Learning Paths & Certifications",
+    "description": "Structured marketing education designed specifically for dental practice owners",
+    "provider": {
+      "@type": "Organization",
+      "name": "Dental Marketing Society",
+      "url": "https://dms.narenlife.com"
+    },
+    "hasCourseInstance": [
+      {
+        "@type": "CourseInstance",
+        "name": "Foundation Path",
+        "description": "6-module beginner course covering marketing basics, Google Business Profile, website essentials, reviews, social media, and email",
+        "courseMode": "online",
+        "duration": "PT6W"
+      },
+      {
+        "@type": "CourseInstance",
+        "name": "Growth Path",
+        "description": "8-module intermediate course covering SEO, PPC, content marketing, video, patient reactivation, referrals, conversion, and branding",
+        "courseMode": "online",
+        "duration": "PT8W"
+      },
+      {
+        "@type": "CourseInstance",
+        "name": "Mastery Path",
+        "description": "6-module advanced course covering AI marketing, multi-location strategy, PPO optimization, analytics, team training, and leadership",
+        "courseMode": "online",
+        "duration": "PT6W"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="../index.html" class="logo">
+      <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="8" fill="#1B2A4A"/>
+        <path d="M12 28V16c0-3.3 2.7-6 6-6h4c3.3 0 6 2.7 6 6v12" stroke="#D4A843" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M8 20h24" stroke="#D4A843" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <path d="M20 10v20" stroke="#D4A843" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="20" cy="18" r="3" fill="#D4A843"/>
+      </svg>
+      <span class="logo-text">Dental Marketing <span>Society</span></span>
+    </a>
+    <nav class="nav">
+      <div class="nav-dropdown">
+        <a href="#">Marketing Channels &#8595;</a>
+        <div class="nav-dropdown-content">
+          <a href="channel-seo.html">SEO & Local Search</a>
+          <a href="channel-ppc.html">Pay-Per-Click (PPC)</a>
+          <a href="channel-social.html">Social Media</a>
+          <a href="channel-reputation.html">Reputation & Reviews</a>
+          <a href="channel-website.html">Website & Conversion</a>
+          <a href="channel-referral.html">Referral Marketing</a>
+          <a href="channel-email.html">Email Marketing</a>
+          <a href="channel-video.html">Video Marketing</a>
+          <a href="channel-directmail.html">Direct Mail</a>
+          <a href="channel-branding.html">Branding</a>
+          <a href="channel-ai.html">AI & Emerging Tech</a>
+        </div>
+      </div>
+      <a href="articles.html">Articles</a>
+      <a href="events.html">Events</a>
+      <a href="podcast.html">Podcast</a>
+      <div class="nav-dropdown">
+        <a href="#">Tools ▾</a>
+        <div class="nav-dropdown-content">
+          <a href="../tools/scorecard.html">📊 Marketing Scorecard</a>
+          <a href="../tools/seo-audit.html">🔍 SEO Audit Tool</a>
+          <a href="../tools/roi-calculator.html">💰 ROI Calculator</a>
+          <a href="../tools/budget-planner.html">📋 Budget Planner</a>
+          <a href="../tools/social-calendar.html">📱 Social Calendar</a>
+          <a href="../tools/marketing-plan.html">📝 Marketing Plan Builder</a>
+        </div>
+      </div>
+      <a href="community.html">Community</a>
+      <a href="about.html">About</a>
+      <a href="membership.html" class="nav-cta">Join Free</a>
+    </nav>
+    <button class="mobile-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero" style="background: linear-gradient(135deg, #1B2A4A 0%, #2E3A5A 100%); color: white; padding: 80px 0 60px;">
+  <div class="container">
+    <h1 style="margin-bottom: 1rem; color: white;">DMS Learning Paths <span style="color: #D4A843;">&amp; Certifications</span></h1>
+    <p style="font-size: 1.2rem; color: rgba(255,255,255,0.9); max-width: 750px; margin-bottom: 2rem; line-height: 1.6;">Structured marketing education designed specifically for dental practice owners — from beginner to advanced. Complete modules, pass assessments, and earn industry-recognized digital certificates.</p>
+  </div>
+</section>
+
+<!-- LEARNING PATHS CARDS -->
+<section class="section">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 3rem;">Choose Your Learning Path</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+
+      <!-- FOUNDATION PATH -->
+      <div class="learning-path-card">
+        <h3>Foundation Path</h3>
+        <span class="path-tier">Free • 6 Modules</span>
+        <p class="path-modules">Perfect for getting started with marketing fundamentals</p>
+        <ul class="module-list">
+          <li><a href="channel-website.html" style="color: #2E75B6; text-decoration: none;">Marketing Basics</a></li>
+          <li><a href="channel-reputation.html" style="color: #2E75B6; text-decoration: none;">Google Business Profile</a></li>
+          <li><a href="channel-website.html" style="color: #2E75B6; text-decoration: none;">Website Essentials</a></li>
+          <li><a href="channel-reputation.html" style="color: #2E75B6; text-decoration: none;">Review Management</a></li>
+          <li><a href="channel-social.html" style="color: #2E75B6; text-decoration: none;">Social Media 101</a></li>
+          <li><a href="channel-email.html" style="color: #2E75B6; text-decoration: none;">Email Basics</a></li>
+        </ul>
+        <a href="https://www.ekwa.com/msm/?utm_source=dms&utm_medium=page&utm_campaign=dms-learning-paths" class="path-cta">Start Foundation Path</a>
+      </div>
+
+      <!-- GROWTH PATH -->
+      <div class="learning-path-card" style="border-color: #D4A843; border-width: 2px;">
+        <h3>Growth Path</h3>
+        <span class="path-tier" style="background: #D4A843; color: #1B2A4A; display: inline-block; padding: 0.4rem 1rem; border-radius: 20px; margin-bottom: 1rem;">Pro • 8 Modules</span>
+        <p class="path-modules">For practice owners ready to scale marketing efforts</p>
+        <ul class="module-list">
+          <li><a href="channel-seo.html" style="color: #2E75B6; text-decoration: none;">SEO Strategy</a></li>
+          <li><a href="channel-ppc.html" style="color: #2E75B6; text-decoration: none;">PPC Mastery</a></li>
+          <li><a href="articles.html" style="color: #2E75B6; text-decoration: none;">Content Marketing</a></li>
+          <li><a href="channel-video.html" style="color: #2E75B6; text-decoration: none;">Video Marketing</a></li>
+          <li><a href="channel-email.html" style="color: #2E75B6; text-decoration: none;">Patient Reactivation</a></li>
+          <li><a href="channel-referral.html" style="color: #2E75B6; text-decoration: none;">Referral Systems</a></li>
+          <li><a href="channel-website.html" style="color: #2E75B6; text-decoration: none;">Conversion Optimization</a></li>
+          <li><a href="channel-branding.html" style="color: #2E75B6; text-decoration: none;">Brand Building</a></li>
+        </ul>
+        <a href="https://www.ekwa.com/msm/?utm_source=dms&utm_medium=page&utm_campaign=dms-learning-paths" class="path-cta gold">Start Growth Path</a>
+      </div>
+
+      <!-- MASTERY PATH -->
+      <div class="path-elite">
+        <div>
+          <h3>Mastery Path</h3>
+          <span class="path-tier" style="background: linear-gradient(135deg, #1B2A4A 0%, #2E75B6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: inline-block; padding: 0.4rem 1rem; border-radius: 20px; margin-bottom: 1rem; border: 1px solid #D4A843;">Elite • 6 Modules</span>
+          <p class="path-modules">Advanced strategies for market leadership</p>
+          <ul class="module-list">
+            <li><a href="channel-ai.html" style="color: #2E75B6; text-decoration: none;">AI Marketing</a></li>
+            <li><a href="articles.html" style="color: #2E75B6; text-decoration: none;">Multi-Location Strategy</a></li>
+            <li><a href="articles.html" style="color: #2E75B6; text-decoration: none;">PPO Optimization</a></li>
+            <li><a href="articles.html" style="color: #2E75B6; text-decoration: none;">Advanced Analytics</a></li>
+            <li><a href="articles.html" style="color: #2E75B6; text-decoration: none;">Team Training</a></li>
+            <li><a href="articles.html" style="color: #2E75B6; text-decoration: none;">Marketing Leadership</a></li>
+          </ul>
+          <a href="https://www.ekwa.com/msm/?utm_source=dms&utm_medium=page&utm_campaign=dms-learning-paths" class="path-cta" style="background: linear-gradient(135deg, #1B2A4A 0%, #2E75B6 100%); color: white;">Start Mastery Path</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section section-light">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 1rem;">How It Works</h2>
+    <p style="text-align: center; color: #666; max-width: 700px; margin: 0 auto 3rem;">A simple 4-step process to earn your certification and demonstrate your marketing expertise</p>
+    <div class="how-it-works">
+      <div class="step-box">
+        <div class="step-number">1</div>
+        <h3>Choose Your Path</h3>
+        <p>Select Foundation, Growth, or Mastery based on your current knowledge and goals.</p>
+      </div>
+      <div class="step-box">
+        <div class="step-number">2</div>
+        <h3>Complete Modules</h3>
+        <p>Work through structured lessons, video content, and practical exercises at your own pace.</p>
+      </div>
+      <div class="step-box">
+        <div class="step-number">3</div>
+        <h3>Pass Assessments</h3>
+        <p>Test your knowledge with module quizzes and a final certification exam to validate expertise.</p>
+      </div>
+      <div class="step-box">
+        <div class="step-number">4</div>
+        <h3>Earn Certificate</h3>
+        <p>Receive a digital badge and LinkedIn certification to showcase your credentials.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATION BENEFITS -->
+<section class="section">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 3rem;">Why Get Certified?</h2>
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <h4>🏆 Digital Badge</h4>
+        <p>Display your DMS certification badge on your website, showing patients you're committed to marketing excellence.</p>
+      </div>
+      <div class="benefit-item">
+        <h4>💼 LinkedIn Credential</h4>
+        <p>Add verifiable certifications to your LinkedIn profile to build professional credibility with peers and industry partners.</p>
+      </div>
+      <div class="benefit-item">
+        <h4>📚 CE Credit Equivalency</h4>
+        <p>Continuing education credit tracking (pending state board approval). Stay current on professional requirements.</p>
+      </div>
+      <div class="benefit-item">
+        <h4>🤝 Alumni Network</h4>
+        <p>Join thousands of certified DMS practitioners. Network, share strategies, and collaborate with your peer community.</p>
+      </div>
+      <div class="benefit-item">
+        <h4>📈 Skill Validation</h4>
+        <p>Prove to your team, patients, and vendors that you've mastered modern dental marketing strategies.</p>
+      </div>
+      <div class="benefit-item">
+        <h4>🎯 Career Advancement</h4>
+        <p>Certifications strengthen your professional portfolio and can support promotions or business growth opportunities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRESS TRACKER MOCKUP -->
+<section class="section section-light">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 3rem;">Your Learning Dashboard</h2>
+    <p style="text-align: center; color: #666; max-width: 700px; margin: 0 auto 2rem;">Track your progress across all learning paths. Complete modules, earn points, and unlock achievements.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+      <div class="progress-demo">
+        <h4 style="display: flex; align-items: center; gap: 0.5rem;"><span style="color: #D4A843;">●</span> Foundation Path</h4>
+        <div class="progress-label">
+          <span>4 of 6 modules completed</span>
+          <span style="color: #D4A843; font-weight: 600;">67%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 67%;"></div>
+        </div>
+        <div style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+          <p style="margin: 0.3rem 0;">✓ Marketing Basics</p>
+          <p style="margin: 0.3rem 0;">✓ Google Business Profile</p>
+          <p style="margin: 0.3rem 0;">✓ Website Essentials</p>
+          <p style="margin: 0.3rem 0;">✓ Review Management</p>
+          <p style="margin: 0.3rem 0; color: #ccc;">○ Social Media 101</p>
+          <p style="margin: 0.3rem 0; color: #ccc;">○ Email Basics</p>
+        </div>
+      </div>
+
+      <div class="progress-demo">
+        <h4 style="display: flex; align-items: center; gap: 0.5rem;"><span style="color: #2E75B6;">●</span> Growth Path</h4>
+        <div class="progress-label">
+          <span>2 of 8 modules completed</span>
+          <span style="color: #2E75B6; font-weight: 600;">25%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 25%; background: linear-gradient(90deg, #2E75B6, #1B2A4A);"></div>
+        </div>
+        <div style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+          <p style="margin: 0.3rem 0;">✓ SEO Strategy</p>
+          <p style="margin: 0.3rem 0;">✓ PPC Mastery</p>
+          <p style="margin: 0.3rem 0; color: #ccc;">○ Content Marketing</p>
+          <p style="margin: 0.3rem 0; color: #ccc;">○ Video Marketing</p>
+          <p style="margin: 0.3rem 0; color: #ccc;">○ Patient Reactivation</p>
+          <p style="margin: 0.3rem 0; color: #ccc;">○ Referral Systems</p>
+          <p style="margin: 0.3rem 0; color: #ccc;">○ Conversion Optimization</p>
+          <p style="margin: 0.3rem 0; color: #ccc;">○ Brand Building</p>
+        </div>
+      </div>
+
+      <div class="progress-demo">
+        <h4 style="display: flex; align-items: center; gap: 0.5rem;"><span style="color: #1B2A4A;">●</span> Mastery Path</h4>
+        <div class="progress-label">
+          <span>0 of 6 modules completed</span>
+          <span style="color: #1B2A4A; font-weight: 600;">0%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%;"></div>
+        </div>
+        <div style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+          <p style="margin: 0.3rem 0; color: #ccc;">○ AI Marketing</p>
+          <p style="margin: 0.3rem 0; color: #ccc;">○ Multi-Location Strategy</p>
+          <p style="margin: 0.3rem 0; color: #ccc;">○ PPO Optimization</p>
+          <p style="margin: 0.3rem 0; color: #ccc;">○ Advanced Analytics</p>
+          <p style="margin: 0.3rem 0; color: #ccc;">○ Team Training</p>
+          <p style="margin: 0.3rem 0; color: #ccc;">○ Marketing Leadership</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="section">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 3rem;">Frequently Asked Questions</h2>
+
+    <div style="max-width: 800px; margin: 0 auto;">
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Do I need membership to access the learning paths?</span>
+        </div>
+        <div class="faq-answer">
+          Learning paths are included with Basic and Premium DMS memberships, both currently free. If you're on the free Explorer plan, upgrade to Basic for full access to all learning paths and certifications.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How long does it take to complete a learning path?</span>
+        </div>
+        <div class="faq-answer">
+          Foundation Path takes approximately 4-6 weeks at a typical pace of 5-8 hours per week. Growth Path takes 8-10 weeks, and Mastery Path takes 6-8 weeks. You can progress at your own pace, with no time limits.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What happens if I don't pass the certification exam?</span>
+        </div>
+        <div class="faq-answer">
+          You can retake the exam as many times as you need. We recommend reviewing the module materials and using the practice quizzes before your next attempt. Most members pass on the second try.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Can I skip modules or start in the middle of a path?</span>
+        </div>
+        <div class="faq-answer">
+          We recommend completing modules in order for the best learning experience, but you can skip ahead if you already have expertise in certain areas. However, assessment scores may vary if you haven't covered prerequisite content.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Are the certifications recognized outside of DMS?</span>
+        </div>
+        <div class="faq-answer">
+          DMS certifications are recognized within the dental marketing industry and demonstrate expertise to patients, vendors, and peers. We're working on state board CE credit approval. Your certificates are verifiable on LinkedIn and can be displayed on your website.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="section section-dark" style="text-align: center;">
+  <div class="container">
+    <h2 style="color: white; margin-bottom: 1rem;">Ready to Master Dental Marketing?</h2>
+    <p style="color: rgba(255,255,255,0.8); margin-bottom: 2rem; font-size: 1.1rem; max-width: 700px; margin-left: auto; margin-right: auto;">Join thousands of practice owners who are advancing their marketing expertise with DMS learning paths and certifications.</p>
+    <a href="https://www.ekwa.com/msm/?utm_source=dms&utm_medium=page&utm_campaign=dms-learning-paths" class="btn btn-gold btn-lg">Start Your Learning Journey</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4 style="font-size:1.15rem;">Dental Marketing Society</h4>
+        <p>The #1 authority in dental practice marketing. Expert education, powerful tools, and a community of practice owners. Where dental practices grow.</p>
+        <p class="footer-ekwa">Brought to you by <strong>Ekwa Marketing</strong> - the leading search engine marketing company for dental practices.</p>
+      </div>
+      <div>
+        <h4>Marketing Channels</h4>
+        <a href="channel-seo.html">SEO & Local Search</a>
+        <a href="channel-ppc.html">PPC Advertising</a>
+        <a href="channel-social.html">Social Media</a>
+        <a href="channel-reputation.html">Reputation</a>
+        <a href="channel-website.html">Website & Conversion</a>
+        <a href="channel-email.html">Email Marketing</a>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <a href="../tools/scorecard.html">Marketing Scorecard</a>
+        <a href="../tools/roi-calculator.html">ROI Calculators</a>
+        <a href="../tools/budget-planner.html">Budget Planner</a>
+        <a href="podcast.html">Podcast</a>
+        <a href="events.html">Events & Webinars</a>
+        <a href="community.html">Community</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="about.html">About DMS</a>
+        <a href="membership.html">Membership</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://www.ekwa.com" target="_blank">Ekwa Marketing</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Dental Marketing Society. All rights reserved.</span>
+      <span>A product of <a href="https://www.ekwa.com" class="footer-ekwa" target="_blank">Ekwa Marketing</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+// FAQ Toggle Functionality
+document.querySelectorAll('.faq-question').forEach(question => {
+  question.addEventListener('click', function() {
+    const faqItem = this.parentElement;
+    faqItem.classList.toggle('open');
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DMS Marketing Analytics Dashboard - Track Dental Practice KPIs</title>
+  <meta name="description" content="Interactive KPI and marketing analytics dashboard for dental practices. Track patient acquisition, ROI, website performance, and more with real-time insights.">
+  <meta name="keywords" content="dental marketing analytics, KPI dashboard, practice metrics, patient acquisition, dental analytics, marketing ROI">
+  <meta property="og:title" content="DMS Marketing Analytics Dashboard">
+  <meta property="og:description" content="Track every metric that matters for your dental practice's growth with our interactive analytics dashboard.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=2">
+  <style>
+    /* Dashboard Styles */
+    .dashboard-intro {
+      background: linear-gradient(135deg, rgba(30, 42, 74, 0.95) 0%, rgba(46, 117, 182, 0.1) 100%);
+      padding: 4rem 0;
+      border-bottom: 1px solid rgba(212, 168, 67, 0.2);
+    }
+
+    .dashboard-section {
+      scroll-margin-top: 100px;
+    }
+
+    /* KPI Cards */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .kpi-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.8rem;
+      border: 1px solid #eee;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #D4A843, #2E75B6);
+      transition: height 0.3s ease;
+    }
+
+    .kpi-card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .kpi-card:hover::before {
+      height: 6px;
+    }
+
+    .kpi-label {
+      font-size: 0.85rem;
+      color: #999;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+    }
+
+    .kpi-value {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1B2A4A;
+      margin-bottom: 0.5rem;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .kpi-change {
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .kpi-change.positive {
+      color: #22c55e;
+    }
+
+    .kpi-change.negative {
+      color: #ef4444;
+    }
+
+    .kpi-change.neutral {
+      color: #f59e0b;
+    }
+
+    .kpi-change svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Charts */
+    .chart-container {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #eee;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .chart-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #1B2A4A;
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chart-subtitle {
+      font-size: 0.85rem;
+      color: #999;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+
+    /* Bar Chart */
+    .bar-chart {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .bar-row {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .bar-label {
+      flex: 0 0 140px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #555;
+      text-align: right;
+    }
+
+    .bar-wrapper {
+      flex: 1;
+      height: 36px;
+      background: #f5f5f5;
+      border-radius: 6px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .bar-wrapper:hover {
+      background: #efefef;
+    }
+
+    .bar {
+      height: 100%;
+      background: linear-gradient(90deg, #2E75B6, #1B5BA3);
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 12px;
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(46, 117, 182, 0.15);
+      position: relative;
+    }
+
+    .bar:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 4px 12px rgba(46, 117, 182, 0.25);
+    }
+
+    .bar.gold {
+      background: linear-gradient(90deg, #D4A843, #C89A2A);
+      box-shadow: 0 2px 8px rgba(212, 168, 67, 0.15);
+    }
+
+    .bar.green {
+      background: linear-gradient(90deg, #22c55e, #16a34a);
+      box-shadow: 0 2px 8px rgba(34, 197, 94, 0.15);
+    }
+
+    .bar-value {
+      font-size: 0.75rem;
+      color: #666;
+      flex: 0 0 45px;
+      text-align: right;
+      font-weight: 600;
+    }
+
+    /* Trend Chart */
+    .trend-chart {
+      position: relative;
+      height: 300px;
+      margin-bottom: 1rem;
+    }
+
+    .trend-bars {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-end;
+      gap: 0.5rem;
+      height: 100%;
+      padding-bottom: 2rem;
+    }
+
+    .trend-bar-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .trend-bar-wrapper:hover .trend-bar {
+      filter: brightness(1.15);
+      box-shadow: 0 8px 16px rgba(46, 117, 182, 0.3);
+    }
+
+    .trend-bar-wrapper:hover .tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(-8px);
+    }
+
+    .trend-bar {
+      flex-grow: 1;
+      width: 100%;
+      background: linear-gradient(180deg, #2E75B6, #1B5BA3);
+      border-radius: 4px 4px 0 0;
+      min-height: 10px;
+      box-shadow: 0 2px 6px rgba(46, 117, 182, 0.12);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .trend-month {
+      font-size: 0.75rem;
+      color: #999;
+      margin-top: 0.5rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .tooltip {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-4px);
+      background: #1B2A4A;
+      color: white;
+      padding: 0.6rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid #1B2A4A;
+    }
+
+    /* Gauge Chart */
+    .gauge-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 0;
+    }
+
+    .gauge-svg {
+      width: 100%;
+      max-width: 300px;
+      height: 200px;
+    }
+
+    .gauge-text {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .gauge-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1B2A4A;
+    }
+
+    .gauge-label {
+      font-size: 0.9rem;
+      color: #999;
+      margin-top: 0.3rem;
+    }
+
+    /* ROI Table */
+    .roi-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .roi-table thead {
+      background: #f9f9f9;
+      border-bottom: 2px solid #e5e5e5;
+    }
+
+    .roi-table th {
+      padding: 1rem;
+      text-align: left;
+      font-weight: 700;
+      color: #1B2A4A;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .roi-table td {
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+      color: #666;
+    }
+
+    .roi-table tr:hover {
+      background: #f9f9f9;
+      transition: background 0.2s ease;
+    }
+
+    .roi-table .channel-name {
+      font-weight: 600;
+      color: #1B2A4A;
+    }
+
+    .roi-table .roi-value {
+      font-weight: 700;
+      color: #22c55e;
+    }
+
+    .roi-table .roi-value.negative {
+      color: #ef4444;
+    }
+
+    /* KPI Definition Grid */
+    .kpi-definitions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .kpi-definition {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid #eee;
+      transition: all 0.3s ease;
+    }
+
+    .kpi-definition:hover {
+      border-color: #D4A843;
+      box-shadow: 0 4px 12px rgba(212, 168, 67, 0.15);
+    }
+
+    .kpi-definition h4 {
+      color: #1B2A4A;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .kpi-definition p {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 0.8rem;
+    }
+
+    .benchmark {
+      background: rgba(212, 168, 67, 0.08);
+      padding: 0.8rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: #555;
+      border-left: 3px solid #D4A843;
+    }
+
+    .benchmark strong {
+      color: #1B2A4A;
+    }
+
+    /* Educational Section */
+    .education-box {
+      background: linear-gradient(135deg, rgba(46, 117, 182, 0.08) 0%, rgba(212, 168, 67, 0.08) 100%);
+      padding: 2rem;
+      border-radius: 8px;
+      border: 1px solid rgba(46, 117, 182, 0.2);
+      margin-bottom: 2rem;
+    }
+
+    .education-box h3 {
+      color: #1B2A4A;
+      margin-bottom: 1rem;
+    }
+
+    .education-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .education-box li {
+      padding: 0.8rem 0;
+      padding-left: 2rem;
+      color: #666;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .education-box li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #D4A843;
+      font-weight: bold;
+    }
+
+    /* CTA Button */
+    .cta-link-box {
+      background: linear-gradient(135deg, #D4A843 0%, #C89A2A 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      margin: 2rem 0;
+      box-shadow: 0 8px 24px rgba(212, 168, 67, 0.3);
+    }
+
+    .cta-link-box h3 {
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .cta-link-box a {
+      display: inline-block;
+      background: white;
+      color: #D4A843;
+      padding: 0.8rem 1.8rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    .cta-link-box a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .kpi-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+      }
+
+      .kpi-card {
+        padding: 1rem;
+      }
+
+      .kpi-value {
+        font-size: 1.6rem;
+      }
+
+      .bar-label {
+        flex: 0 0 100px;
+        font-size: 0.8rem;
+      }
+
+      .bar-value {
+        flex: 0 0 35px;
+        font-size: 0.7rem;
+      }
+
+      .chart-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      .trend-chart {
+        height: 250px;
+      }
+
+      .trend-month {
+        font-size: 0.65rem;
+      }
+
+      .gauge-svg {
+        max-width: 250px;
+        height: 160px;
+      }
+
+      .roi-table {
+        font-size: 0.85rem;
+      }
+
+      .roi-table th,
+      .roi-table td {
+        padding: 0.75rem;
+      }
+
+      .kpi-definitions {
+        grid-template-columns: 1fr;
+      }
+
+      .education-box {
+        padding: 1.5rem;
+      }
+    }
+
+    /* Scroll button */
+    .scroll-btn {
+      display: inline-block;
+      background: #D4A843;
+      color: white;
+      padding: 0.8rem 1.6rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .scroll-btn:hover {
+      background: #C89A2A;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(212, 168, 67, 0.3);
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+  <link rel="canonical" href="https://dms.narenlife.com/pages/analytics.html">
+  <meta property="og:url" content="https://dms.narenlife.com/pages/analytics.html">
+  <meta property="og:site_name" content="Dental Marketing Society">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="../index.html" class="logo">
+      <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="8" fill="#1B2A4A"/>
+        <path d="M12 28V16c0-3.3 2.7-6 6-6h4c3.3 0 6 2.7 6 6v12" stroke="#D4A843" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M8 20h24" stroke="#D4A843" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <path d="M20 10v20" stroke="#D4A843" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <circle cx="20" cy="18" r="3" fill="#D4A843"/>
+      </svg>
+      <span class="logo-text">Dental Marketing <span>Society</span></span>
+    </a>
+    <nav class="nav">
+      <div class="nav-dropdown">
+        <a href="#">Marketing Channels &#8595;</a>
+        <div class="nav-dropdown-content">
+          <a href="channel-seo.html">SEO & Local Search</a>
+          <a href="channel-ppc.html">Pay-Per-Click (PPC)</a>
+          <a href="channel-social.html">Social Media</a>
+          <a href="channel-reputation.html">Reputation & Reviews</a>
+          <a href="channel-website.html">Website & Conversion</a>
+          <a href="channel-referral.html">Referral Marketing</a>
+          <a href="channel-email.html">Email Marketing</a>
+          <a href="channel-video.html">Video Marketing</a>
+          <a href="channel-directmail.html">Direct Mail</a>
+          <a href="channel-branding.html">Branding</a>
+          <a href="channel-ai.html">AI & Emerging Tech</a>
+        </div>
+      </div>
+      <a href="articles.html">Articles</a>
+      <a href="events.html">Events</a>
+      <a href="podcast.html">Podcast</a>
+      <div class="nav-dropdown">
+        <a href="#">Tools ▾</a>
+        <div class="nav-dropdown-content">
+          <a href="../tools/scorecard.html">📊 Marketing Scorecard</a>
+          <a href="../tools/seo-audit.html">🔍 SEO Audit Tool</a>
+          <a href="../tools/roi-calculator.html">💰 ROI Calculator</a>
+          <a href="../tools/budget-planner.html">📋 Budget Planner</a>
+          <a href="../tools/social-calendar.html">📱 Social Calendar</a>
+          <a href="../tools/marketing-plan.html">📝 Marketing Plan Builder</a>
+        </div>
+      </div>
+      <a href="community.html">Community</a>
+      <a href="about.html">About</a>
+      <a href="membership.html" class="nav-cta">Join Free</a>
+    </nav>
+    <button class="mobile-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero" style="padding: 80px 0 60px;">
+  <div class="container">
+    <h1 style="margin-bottom: 1rem;">DMS Marketing <span>Analytics Dashboard</span></h1>
+    <p style="font-size: 1.2rem; color: #666; max-width: 700px; margin-bottom: 2rem;">Track every metric that matters for your dental practice's growth. See real-time insights into patient acquisition, ROI by channel, website performance, and treatment acceptance rates.</p>
+    <button class="scroll-btn" onclick="document.querySelector('.dashboard-section').scrollIntoView({behavior: 'smooth'})">View Demo Dashboard</button>
+  </div>
+</section>
+
+<!-- INTERACTIVE DEMO DASHBOARD -->
+<section class="section dashboard-section" style="background: #f8f9fa;">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 0.5rem;">Interactive Demo Dashboard</h2>
+    <p style="text-align: center; color: #666; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">This dashboard demonstrates real-time KPI tracking. Hover over charts for detailed insights. These metrics update monthly and inform strategic marketing decisions.</p>
+
+    <!-- KPI CARDS -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">New Patients This Month</div>
+        <div class="kpi-value">47</div>
+        <div class="kpi-change positive">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+            <polyline points="17 6 23 6 23 12"></polyline>
+          </svg>
+          12% vs last month
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-label">Website Visitors</div>
+        <div class="kpi-value">3,842</div>
+        <div class="kpi-change positive">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+            <polyline points="17 6 23 6 23 12"></polyline>
+          </svg>
+          8% vs last month
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-label">Google Reviews</div>
+        <div class="kpi-value">4.8★</div>
+        <div style="color: #666; font-size: 0.9rem; margin-top: 0.3rem;">187 total reviews</div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-label">Cost Per Acquisition</div>
+        <div class="kpi-value">$127</div>
+        <div class="kpi-change positive">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline>
+            <polyline points="17 18 23 18 23 12"></polyline>
+          </svg>
+          15% improvement
+        </div>
+      </div>
+    </div>
+
+    <!-- MONTHLY TREND CHART -->
+    <div class="chart-container">
+      <div class="chart-title">New Patient Acquisition Trend</div>
+      <div class="chart-subtitle">12-month rolling analysis showing growth trajectory</div>
+      <div class="trend-chart">
+        <div class="trend-bars">
+          <div class="trend-bar-wrapper" style="flex-grow: 1;">
+            <div class="tooltip">32</div>
+            <div class="trend-bar" style="height: 60%;"></div>
+            <div class="trend-month">Jan</div>
+          </div>
+          <div class="trend-bar-wrapper" style="flex-grow: 1;">
+            <div class="tooltip">35</div>
+            <div class="trend-bar" style="height: 66%;"></div>
+            <div class="trend-month">Feb</div>
+          </div>
+          <div class="trend-bar-wrapper" style="flex-grow: 1;">
+            <div class="tooltip">38</div>
+            <div class="trend-bar" style="height: 72%;"></div>
+            <div class="trend-month">Mar</div>
+          </div>
+          <div class="trend-bar-wrapper" style="flex-grow: 1;">
+            <div class="tooltip">41</div>
+            <div class="trend-bar" style="height: 78%;"></div>
+            <div class="trend-month">Apr</div>
+          </div>
+          <div class="trend-bar-wrapper" style="flex-grow: 1;">
+            <div class="tooltip">39</div>
+            <div class="trend-bar" style="height: 74%;"></div>
+            <div class="trend-month">May</div>
+          </div>
+          <div class="trend-bar-wrapper" style="flex-grow: 1;">
+            <div class="tooltip">44</div>
+            <div class="trend-bar" style="height: 83%;"></div>
+            <div class="trend-month">Jun</div>
+          </div>
+          <div class="trend-bar-wrapper" style="flex-grow: 1;">
+            <div class="tooltip">42</div>
+            <div class="trend-bar" style="height: 80%;"></div>
+            <div class="trend-month">Jul</div>
+          </div>
+          <div class="trend-bar-wrapper" style="flex-grow: 1;">
+            <div class="tooltip">45</div>
+            <div class="trend-bar" style="height: 86%;"></div>
+            <div class="trend-month">Aug</div>
+          </div>
+          <div class="trend-bar-wrapper" style="flex-grow: 1;">
+            <div class="tooltip">43</div>
+            <div class="trend-bar" style="height: 82%;"></div>
+            <div class="trend-month">Sep</div>
+          </div>
+          <div class="trend-bar-wrapper" style="flex-grow: 1;">
+            <div class="tooltip">47</div>
+            <div class="trend-bar" style="height: 90%;"></div>
+            <div class="trend-month">Oct</div>
+          </div>
+          <div class="trend-bar-wrapper" style="flex-grow: 1;">
+            <div class="tooltip">48</div>
+            <div class="trend-bar" style="height: 92%;"></div>
+            <div class="trend-month">Nov</div>
+          </div>
+          <div class="trend-bar-wrapper" style="flex-grow: 1;">
+            <div class="tooltip">52</div>
+            <div class="trend-bar" style="height: 100%;"></div>
+            <div class="trend-month">Dec</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHANNEL PERFORMANCE -->
+    <div class="chart-container">
+      <div class="chart-title">New Patient Channel Performance</div>
+      <div class="chart-subtitle">Breakdown of patient acquisition by marketing channel</div>
+      <div class="bar-chart">
+        <div class="bar-row">
+          <div class="bar-label">Google Organic</div>
+          <div class="bar-wrapper">
+            <div class="bar gold" style="width: 34%;">34%</div>
+          </div>
+          <div class="bar-value">16 patients</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Google Ads (PPC)</div>
+          <div class="bar-wrapper">
+            <div class="bar" style="width: 22%;">22%</div>
+          </div>
+          <div class="bar-value">10 patients</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Patient Referrals</div>
+          <div class="bar-wrapper">
+            <div class="bar green" style="width: 18%;">18%</div>
+          </div>
+          <div class="bar-value">8 patients</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Social Media</div>
+          <div class="bar-wrapper">
+            <div class="bar gold" style="width: 12%;">12%</div>
+          </div>
+          <div class="bar-value">6 patients</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Direct/Walk-in</div>
+          <div class="bar-wrapper">
+            <div class="bar green" style="width: 8%;">8%</div>
+          </div>
+          <div class="bar-value">4 patients</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Other Sources</div>
+          <div class="bar-wrapper">
+            <div class="bar" style="width: 6%;">6%</div>
+          </div>
+          <div class="bar-value">3 patients</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TREATMENT ACCEPTANCE GAUGE -->
+    <div class="chart-container">
+      <div class="chart-title">Treatment Acceptance Rate</div>
+      <div class="chart-subtitle">Current performance vs. industry benchmark target</div>
+      <div class="gauge-container">
+        <svg class="gauge-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background arc -->
+          <path d="M 20 80 A 40 40 0 0 1 80 80" fill="none" stroke="#e5e5e5" stroke-width="8" stroke-linecap="round"/>
+          <!-- Target arc (65%) -->
+          <path d="M 20 80 A 40 40 0 0 1 59 31" fill="none" stroke="#f0f0f0" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
+          <!-- Current arc (73%) -->
+          <path d="M 20 80 A 40 40 0 0 1 66.5 29" fill="none" stroke="#D4A843" stroke-width="8" stroke-linecap="round"/>
+          <!-- Center text -->
+          <circle cx="50" cy="50" r="30" fill="white"/>
+          <text x="50" y="48" text-anchor="middle" font-size="24" font-weight="bold" fill="#1B2A4A">73%</text>
+          <text x="50" y="62" text-anchor="middle" font-size="10" fill="#999">vs 65% target</text>
+        </svg>
+      </div>
+      <div class="gauge-text">
+        <p style="color: #666; margin-top: 1rem;"><strong>Current:</strong> 73% • <strong>Target:</strong> 65% • <strong>Status:</strong> <span style="color: #22c55e; font-weight: 700;">Exceeding Goal</span></p>
+      </div>
+    </div>
+
+    <!-- ROI TABLE -->
+    <div class="chart-container">
+      <div class="chart-title">ROI by Channel</div>
+      <div class="chart-subtitle">Monthly spend, patient conversion, and return on investment analysis</div>
+      <table class="roi-table">
+        <thead>
+          <tr>
+            <th>Channel</th>
+            <th>Monthly Spend</th>
+            <th>New Patients</th>
+            <th>Total Revenue</th>
+            <th>ROI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="channel-name">Google SEO</td>
+            <td>$0</td>
+            <td>16</td>
+            <td>$19,200</td>
+            <td class="roi-value">∞ (Free organic)</td>
+          </tr>
+          <tr>
+            <td class="channel-name">Google Ads (PPC)</td>
+            <td>$2,400</td>
+            <td>10</td>
+            <td>$12,000</td>
+            <td class="roi-value">400%</td>
+          </tr>
+          <tr>
+            <td class="channel-name">Social Media</td>
+            <td>$800</td>
+            <td>6</td>
+            <td>$7,200</td>
+            <td class="roi-value">800%</td>
+          </tr>
+          <tr>
+            <td class="channel-name">Patient Referrals</td>
+            <td>$200</td>
+            <td>8</td>
+            <td>$9,600</td>
+            <td class="roi-value">4,700%</td>
+          </tr>
+          <tr>
+            <td class="channel-name">Direct Mail</td>
+            <td>$1,500</td>
+            <td>4</td>
+            <td>$4,800</td>
+            <td class="roi-value">220%</td>
+          </tr>
+          <tr style="background: #f9f9f9; font-weight: 700;">
+            <td class="channel-name">TOTAL</td>
+            <td>$4,900</td>
+            <td>47</td>
+            <td>$56,400</td>
+            <td class="roi-value">1,051%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- KPI DEFINITIONS -->
+<section class="section">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 3rem;">12 Essential Dental Marketing KPIs</h2>
+    <div class="kpi-definitions">
+      <div class="kpi-definition">
+        <h4>1. New Patients/Month</h4>
+        <p>Number of new patients acquired in a 30-day period. This is your north star metric.</p>
+        <div class="benchmark"><strong>Benchmark:</strong> 30-50 for single practice (growth varies by market size)</div>
+      </div>
+
+      <div class="kpi-definition">
+        <h4>2. Patient Acquisition Cost (CAC)</h4>
+        <p>Total marketing spend divided by new patients. Shows efficiency of your marketing.</p>
+        <div class="benchmark"><strong>Benchmark:</strong> $75-$200 depending on market and treatment value</div>
+      </div>
+
+      <div class="kpi-definition">
+        <h4>3. Cost Per Lead</h4>
+        <p>Marketing spend divided by total leads generated (inquiries, calls, form submissions).</p>
+        <div class="benchmark"><strong>Benchmark:</strong> $15-$40 per lead; varies by channel</div>
+      </div>
+
+      <div class="kpi-definition">
+        <h4>4. Website Traffic</h4>
+        <p>Total unique visitors to your practice website monthly. Indicates marketing reach.</p>
+        <div class="benchmark"><strong>Benchmark:</strong> 1,500-5,000+ monthly for established practices</div>
+      </div>
+
+      <div class="kpi-definition">
+        <h4>5. Conversion Rate (Visitor to Lead)</h4>
+        <p>Percentage of website visitors who submit a lead (call, contact form, booking). Measures page effectiveness.</p>
+        <div class="benchmark"><strong>Benchmark:</strong> 2-8% for dental practices</div>
+      </div>
+
+      <div class="kpi-definition">
+        <h4>6. Lead to Patient Conversion</h4>
+        <p>Percentage of leads that become scheduled appointments or new patients.</p>
+        <div class="benchmark"><strong>Benchmark:</strong> 20-40% depending on treatment and follow-up</div>
+      </div>
+
+      <div class="kpi-definition">
+        <h4>7. Average Patient Lifetime Value</h4>
+        <p>Expected total revenue from one patient over their lifetime relationship with your practice.</p>
+        <div class="benchmark"><strong>Benchmark:</strong> $1,200-$3,000+ based on treatment mix and retention</div>
+      </div>
+
+      <div class="kpi-definition">
+        <h4>8. ROI by Channel</h4>
+        <p>Return on investment for each marketing channel: (Revenue - Spend) / Spend × 100.</p>
+        <div class="benchmark"><strong>Benchmark:</strong> 300%+ for healthy channels; varies by channel type</div>
+      </div>
+
+      <div class="kpi-definition">
+        <h4>9. Treatment Acceptance Rate</h4>
+        <p>Percentage of recommended treatment plans accepted by patients. Reflects communication quality.</p>
+        <div class="benchmark"><strong>Benchmark:</strong> 65-80% for general dentistry</div>
+      </div>
+
+      <div class="kpi-definition">
+        <h4>10. Patient Retention Rate</h4>
+        <p>Percentage of patients who return for care within a 12-month period. Shows satisfaction.</p>
+        <div class="benchmark"><strong>Benchmark:</strong> 70-85% annual retention is healthy</div>
+      </div>
+
+      <div class="kpi-definition">
+        <h4>11. Online Reputation (Google Reviews)</h4>
+        <p>Average star rating and total review count on Google. Impacts local search ranking and trust.</p>
+        <div class="benchmark"><strong>Benchmark:</strong> 4.5+ stars with 100+ reviews is competitive</div>
+      </div>
+
+      <div class="kpi-definition">
+        <h4>12. Click-Through Rate (CTR)</h4>
+        <p>Percentage of people who click your ad or search result. Indicates ad relevance and messaging quality.</p>
+        <div class="benchmark"><strong>Benchmark:</strong> 3-8% for Google Ads; 1-5% for Google organic search</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY MEASUREMENT MATTERS -->
+<section class="section section-light">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 3rem;">What Gets Measured Gets Improved</h2>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+      <div class="education-box">
+        <h3>Why Tracking Metrics Matters</h3>
+        <ul>
+          <li>Without data, you're making decisions based on guesswork, not strategy</li>
+          <li>Metrics reveal which marketing channels actually work for your specific practice</li>
+          <li>You can't improve what you don't measure—analytics are your feedback loop</li>
+          <li>ROI data justifies marketing spend to management and stakeholders</li>
+          <li>Tracking trends helps you spot problems early and capitalize on what's working</li>
+          <li>Benchmarking against industry standards shows where you're competitive</li>
+        </ul>
+      </div>
+
+      <div class="education-box">
+        <h3>Common Mistakes Practices Make</h3>
+        <ul>
+          <li>Counting total social media followers instead of tracking actual patient conversions</li>
+          <li>Not attributing new patients to the correct channel (especially multi-touch journeys)</li>
+          <li>Focusing only on top-of-funnel metrics (clicks, impressions) while ignoring ROI</li>
+          <li>Comparing performance to another practice without adjusting for market differences</li>
+          <li>Setting vanity metrics instead of business outcome metrics</li>
+          <li>Never reviewing data—collecting it and leaving it in a spreadsheet</li>
+        </ul>
+      </div>
+
+      <div class="education-box">
+        <h3>How DMS Tools Help</h3>
+        <ul>
+          <li>Marketing Scorecard tracks all 11 channels in one place with real benchmarking</li>
+          <li>ROI Calculator shows you profit impact of each channel in under 2 minutes</li>
+          <li>Expert guidance on which metrics matter most for YOUR practice goals</li>
+          <li>Quarterly reviews with data experts ensure you're measuring the right things</li>
+          <li>Educational content showing exactly how to track each KPI correctly</li>
+          <li>Community insights from 10,000+ practices so you know what good looks like</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="background: #f0f0f0; padding: 2rem; border-radius: 8px; text-align: center; max-width: 800px; margin: 0 auto;">
+      <p style="font-size: 1.05rem; color: #555; line-height: 1.8; font-style: italic;">
+        "The practices that thrive are the ones that obsess over data. They know exactly what their CAC is, which channels work, and where to spend their next dollar. That clarity drives growth."
+      </p>
+      <p style="color: #999; margin-top: 1rem; font-size: 0.9rem;">— DMS Research, 2025</p>
+    </div>
+  </div>
+</section>
+
+<!-- DATA INTERPRETATION SECTION -->
+<section class="section">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 2rem;">Reading Your Dashboard: What The Numbers Mean</h2>
+
+    <div style="max-width: 900px; margin: 0 auto;">
+      <div style="background: white; border-radius: 8px; padding: 2rem; border-left: 4px solid #D4A843; margin-bottom: 1.5rem;">
+        <h4 style="color: #1B2A4A; margin-bottom: 1rem;">Growing New Patient Count</h4>
+        <p style="color: #666; line-height: 1.6;">If your new patient count is trending up month-over-month, your overall marketing strategy is working. This is your signal that awareness is growing, conversions are happening, and the market is responding to your message. Keep doing what's working, and lean into your best-performing channels.</p>
+      </div>
+
+      <div style="background: white; border-radius: 8px; padding: 2rem; border-left: 4px solid #2E75B6; margin-bottom: 1.5rem;">
+        <h4 style="color: #1B2A4A; margin-bottom: 1rem;">Declining CAC (Good Sign)</h4>
+        <p style="color: #666; line-height: 1.6;">When cost per acquisition drops, it means you're acquiring patients more efficiently. This happens when your messaging improves, your targeting sharpens, or you shift spend to your best-performing channels. A declining CAC means your remaining marketing budget can go further.</p>
+      </div>
+
+      <div style="background: white; border-radius: 8px; padding: 2rem; border-left: 4px solid #22c55e; margin-bottom: 1.5rem;">
+        <h4 style="color: #1B2A4A; margin-bottom: 1rem;">Channel Performance Variations</h4>
+        <p style="color: #666; line-height: 1.6;">Different channels serve different purposes. Organic search is a long game but low-cost. PPC is fast but expensive. Referrals are gold but hard to scale alone. The dashboard shows you the true ROI of each, helping you decide budget allocation. Your mix should balance brand-building with immediate demand generation.</p>
+      </div>
+
+      <div style="background: white; border-radius: 8px; padding: 2rem; border-left: 4px solid #D4A843;">
+        <h4 style="color: #1B2A4A; margin-bottom: 1rem;">Treatment Acceptance Rate Insights</h4>
+        <p style="color: #666; line-height: 1.6;">This metric reflects your entire patient experience, not just marketing. If it's below benchmark, look at clinical communication, case presentation, and patient education. If it's above benchmark, you've found something special—lean into it and document the process so it scales across your team.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="section section-dark" style="text-align: center;">
+  <div class="container">
+    <h2 style="color: white; margin-bottom: 1.5rem;">Ready to Track Your Practice Analytics?</h2>
+    <p style="color: rgba(255,255,255,0.8); margin-bottom: 2rem; font-size: 1.05rem; max-width: 600px; margin-left: auto; margin-right: auto;">Join DMS and get access to the Marketing Scorecard, ROI calculators, and benchmarking data to track all 12 KPIs. Plus, learn from 10,000+ practice owners in our community.</p>
+
+    <div class="cta-link-box" style="margin-bottom: 2rem;">
+      <h3>Start Your Free Analytics Access</h3>
+      <p style="margin-bottom: 1rem;">Access the full Marketing Scorecard and ROI tools when you join DMS.</p>
+      <a href="https://www.ekwa.com/msm/?utm_source=dms&utm_medium=page&utm_campaign=dms-analytics-dashboard">Join Free & Access Dashboard Tools</a>
+    </div>
+
+    <a href="membership.html" class="btn btn-gold btn-lg">View All DMS Benefits</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4 style="font-size:1.15rem;">Dental Marketing Society</h4>
+        <p>The #1 authority in dental practice marketing. Expert education, powerful tools, and a community of practice owners. Where dental practices grow.</p>
+        <p class="footer-ekwa">Brought to you by <strong>Ekwa Marketing</strong> - the leading search engine marketing company for dental practices.</p>
+      </div>
+      <div>
+        <h4>Marketing Channels</h4>
+        <a href="channel-seo.html">SEO & Local Search</a>
+        <a href="channel-ppc.html">PPC Advertising</a>
+        <a href="channel-social.html">Social Media</a>
+        <a href="channel-reputation.html">Reputation</a>
+        <a href="channel-website.html">Website & Conversion</a>
+        <a href="channel-email.html">Email Marketing</a>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <a href="../tools/scorecard.html">Marketing Scorecard</a>
+        <a href="../tools/roi-calculator.html">ROI Calculators</a>
+        <a href="../tools/budget-planner.html">Budget Planner</a>
+        <a href="podcast.html">Podcast</a>
+        <a href="events.html">Events & Webinars</a>
+        <a href="community.html">Community</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="about.html">About DMS</a>
+        <a href="membership.html">Membership</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://www.ekwa.com" target="_blank">Ekwa Marketing</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Dental Marketing Society. All rights reserved.</span>
+      <span>A product of <a href="https://www.ekwa.com" class="footer-ekwa" target="_blank">Ekwa Marketing</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

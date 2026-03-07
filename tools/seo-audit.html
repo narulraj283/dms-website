@@ -1,0 +1,1773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free SEO audit for your dental practice. Get a comprehensive analysis of your online visibility in under 2 minutes. Instant results with actionable recommendations.">
+    <title>Free Dental Practice SEO Audit | Ekwa Marketing</title>
+    <link rel="canonical" href="https://dms.narenlife.com/tools/seo-audit.html">
+    <meta property="og:url" content="https://dms.narenlife.com/tools/seo-audit.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Free Dental Practice SEO Audit">
+    <meta property="og:description" content="Get a comprehensive analysis of your practice's online visibility in under 2 minutes. Instant results with actionable recommendations.">
+    <meta property="og:site_name" content="Ekwa Marketing">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Dental Practice SEO Audit">
+    <meta name="twitter:description" content="Get a comprehensive analysis of your practice's online visibility in under 2 minutes.">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="../css/style.css?v=2" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1B2A4A;
+            --gold: #D4A843;
+            --blue: #2E75B6;
+            --light-gold: #FFF8E7;
+            --light-blue: #D5E8F0;
+            --red: #E85D5D;
+            --orange: #F59E0B;
+            --yellow: #FBBF24;
+            --green: #10B981;
+            --gray-light: #F3F4F6;
+            --gray-dark: #6B7280;
+            --gray-border: #E5E7EB;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f0f7 100%);
+            color: var(--navy);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            border-bottom: 3px solid var(--gold);
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.6rem;
+            color: var(--navy);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .header-link {
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .header-link:hover {
+            color: var(--gold);
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #253d5e 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(212, 168, 67, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: rgba(46, 117, 182, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .badge-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--navy);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 1.5rem;
+            flex: 1;
+        }
+
+        /* Tool Section */
+        .tool-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 3rem auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 850px;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background: var(--gray-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: var(--gray-border);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--blue), var(--gold));
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-size: 0.9rem;
+            color: var(--gray-dark);
+            font-weight: 600;
+        }
+
+        /* Form Sections */
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--navy);
+        }
+
+        /* Form Controls */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 0.95rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--gray-border);
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(46, 117, 182, 0.1);
+        }
+
+        /* Question Options */
+        .question-options {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .option input[type="radio"] {
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--blue);
+        }
+
+        .option label {
+            margin: 0;
+            cursor: pointer;
+            flex: 1;
+            font-weight: 500;
+        }
+
+        .question-container {
+            background: var(--gray-light);
+            padding: 1.25rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--blue);
+        }
+
+        .question-container h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+
+        /* Buttons */
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--blue), var(--navy));
+            color: white;
+            flex: 1;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(46, 117, 182, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--blue);
+            border: 2px solid var(--blue);
+            flex: 1;
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-blue);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Results Screen */
+        .results-section {
+            display: none;
+        }
+
+        .results-section.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .score-display {
+            background: linear-gradient(135deg, var(--navy), var(--blue));
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .score-gauge {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+        }
+
+        .gauge-circle {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .gauge-circle.critical {
+            background: linear-gradient(135deg, #E85D5D 0%, #d63031 100%);
+        }
+
+        .gauge-circle.needs-work {
+            background: linear-gradient(135deg, #F59E0B 0%, #f39c12 100%);
+        }
+
+        .gauge-circle.good {
+            background: linear-gradient(135deg, #FBBF24 0%, #f1c40f 100%);
+        }
+
+        .gauge-circle.excellent {
+            background: linear-gradient(135deg, #10B981 0%, #27ae60 100%);
+        }
+
+        .grade {
+            font-size: 1.2rem;
+            font-weight: 600;
+            opacity: 0.8;
+        }
+
+        .score-description {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .score-message {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Category Scores */
+        .category-scores {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .category-score {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            border-bottom: 1px solid var(--gray-border);
+        }
+
+        .category-score:last-child {
+            border-bottom: none;
+        }
+
+        .category-info h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            color: var(--navy);
+        }
+
+        .category-info p {
+            font-size: 0.85rem;
+            color: var(--gray-dark);
+        }
+
+        .category-bar {
+            flex: 1;
+            height: 8px;
+            background: var(--gray-border);
+            border-radius: 4px;
+            margin: 0 1rem;
+            overflow: hidden;
+            min-width: 100px;
+        }
+
+        .category-fill {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--blue), var(--gold));
+            transition: width 0.3s ease;
+        }
+
+        .category-percentage {
+            font-weight: 700;
+            color: var(--navy);
+            min-width: 45px;
+            text-align: right;
+        }
+
+        /* Priority Fixes */
+        .priority-fixes {
+            background: var(--light-gold);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--gold);
+            margin-bottom: 2rem;
+        }
+
+        .priority-fixes h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+
+        .fix-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 0.75rem;
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+        }
+
+        .fix-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .fix-number {
+            background: var(--blue);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+            font-size: 0.9rem;
+        }
+
+        .fix-content h5 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            color: var(--navy);
+        }
+
+        .fix-content p {
+            font-size: 0.9rem;
+            color: var(--gray-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .fix-link {
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .fix-link:hover {
+            color: var(--gold);
+        }
+
+        /* Email Capture */
+        .email-capture {
+            background: var(--light-blue);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .email-capture h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+
+        .email-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .email-form input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 2px solid var(--gray-border);
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .email-form button {
+            padding: 0.75rem 1.5rem;
+            background: var(--gold);
+            color: var(--navy);
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .email-form button:hover {
+            background: #c49530;
+            transform: translateY(-2px);
+        }
+
+        /* Print/PDF Button */
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-print {
+            flex: 1;
+            background: white;
+            color: var(--blue);
+            border: 2px solid var(--blue);
+        }
+
+        .btn-print:hover {
+            background: var(--light-blue);
+        }
+
+        .btn-cta {
+            flex: 1;
+            background: linear-gradient(135deg, var(--gold), #c49530);
+            color: var(--navy);
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 168, 67, 0.3);
+        }
+
+        /* Educational Content */
+        .edu-section {
+            background: white;
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+        }
+
+        .edu-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .edu-section h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: var(--navy);
+        }
+
+        /* Score Ranges */
+        .score-ranges {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .range-card {
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid;
+        }
+
+        .range-card.critical {
+            background: rgba(232, 93, 93, 0.1);
+            border-color: #E85D5D;
+        }
+
+        .range-card.needs-work {
+            background: rgba(245, 158, 11, 0.1);
+            border-color: #F59E0B;
+        }
+
+        .range-card.good {
+            background: rgba(251, 191, 36, 0.1);
+            border-color: #FBBF24;
+        }
+
+        .range-card.excellent {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: #10B981;
+        }
+
+        .range-card h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .range-card p {
+            font-size: 0.9rem;
+            color: var(--gray-dark);
+        }
+
+        /* Case Studies */
+        .case-studies {
+            margin-top: 3rem;
+        }
+
+        .case-studies h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--navy);
+        }
+
+        .study-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .study-card {
+            background: var(--gray-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-top: 4px solid var(--blue);
+            transition: transform 0.3s ease;
+        }
+
+        .study-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .study-card h5 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--navy);
+        }
+
+        .improvement {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: var(--green);
+        }
+
+        .study-description {
+            font-size: 0.9rem;
+            color: var(--gray-dark);
+            line-height: 1.5;
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            background: linear-gradient(135deg, var(--navy), var(--blue));
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-cta h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-cta p {
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .footer-cta .btn {
+            background: var(--gold);
+            color: var(--navy);
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+        }
+
+        .footer-cta .btn:hover {
+            background: #c49530;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            header h1 {
+                font-size: 1.3rem;
+            }
+
+            .hero {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .trust-badges {
+                gap: 1rem;
+            }
+
+            .tool-section {
+                padding: 1.5rem;
+                margin: 2rem 1rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .gauge-circle {
+                width: 120px;
+                height: 120px;
+                font-size: 2rem;
+            }
+
+            .email-form {
+                flex-direction: column;
+            }
+
+            .category-bar {
+                min-width: 50px;
+            }
+
+            .score-ranges {
+                grid-template-columns: 1fr;
+            }
+
+            .study-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+
+        @media print {
+            header, .button-group, .email-capture, .action-buttons {
+                display: none;
+            }
+
+            .tool-section {
+                box-shadow: none;
+                border: 1px solid var(--gray-border);
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Free Dental Practice SEO Audit",
+        "description": "Get a comprehensive analysis of your practice's online visibility in under 2 minutes",
+        "applicationCategory": "BusinessApplication",
+        "url": "https://dms.narenlife.com/tools/seo-audit.html",
+        "author": {
+            "@type": "Organization",
+            "name": "Ekwa Marketing",
+            "url": "https://www.ekwa.com"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>DMS</h1>
+        <a href="../index.html" class="header-link">← Back to Tools</a>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Free Dental Practice SEO Audit</h2>
+                <p>Get a comprehensive analysis of your practice's online visibility in under 2 minutes</p>
+                <div class="trust-badges">
+                    <div class="badge">
+                        <div class="badge-icon">✓</div>
+                        <span>Used by 3,200+ practices</span>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-icon">✓</div>
+                        <span>100% Free</span>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-icon">✓</div>
+                        <span>Instant Results</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO Audit Tool -->
+        <div class="container">
+            <section class="tool-section">
+                <!-- Progress Bar -->
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-text"><span id="currentStep">Step 1</span> of <span id="totalSteps">4</span></div>
+                </div>
+
+                <!-- Form -->
+                <form id="auditForm">
+                    <!-- Step 1: Practice Info -->
+                    <div class="form-section active" id="step1">
+                        <h3 class="section-title">Step 1: Practice Information</h3>
+
+                        <div class="form-group">
+                            <label for="practiceName">Practice Name *</label>
+                            <input type="text" id="practiceName" name="practiceName" required placeholder="Your Dental Practice">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="websiteURL">Website URL *</label>
+                            <input type="text" id="websiteURL" name="websiteURL" required placeholder="https://www.yourpractice.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location">City, State *</label>
+                            <input type="text" id="location" name="location" required placeholder="Denver, CO">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="yearsInPractice">Years in Practice *</label>
+                            <select id="yearsInPractice" name="yearsInPractice" required>
+                                <option value="">Select...</option>
+                                <option value="0">Less than 1 year</option>
+                                <option value="1">1-2 years</option>
+                                <option value="2">3-5 years</option>
+                                <option value="3">6-10 years</option>
+                                <option value="4">10+ years</option>
+                            </select>
+                        </div>
+
+                        <div class="button-group">
+                            <button type="button" class="btn btn-primary" onclick="nextStep()">Next</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Google Presence -->
+                    <div class="form-section" id="step2">
+                        <h3 class="section-title">Step 2: Google Presence</h3>
+
+                        <div class="question-container">
+                            <h4>Do you have a claimed & verified Google Business Profile?</h4>
+                            <div class="question-options">
+                                <div class="option">
+                                    <input type="radio" id="q1a" name="question1" value="0">
+                                    <label for="q1a">No</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q1b" name="question1" value="1">
+                                    <label for="q1b">Not sure / Unclaimed</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q1c" name="question1" value="2">
+                                    <label for="q1c">Yes, but needs updates</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q1d" name="question1" value="3">
+                                    <label for="q1d">Yes, fully optimized</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-container">
+                            <h4>How many Google reviews do you have?</h4>
+                            <div class="question-options">
+                                <div class="option">
+                                    <input type="radio" id="q2a" name="question2" value="0">
+                                    <label for="q2a">Less than 25</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q2b" name="question2" value="1">
+                                    <label for="q2b">25-50 reviews</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q2c" name="question2" value="2">
+                                    <label for="q2c">50-100 reviews</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q2d" name="question2" value="3">
+                                    <label for="q2d">100+ reviews</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-container">
+                            <h4>What's your average Google rating?</h4>
+                            <div class="question-options">
+                                <div class="option">
+                                    <input type="radio" id="q3a" name="question3" value="0">
+                                    <label for="q3a">Below 3.5 stars</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q3b" name="question3" value="1">
+                                    <label for="q3b">3.5 - 4.0 stars</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q3c" name="question3" value="2">
+                                    <label for="q3c">4.0 - 4.5 stars</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q3d" name="question3" value="3">
+                                    <label for="q3d">4.5+ stars</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-container">
+                            <h4>Do you respond to all Google reviews?</h4>
+                            <div class="question-options">
+                                <div class="option">
+                                    <input type="radio" id="q4a" name="question4" value="0">
+                                    <label for="q4a">Never</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q4b" name="question4" value="1">
+                                    <label for="q4b">Sometimes</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q4c" name="question4" value="2">
+                                    <label for="q4c">Most of them</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q4d" name="question4" value="3">
+                                    <label for="q4d">All of them</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-container">
+                            <h4>Is your NAP consistent across directories?</h4>
+                            <div class="question-options">
+                                <div class="option">
+                                    <input type="radio" id="q5a" name="question5" value="0">
+                                    <label for="q5a">Don't know</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q5b" name="question5" value="1">
+                                    <label for="q5b">No - inconsistencies found</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q5c" name="question5" value="2">
+                                    <label for="q5c">Partially - some inconsistencies</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q5d" name="question5" value="3">
+                                    <label for="q5d">Yes - fully consistent</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="button-group">
+                            <button type="button" class="btn btn-secondary" onclick="previousStep()">Back</button>
+                            <button type="button" class="btn btn-primary" onclick="nextStep()">Next</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Website Health -->
+                    <div class="form-section" id="step3">
+                        <h3 class="section-title">Step 3: Website Health</h3>
+
+                        <div class="question-container">
+                            <h4>Is your website mobile-friendly?</h4>
+                            <div class="question-options">
+                                <div class="option">
+                                    <input type="radio" id="q6a" name="question6" value="0">
+                                    <label for="q6a">No</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q6b" name="question6" value="1">
+                                    <label for="q6b">Somewhat / Not optimal</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q6c" name="question6" value="2">
+                                    <label for="q6c">Yes / Responsive</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q6d" name="question6" value="3">
+                                    <label for="q6d">Excellent / Mobile-first</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-container">
+                            <h4>Does your site load in under 3 seconds?</h4>
+                            <div class="question-options">
+                                <div class="option">
+                                    <input type="radio" id="q7a" name="question7" value="0">
+                                    <label for="q7a">No - it's slow (5+ seconds)</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q7b" name="question7" value="1">
+                                    <label for="q7b">Unsure / Varies</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q7c" name="question7" value="2">
+                                    <label for="q7c">Sometimes / 3-5 seconds</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q7d" name="question7" value="3">
+                                    <label for="q7d">Yes - loads quickly</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-container">
+                            <h4>Do you have unique content for each service page?</h4>
+                            <div class="question-options">
+                                <div class="option">
+                                    <input type="radio" id="q8a" name="question8" value="0">
+                                    <label for="q8a">No - generic content</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q8b" name="question8" value="1">
+                                    <label for="q8b">Some pages have unique content</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q8c" name="question8" value="2">
+                                    <label for="q8c">Most pages have unique content</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q8d" name="question8" value="3">
+                                    <label for="q8d">All pages have unique content</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-container">
+                            <h4>Do you have a blog with regular content?</h4>
+                            <div class="question-options">
+                                <div class="option">
+                                    <input type="radio" id="q9a" name="question9" value="0">
+                                    <label for="q9a">No blog</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q9b" name="question9" value="1">
+                                    <label for="q9b">Blog exists but rarely updated</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q9c" name="question9" value="2">
+                                    <label for="q9c">Monthly content updates</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q9d" name="question9" value="3">
+                                    <label for="q9d">Weekly or more frequent updates</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-container">
+                            <h4>Does your site have SSL (https)?</h4>
+                            <div class="question-options">
+                                <div class="option">
+                                    <input type="radio" id="q10a" name="question10" value="0">
+                                    <label for="q10a">No - still using HTTP</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q10b" name="question10" value="1">
+                                    <label for="q10b">Unsure</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q10c" name="question10" value="2">
+                                    <label for="q10c">Yes, partially implemented</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q10d" name="question10" value="3">
+                                    <label for="q10d">Yes - fully secured with SSL</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="button-group">
+                            <button type="button" class="btn btn-secondary" onclick="previousStep()">Back</button>
+                            <button type="button" class="btn btn-primary" onclick="nextStep()">Next</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Local SEO -->
+                    <div class="form-section" id="step4">
+                        <h3 class="section-title">Step 4: Local SEO</h3>
+
+                        <div class="question-container">
+                            <h4>Are you listed in major dental directories?</h4>
+                            <div class="question-options">
+                                <div class="option">
+                                    <input type="radio" id="q11a" name="question11" value="0">
+                                    <label for="q11a">Not listed in any</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q11b" name="question11" value="1">
+                                    <label for="q11b">Listed in a few (1-2)</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q11c" name="question11" value="2">
+                                    <label for="q11c">Listed in some (3-5)</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q11d" name="question11" value="3">
+                                    <label for="q11d">Listed in all major directories</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-container">
+                            <h4>Do you have location-specific landing pages?</h4>
+                            <div class="question-options">
+                                <div class="option">
+                                    <input type="radio" id="q12a" name="question12" value="0">
+                                    <label for="q12a">No location pages</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q12b" name="question12" value="1">
+                                    <label for="q12b">1 location page</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q12c" name="question12" value="2">
+                                    <label for="q12c">2-3 location pages</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q12d" name="question12" value="3">
+                                    <label for="q12d">4 or more location pages</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-container">
+                            <h4>Do you track keyword rankings?</h4>
+                            <div class="question-options">
+                                <div class="option">
+                                    <input type="radio" id="q13a" name="question13" value="0">
+                                    <label for="q13a">No tracking</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q13b" name="question13" value="1">
+                                    <label for="q13b">Occasionally check</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q13c" name="question13" value="2">
+                                    <label for="q13c">Track monthly</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q13d" name="question13" value="3">
+                                    <label for="q13d">Track weekly</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-container">
+                            <h4>Are you doing any link building?</h4>
+                            <div class="question-options">
+                                <div class="option">
+                                    <input type="radio" id="q14a" name="question14" value="0">
+                                    <label for="q14a">No link building</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q14b" name="question14" value="1">
+                                    <label for="q14b">Rarely / Ad hoc links</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q14c" name="question14" value="2">
+                                    <label for="q14c">Occasionally pursue links</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q14d" name="question14" value="3">
+                                    <label for="q14d">Actively building links</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-container">
+                            <h4>Do you have schema markup on your site?</h4>
+                            <div class="question-options">
+                                <div class="option">
+                                    <input type="radio" id="q15a" name="question15" value="0">
+                                    <label for="q15a">Don't know / None implemented</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q15b" name="question15" value="1">
+                                    <label for="q15b">No schema markup</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q15c" name="question15" value="2">
+                                    <label for="q15c">Partially implemented</label>
+                                </div>
+                                <div class="option">
+                                    <input type="radio" id="q15d" name="question15" value="3">
+                                    <label for="q15d">Yes - fully implemented</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="button-group">
+                            <button type="button" class="btn btn-secondary" onclick="previousStep()">Back</button>
+                            <button type="button" class="btn btn-primary" onclick="submitForm()">Get My SEO Score</button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Results Screen -->
+                <div class="results-section" id="resultsSection">
+                    <h3 class="section-title" style="text-align: center; margin-bottom: 2rem;">Your SEO Audit Results</h3>
+
+                    <!-- Overall Score -->
+                    <div class="score-display">
+                        <div class="score-gauge">
+                            <div class="gauge-circle" id="scoreGauge">
+                                <span id="scoreNumber">75</span>
+                                <span class="grade" id="scoreGrade">B</span>
+                            </div>
+                        </div>
+                        <div class="score-description" id="scoreTitle">Good Progress</div>
+                        <div class="score-message" id="scoreMessage">Your dental practice has a solid SEO foundation with room for optimization.</div>
+                    </div>
+
+                    <!-- Category Scores -->
+                    <div class="category-scores">
+                        <div class="category-score">
+                            <div class="category-info">
+                                <h4>Google Presence</h4>
+                                <p>Local visibility & reviews</p>
+                            </div>
+                            <div class="category-bar">
+                                <div class="category-fill" id="googleBar" style="width: 75%"></div>
+                            </div>
+                            <div class="category-percentage" id="googleScore">75%</div>
+                        </div>
+                        <div class="category-score">
+                            <div class="category-info">
+                                <h4>Website Health</h4>
+                                <p>Technical & content</p>
+                            </div>
+                            <div class="category-bar">
+                                <div class="category-fill" id="websiteBar" style="width: 75%"></div>
+                            </div>
+                            <div class="category-percentage" id="websiteScore">75%</div>
+                        </div>
+                        <div class="category-score">
+                            <div class="category-info">
+                                <h4>Local SEO</h4>
+                                <p>Citations & optimization</p>
+                            </div>
+                            <div class="category-bar">
+                                <div class="category-fill" id="localBar" style="width: 75%"></div>
+                            </div>
+                            <div class="category-percentage" id="localScore">75%</div>
+                        </div>
+                    </div>
+
+                    <!-- Priority Fixes -->
+                    <div class="priority-fixes">
+                        <h3>Top 3 Priority Fixes</h3>
+                        <div id="priorityFixesContainer"></div>
+                    </div>
+
+                    <!-- Email Capture -->
+                    <div class="email-capture">
+                        <h4>Get Your Detailed Report</h4>
+                        <div class="email-form">
+                            <input type="email" id="reportEmail" placeholder="your@email.com" required>
+                            <button type="button" onclick="sendReport()">Send Report</button>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <button class="btn btn-print" onclick="window.print()">Print / PDF</button>
+                        <a href="https://www.ekwa.com/msm/?utm_source=dms&utm_medium=tool&utm_campaign=dms-seo-audit" target="_blank" class="btn btn-cta">Get Your Full SEO Strategy</a>
+                    </div>
+
+                    <!-- Start Over -->
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button class="btn btn-secondary" onclick="resetForm()" style="display: inline-block; width: auto;">Start Over</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Educational Content -->
+        <section class="edu-section">
+            <div class="edu-container">
+                <h3>Understanding Your SEO Score</h3>
+
+                <div class="score-ranges">
+                    <div class="range-card critical">
+                        <h4>0-25: Critical</h4>
+                        <p>Your SEO needs immediate attention. Major improvements needed to compete locally.</p>
+                    </div>
+                    <div class="range-card needs-work">
+                        <h4>26-50: Needs Work</h4>
+                        <p>Significant opportunities for improvement. Focus on fundamentals and quick wins.</p>
+                    </div>
+                    <div class="range-card good">
+                        <h4>51-75: Good</h4>
+                        <p>Solid foundation in place. Continue optimizing and filling gaps to reach excellence.</p>
+                    </div>
+                    <div class="range-card excellent">
+                        <h4>76-100: Excellent</h4>
+                        <p>Industry-leading SEO performance. Continue maintaining and improving your advantage.</p>
+                    </div>
+                </div>
+
+                <!-- Case Studies -->
+                <div class="case-studies">
+                    <h4>Practices That Improved Their Scores</h4>
+                    <div class="study-grid">
+                        <div class="study-card">
+                            <h5>Bright Smile Dental</h5>
+                            <div class="improvement">
+                                <span>↑</span> 42 to 78 (36 point increase)
+                            </div>
+                            <p class="study-description">"After optimizing our Google Business Profile and publishing a content strategy, our new patient calls increased by 23% in just 4 months."</p>
+                        </div>
+                        <div class="study-card">
+                            <h5>Downtown Orthodontics</h5>
+                            <div class="improvement">
+                                <span>↑</span> 38 to 71 (33 point increase)
+                            </div>
+                            <p class="study-description">"Implementing local citations and fixing technical SEO issues put us on the first page for our key search terms within 6 weeks."</p>
+                        </div>
+                        <div class="study-card">
+                            <h5>Cosmetic Dental Group</h5>
+                            <div class="improvement">
+                                <span>↑</span> 55 to 89 (34 point increase)
+                            </div>
+                            <p class="study-description">"A comprehensive link building strategy and regular blog content established us as the authority in our market."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer CTA -->
+        <section class="footer-cta">
+            <h3>Ready to Transform Your SEO?</h3>
+            <p>Get a personalized strategy to dominate local search and attract more patients.</p>
+            <a href="https://www.ekwa.com/msm/?utm_source=dms&utm_medium=tool&utm_campaign=dms-seo-audit" target="_blank" class="btn">Get Your Full Strategy</a>
+        </section>
+    </main>
+
+    <script>
+        // Form State Management
+        let currentStep = 1;
+        const totalSteps = 4;
+        let formData = {};
+        let scores = {
+            googlePresence: 0,
+            websiteHealth: 0,
+            localSEO: 0
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProgress();
+        });
+
+        // Step Navigation
+        function nextStep() {
+            if (validateStep(currentStep)) {
+                currentStep++;
+                updateProgress();
+                showStep(currentStep);
+                window.scrollTo(0, document.querySelector('.tool-section').offsetTop - 100);
+            }
+        }
+
+        function previousStep() {
+            currentStep--;
+            updateProgress();
+            showStep(currentStep);
+            window.scrollTo(0, document.querySelector('.tool-section').offsetTop - 100);
+        }
+
+        function showStep(step) {
+            document.querySelectorAll('.form-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById('step' + step).classList.add('active');
+        }
+
+        function updateProgress() {
+            const progress = (currentStep / totalSteps) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('currentStep').textContent = currentStep;
+        }
+
+        // Validation
+        function validateStep(step) {
+            if (step === 1) {
+                const practiceName = document.getElementById('practiceName').value.trim();
+                const websiteURL = document.getElementById('websiteURL').value.trim();
+                const location = document.getElementById('location').value.trim();
+                const yearsInPractice = document.getElementById('yearsInPractice').value;
+
+                if (!practiceName || !websiteURL || !location || !yearsInPractice) {
+                    alert('Please fill in all fields.');
+                    return false;
+                }
+
+                formData.practiceName = practiceName;
+                formData.websiteURL = websiteURL;
+                formData.location = location;
+                formData.yearsInPractice = yearsInPractice;
+                return true;
+            } else if (step === 2) {
+                for (let i = 1; i <= 5; i++) {
+                    if (!document.querySelector(`input[name="question${i}"]:checked`)) {
+                        alert('Please answer all questions in this section.');
+                        return false;
+                    }
+                }
+                return true;
+            } else if (step === 3) {
+                for (let i = 6; i <= 10; i++) {
+                    if (!document.querySelector(`input[name="question${i}"]:checked`)) {
+                        alert('Please answer all questions in this section.');
+                        return false;
+                    }
+                }
+                return true;
+            } else if (step === 4) {
+                for (let i = 11; i <= 15; i++) {
+                    if (!document.querySelector(`input[name="question${i}"]:checked`)) {
+                        alert('Please answer all questions in this section.');
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return true;
+        }
+
+        // Form Submission & Scoring
+        function submitForm() {
+            if (!validateStep(4)) return;
+
+            // Calculate scores
+            let googlePresenceScore = 0;
+            let websiteHealthScore = 0;
+            let localSEOScore = 0;
+
+            // Google Presence (Questions 1-5)
+            for (let i = 1; i <= 5; i++) {
+                const value = parseInt(document.querySelector(`input[name="question${i}"]:checked`).value);
+                googlePresenceScore += value;
+            }
+            googlePresenceScore = Math.round((googlePresenceScore / 15) * 100);
+
+            // Website Health (Questions 6-10)
+            for (let i = 6; i <= 10; i++) {
+                const value = parseInt(document.querySelector(`input[name="question${i}"]:checked`).value);
+                websiteHealthScore += value;
+            }
+            websiteHealthScore = Math.round((websiteHealthScore / 15) * 100);
+
+            // Local SEO (Questions 11-15)
+            for (let i = 11; i <= 15; i++) {
+                const value = parseInt(document.querySelector(`input[name="question${i}"]:checked`).value);
+                localSEOScore += value;
+            }
+            localSEOScore = Math.round((localSEOScore / 15) * 100);
+
+            // Overall Score
+            const overallScore = Math.round((googlePresenceScore + websiteHealthScore + localSEOScore) / 3);
+
+            scores = {
+                overall: overallScore,
+                googlePresence: googlePresenceScore,
+                websiteHealth: websiteHealthScore,
+                localSEO: localSEOScore
+            };
+
+            displayResults(scores);
+        }
+
+        function displayResults(scores) {
+            // Hide form, show results
+            document.getElementById('auditForm').style.display = 'none';
+            document.getElementById('resultsSection').classList.add('active');
+
+            const overall = scores.overall;
+
+            // Determine grade and color
+            let grade, title, message, gaugeClass;
+            if (overall >= 76) {
+                grade = 'A';
+                title = 'Excellent';
+                message = 'Your dental practice is an SEO leader in your market. Keep optimizing to maintain your competitive advantage.';
+                gaugeClass = 'excellent';
+            } else if (overall >= 51) {
+                grade = 'B';
+                title = 'Good Progress';
+                message = 'Your dental practice has a solid SEO foundation with room for optimization.';
+                gaugeClass = 'good';
+            } else if (overall >= 26) {
+                grade = 'C';
+                title = 'Needs Work';
+                message = 'Significant SEO opportunities exist. Focus on the priority fixes below to improve visibility.';
+                gaugeClass = 'needs-work';
+            } else {
+                grade = 'F';
+                title = 'Critical';
+                message = 'Your SEO needs immediate attention. Major improvements needed to compete locally.';
+                gaugeClass = 'critical';
+            }
+
+            // Update overall score display
+            document.getElementById('scoreNumber').textContent = overall;
+            document.getElementById('scoreGrade').textContent = grade;
+            document.getElementById('scoreTitle').textContent = title;
+            document.getElementById('scoreMessage').textContent = message;
+            document.getElementById('scoreGauge').className = 'gauge-circle ' + gaugeClass;
+
+            // Update category scores
+            document.getElementById('googleScore').textContent = scores.googlePresence + '%';
+            document.getElementById('googleBar').style.width = scores.googlePresence + '%';
+            document.getElementById('websiteScore').textContent = scores.websiteHealth + '%';
+            document.getElementById('websiteBar').style.width = scores.websiteHealth + '%';
+            document.getElementById('localScore').textContent = scores.localSEO + '%';
+            document.getElementById('localBar').style.width = scores.localSEO + '%';
+
+            // Generate priority fixes
+            generatePriorityFixes(scores);
+
+            window.scrollTo(0, document.querySelector('.tool-section').offsetTop - 100);
+        }
+
+        function generatePriorityFixes(scores) {
+            // Create array of categories with their scores
+            const categories = [
+                {
+                    name: 'Google Business Profile Optimization',
+                    description: 'Claim and verify your Google Business Profile, optimize it completely.',
+                    link: './google-business-profile-optimization.html',
+                    score: scores.googlePresence,
+                    priority: 'Google Presence'
+                },
+                {
+                    name: 'Get More Google Reviews',
+                    description: 'Increase the number of reviews and maintain your rating above 4.5 stars.',
+                    link: './get-more-dental-reviews.html',
+                    score: scores.googlePresence,
+                    priority: 'Google Presence'
+                },
+                {
+                    name: 'Dental Website Design Guide',
+                    description: 'Ensure your website is mobile-friendly, fast, and optimized for user experience.',
+                    link: './dental-website-design-guide.html',
+                    score: scores.websiteHealth,
+                    priority: 'Website Health'
+                },
+                {
+                    name: 'Dental Website SEO Content',
+                    description: 'Create unique, keyword-optimized content for each service page.',
+                    link: './dental-website-seo-content.html',
+                    score: scores.websiteHealth,
+                    priority: 'Website Health'
+                },
+                {
+                    name: 'Local Citations Guide',
+                    description: 'Get listed in major dental directories and maintain consistent NAP.',
+                    link: './local-citations-guide.html',
+                    score: scores.localSEO,
+                    priority: 'Local SEO'
+                },
+                {
+                    name: 'Dental SEO Basics',
+                    description: 'Learn the fundamentals of SEO for dental practices.',
+                    link: './dental-seo-basics.html',
+                    score: scores.localSEO,
+                    priority: 'Local SEO'
+                }
+            ];
+
+            // Sort by score (lowest first = most priority)
+            categories.sort((a, b) => a.score - b.score);
+
+            // Build HTML for top 3
+            let html = '';
+            for (let i = 0; i < 3; i++) {
+                const cat = categories[i];
+                html += `
+                    <div class="fix-item">
+                        <div class="fix-number">${i + 1}</div>
+                        <div class="fix-content">
+                            <h5>${cat.name}</h5>
+                            <p>${cat.description}</p>
+                            <a href="../articles${cat.link}" class="fix-link">Learn more →</a>
+                        </div>
+                    </div>
+                `;
+            }
+
+            document.getElementById('priorityFixesContainer').innerHTML = html;
+        }
+
+        function sendReport() {
+            const email = document.getElementById('reportEmail').value.trim();
+            if (!email || !email.includes('@')) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            // In production, this would send data to your backend
+            alert(`Report will be sent to ${email}. Thank you!`);
+        }
+
+        function resetForm() {
+            currentStep = 1;
+            formData = {};
+            document.getElementById('auditForm').reset();
+            document.getElementById('auditForm').style.display = 'block';
+            document.getElementById('resultsSection').classList.remove('active');
+            updateProgress();
+            showStep(1);
+            window.scrollTo(0, document.querySelector('.tool-section').offsetTop - 100);
+        }
+    </script>
+</body>
+</html>

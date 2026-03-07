@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DMS Social Media Content Calendar - 30 days of ready-to-post dental practice content. Customize and publish content for Instagram, Facebook, LinkedIn, and TikTok.">
+    <title>Social Media Content Calendar | DMS</title>
+    <link rel="canonical" href="https://dms.narenlife.com/tools/social-calendar.html">
+    <meta property="og:url" content="https://dms.narenlife.com/tools/social-calendar.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="DMS Social Media Content Calendar">
+    <meta property="og:description" content="30 days of ready-to-post dental practice content — just customize and publish">
+    <meta property="og:site_name" content="Dental Marketing Strategy">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DMS Social Media Content Calendar">
+    <meta name="twitter:description" content="30 days of ready-to-post dental practice content — just customize and publish">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css?v=2">
+
+    <style>
+        :root {
+            --navy: #1B2A4A;
+            --gold: #D4A843;
+            --blue: #2E75B6;
+            --light-gold: #FFF8E7;
+            --light-blue: #D5E8F0;
+            --red: #E85D5D;
+            --orange: #F59E0B;
+            --yellow: #FBBF24;
+            --green: #10B981;
+            --purple: #8B5CF6;
+            --pink: #EC4899;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f0f7 100%);
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            border-bottom: 3px solid var(--gold);
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.6rem;
+            color: var(--navy);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .header-link {
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .header-link:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #0F1A2E 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 4px solid var(--gold);
+        }
+
+        .hero h2 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.8px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 500;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Controls Section */
+        .controls-section {
+            background: white;
+            padding: 2rem;
+            margin: 2rem auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            max-width: 1200px;
+        }
+
+        .controls-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .control-group label {
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .control-group select {
+            padding: 0.75rem 1rem;
+            border: 2px solid #E5E7EB;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: var(--navy);
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+            background-color: white;
+        }
+
+        .control-group select:hover {
+            border-color: var(--blue);
+        }
+
+        .control-group select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.1);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.25rem;
+            border: 2px solid #E5E7EB;
+            background: white;
+            color: var(--navy);
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--blue);
+            background: var(--light-blue);
+        }
+
+        .filter-btn.active {
+            background: var(--blue);
+            color: white;
+            border-color: var(--blue);
+        }
+
+        /* Calendar Grid */
+        .calendar-container {
+            background: white;
+            padding: 2rem;
+            margin: 2rem auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            max-width: 1200px;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .calendar-day {
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            padding: 1.25rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+            position: relative;
+        }
+
+        .calendar-day:hover {
+            border-color: var(--blue);
+            box-shadow: 0 6px 16px rgba(46, 117, 182, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .calendar-day.hidden {
+            display: none;
+        }
+
+        .day-number {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .day-weekday {
+            font-size: 0.85rem;
+            color: #6B7280;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .content-meta {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .platform-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .platform-ig {
+            background: linear-gradient(45deg, #F58529, #DD2A7B);
+        }
+
+        .platform-fb {
+            background: #1877F2;
+        }
+
+        .platform-li {
+            background: #0A66C2;
+        }
+
+        .platform-tiktok {
+            background: #000000;
+        }
+
+        .content-badge {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+
+        .badge-edu {
+            background: #DFF3F9;
+            color: var(--blue);
+        }
+
+        .badge-bts {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+
+        .badge-testimonial {
+            background: #DCF7EC;
+            color: var(--green);
+        }
+
+        .badge-promo {
+            background: #FED7AA;
+            color: #92400E;
+        }
+
+        .badge-holiday {
+            background: #F3E8FF;
+            color: var(--purple);
+        }
+
+        .badge-engagement {
+            background: #FCE7F3;
+            color: var(--pink);
+        }
+
+        .day-title {
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 0.95rem;
+            margin-top: 0.75rem;
+            line-height: 1.4;
+        }
+
+        /* Expanded Content Card */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--navy);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--blue);
+        }
+
+        .modal-header {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--light-blue);
+        }
+
+        .modal-day {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--blue);
+        }
+
+        .content-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .content-label {
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            display: block;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .content-value {
+            color: #374151;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            padding: 1rem;
+            background: var(--light-blue);
+            border-radius: 6px;
+            border-left: 4px solid var(--blue);
+        }
+
+        .hashtag-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin-top: 0.75rem;
+        }
+
+        .hashtag-item {
+            background: var(--light-gold);
+            padding: 0.5rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--navy);
+            font-weight: 500;
+            text-align: center;
+            word-break: break-word;
+        }
+
+        .button-group-modal {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1D5A96;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--light-gold);
+            color: var(--navy);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gold);
+            color: white;
+        }
+
+        .copy-feedback {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: var(--green);
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            animation: slideIn 0.3s ease;
+            display: none;
+        }
+
+        .copy-feedback.show {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Content Pillars Section */
+        .pillars-section {
+            background: white;
+            padding: 2rem;
+            margin: 2rem auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            max-width: 1200px;
+        }
+
+        .section-title {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .pillar-card {
+            background: linear-gradient(135deg, var(--light-blue) 0%, #E8F0F7 100%);
+            padding: 1.75rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--blue);
+            transition: all 0.3s ease;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(46, 117, 182, 0.15);
+        }
+
+        .pillar-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .pillar-title {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .pillar-desc {
+            font-size: 0.9rem;
+            color: #374151;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .pillar-frequency {
+            font-size: 0.85rem;
+            color: var(--blue);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        /* Hashtag Library Section */
+        .hashtag-section {
+            background: white;
+            padding: 2rem;
+            margin: 2rem auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            max-width: 1200px;
+        }
+
+        .hashtag-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .hashtag-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .hashtag-category {
+            padding: 1.5rem;
+            background: var(--light-blue);
+            border-radius: 8px;
+            border-left: 4px solid var(--blue);
+        }
+
+        .category-title {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .hashtag-list-column {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .hashtag-item-full {
+            padding: 0.5rem 0.75rem;
+            background: white;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--blue);
+            font-weight: 600;
+            border-left: 3px solid var(--gold);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .hashtag-item-full:hover {
+            background: var(--light-gold);
+            transform: translateX(4px);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--navy) 0%, #0F1A2E 100%);
+            color: white;
+            padding: 3rem 2rem;
+            margin: 2rem auto;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            max-width: 1200px;
+            text-align: center;
+            border-top: 4px solid var(--gold);
+        }
+
+        .cta-title {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .cta-text {
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.95);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 1rem 2.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            letter-spacing: 0.3px;
+        }
+
+        .cta-button:hover {
+            background: #E8BF56;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(212, 168, 67, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            header h1 {
+                font-size: 1.3rem;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .controls-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .calendar-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                padding: 1.5rem;
+            }
+
+            .hashtag-categories {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-title {
+                font-size: 1.5rem;
+            }
+
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .calendar-day {
+                padding: 1rem;
+            }
+
+            .hashtag-list {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group-modal {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>DMS</h1>
+        <a href="../" class="header-link">Back to Tools</a>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h2>DMS Social Media Content Calendar</h2>
+        <p>30 days of ready-to-post dental practice content — just customize and publish</p>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Controls Section -->
+        <div class="controls-section">
+            <div class="controls-grid">
+                <div class="control-group">
+                    <label for="monthSelect">Month:</label>
+                    <select id="monthSelect">
+                        <option value="current">Current Month</option>
+                        <option value="next">Next Month</option>
+                        <option value="previous">Previous Month</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label>Platform:</label>
+                    <div class="button-group">
+                        <button class="filter-btn active" data-platform="all">All</button>
+                        <button class="filter-btn" data-platform="instagram">Instagram</button>
+                        <button class="filter-btn" data-platform="facebook">Facebook</button>
+                        <button class="filter-btn" data-platform="linkedin">LinkedIn</button>
+                        <button class="filter-btn" data-platform="tiktok">TikTok</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Content Type:</label>
+                    <div class="button-group">
+                        <button class="filter-btn active" data-content="all">All</button>
+                        <button class="filter-btn" data-content="educational">Educational</button>
+                        <button class="filter-btn" data-content="behind-the-scenes">BTS</button>
+                        <button class="filter-btn" data-content="testimonial">Testimonial</button>
+                        <button class="filter-btn" data-content="promotional">Promo</button>
+                        <button class="filter-btn" data-content="engagement">Engagement</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calendar Grid -->
+        <div class="calendar-container">
+            <h3 class="section-title">30-Day Content Calendar</h3>
+            <div class="calendar-grid" id="calendarGrid"></div>
+        </div>
+
+        <!-- Content Modal -->
+        <div class="modal" id="contentModal">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+                <div class="copy-feedback" id="copyFeedback">Copied to clipboard!</div>
+                <div class="modal-header">
+                    <div class="modal-day" id="modalDay"></div>
+                    <div class="modal-title" id="modalTitle"></div>
+                </div>
+
+                <div class="content-section">
+                    <label class="content-label">Platform Recommendation</label>
+                    <div class="content-value" id="modalPlatform"></div>
+                </div>
+
+                <div class="content-section">
+                    <label class="content-label">Best Posting Time</label>
+                    <div class="content-value" id="modalTime"></div>
+                </div>
+
+                <div class="content-section">
+                    <label class="content-label">Post Caption</label>
+                    <div class="content-value" id="modalCaption"></div>
+                </div>
+
+                <div class="content-section">
+                    <label class="content-label">Image Suggestion</label>
+                    <div class="content-value" id="modalImage"></div>
+                </div>
+
+                <div class="content-section">
+                    <label class="content-label">Suggested Hashtags</label>
+                    <div class="hashtag-list" id="modalHashtags"></div>
+                </div>
+
+                <div class="button-group-modal">
+                    <button class="btn btn-primary" onclick="copyCaption()">📋 Copy Caption</button>
+                    <button class="btn btn-secondary" onclick="closeModal()">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Pillars Section -->
+        <div class="pillars-section">
+            <h3 class="section-title">5 Content Pillars</h3>
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-icon">🦷</div>
+                    <h4 class="pillar-title">Educational</h4>
+                    <p class="pillar-desc">Dental tips, oral health facts, myth-busting, treatment explanations, and patient education content that positions you as an expert.</p>
+                    <div class="pillar-frequency">2-3x per week • All platforms</div>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-icon">👥</div>
+                    <h4 class="pillar-title">Behind-the-Scenes</h4>
+                    <p class="pillar-desc">Team photos, office tours, treatment process videos, staff spotlights, and day-in-the-life content to build trust and personality.</p>
+                    <div class="pillar-frequency">2x per week • IG, TikTok, FB</div>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-icon">⭐</div>
+                    <h4 class="pillar-title">Social Proof</h4>
+                    <p class="pillar-desc">Patient testimonials, before-and-after results, case studies, 5-star reviews, and success stories that build credibility and trust.</p>
+                    <div class="pillar-frequency">2-3x per week • All platforms</div>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-icon">🎯</div>
+                    <h4 class="pillar-title">Promotional</h4>
+                    <p class="pillar-desc">Special offers, discounts, seasonal promotions, new services, appointment reminders, and CTA-focused content to drive business.</p>
+                    <div class="pillar-frequency">1-2x per week • IG, FB, LinkedIn</div>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-icon">💬</div>
+                    <h4 class="pillar-title">Engagement</h4>
+                    <p class="pillar-desc">Polls, quizzes, trivia, relatable humor, trending audio/formats, and interactive content to boost reach and community interaction.</p>
+                    <div class="pillar-frequency">1-2x per week • IG, TikTok, FB</div>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-icon">🎉</div>
+                    <h4 class="pillar-title">Community & Lifestyle</h4>
+                    <p class="pillar-desc">Local events, patient appreciation, holidays, wellness tips, lifestyle content that connects your practice to community interests.</p>
+                    <div class="pillar-frequency">1-2x per week • All platforms</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hashtag Library Section -->
+        <div class="hashtag-section">
+            <div class="hashtag-header">
+                <h3 class="section-title">Hashtag Library</h3>
+                <button class="btn btn-primary" onclick="copyAllHashtags()">📋 Copy All Hashtags</button>
+            </div>
+
+            <div class="hashtag-categories">
+                <div class="hashtag-category">
+                    <div class="category-title">General Dental</div>
+                    <div class="hashtag-list-column">
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#DentalCare</div>
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#DentistLife</div>
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#OralHealth</div>
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#HealthySmile</div>
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#DentalHealth</div>
+                    </div>
+                </div>
+
+                <div class="hashtag-category">
+                    <div class="category-title">Cosmetic Dentistry</div>
+                    <div class="hashtag-list-column">
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#SmileDesign</div>
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#ToothWhitening</div>
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#VeneersMagic</div>
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#BeforeAndAfter</div>
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#SmileMakeover</div>
+                    </div>
+                </div>
+
+                <div class="hashtag-category">
+                    <div class="category-title">Practice Engagement</div>
+                    <div class="hashtag-list-column">
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#DentistRecommended</div>
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#PatientCare</div>
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#TeamTuesday</div>
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#SmileOfTheWeek</div>
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#DentalFacts</div>
+                    </div>
+                </div>
+
+                <div class="hashtag-category">
+                    <div class="category-title">Lifestyle & Health</div>
+                    <div class="hashtag-list-column">
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#WellnessJourney</div>
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#HealthyHabits</div>
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#SelfCare</div>
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#Wellness</div>
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#HealthTips</div>
+                    </div>
+                </div>
+
+                <div class="hashtag-category">
+                    <div class="category-title">Treatment Focused</div>
+                    <div class="hashtag-list-column">
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#Orthodontics</div>
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#ImplantDentistry</div>
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#RootCanal</div>
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#DentalCleaning</div>
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#FamilyDentistry</div>
+                    </div>
+                </div>
+
+                <div class="hashtag-category">
+                    <div class="category-title">Community</div>
+                    <div class="hashtag-list-column">
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#LocalDentist</div>
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#CommunityFirst</div>
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#SupportLocal</div>
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#DentalCommunity</div>
+                        <div class="hashtag-item-full" onclick="copyHashtag(this)">#HappyPatients</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h3 class="cta-title">Ready to Scale Your Dental Marketing?</h3>
+            <p class="cta-text">This content calendar is just the start. Get a complete social media strategy with our expert team at Ekwa Marketing.</p>
+            <a href="https://www.ekwa.com/msm/?utm_source=dms&utm_medium=tool&utm_campaign=dms-social-calendar" class="cta-button" target="_blank">Get Your Social Media Strategy</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Dental Marketing Strategy. All rights reserved. | <a href="../" style="color: var(--gold); text-decoration: none;">Back to Tools</a></p>
+    </footer>
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "DMS Social Media Content Calendar",
+        "description": "30 days of ready-to-post dental practice content for Instagram, Facebook, LinkedIn, and TikTok",
+        "url": "https://dms.narenlife.com/tools/social-calendar.html",
+        "applicationCategory": "BusinessApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "256"
+        }
+    }
+    </script>
+
+    <script>
+        // Content Calendar Data - 30 days of pre-populated content
+        const calendarContent = [
+            // Week 1
+            {
+                day: 1,
+                weekday: 'Monday',
+                type: 'educational',
+                platform: 'instagram',
+                title: '5 Signs You Need a Dental Checkup',
+                caption: 'Are you experiencing any of these signs? 👇 Regular dental checkups can catch problems early and save you from more serious (and expensive) treatments down the road. Schedule your appointment today!',
+                image: 'Infographic showing warning signs with icons',
+                time: '11:00 AM',
+                hashtags: ['#DentalTips', '#OralHealth', '#DentalCare', '#HealthySmile', '#CheckupTime', '#PreventativeCare', '#SmileHealth', '#DentistRecommended', '#HealthyTeeth', '#DentalAdvice']
+            },
+            {
+                day: 2,
+                weekday: 'Tuesday',
+                type: 'behind-the-scenes',
+                platform: 'tiktok',
+                title: 'Day in the Life: Our Dental Hygienist',
+                caption: 'Meet Sarah! 👋 She\'s been our rock-star hygienist for 5 years. Watch what a typical day looks like keeping our patients\' smiles healthy and bright.',
+                image: 'Short video clips of hygienist at work with upbeat music',
+                time: '6:00 PM',
+                hashtags: ['#DayInMyLife', '#DentistLife', '#BehindTheScenes', '#TeamTuesday', '#DentalHygienist', '#DentalCareers', '#MeetTheTeam', '#DentalProfessionals', '#HealthcareWorkers', '#DentalCommunity']
+            },
+            {
+                day: 3,
+                weekday: 'Wednesday',
+                type: 'testimonial',
+                platform: 'facebook',
+                title: 'Patient Success Story: Smile Transformation',
+                caption: '"I was self-conscious about my smile for years. Dr. [Name] and the team made the entire process comfortable and explained everything. I finally feel confident showing my teeth!" - Jennifer M.',
+                image: 'Before and after smile photos with patient smiling',
+                time: '2:00 PM',
+                hashtags: ['#PatientTestimonial', '#SmileMakeover', '#BeforeAndAfter', '#PatientCare', '#SmileTransformation', '#DentalSuccess', '#HappyPatients', '#TrustTheProcess', '#SmileDesign', '#DentistRecommended']
+            },
+            {
+                day: 4,
+                weekday: 'Thursday',
+                type: 'educational',
+                platform: 'linkedin',
+                title: 'The Truth About Teeth Whitening: Myth vs. Reality',
+                caption: 'Professional teeth whitening is one of the most popular cosmetic dental procedures. Let\'s bust some myths: Myth: All whitening is the same. Reality: Professional whitening is safer and more effective. Myth: Whitening damages teeth. Reality: When done professionally, it\'s completely safe.',
+                image: 'Comparison chart with myth vs. reality graphics',
+                time: '9:00 AM',
+                hashtags: ['#DentalMythBusting', '#TeethWhitening', '#CosmicDentistry', '#DentalFacts', '#OralHealth', '#SmileDesign', '#DentalScience', '#ProfessionalCare', '#HealthySmile', '#DentalEducation']
+            },
+            {
+                day: 5,
+                weekday: 'Friday',
+                type: 'engagement',
+                platform: 'instagram',
+                title: 'Smile Poll: What\'s Your Biggest Dental Fear?',
+                caption: '🦷 Let\'s talk about it! What\'s your #1 dental anxiety? We understand, and our team is trained to help you feel comfortable. Drop your answer in the comments!',
+                image: 'Bright, friendly graphic with multiple choice options',
+                time: '5:00 PM',
+                hashtags: ['#DentalPoll', '#Engagement', '#DentalAnxiety', '#PatientCare', '#CommunityFirst', '#DentalHealth', '#FeelingComfortable', '#SmileMoment', '#DentalCommunity', '#AskUs']
+            },
+            // Week 2
+            {
+                day: 6,
+                weekday: 'Saturday',
+                type: 'promotional',
+                platform: 'facebook',
+                title: 'Spring Special: Teeth Cleaning + Whitening Package',
+                caption: '🌸 Spring into a brighter smile! This month only: Professional cleaning + take-home whitening kit for just $149 (regular value $250). Book your appointment now! Link in bio.',
+                image: 'Bright spring-themed image with smile and offer text',
+                time: '10:00 AM',
+                hashtags: ['#SpringSpecial', '#TeethWhitening', '#SpecialOffer', '#DentalDeal', '#LimitedTime', '#SmileDesign', '#PatientAppreciation', '#BookNow', '#DentalPromo', '#CleaningSpecial']
+            },
+            {
+                day: 7,
+                weekday: 'Sunday',
+                type: 'educational',
+                platform: 'instagram',
+                title: 'Sunday Wellness Tip: Brush Better in 2 Minutes',
+                caption: 'Did you know most people brush for only 30-60 seconds? 😱 The ADA recommends 2 minutes. Here\'s how to make every second count: 1️⃣ Use a soft-bristled brush. 2️⃣ Angle 45° toward gums. 3️⃣ Gentle, circular motions. 4️⃣ Don\'t forget your tongue!',
+                image: 'Step-by-step illustration of proper brushing technique',
+                time: '7:00 PM',
+                hashtags: ['#BrushingTips', '#OralHygiene', '#HealthySmile', '#DentalCare', '#WellnessTip', '#SelfCare', '#HealthyHabits', '#DentalHealth', '#SmileHealth', '#PreventativeCare']
+            },
+            {
+                day: 8,
+                weekday: 'Monday',
+                type: 'educational',
+                platform: 'tiktok',
+                title: 'Myth Buster: "Sugar is the Only Thing That Causes Cavities"',
+                caption: 'WRONG! 🚫 While sugar feeds bacteria, it\'s not the only culprit. Acid from acidic drinks, citrus, and even sports drinks can damage teeth. Plus, it\'s the frequency that matters most. Have one sweet? No problem. Have it all day? That\'s when problems start.',
+                image: 'Quick, punchy video with graphics and text overlays',
+                time: '3:00 PM',
+                hashtags: ['#DentalMythBusting', '#Cavities', '#DentalFacts', '#OralHealth', '#HealthTips', '#FYP', '#DentalEducation', '#HealthySmile', '#DentalTips', '#MythBuster']
+            },
+            {
+                day: 9,
+                weekday: 'Tuesday',
+                type: 'behind-the-scenes',
+                platform: 'instagram',
+                title: 'Office Tour: Our New Digital X-Ray Technology',
+                caption: 'We\'re so proud of our upgraded equipment! 🔬 Our new digital X-ray system provides clearer images with 80% less radiation than traditional X-rays. This means better diagnostics and safer care for you.',
+                image: 'Photos of x-ray room with modern equipment and smiling staff',
+                time: '11:00 AM',
+                hashtags: ['#OfficeUpgrade', '#ModernDentistry', '#TechSavvy', '#PatientCare', '#DentalTechnology', '#Innovation', '#BestCare', '#DentalOffice', '#TeamTuesday', '#DentalHealth']
+            },
+            {
+                day: 10,
+                weekday: 'Wednesday',
+                type: 'testimonial',
+                platform: 'linkedin',
+                title: 'Professional Testimonial: Implant Success Story',
+                caption: 'Case Study: 58-year-old patient lost a molar due to extensive decay. Solution: Dental implant restoration. Result: Fully functional, natural-looking tooth that improved chewing efficiency by 85% and patient confidence significantly. Patient: "I forget I even had the implant done!"',
+                image: 'Clinical before/after photos with professional presentation',
+                time: '9:00 AM',
+                hashtags: ['#ImplantDentistry', '#DentalSuccess', '#CaseStudy', '#PatientOutcome', '#DentalResolution', '#RestorationDentistry', '#ClinicalExcellence', '#ProfessionalCare', '#DentalHealth', '#PatientSatisfaction']
+            },
+            {
+                day: 11,
+                weekday: 'Thursday',
+                type: 'educational',
+                platform: 'facebook',
+                title: 'Flossing Facts: How to Floss Like a Pro',
+                caption: 'You brush daily, but do you floss? 🪥 Flossing removes food and plaque from between teeth where your brush can\'t reach. Watch our hygienist demonstrate the proper technique. Takes just 2 minutes and can add years to your smile!',
+                image: 'Video demonstration or step-by-step infographic',
+                time: '6:00 PM',
+                hashtags: ['#FlossingTips', '#OralHygiene', '#DentalHealth', '#HealthySmile', '#PreventativeCare', '#DentalCare', '#HealthyHabits', '#DentalTips', '#OralHealth', '#SmileHealth']
+            },
+            {
+                day: 12,
+                weekday: 'Friday',
+                type: 'engagement',
+                platform: 'tiktok',
+                title: 'Friday Fun: Guess the Dental Tool Challenge',
+                caption: 'Can you guess what these dental tools do? 🦷 Comment your guesses! Most correct answers get a shout-out. Tag a friend who needs to learn proper oral care!',
+                image: 'Quick video of various dental tools with fun music',
+                time: '5:00 PM',
+                hashtags: ['#DentalChallenge', '#FridayFun', '#GuessTheGame', '#DentalTools', '#Interactive', '#FYP', '#Engagement', '#LearnWithUs', '#DentalCommunity', '#FunWithDental']
+            },
+            // Week 3
+            {
+                day: 13,
+                weekday: 'Saturday',
+                type: 'promotional',
+                platform: 'instagram',
+                title: 'Weekend Reminder: Schedule Your 6-Month Checkup',
+                caption: '📅 When\'s your last checkup? If it\'s been more than 6 months, it\'s time to call! Regular preventive visits save you money and keep your smile healthy long-term. Book online or call us today!',
+                image: 'Calendar graphic with appointment booking visual',
+                time: '10:00 AM',
+                hashtags: ['#DentalCheckup', '#PreventativeCare', '#ScheduleNow', '#DentalHealth', '#PatientCare', '#HealthySmile', '#DentalReminder', '#AppointmentTime', '#SmileHealth', '#CallUs']
+            },
+            {
+                day: 14,
+                weekday: 'Sunday',
+                type: 'educational',
+                platform: 'facebook',
+                title: 'Sunday Spotlight: Gum Disease - More Common Than You Think',
+                caption: 'Did you know that 50% of adults have some form of gum disease? 😱 The good news: It\'s preventable and treatable! Signs include bleeding gums, bad breath, or loose teeth. Don\'t wait—early treatment makes all the difference.',
+                image: 'Educational infographic about gum disease stages',
+                time: '7:00 PM',
+                hashtags: ['#GumHealth', '#GumDisease', '#DentalHealth', '#OralHealth', '#PreventativeCare', '#HealthAlert', '#DentalEducation', '#TakeAction', '#SmileHealth', '#DentalCare']
+            },
+            {
+                day: 15,
+                weekday: 'Monday',
+                type: 'educational',
+                platform: 'linkedin',
+                title: 'Dental Professional Post: The Value of Preventive Care',
+                caption: 'In dental practice management, we\'ve learned that one dollar spent on prevention saves $10 in treatment costs. Our preventive approach—regular cleanings, screenings, and patient education—creates better outcomes and improved patient satisfaction. What\'s your practice\'s preventive strategy?',
+                image: 'Professional infographic showing cost benefit analysis',
+                time: '9:00 AM',
+                hashtags: ['#DentalPractice', '#PreventiveCare', '#DentalBusiness', '#PracticeManagement', '#PatientCare', '#DentalProfessionals', '#HealthcareInnovation', '#BestPractices', '#DentalHealth', '#ProfessionalDevelopment']
+            },
+            {
+                day: 16,
+                weekday: 'Tuesday',
+                type: 'behind-the-scenes',
+                platform: 'tiktok',
+                title: 'Meet Our Team: Meet Dr. [Name] and Her Passion Project',
+                caption: 'Dr. [Name] isn\'t just amazing with a drill—she volunteers at the local youth center providing free dental education! 🦷❤️ Our team is passionate about the community. What causes do you care about?',
+                image: 'Video clips of dentist at volunteer work with upbeat music',
+                time: '6:00 PM',
+                hashtags: ['#DentalCommunity', '#Volunteering', '#DentalProfessionals', '#CommunityService', '#MeetTheTeam', '#GiveBack', '#FYP', '#HeartwarmerAlert', '#DentalCare', '#CommunityFirst']
+            },
+            {
+                day: 17,
+                weekday: 'Wednesday',
+                type: 'testimonial',
+                platform: 'instagram',
+                title: 'Patient Love: "They Made My Root Canal Painless"',
+                caption: 'Root canals have a bad reputation, but our patients tell a different story! "I was terrified, but Dr. [Name] was so calm and explained every step. I didn\'t feel a thing!" - Mark S. Read all our 5-star reviews in bio! ⭐⭐⭐⭐⭐',
+                image: 'Testimonial with happy patient photo or testimonial graphic',
+                time: '2:00 PM',
+                hashtags: ['#PatientLove', '#RootCanal', '#5StarReview', '#PainFree', '#PatientTestimonial', '#HappyPatients', '#DentalExcellence', '#TrustUs', '#SmileMore', '#DentalCare']
+            },
+            {
+                day: 18,
+                weekday: 'Thursday',
+                type: 'educational',
+                platform: 'facebook',
+                title: 'Orthodontics 101: Straight Teeth, Healthy Mouth',
+                caption: 'Straight teeth aren\'t just about appearance—they\'re about health! Crowded teeth are harder to clean, leading to cavities and gum disease. Modern orthodontic options like clear aligners make straightening discreet and comfortable. Let\'s talk about your options!',
+                image: 'Infographic showing before/after orthodontics with benefits',
+                time: '11:00 AM',
+                hashtags: ['#Orthodontics', '#StraightTeeth', '#ClearAlignors', '#Braces', '#SmileDesign', '#DentalHealth', '#OralHealth', '#CosmeticDentistry', '#FamilyDentistry', '#ConsultWithUs']
+            },
+            {
+                day: 19,
+                weekday: 'Friday',
+                type: 'engagement',
+                platform: 'instagram',
+                title: 'This or That: Which Teeth Whitening Is Best?',
+                caption: 'Professional whitening vs. at-home strips? 🤔 Vote in the comments! Professional is faster (results in 1 hour), more effective, and personalized to your shade. But at-home has convenience. What\'s your preference?',
+                image: 'Split-screen comparison graphic with fun styling',
+                time: '5:00 PM',
+                hashtags: ['#TeethWhitening', '#ThisOrThat', '#Poll', '#SmileDesign', '#BeautyVote', '#DentalChoice', '#VoteNow', '#Engagement', '#BeautifulSmile', '#DentalCare']
+            },
+            // Week 4
+            {
+                day: 20,
+                weekday: 'Saturday',
+                type: 'promotional',
+                platform: 'facebook',
+                title: 'Weekend Wellness: New Patient Special - $99 Full Exam',
+                caption: '✨ New to us? Welcome! First-time patient special: Complete exam, digital X-rays, and cleaning for just $99 (regularly $250). This offer is valid through the end of the month. Book your welcome appointment today!',
+                image: 'New patient special promotion graphic',
+                time: '10:00 AM',
+                hashtags: ['#NewPatientSpecial', '#DentalDeal', '#WelcomeBonus', '#SpecialOffer', '#DentalCare', '#BookNow', '#LimitedTime', '#PatientAppreciation', '#DentalPromotional', '#JoinOurFamily']
+            },
+            {
+                day: 21,
+                weekday: 'Sunday',
+                type: 'educational',
+                platform: 'tiktok',
+                title: 'Quick Tip: How Often Should You Replace Your Toothbrush?',
+                caption: 'Every 3-4 months! 🪥 After that, bristles fray and lose effectiveness. Plus, bacteria builds up over time. Pro tip: Replace after you\'ve been sick. Save money? Use an electric toothbrush—they last longer and clean better.',
+                image: 'Quick video showing old vs. new toothbrush comparison',
+                time: '7:00 PM',
+                hashtags: ['#DentalTips', '#ToothbrushTip', '#OralHygiene', '#HealthySmile', '#DentalCare', '#QuickTip', '#FYP', '#HealthTips', '#HomeHacks', '#SmileHealth']
+            },
+            {
+                day: 22,
+                weekday: 'Monday',
+                type: 'educational',
+                platform: 'instagram',
+                title: '5 Foods That Are Bad for Your Teeth (Even "Healthy" Ones)',
+                caption: 'Not all "healthy" foods are good for your teeth! 🍎 Citrus fruits? High in acid. Dried fruit? Sticky and sugary. Smoothie bowls? All that fruit means high sugar. Sports drinks? Worse than soda! Moderation + rinse mouth after = happy teeth!',
+                image: 'Carousel post with food icons and tips',
+                time: '11:00 AM',
+                hashtags: ['#DentalHealth', '#HealthyEating', '#OralHealth', '#DentalTips', '#FoodFacts', '#TeethFriendly', '#DentalCare', '#PreventativeCare', '#HealthyHabits', '#SmileHealth']
+            },
+            {
+                day: 23,
+                weekday: 'Tuesday',
+                type: 'behind-the-scenes',
+                platform: 'facebook',
+                title: 'Team Appreciation: Our Amazing Dental Assistants',
+                caption: 'Our dental assistants are the MVPs of our practice! 🌟 They sterilize instruments, assist during procedures, manage records, and keep patients calm. Special shout-out to our incredible team for their hard work and dedication!',
+                image: 'Team photo of dental assistants with appreciation message',
+                time: '12:00 PM',
+                hashtags: ['#TeamAppreciation', '#DentalAssistant', '#HeroesOfDental', '#TeamTuesday', '#DentalProfessionals', '#Grateful', '#BestTeam', '#DentalOffice', '#Healthcare', '#ThankYou']
+            },
+            {
+                day: 24,
+                weekday: 'Wednesday',
+                type: 'testimonial',
+                platform: 'linkedin',
+                title: 'Case Study: Cosmetic Dentistry Transforms Patient Confidence',
+                caption: 'Patient (age 45) presented with: Multiple missing teeth, severe discoloration, broken fillings. Treatment plan: Dental implants, professional whitening, composite restorations. Patient satisfaction: 100%. Outcome: Restored confidence and improved quality of life. Cosmetic dentistry is transformative.',
+                image: 'Professional before/after photos (appropriately formatted)',
+                time: '9:00 AM',
+                hashtags: ['#CosmicDentistry', '#SmileTransformation', '#CaseStudy', '#DentalImplants', '#PatientSuccess', '#DentalHealth', '#RestorationDentistry', '#ClinicalExcellence', '#ProfessionalCare', '#DentalOutcome']
+            },
+            {
+                day: 25,
+                weekday: 'Thursday',
+                type: 'educational',
+                platform: 'tiktok',
+                title: 'Dentist Reacts: Common Teeth Whitening Mistakes',
+                caption: 'Mistake #1: Overusing whitening strips. Mistake #2: Using DIY kits without guidance. Mistake #3: Whitening without treating cavities first. Mistake #4: Expecting instant results. Professional whitening is the safest, fastest, most effective option. Let\'s get it right! 🦷✨',
+                image: 'Short video with dentist on screen reacting/explaining',
+                time: '4:00 PM',
+                hashtags: ['#DentistReacts', '#TeethWhitening', '#DentalMistakes', '#DentalFails', '#ProTips', '#DentalAdvice', '#SmileDesign', '#FYP', '#DentalTok', '#DentalEducation']
+            },
+            {
+                day: 26,
+                weekday: 'Friday',
+                type: 'engagement',
+                platform: 'facebook',
+                title: 'Caption This: Help Us Name Our New Mascot!',
+                caption: '🦷 We\'ve designed a new friendly dental mascot and we need your help naming them! Drop your name suggestions in the comments. Best suggestion gets a $50 gift card to our practice!',
+                image: 'Cute mascot character illustration',
+                time: '5:00 PM',
+                hashtags: ['#CaptionThis', '#NameOurMascot', '#Contest', '#Engagement', '#DentalFun', '#CommunityVote', '#PrizeGiveaway', '#DentalCommunity', '#HaveYourSay', '#FriendlyDental']
+            },
+            {
+                day: 27,
+                weekday: 'Saturday',
+                type: 'promotional',
+                platform: 'instagram',
+                title: 'Referral Bonus: Share Your Smile & Get Rewarded',
+                caption: 'Know someone with a beautiful smile? 👑 Refer them to us and BOTH of you get $50 off your next service! Our best patients come from recommendations. Share the love and spread good oral health! ❤️',
+                image: 'Referral bonus promotional graphic with gift imagery',
+                time: '11:00 AM',
+                hashtags: ['#ReferralProgram', '#RewardProgram', '#DentalBonus', '#ShareTheLove', '#DentalCare', '#TellAFriend', '#WinRewards', '#CommunityAppreciation', '#BringAFriend', '#PatientLove']
+            },
+            {
+                day: 28,
+                weekday: 'Sunday',
+                type: 'educational',
+                platform: 'facebook',
+                title: 'Smile Science: Why Your Gums Are Just as Important as Your Teeth',
+                caption: 'Your gums are the foundation of your smile! 🦷 Healthy gums mean better teeth, fewer problems, and a stronger bite. Gum disease can lead to tooth loss, heart disease, and other health issues. Floss daily and see your dentist every 6 months!',
+                image: 'Infographic explaining gum health and importance',
+                time: '7:00 PM',
+                hashtags: ['#GumHealth', '#DentalScience', '#OralHealth', '#HealthySmile', '#DentalCare', '#PreventativeCare', '#SmileFoundation', '#DentalEducation', '#HealthyGums', '#SmileHealth']
+            },
+            {
+                day: 29,
+                weekday: 'Monday',
+                type: 'educational',
+                platform: 'linkedin',
+                title: 'Professional Insight: Advanced Training in Cosmetic Dentistry',
+                caption: 'Our team recently completed advanced training in cosmetic dentistry techniques. Continuous professional development ensures we offer our patients the latest, most effective treatments. We\'re committed to excellence and staying at the forefront of dental innovation.',
+                image: 'Professional dental training or certification image',
+                time: '9:00 AM',
+                hashtags: ['#ProfessionalDevelopment', '#ContinuingEducation', '#CosmicDentistry', '#DentalInnovation', '#DentalExcellence', '#PatientCare', '#ExpertTeam', '#DentalProfessionals', '#AdvancedTraining', '#BestPractices']
+            },
+            {
+                day: 30,
+                weekday: 'Tuesday',
+                type: 'behind-the-scenes',
+                platform: 'tiktok',
+                title: 'Month in Review: Your Favorite Moments from Our Practice',
+                caption: 'What an amazing month! 🎉 Thanks for being part of our dental family. Here\'s a quick recap of highlights from the past 30 days. See you next month for more tips, fun content, and of course, amazing dental care!',
+                image: 'Compilation video of month\'s highlights with upbeat music',
+                time: '6:00 PM',
+                hashtags: ['#MonthInReview', '#Highlights', '#DentalCommunity', '#ThankYou', '#BestMoments', '#DentalLife', '#CommunityLove', '#FYP', '#DentalCare', '#SeeYouNext']
+            }
+        ];
+
+        // Platform colors mapping
+        const platformColors = {
+            instagram: 'platform-ig',
+            facebook: 'platform-fb',
+            linkedin: 'platform-li',
+            tiktok: 'platform-tiktok'
+        };
+
+        // Content badge mapping
+        const badgeClasses = {
+            educational: 'badge-edu',
+            'behind-the-scenes': 'badge-bts',
+            testimonial: 'badge-testimonial',
+            promotional: 'badge-promo',
+            holiday: 'badge-holiday',
+            engagement: 'badge-engagement'
+        };
+
+        let currentPlatformFilter = 'all';
+        let currentContentFilter = 'all';
+
+        // Initialize calendar
+        function initCalendar() {
+            renderCalendar();
+            setupEventListeners();
+        }
+
+        // Render calendar grid
+        function renderCalendar() {
+            const calendarGrid = document.getElementById('calendarGrid');
+            calendarGrid.innerHTML = '';
+
+            calendarContent.forEach((content) => {
+                const shouldDisplay = shouldDisplayDay(content);
+
+                const dayDiv = document.createElement('div');
+                dayDiv.className = `calendar-day ${shouldDisplay ? '' : 'hidden'}`;
+                dayDiv.onclick = () => openModal(content);
+
+                dayDiv.innerHTML = `
+                    <div class="day-number">${content.day}</div>
+                    <div class="day-weekday">${content.weekday}</div>
+                    <div class="content-meta">
+                        <div class="platform-icon ${platformColors[content.platform]}">
+                            ${getPlatformAbbr(content.platform)}
+                        </div>
+                        <span class="content-badge ${badgeClasses[content.type]}">
+                            ${formatContentType(content.type)}
+                        </span>
+                    </div>
+                    <div class="day-title">${content.title}</div>
+                `;
+
+                calendarGrid.appendChild(dayDiv);
+            });
+        }
+
+        // Check if day should be displayed
+        function shouldDisplayDay(content) {
+            return (currentPlatformFilter === 'all' || content.platform === currentPlatformFilter) &&
+                   (currentContentFilter === 'all' || content.type === currentContentFilter);
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Platform filters
+            document.querySelectorAll('[data-platform]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('[data-platform]').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    currentPlatformFilter = e.target.dataset.platform;
+                    renderCalendar();
+                });
+            });
+
+            // Content type filters
+            document.querySelectorAll('[data-content]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('[data-content]').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    currentContentFilter = e.target.dataset.content;
+                    renderCalendar();
+                });
+            });
+        }
+
+        // Get platform abbreviation
+        function getPlatformAbbr(platform) {
+            const abbrs = {
+                instagram: 'IG',
+                facebook: 'FB',
+                linkedin: 'LI',
+                tiktok: 'TT'
+            };
+            return abbrs[platform] || platform;
+        }
+
+        // Format content type for display
+        function formatContentType(type) {
+            const formats = {
+                educational: 'Educational',
+                'behind-the-scenes': 'BTS',
+                testimonial: 'Testimonial',
+                promotional: 'Promo',
+                holiday: 'Holiday',
+                engagement: 'Engagement'
+            };
+            return formats[type] || type;
+        }
+
+        // Open modal with content
+        function openModal(content) {
+            const modal = document.getElementById('contentModal');
+            const dayLabel = `Day ${content.day}`;
+
+            document.getElementById('modalDay').textContent = dayLabel;
+            document.getElementById('modalTitle').textContent = content.title;
+            document.getElementById('modalPlatform').textContent = capitalizeFirst(content.platform);
+            document.getElementById('modalTime').textContent = content.time;
+            document.getElementById('modalCaption').textContent = content.caption;
+            document.getElementById('modalImage').textContent = content.image;
+
+            const hashtagsContainer = document.getElementById('modalHashtags');
+            hashtagsContainer.innerHTML = '';
+            content.hashtags.forEach(tag => {
+                const tagDiv = document.createElement('div');
+                tagDiv.className = 'hashtag-item';
+                tagDiv.textContent = tag;
+                tagDiv.onclick = () => copyToClipboard(tag);
+                hashtagsContainer.appendChild(tagDiv);
+            });
+
+            // Store current content for copying
+            window.currentContent = content;
+
+            modal.classList.add('active');
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('contentModal').classList.remove('active');
+        }
+
+        // Copy caption to clipboard
+        function copyCaption() {
+            const caption = window.currentContent.caption;
+            copyToClipboard(caption);
+            showCopyFeedback();
+        }
+
+        // Copy text to clipboard
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                console.log('Copied to clipboard');
+            });
+        }
+
+        // Show copy feedback
+        function showCopyFeedback() {
+            const feedback = document.getElementById('copyFeedback');
+            feedback.classList.add('show');
+            setTimeout(() => {
+                feedback.classList.remove('show');
+            }, 2000);
+        }
+
+        // Copy all hashtags
+        function copyAllHashtags() {
+            const allHashtags = document.querySelectorAll('.hashtag-item-full');
+            const hashtagText = Array.from(allHashtags).map(el => el.textContent).join(' ');
+            copyToClipboard(hashtagText);
+            showCopyFeedback();
+        }
+
+        // Copy individual hashtag
+        function copyHashtag(element) {
+            const hashtag = element.textContent;
+            copyToClipboard(hashtag);
+            showCopyFeedback();
+        }
+
+        // Capitalize first letter
+        function capitalizeFirst(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+
+        // Close modal on background click
+        document.getElementById('contentModal').addEventListener('click', (e) => {
+            if (e.target.id === 'contentModal') {
+                closeModal();
+            }
+        });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', initCalendar);
+    </script>
+</body>
+</html>
