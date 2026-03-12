@@ -77,7 +77,7 @@ p { margin-bottom: 1rem; }
   border-radius: 6px; transition: all 0.2s;
 }
 .nav a:hover { background: #F7F9FC; color: #2E75B6; }
-.nav-dropdown { position: relative; }
+.nav-dropdown { position: relative; display: flex; align-items: center; }
 .nav-dropdown-content {
   display: none; position: absolute; top: 100%; left: 0;
   background: #fff; border-radius: 8px; box-shadow: 0 8px 30px rgba(0,0,0,0.12);
