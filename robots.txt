@@ -13,7 +13,7 @@ Disallow: /pages/dashboard-admin.html
 Disallow: /pages/dashboard-member.html
 
 # Sitemap reference
-Sitemap: https://dms.narenlife.com/sitemap.xml
+Sitemap: https://www.dentalmarketingsociety.com/sitemap.xml
 
 # Crawl-delay and Request-rate (optional, 5 second delay between requests)
 # Crawl-delay: 5
