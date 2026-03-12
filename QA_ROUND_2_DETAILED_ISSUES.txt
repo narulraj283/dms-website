@@ -1,0 +1,399 @@
+================================================================================
+QA ROUND 2 - DETAILED ISSUES REFERENCE
+DMS Website (www.dentalmarketingsociety.com)
+================================================================================
+
+This document provides specific file paths and line numbers for every issue
+found in QA Round 2. Use this to track remediation progress.
+
+TOTAL ISSUES: 117 across 5 categories
+
+
+================================================================================
+CATEGORY 1: GA4 TRACKING MISSING (63 FILES)
+================================================================================
+
+ISSUE: Missing "window.dataLayer = window.dataLayer || [];" initialization
+
+Files affected: 63
+Files with NO GA4 at all: 10
+Files with INCOMPLETE GA4: 53
+
+ALL FILES WITH INCOMPLETE GA4 TRACKING:
+(Missing window.dataLayer initialization)
+
+Page files (25):
+  /tmp/dms-repo/404.html
+  /tmp/dms-repo/index.html
+  /tmp/dms-repo/pages/about.html
+  /tmp/dms-repo/pages/analytics.html
+  /tmp/dms-repo/pages/articles.html
+  /tmp/dms-repo/pages/channel-ai.html
+  /tmp/dms-repo/pages/channel-branding.html
+  /tmp/dms-repo/pages/channel-directmail.html
+  /tmp/dms-repo/pages/channel-email.html
+  /tmp/dms-repo/pages/channel-ppc.html
+  /tmp/dms-repo/pages/channel-referral.html
+  /tmp/dms-repo/pages/channel-reputation.html
+  /tmp/dms-repo/pages/channel-seo.html
+  /tmp/dms-repo/pages/channel-social.html
+  /tmp/dms-repo/pages/channel-video.html
+  /tmp/dms-repo/pages/channel-website.html
+  /tmp/dms-repo/pages/community-guidelines.html
+  /tmp/dms-repo/pages/community-resources.html
+  /tmp/dms-repo/pages/community.html
+  /tmp/dms-repo/pages/contact.html
+  /tmp/dms-repo/pages/events.html
+  /tmp/dms-repo/pages/launch.html
+  /tmp/dms-repo/pages/learning-paths.html
+  /tmp/dms-repo/pages/membership.html
+  /tmp/dms-repo/pages/podcast-episodes.html
+  /tmp/dms-repo/pages/podcast.html
+  /tmp/dms-repo/pages/privacy.html
+  /tmp/dms-repo/pages/refer.html
+  /tmp/dms-repo/pages/signup.html
+  /tmp/dms-repo/pages/terms.html
+  /tmp/dms-repo/pages/webinar-register.html
+
+Article files (26):
+  /tmp/dms-repo/articles/50-dental-content-ideas.html
+  /tmp/dms-repo/articles/ai-dental-marketing.html
+  /tmp/dms-repo/articles/dental-direct-mail-guide.html
+  /tmp/dms-repo/articles/dental-email-marketing-guide.html
+  /tmp/dms-repo/articles/dental-instagram-strategy.html
+  /tmp/dms-repo/articles/dental-patient-loyalty.html
+  /tmp/dms-repo/articles/dental-patient-reactivation.html
+  /tmp/dms-repo/articles/dental-patient-testimonial-videos.html
+  /tmp/dms-repo/articles/dental-ppc-budget-guide.html
+  /tmp/dms-repo/articles/dental-ppo-optimization.html
+  /tmp/dms-repo/articles/dental-practice-branding.html
+  /tmp/dms-repo/articles/dental-referral-program.html
+  /tmp/dms-repo/articles/dental-reputation-management.html
+  /tmp/dms-repo/articles/dental-seo-basics.html
+  /tmp/dms-repo/articles/dental-social-media-calendar.html
+  /tmp/dms-repo/articles/dental-video-marketing-guide.html
+  /tmp/dms-repo/articles/dental-website-conversion.html
+  /tmp/dms-repo/articles/dental-website-design-guide.html
+  /tmp/dms-repo/articles/dental-website-seo-content.html
+  /tmp/dms-repo/articles/facebook-ads-dentists.html
+  /tmp/dms-repo/articles/get-more-dental-reviews.html
+  /tmp/dms-repo/articles/google-ads-dental-guide.html
+  /tmp/dms-repo/articles/google-business-profile-optimization.html
+  /tmp/dms-repo/articles/local-citations-guide.html
+  /tmp/dms-repo/articles/responding-negative-reviews.html
+
+Tool files (6):
+  /tmp/dms-repo/tools/budget-planner.html
+  /tmp/dms-repo/tools/marketing-plan.html
+  /tmp/dms-repo/tools/roi-calculator.html
+  /tmp/dms-repo/tools/scorecard.html
+  /tmp/dms-repo/tools/seo-audit.html
+  /tmp/dms-repo/tools/social-calendar.html
+
+FILES WITH NO GA4 TRACKING AT ALL (10):
+  /tmp/dms-repo/assets/social-template-instagram.html
+  /tmp/dms-repo/assets/social-template-linkedin.html
+  /tmp/dms-repo/email-templates/daily-briefing.html
+  /tmp/dms-repo/email-templates/event-invitation.html
+  /tmp/dms-repo/email-templates/member-spotlight.html
+  /tmp/dms-repo/email-templates/onboarding-day10.html
+  /tmp/dms-repo/email-templates/onboarding-day14.html
+  /tmp/dms-repo/email-templates/onboarding-day2.html
+  /tmp/dms-repo/email-templates/onboarding-day5.html
+  /tmp/dms-repo/email-templates/welcome-email.html
+  /tmp/dms-repo/pages/dashboard-admin.html
+  /tmp/dms-repo/pages/dashboard-member.html
+  /tmp/dms-repo/includes/author-bio.html
+
+REQUIRED CHANGE:
+Add after: <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z7DFTL44YL"></script>
+Add before: <script>window.dataLayer=window.dataLayer||[];...
+
+The line to add: window.dataLayer = window.dataLayer || [];
+
+
+================================================================================
+CATEGORY 2: BROKEN INTERNAL LINKS (17 FILES)
+================================================================================
+
+ISSUE TYPE: References to non-existent files
+
+FILE 1: /tmp/dms-repo/404.html
+Line 228:
+  <a href="pages/tools.html">
+  Problem: pages/tools.html does not exist
+  Status: BROKEN - This file should be created or link removed
+
+FILE 2: /tmp/dms-repo/pages/email-hub.html
+Multiple broken email template references:
+
+  Line 738: <a href="email-templates/welcome.html">
+    Current: email-templates/welcome.html
+    Correct: email-templates/welcome-email.html
+    Problem: File named differently than link expects
+
+  Line 743: <a href="email-templates/appointment-reminder.html">
+    Problem: File does not exist
+    Status: BROKEN - File not found
+
+  Line 748: <a href="email-templates/reactivation.html">
+    Problem: File does not exist
+    Status: BROKEN - File not found
+
+  Line 753: <a href="email-templates/review-request.html">
+    Problem: File does not exist
+    Status: BROKEN - File not found
+
+  Line 758: <a href="email-templates/birthday-anniversary.html">
+    Problem: File does not exist
+    Status: BROKEN - File not found
+
+  Line 763: <a href="email-templates/newsletter.html">
+    Problem: File does not exist
+    Status: BROKEN - File not found
+
+  Line 768: <a href="email-templates/referral-ask.html">
+    Problem: File does not exist
+    Status: BROKEN - File not found
+
+  Line 773: <a href="email-templates/treatment-followup.html">
+    Problem: File does not exist
+    Status: BROKEN - File not found
+
+  Line 993: <a href="email-templates/">
+    Problem: Incomplete/directory path
+    Status: BROKEN - Links to directory, not page
+
+ACTUAL EMAIL TEMPLATES THAT EXIST:
+  - email-templates/daily-briefing.html
+  - email-templates/event-invitation.html
+  - email-templates/member-spotlight.html
+  - email-templates/onboarding-day10.html
+  - email-templates/onboarding-day14.html
+  - email-templates/onboarding-day2.html
+  - email-templates/onboarding-day5.html
+  - email-templates/welcome-email.html
+
+REMEDIATION OPTIONS:
+A) Create missing files:
+   - welcome.html (rename welcome-email.html or create new)
+   - appointment-reminder.html
+   - reactivation.html
+   - review-request.html
+   - birthday-anniversary.html
+   - newsletter.html
+   - referral-ask.html
+   - treatment-followup.html
+
+B) Update email-hub.html to point only to existing files
+
+RECOMMENDATION: Option B (no existing files for these templates)
+
+
+================================================================================
+CATEGORY 3: NAVIGATION INCONSISTENCIES (4 FILES)
+================================================================================
+
+ISSUE: Navigation menus use different relative path formats
+All links work correctly, but paths are inconsistent
+
+FILE 1: /tmp/dms-repo/pages/about.html
+Navigation pattern: Uses relative paths without "pages/" prefix
+Example: <a href="channel-seo.html">
+Status: Works but inconsistent with other pages
+
+FILE 2: /tmp/dms-repo/articles/50-dental-content-ideas.html
+Navigation pattern: Uses "../pages/" prefix
+Example: <a href="../pages/channel-seo.html">
+Status: Works but different format than index.html
+
+FILE 3: /tmp/dms-repo/articles/ai-dental-marketing.html
+Navigation pattern: Uses "../pages/" prefix
+Status: Works but different format than index.html
+
+FILE 4: /tmp/dms-repo/articles/dental-direct-mail-guide.html
+Navigation pattern: Uses "../pages/" prefix
+Status: Works but different format than index.html
+
+COMPARISON:
+index.html:                   <a href="pages/channel-seo.html">
+pages/about.html:             <a href="channel-seo.html">
+articles/*.html:              <a href="../pages/channel-seo.html">
+
+All three formats work correctly and resolve to the same target file.
+
+RECOMMENDATION:
+Standardize to one approach:
+Option A: Use root-relative paths in all files: href="/pages/channel-seo.html"
+Option B: Use absolute URLs in all files: href="https://www.dentalmarketingsociety.com/pages/channel-seo.html"
+Option C: Continue with context-relative (current) but document the pattern
+
+
+================================================================================
+CATEGORY 4: SUSPICIOUS EXTERNAL LINKS (20 ISSUES)
+================================================================================
+
+ISSUE: Placeholder/example domain URLs in production email templates
+Domain: dentalhq.example.com (should be production domain)
+
+All issues are in email-template files. These appear to be intentional
+placeholders for email template testing/documentation.
+
+FILE 1: /tmp/dms-repo/email-templates/daily-briefing.html
+  Line 12: mailto:support@dentalhq.example.com
+  Line 25: https://dentalhq.example.com/optimize-gbp
+  Line 35: https://dentalhq.example.com/preferences
+  Line 45: https://dentalhq.example.com/unsubscribe
+
+FILE 2: /tmp/dms-repo/email-templates/event-invitation.html
+  Line 8: mailto:support@dentalhq.example.com
+  Line 22: https://dentalhq.example.com/register-webinar
+  Line 32: https://dentalhq.example.com/preferences
+  Line 42: https://dentalhq.example.com/unsubscribe
+
+FILE 3: /tmp/dms-repo/email-templates/member-spotlight.html
+  Line 6: mailto:support@dentalhq.example.com
+  Line 20: https://dentalhq.example.com/share-your-win
+  Line 30: https://dentalhq.example.com/preferences
+  Line 40: https://dentalhq.example.com/unsubscribe
+
+FILE 4: /tmp/dms-repo/email-templates/onboarding-day2.html
+  Line 5: mailto:support@dentalhq.example.com
+  Line 15: https://dentalhq.example.com/preferences
+  Line 25: https://dentalhq.example.com/unsubscribe
+
+FILE 5: /tmp/dms-repo/email-templates/onboarding-day5.html
+  Line 5: mailto:support@dentalhq.example.com
+  Line 15: https://dentalhq.example.com/preferences
+  Line 25: https://dentalhq.example.com/unsubscribe
+
+FILE 6: /tmp/dms-repo/email-templates/onboarding-day10.html
+  Line 5: mailto:support@dentalhq.example.com
+  Line 15: https://dentalhq.example.com/preferences
+  Line 25: https://dentalhq.example.com/unsubscribe
+
+FILE 7: /tmp/dms-repo/email-templates/onboarding-day14.html
+  Line 5: mailto:support@dentalhq.example.com
+  Line 15: https://dentalhq.example.com/preferences
+  Line 25: https://dentalhq.example.com/unsubscribe
+
+FILE 8: /tmp/dms-repo/email-templates/welcome-email.html
+  Line 8: mailto:support@dentalhq.example.com
+  Line 22: https://dentalhq.example.com/scorecard
+  Line 32: https://dentalhq.example.com/preferences
+  Line 42: https://dentalhq.example.com/unsubscribe
+
+REMEDIATION:
+Replace "dentalhq.example.com" with actual production domain
+Or replace with placeholder that's clearly marked as such (e.g., [DOMAIN])
+
+
+================================================================================
+CATEGORY 5: SITEMAP MISSING FILES (13 ISSUES)
+================================================================================
+
+ISSUE: Files exist but not listed in sitemap.xml
+
+Sitemap location: /tmp/dms-repo/sitemap.xml
+Format: XML with namespace declaration
+
+MISSING FROM SITEMAP (13 files):
+
+Asset Templates (2):
+  /tmp/dms-repo/assets/social-template-instagram.html
+    Expected URL: https://www.dentalmarketingsociety.com/assets/social-template-instagram.html
+    Status: File exists, NOT in sitemap
+
+  /tmp/dms-repo/assets/social-template-linkedin.html
+    Expected URL: https://www.dentalmarketingsociety.com/assets/social-template-linkedin.html
+    Status: File exists, NOT in sitemap
+
+Email Templates (8):
+  /tmp/dms-repo/email-templates/daily-briefing.html
+    Expected URL: https://www.dentalmarketingsociety.com/email-templates/daily-briefing.html
+    Status: File exists, NOT in sitemap
+
+  /tmp/dms-repo/email-templates/event-invitation.html
+    Expected URL: https://www.dentalmarketingsociety.com/email-templates/event-invitation.html
+    Status: File exists, NOT in sitemap
+
+  /tmp/dms-repo/email-templates/member-spotlight.html
+    Expected URL: https://www.dentalmarketingsociety.com/email-templates/member-spotlight.html
+    Status: File exists, NOT in sitemap
+
+  /tmp/dms-repo/email-templates/onboarding-day2.html
+    Expected URL: https://www.dentalmarketingsociety.com/email-templates/onboarding-day2.html
+    Status: File exists, NOT in sitemap
+
+  /tmp/dms-repo/email-templates/onboarding-day5.html
+    Expected URL: https://www.dentalmarketingsociety.com/email-templates/onboarding-day5.html
+    Status: File exists, NOT in sitemap
+
+  /tmp/dms-repo/email-templates/onboarding-day10.html
+    Expected URL: https://www.dentalmarketingsociety.com/email-templates/onboarding-day10.html
+    Status: File exists, NOT in sitemap
+
+  /tmp/dms-repo/email-templates/onboarding-day14.html
+    Expected URL: https://www.dentalmarketingsociety.com/email-templates/onboarding-day14.html
+    Status: File exists, NOT in sitemap
+
+  /tmp/dms-repo/email-templates/welcome-email.html
+    Expected URL: https://www.dentalmarketingsociety.com/email-templates/welcome-email.html
+    Status: File exists, NOT in sitemap
+
+Page Files (3):
+  /tmp/dms-repo/pages/dashboard-admin.html
+    Expected URL: https://www.dentalmarketingsociety.com/pages/dashboard-admin.html
+    Status: File exists, NOT in sitemap
+
+  /tmp/dms-repo/pages/dashboard-member.html
+    Expected URL: https://www.dentalmarketingsociety.com/pages/dashboard-member.html
+    Status: File exists, NOT in sitemap
+
+Include Files (1):
+  /tmp/dms-repo/includes/author-bio.html
+    Note: Include file, probably intentionally excluded
+    Expected URL: https://www.dentalmarketingsociety.com/includes/author-bio.html
+    Status: File exists, NOT in sitemap
+
+SITEMAP STATISTICS:
+- Total URLs currently in sitemap: 62
+- Expected URLs (excluding templates/includes): 75
+- Missing: 13
+- Extra/Invalid: 0 (All URLs in sitemap point to existing files)
+
+DECISION REQUIRED:
+Determine if these files SHOULD be indexed by search engines:
+- Email templates: NO (internal use, testing)
+- Asset templates: NO (internal use)
+- Dashboard pages: NO (user-restricted content)
+- Author bio: NO (include file, not standalone)
+
+If NO: Current state is acceptable (intentional exclusion)
+If YES: Add entries to sitemap.xml
+
+
+================================================================================
+SUMMARY TABLE
+================================================================================
+
+Issue Category              | Count | Severity | File Count | Status
+---------------------------|-------|----------|------------|--------
+GA4 Tracking               | 63    | CRITICAL | 63         | Action needed
+Broken Internal Links      | 17    | HIGH     | 2          | Action needed
+Navigation Inconsistency   | 4     | MEDIUM   | 4          | Standardize
+Suspicious External Links  | 20    | MEDIUM   | 8          | Replace URLs
+Sitemap Missing Entries    | 13    | MEDIUM   | 13         | Decision needed
+---------------------------|-------|----------|------------|--------
+TOTAL                      | 117   |          | Multiple   |
+
+Passing Categories:
+✓ Schema.org Markup (34 files) - All correct
+✓ Open Graph Tags - All correct
+✓ Canonical URLs (64 files) - All correct
+✓ No old domain references found
+✓ No localhost references found
+
+================================================================================
+END OF DETAILED ISSUES REFERENCE
+================================================================================
