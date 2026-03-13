@@ -7,11 +7,46 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.querySelector('.mobile-toggle');
   const nav = document.querySelector('.nav');
   if (toggle && nav) {
+    toggle.setAttribute('aria-label', 'Toggle navigation menu');
+    toggle.setAttribute('aria-expanded', 'false');
     toggle.addEventListener('click', () => {
-      nav.classList.toggle('open');
+      const isOpen = nav.classList.toggle('open');
       toggle.classList.toggle('active');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
   }
+
+  // ── Mobile Dropdown Touch Support ──
+  document.querySelectorAll('.nav-dropdown > a').forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      // Only intercept on mobile (when nav is in column layout)
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        const dropdown = trigger.parentElement;
+        const content = dropdown.querySelector('.nav-dropdown-content');
+        const isVisible = content.style.display === 'block';
+        // Close all other dropdowns
+        document.querySelectorAll('.nav-dropdown-content').forEach(d => d.style.display = '');
+        document.querySelectorAll('.nav-dropdown > a[aria-expanded]').forEach(a => a.setAttribute('aria-expanded', 'false'));
+        if (!isVisible) {
+          content.style.display = 'block';
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      }
+    });
+  });
+
+  // ── Desktop Dropdown Aria Toggle ──
+  document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+    dropdown.addEventListener('mouseenter', () => {
+      const trigger = dropdown.querySelector('a[aria-expanded]');
+      if (trigger) trigger.setAttribute('aria-expanded', 'true');
+    });
+    dropdown.addEventListener('mouseleave', () => {
+      const trigger = dropdown.querySelector('a[aria-expanded]');
+      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+    });
+  });
 
   // ── Smooth Scroll for Anchor Links ──
   document.querySelectorAll('a[href^="#"]').forEach(link => {

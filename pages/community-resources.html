@@ -256,14 +256,34 @@
       }
     }
   </style>
+  <meta property="og:image" content="https://www.dentalmarketingsociety.com/assets/og-image.svg">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "DMS Community Resources",
+  "description": "Access 200+ marketing templates, checklists, and tools created by dental practice owners in the DMS community. Social media, email, ads, SEO, and more.",
+  "url": "https://www.dentalmarketingsociety.com/pages/community-resources.html",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dental Marketing Society",
+    "url": "https://www.dentalmarketingsociety.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.dentalmarketingsociety.com/assets/logo.svg"
+    }
+  }
+}
+  </script>
 </head>
 <body>
+<a href="#main-content" class="skip-to-content">Skip to main content</a>
 
 <!-- ——— HEADER ——— -->
 <header class="header">
   <div class="header-inner">
     <a href="../index.html" class="logo">
-      <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg class="logo-icon" role="img" aria-label="Dental Marketing Society logo" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="40" height="40" rx="8" fill="#1B2A4A"/>
         <path d="M12 28V16c0-3.3 2.7-6 6-6h4c3.3 0 6 2.7 6 6v12" stroke="#D4A843" stroke-width="2.5" stroke-linecap="round"/>
         <path d="M8 20h24" stroke="#D4A843" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
@@ -272,9 +292,9 @@
       </svg>
       <span class="logo-text">Dental Marketing <span>Society</span></span>
     </a>
-    <nav class="nav">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
       <div class="nav-dropdown">
-        <a href="#">Marketing Channels ▾</a>
+        <a href="#" aria-expanded="false">Marketing Channels ▾</a>
         <div class="nav-dropdown-content">
           <a href="channel-seo.html">🔍 SEO & Local Search</a>
           <a href="channel-ppc.html">💰 Pay-Per-Click (PPC)</a>
@@ -293,7 +313,7 @@
       <a href="events.html">Events</a>
       <a href="podcast.html">Podcast</a>
       <div class="nav-dropdown">
-        <a href="#">Tools ▾</a>
+        <a href="#" aria-expanded="false">Tools ▾</a>
         <div class="nav-dropdown-content">
           <a href="../tools/scorecard.html">📊 Marketing Scorecard</a>
           <a href="../tools/seo-audit.html">🔍 SEO Audit Tool</a>
@@ -314,7 +334,7 @@
 </header>
 
 <!-- ——— HERO ——— -->
-<section class="hero" style="padding: 80px 0 60px;">
+<section id="main-content" class="hero" style="padding: 80px 0 60px;">
   <div class="container">
     <h1 style="margin-bottom: 1rem;">Community Resources <span>— Templates, Checklists, and Tools Built by Members, for Members</span></h1>
     <p style="font-size: 1.2rem; color: #666; max-width: 800px; margin-bottom: 2rem;">200+ ready-to-use marketing templates, checklists, and calculators created by real dental practice owners. Download for free. Share your own resources with the community.</p>
@@ -594,17 +614,17 @@
       <form onsubmit="handleSubmit(event)">
         <div class="form-group">
           <label for="name">Your Name *</label>
-          <input type="text" id="name" name="name" required placeholder="Dr. Jane Smith">
+          <input aria-label="Dr. Jane Smith" type="text" id="name" name="name" required placeholder="Dr. Jane Smith">
         </div>
 
         <div class="form-group">
           <label for="email">Email Address *</label>
-          <input type="email" id="email" name="email" required placeholder="jane@practice.com">
+          <input aria-label="jane@practice.com" type="email" id="email" name="email" required placeholder="jane@practice.com">
         </div>
 
         <div class="form-group">
           <label for="title">Resource Title *</label>
-          <input type="text" id="title" name="title" required placeholder="e.g., Social Media Post Templates">
+          <input aria-label="e.g., Social Media Post Templates" type="text" id="title" name="title" required placeholder="e.g., Social Media Post Templates">
         </div>
 
         <div class="form-group">

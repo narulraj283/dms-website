@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z7DFTL44YL"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z7DFTL44YL');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard - Dental Marketing Society</title>
   <meta name="description" content="DMS Admin Dashboard - Monitor leads, analytics, and member activity.">
@@ -57,15 +60,36 @@
   <meta property="og:url" content="https://www.dentalmarketingsociety.com/pages/dashboard-admin.html">
   <meta property="og:site_name" content="Dental Marketing Society">
   <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:description" content="DMS Admin Dashboard - Monitor leads, analytics, and member activity.">
+  <meta property="og:image" content="https://www.dentalmarketingsociety.com/assets/og-image.svg">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Admin Dashboard - Dental Marketing Society",
+  "description": "DMS Admin Dashboard - Monitor leads, analytics, and member activity.",
+  "url": "https://www.dentalmarketingsociety.com/pages/dashboard-admin.html",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dental Marketing Society",
+    "url": "https://www.dentalmarketingsociety.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.dentalmarketingsociety.com/assets/logo.svg"
+    }
+  }
+}
+  </script>
 </head>
 <body>
+<a href="#main-content" class="skip-to-content">Skip to main content</a>
 
 <!-- LOGIN GATE -->
 <div id="loginContainer" class="login-container" style="display: none;">
   <div class="login-box">
     <h1>Admin Dashboard</h1>
     <div id="errorMessage" class="error-message" style="display: none;"></div>
-    <input type="password" id="passwordInput" placeholder="Enter admin password" />
+    <input aria-label="Enter admin password" type="password" id="passwordInput" placeholder="Enter admin password" />
     <button onclick="validatePassword()">Login</button>
     <p style="text-align: center; color: #999; margin-top: 1rem; font-size: 0.9rem;">Default password: dmsadmin2026</p>
   </div>
@@ -81,7 +105,7 @@
           <p style="color: #666; margin: 0.5rem 0 0 0;">Leads, Analytics & Insights</p>
         </div>
         <div class="dashboard-controls">
-          <input type="text" id="searchInput" placeholder="Search by name or email..." />
+          <input aria-label="Search by name or email..." type="text" id="searchInput" placeholder="Search by name or email..." />
           <button onclick="exportToCSV()">Export CSV</button>
           <button class="logout-btn" onclick="logout()">Logout</button>
         </div>

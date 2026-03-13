@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z7DFTL44YL"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z7DFTL44YL');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Member Dashboard - Dental Marketing Society</title>
   <meta name="description" content="Your DMS member dashboard - track progress, access resources, and join the community.">
@@ -71,14 +74,35 @@
   <meta property="og:url" content="https://www.dentalmarketingsociety.com/pages/dashboard-member.html">
   <meta property="og:site_name" content="Dental Marketing Society">
   <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:description" content="Your DMS member dashboard - track progress, access resources, and join the community.">
+  <meta property="og:image" content="https://www.dentalmarketingsociety.com/assets/og-image.svg">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Member Dashboard - Dental Marketing Society",
+  "description": "Your DMS member dashboard - track progress, access resources, and join the community.",
+  "url": "https://www.dentalmarketingsociety.com/pages/dashboard-member.html",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dental Marketing Society",
+    "url": "https://www.dentalmarketingsociety.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.dentalmarketingsociety.com/assets/logo.svg"
+    }
+  }
+}
+  </script>
 </head>
 <body>
+<a href="#main-content" class="skip-to-content">Skip to main content</a>
 
 <!-- ••• HEADER ••• -->
 <header class="header">
   <div class="header-inner">
     <a href="../index.html" class="logo">
-      <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg class="logo-icon" role="img" aria-label="Dental Marketing Society logo" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="40" height="40" rx="8" fill="#1B2A4A"/>
         <path d="M12 28V16c0-3.3 2.7-6 6-6h4c3.3 0 6 2.7 6 6v12" stroke="#D4A843" stroke-width="2.5" stroke-linecap="round"/>
         <path d="M8 20h24" stroke="#D4A843" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
@@ -87,9 +111,9 @@
       </svg>
       <span class="logo-text">Dental Marketing <span>Society</span></span>
     </a>
-    <nav class="nav">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
       <div class="nav-dropdown">
-        <a href="#">Marketing Channels ▾</a>
+        <a href="#" aria-expanded="false">Marketing Channels ▾</a>
         <div class="nav-dropdown-content">
           <a href="channel-seo.html">🔍 SEO & Local Search</a>
           <a href="channel-ppc.html">💰 Pay-Per-Click (PPC)</a>
@@ -108,7 +132,7 @@
       <a href="events.html">Events</a>
       <a href="podcast.html">Podcast</a>
       <div class="nav-dropdown">
-        <a href="#">Tools ▾</a>
+        <a href="#" aria-expanded="false">Tools ▾</a>
         <div class="nav-dropdown-content">
           <a href="../tools/scorecard.html">📊 Marketing Scorecard</a>
           <a href="../tools/seo-audit.html">🔍 SEO Audit Tool</a>
@@ -130,7 +154,7 @@
 
 <!-- ••• LOGIN VIEW ••• -->
 <div id="loginView" style="display: none;">
-  <section class="hero" style="padding: 60px 0 40px;">
+  <section id="main-content" class="hero" style="padding: 60px 0 40px;">
     <div class="container">
       <h1 style="margin-bottom: 1rem;">Member<br><span>Dashboard</span></h1>
       <p style="font-size: 1.2rem; color: #666; max-width: 700px; margin-bottom: 0;">Sign in to your account to access your personalized dashboard, learning paths, and saved resources.</p>
@@ -143,11 +167,11 @@
         <h2 style="text-align: center; margin-bottom: 2rem;">Sign In</h2>
         <div class="form-group">
           <label>Email</label>
-          <input type="email" id="loginEmail" placeholder="your@email.com" />
+          <input aria-label="your@email.com" type="email" id="loginEmail" placeholder="your@email.com" />
         </div>
         <div class="form-group">
           <label>Password</label>
-          <input type="password" id="loginPassword" placeholder="Enter password" />
+          <input aria-label="Enter password" type="password" id="loginPassword" placeholder="Enter password" />
         </div>
         <button class="form-button" onclick="loginMember()">Sign In</button>
         <div class="form-link">
@@ -175,28 +199,28 @@
         <div class="form-row">
           <div class="form-group">
             <label>First Name</label>
-            <input type="text" id="signupFirstName" placeholder="First name" />
+            <input aria-label="First name" type="text" id="signupFirstName" placeholder="First name" />
           </div>
           <div class="form-group">
             <label>Last Name</label>
-            <input type="text" id="signupLastName" placeholder="Last name" />
+            <input aria-label="Last name" type="text" id="signupLastName" placeholder="Last name" />
           </div>
         </div>
         <div class="form-group">
           <label>Email</label>
-          <input type="email" id="signupEmail" placeholder="your@email.com" />
+          <input aria-label="your@email.com" type="email" id="signupEmail" placeholder="your@email.com" />
         </div>
         <div class="form-group">
           <label>Password</label>
-          <input type="password" id="signupPassword" placeholder="Create a password" />
+          <input aria-label="Create a password" type="password" id="signupPassword" placeholder="Create a password" />
         </div>
         <div class="form-group">
           <label>Phone (Optional)</label>
-          <input type="tel" id="signupPhone" placeholder="(555) 123-4567" />
+          <input aria-label="(555) 123-4567" type="tel" id="signupPhone" placeholder="(555) 123-4567" />
         </div>
         <div class="form-group">
           <label>Dental Practice Name</label>
-          <input type="text" id="signupPracticeName" placeholder="Practice name" />
+          <input aria-label="Practice name" type="text" id="signupPracticeName" placeholder="Practice name" />
         </div>
         <div class="form-row">
           <div class="form-group">

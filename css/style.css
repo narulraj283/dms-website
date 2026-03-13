@@ -361,3 +361,74 @@ p { margin-bottom: 1rem; }
 @media (max-width: 768px) {
   .author-bio-inner { flex-direction: column; align-items: center; text-align: center; }
 }
+
+/* ── SKIP TO CONTENT (Accessibility) ── */
+.skip-to-content {
+  position: absolute; top: -100px; left: 16px; z-index: 9999;
+  background: #1B2A4A; color: #fff; padding: 12px 24px;
+  border-radius: 0 0 8px 8px; font-weight: 600; font-size: 0.95rem;
+  transition: top 0.2s;
+}
+.skip-to-content:focus {
+  top: 0; color: #fff; outline: 2px solid #D4A843; outline-offset: 2px;
+}
+
+/* ── ACCESSIBILITY: FOCUS VISIBLE ── */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid #2E75B6; outline-offset: 2px;
+}
+
+/* ── CONTRAST FIX: Gold text on white ── */
+/* Changed from #D4A843 to #9E7A1E for WCAG AA on white backgrounds */
+.text-gold { color: #9E7A1E; }
+.testimonial-info p { color: #666; }
+
+/* ── TABLE OVERFLOW FIX ── */
+table { width: 100%; }
+.table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 1rem; }
+.leads-table { min-width: 600px; }
+
+/* ── TOUCH TARGETS (min 44x44px) ── */
+.nav a { min-height: 44px; display: inline-flex; align-items: center; }
+.nav-dropdown-content a { min-height: 44px; display: flex; align-items: center; }
+.btn { min-height: 44px; }
+.faq-question { min-height: 48px; }
+
+/* ── TABLET BREAKPOINT (768-1024px) ── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header-inner { padding: 0 16px; height: 64px; }
+  .nav { gap: 2px; }
+  .nav a { padding: 8px 10px; font-size: 0.85rem; }
+  .nav-cta { padding: 8px 14px !important; }
+  .hero { padding: 130px 0 70px; }
+  .hero h1 { font-size: 2.75rem; }
+  .hero-stats { gap: 32px; }
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .channel-grid { grid-template-columns: repeat(3, 1fr); }
+  .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .two-col { gap: 24px; }
+  .container { padding: 0 20px; }
+  .section { padding: 60px 0; }
+  .testimonials { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── MOBILE NAV DROPDOWN FIX ── */
+@media (max-width: 768px) {
+  .nav.open .nav-dropdown-content {
+    display: block; position: static; box-shadow: none;
+    background: #F7F9FC; border-radius: 8px; margin: 4px 0;
+    min-width: unset;
+  }
+  .nav.open .nav-dropdown { flex-direction: column; width: 100%; }
+  .nav.open .nav-dropdown > a { width: 100%; }
+  .nav.open a { padding: 12px 16px; min-height: 48px; font-size: 1rem; }
+  .nav.open .nav-dropdown-content a { padding-left: 32px; }
+
+  /* Reduce hero padding on mobile */
+  .page-hero { padding: 110px 0 40px; }
+  .page-hero h1 { font-size: 1.75rem; }
+  .page-hero p { font-size: 1rem; }
+  .article-hero { padding: 110px 0 30px; }
+  .article-hero h1 { font-size: 1.75rem; }
+}

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DMS Podcast Episode Library — Dental Marketing Strategy & Growth</title>
-  <meta name="description" content="Browse the complete Dental Marketing Society podcast episode library. Expert interviews on SEO, PPC, social media, reputation, website conversion, email, video, branding, and AI strategies for dental practices.">
+  <meta name="description" content="Browse the complete Dental Marketing Society podcast episode library. Expert interviews on SEO, PPC, social media, reputation, website conversion, email.">
   <meta name="keywords" content="dental podcast, podcast episodes, dental marketing strategy, podcast library, dental business growth">
   <meta property="og:title" content="DMS Podcast Episode Library">
   <meta property="og:description" content="Every episode of the Dental Marketing Society podcast — actionable strategies from the industry's top experts.">
@@ -429,14 +429,16 @@
       }
     }
   </style>
+  <meta property="og:image" content="https://www.dentalmarketingsociety.com/assets/og-image.svg">
 </head>
 <body>
+<a href="#main-content" class="skip-to-content">Skip to main content</a>
 
 <!-- ——— HEADER ——— -->
 <header class="header">
   <div class="header-inner">
     <a href="../index.html" class="logo">
-      <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg class="logo-icon" role="img" aria-label="Dental Marketing Society logo" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="40" height="40" rx="8" fill="#1B2A4A"/>
         <path d="M12 28V16c0-3.3 2.7-6 6-6h4c3.3 0 6 2.7 6 6v12" stroke="#D4A843" stroke-width="2.5" stroke-linecap="round"/>
         <path d="M8 20h24" stroke="#D4A843" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
@@ -445,9 +447,9 @@
       </svg>
       <span class="logo-text">Dental Marketing <span>Society</span></span>
     </a>
-    <nav class="nav">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
       <div class="nav-dropdown">
-        <a href="#">Marketing Channels ▾</a>
+        <a href="#" aria-expanded="false">Marketing Channels ▾</a>
         <div class="nav-dropdown-content">
           <a href="channel-seo.html">🔍 SEO & Local Search</a>
           <a href="channel-ppc.html">💰 Pay-Per-Click (PPC)</a>
@@ -466,7 +468,7 @@
       <a href="events.html">Events</a>
       <a href="podcast.html">Podcast</a>
       <div class="nav-dropdown">
-        <a href="#">Tools ▾</a>
+        <a href="#" aria-expanded="false">Tools ▾</a>
         <div class="nav-dropdown-content">
           <a href="../tools/scorecard.html">📊 Marketing Scorecard</a>
           <a href="../tools/seo-audit.html">🔍 SEO Audit Tool</a>
@@ -487,7 +489,7 @@
 </header>
 
 <!-- ——— HERO ——— -->
-<section class="hero" style="padding: 80px 0 60px;">
+<section id="main-content" class="hero" style="padding: 80px 0 60px;">
   <div class="container">
     <h1 style="margin-bottom: 1rem;">DMS Podcast Episode Library</h1>
     <p style="font-size: 1.3rem; color: #D4A843; font-weight: 600; margin-bottom: 1rem;">Every episode of the Dental Marketing Society podcast</p>
@@ -504,7 +506,7 @@
 <section class="section">
   <div class="container">
     <div class="filter-section">
-      <input type="text" id="searchBox" class="search-box" placeholder="Search episodes by keyword, guest, or topic...">
+      <input aria-label="Search episodes by keyword, guest, or topic..." type="text" id="searchBox" class="search-box" placeholder="Search episodes by keyword, guest, or topic...">
 
       <div class="filter-buttons">
         <button class="filter-btn active" data-category="all">All Episodes</button>
@@ -555,15 +557,15 @@
         <div class="form-grid">
           <div class="form-group">
             <label for="guestName">Your Name</label>
-            <input type="text" id="guestName" name="guestName" required>
+            <input aria-label="Guestname" type="text" id="guestName" name="guestName" required>
           </div>
           <div class="form-group">
             <label for="guestEmail">Email Address</label>
-            <input type="email" id="guestEmail" name="guestEmail" required>
+            <input aria-label="Guestemail" type="email" id="guestEmail" name="guestEmail" required>
           </div>
           <div class="form-group">
             <label for="guestTopic">Proposed Topic</label>
-            <input type="text" id="guestTopic" name="guestTopic" placeholder="e.g., 'SEO for Multi-Location Practices'" required>
+            <input aria-label="e.g., 'SEO for Multi-Location Practices'" type="text" id="guestTopic" name="guestTopic" placeholder="e.g., 'SEO for Multi-Location Practices'" required>
           </div>
         </div>
         <div class="form-group">

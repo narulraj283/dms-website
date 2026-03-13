@@ -884,8 +884,11 @@
         }
     }
     </script>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <meta property="og:image" content="https://www.dentalmarketingsociety.com/assets/og-image.svg">
 </head>
 <body>
+<a href="#main-content" class="skip-to-content">Skip to main content</a>
     <header>
         <h1>Dental Marketing Diagnostic</h1>
         <a href="/" class="header-link">← Back to DMS</a>
@@ -1266,7 +1269,7 @@
                         <label class="text-input-label">${field.label}</label>
                 `;
                 if (field.type === 'text') {
-                    fieldsHtml += `<input type="text" id="${field.name}" placeholder="${field.placeholder}" required>`;
+                    fieldsHtml += `<input aria-label="${field.placeholder}" type="text" id="${field.name}" placeholder="${field.placeholder}" required>`;
                 } else if (field.type === 'select') {
                     fieldsHtml += `
                         <select id="${field.name}" required>
@@ -1281,7 +1284,7 @@
             return `
                 <div class="screen" id="step-0">
                     <div class="assessment-screen">
-                        <div class="section-label">Step 1 of 5</div>
+                        <div id="main-content" class="section-label">Step 1 of 5</div>
                         <h2 class="section-title">${step.title}</h2>
                         <p class="section-subtitle">${step.subtitle}</p>
                         ${fieldsHtml}
@@ -1305,7 +1308,7 @@
                 q.options.forEach((opt, optIdx) => {
                     questionsHtml += `
                         <label class="radio-option">
-                            <input type="radio" name="${name}" value="${optIdx}" onchange="updateProgress()">
+                            <input aria-label="${Name}" type="radio" name="${name}" value="${optIdx}" onchange="updateProgress()">
                             <span class="radio-label">${opt}</span>
                         </label>
                     `;
